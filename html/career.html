@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="preload" href="../css/style.css" as="style">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/career.css">
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <script src="../js/content-loader.js"></script>
+</head>
+<body id="top">
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-top">
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="" alt="" loading="eager">
+        </a>
+        <div class="header-btn-group">
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img src="../fotky/logo.png" alt="" loading="lazy">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <ul class="navbar-list">
+            <!-- Navigation items will be loaded from JSON -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Hero (same as homepage) -->
+    <section class="hero-section" id="home">
+      <div class="slideshow">
+        <!-- Slides will be loaded from JSON -->
+      </div>
+    </section>
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2 class="h2 section-title" style="text-align:center; margin-bottom:2.5rem;">Benefity pro naše zaměstnance</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="card-outline"></ion-icon></div>
+            <div class="benefit-title">FKSP</div>
+            <div class="benefit-desc">Fond kulturních a sociálních potřeb pro podporu zaměstnanců.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="shield-checkmark-outline"></ion-icon></div>
+            <div class="benefit-title">Penzijní &amp; životní pojištění</div>
+            <div class="benefit-desc">Příspěvek na penzijní a životní pojištění.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="restaurant-outline"></ion-icon></div>
+            <div class="benefit-title">Příspěvek na stravování</div>
+            <div class="benefit-desc">Příspěvek na stravování formou stravenek.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="calendar-outline"></ion-icon></div>
+            <div class="benefit-title">5 týdnů dovolené</div>
+            <div class="benefit-desc">Dostatek času na odpočinek a regeneraci.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="medkit-outline"></ion-icon></div>
+            <div class="benefit-title">Pojištění odpovědnosti &amp; úrazové</div>
+            <div class="benefit-desc">Pojištění odpovědnosti a úrazové pojištění pro zaměstnance.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="language-outline"></ion-icon></div>
+            <div class="benefit-title">Výuka cizích jazyků</div>
+            <div class="benefit-desc">Možnost vzdělávání v cizích jazycích.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+            <div class="benefit-title">Smlouva s Vodafone</div>
+            <div class="benefit-desc">Výhodné firemní tarify pro zaměstnance a jejich rodiny.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Career Section (anchor id "jobs" to keep menu compatibility) -->
+    <section class="career-section" id="jobs">
+      <div class="container">
+        <!-- Controls -->
+        <div class="career-controls">
+          <div class="career-search">
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+            <input type="search" id="jobSearch" placeholder="Hledat pozici, lokalitu nebo klíčové slovo…" autocomplete="off" />
+          </div>
+          <div class="career-chips" id="jobChips">
+            <!-- Filter chips populated by JS -->
+          </div>
+        </div>
+
+        <!-- Jobs List -->
+        <div class="career-list" id="careerJobsList">
+          <!-- Job cards populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-content">
+          <p class="section-subtitle">zaujala vás některá pozice?</p>
+          <h2 class="h2 section-title">Ozvěte se nám</h2>
+          <p class="section-text">Napište nám a domluvíme si krátký call nebo osobní setkání.</p>
+        </div>
+        <button class="btn btn-secondary" onclick="location.href='contact-us.html'">Kontakt</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with integrated prefooter links -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img id="footer-logo" src="" alt="UCHYTIL s.r.o."></a>
+        </div>
+        <div class="footer-links">
+          <div class="prefooter-groups">
+            <div class="pf-group">
+              <div class="pf-group-title">naše podstránky</div>
+              <div class="pf-list">
+                <a class="pf-card" href="aboutus.html"><h3 class="pf-title">O nás</h3></a>
+                <a class="pf-card" href="projects.html"><h3 class="pf-title">Reference</h3></a>
+                <a class="pf-card" href="contact-us.html"><h3 class="pf-title">Kontakty</h3></a>
+                <a class="pf-card" href="eshop.html"><h3 class="pf-title">E‑Shop</h3></a>
+                <a class="pf-card" href="division-template.html?division=energetika"><h3 class="pf-title">Divize</h3></a>
+              </div>
+            </div>
+            <div class="pf-group">
+              <div class="pf-group-title">jiné</div>
+              <div class="pf-list">
+                <a class="pf-card" href="ethics-code.html"><h3 class="pf-title">Etický kodex</h3></a>
+                <a class="pf-card" href="certifikace.html"><h3 class="pf-title">Certifikace</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end links -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright" id="footer-copyright"><!-- Dynamic content --></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/career.js" defer></script>
+</body>
+</html>
