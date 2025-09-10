@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
     mo.observe(slideshow, { childList: true, subtree: true });
-  })();
+  });
 
 const START = () => {
   if (DeviceOrientationEvent?.requestPermission) {
@@ -70,7 +70,8 @@ const START = () => {
 };
 
 document.body.addEventListener("click", START, { once: true });
-  (function () {
+
+(function () {
 
   // Parallax scroll optimization
   if (window.gsap && window.ScrollTrigger && elements.AboutUsText && elements.AboutUsSection) {
@@ -205,24 +206,6 @@ document.body.addEventListener("click", START, { once: true });
 
     animateCounter(nextIndex, tl);
 
-    // Animate out current text
-    tl.to(currentTextLines, {
-      y: "-80%",
-      opacity: 0,
-      duration: 1.5,
-      stagger: 0.05,
-      ease: "power2.in"
-    }, 0);
-
-    // Animate out subtitle (if present)
-    if (currentSubtitle) {
-      tl.to(currentSubtitle, {
-        y: "-40%",
-        opacity: 0,
-        duration: 1.0,
-        ease: "power2.in"
-      }, 0.05);
-    }
 
     const zoomDirection = direction === NEXT ? 1 : -1;
     const scaleIn = zoomDirection === 1 ? 0.7 : 1.3;
@@ -249,28 +232,6 @@ document.body.addEventListener("click", START, { once: true });
       opacity: 1,
       ease: "power2.out"
     }, 0.4);
-
-    // Animate in next text
-    gsap.set(nextTextLines, { y: "100%", opacity: 0 });
-    tl.to(nextTextLines, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.1,
-      ease: "power2.out",
-      delay: 0.3
-    }, 0.7);
-
-    // Animate in subtitle (if present)
-    if (nextSubtitle) {
-      gsap.set(nextSubtitle, { y: "100%", opacity: 0 });
-      tl.to(nextSubtitle, {
-        y: 0,
-        opacity: 1,
-        duration: 0.9,
-        ease: "power2.out"
-      }, 0.8);
-    }
   }
 
   // Efficient thumbnail update
@@ -283,30 +244,6 @@ document.body.addEventListener("click", START, { once: true });
   // Initialize slideshow
   initializeSlideshow();
 
-  // Inject subtitles once slides exist
-  ensureSlideSubtitles();
-  
-  // Animate initial text lines efficiently
-  slides.forEach((slide, idx) => {
-    const textLines = slide.querySelectorAll('.slide__text-line');
-    if (textLines.length > 0) {
-      gsap.to(textLines, {
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        stagger: 0.1,
-        delay: 0.5 + idx * 0.2,
-        ease: 'power2.out'
-      });
-    }
-    const subtitle = slide.querySelector('.slide__subtitle');
-    if (subtitle) {
-      gsap.fromTo(subtitle,
-        { y: "100%", opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.0, delay: 0.7 + idx * 0.2, ease: "power2.out" }
-      );
-    }
-  });
 
   // Optimized cursor functionality
   if (elements.cursor) {
@@ -691,69 +628,85 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 });
 
-// Services rolldown interaction
-(function(){
-  const trigger = document.getElementById('servicesTrigger');
-  const panel = document.getElementById('servicesPanel');
-  const wrap = document.getElementById('servicesRolldown');
-  if(!trigger || !panel || !wrap) return;
-  let closing = false;
-  let openState = !panel.hidden || wrap.classList.contains('open');
 
-  function syncState(){
-    const actuallyOpen = !panel.hidden && wrap.classList.contains('open');
-    if(actuallyOpen !== openState){
-      openState = actually;
-      trigger.setAttribute('aria-expanded', actually ? 'true':'false');
-    }
-  }
 
-  function openPanel(){
-    if(openState) return;
-    panel.hidden = false;
-    wrap.classList.add('open');
-    trigger.setAttribute('aria-expanded','true');
-    openState = true;
-    // reset animations
-    panel.querySelectorAll('li').forEach(li=>{ li.style.animation='none'; li.offsetHeight; li.style.animation=''; });
-  }
-  function closePanel(immediate){
-    if(!openState) return;
-    if(closing && !immediate) return;
-    closing = true;
-    wrap.classList.remove('open');
-    trigger.setAttribute('aria-expanded','false');
-    const finish = ()=>{ panel.hidden = true; closing = false; openState = false; };
-    if(immediate){ finish(); } else { setTimeout(finish, 220); }
-  }
 
-  // Toggle on trigger
-  trigger.addEventListener('click', e=>{
+
+// Services Rolldown functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const servicesTrigger = document.getElementById('servicesTrigger');
+  const servicesPanel = document.getElementById('servicesPanel');
+  const servicesRolldown = document.getElementById('servicesRolldown');
+  
+  if (!servicesTrigger || !servicesPanel) return;
+  
+  // Toggle menu on click
+  servicesTrigger.addEventListener('click', function(e) {
     e.preventDefault();
-    openState ? closePanel() : openPanel();
+    e.stopPropagation();
+    
+    const isOpen = servicesRolldown.classList.contains('open');
+    
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
-
-  // Close when clicking a link inside panel
-  panel.addEventListener('click', e=>{
-    const link = e.target.closest('a');
-    if(link){ closePanel(true); }
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!servicesRolldown.contains(e.target)) {
+      closeMenu();
+    }
   });
-
-  // More reliable outside click (pointerdown avoids re-open race)
-  document.addEventListener('pointerdown', e=>{
-    if(!wrap.contains(e.target)) closePanel();
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
   });
+  
+  function openMenu() {
+    servicesRolldown.classList.add('open');
+    servicesTrigger.setAttribute('aria-expanded', 'true');
+  }
+  
+  function closeMenu() {
+    servicesRolldown.classList.remove('open');
+    servicesTrigger.setAttribute('aria-expanded', 'false');
+  }
+});
 
-  // Escape key
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePanel(true); });
+// Remove any slideshow-generated text so only the static overlay remains
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    document.querySelectorAll('.slide .slide__text, .slide-info').forEach(el => el.remove());
+  } catch (e) { /* noop */ }
+});
 
-  // Sync if some other script manipulated visibility
-  const mo = new MutationObserver(syncState);
-  mo.observe(panel,{ attributes:true, attributeFilter:['hidden','class'] });
-  setInterval(syncState, 1000);
+// Ensure no dynamic slide text appears; keep only static overlay
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    const slideshow = document.querySelector('.slideshow');
+    if (!slideshow) return;
 
-  // Initial sync (remove debug outline class if present)
-  panel.classList.remove('debug-visible');
-  if(!panel.hidden){ wrap.classList.add('open'); openState = true; trigger.setAttribute('aria-expanded','true'); }
-})();
+    const cleanSlideTexts = () => {
+      // Remove known dynamic text containers
+      slideshow.querySelectorAll('.slide__text, .slide__subtitle, .slide__text-line, .slide-info').forEach(el => el.remove());
+      // Clear any literal 'undefined' texts
+      slideshow.querySelectorAll('*').forEach(el => {
+        const t = el.textContent && el.textContent.trim().toLowerCase();
+        if (t === 'undefined') el.textContent = '';
+      });
+    };
 
+    // Initial cleanup
+    cleanSlideTexts();
+
+    // Observe future changes and clean again
+    const mo = new MutationObserver(() => cleanSlideTexts());
+    mo.observe(slideshow, { childList: true, subtree: true });
+  } catch (e) { /* noop */ }
+});

@@ -18,20 +18,14 @@
     "slides": [
       {
         "image": "../fotky/energetika.png",
-        "text": "Nadpis1",
-        "subtitle": "Komplexní řešení v energetice",
         "thumbnail": "../fotky/energetika.png"
       },
       {
         "image": "../fotky/stavba.png",
-        "text": "Nadpis2",
-        "subtitle": "Stavíme spolehlivě a precizně",
         "thumbnail": "../fotky/stavba.png"
       },
       {
         "image": "../fotky/tzb.png",
-        "text": "Nadpis3",
-        "subtitle": "Profesionální TZB pro každý projekt",
         "thumbnail": "../fotky/tzb.png"
       }
     ]

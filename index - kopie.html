@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rolldown Menu Fix</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0d2b4b 0%, #1a4a8a 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #4fc3f7;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .header {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Fixed Rolldown Styles */
+    .services-rolldown {
+      position: relative;
+      display: inline-block;
+      z-index: 1000;
+    }
+
+    .services-trigger {
+      background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .services-trigger:hover {
+      background: linear-gradient(135deg, #1976D2 0%, #1565C0 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .services-trigger:active {
+      transform: translateY(0);
+    }
+
+    .chevron {
+      transition: transform 0.4s ease;
+    }
+
+    .services-rolldown.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .services-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #333;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 10px 0;
+      margin: 8px 0 0 0;
+      list-style: none;
+      z-index: 1000;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+
+    .services-rolldown.open .services-panel {
+      max-height: 300px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .services-panel li {
+      padding: 12px 20px;
+      margin: 0;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.3s ease;
+    }
+
+    .services-rolldown.open .services-panel li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .services-panel li:nth-child(1) { transition-delay: 0.1s; }
+    .services-panel li:nth-child(2) { transition-delay: 0.15s; }
+    .services-panel li:nth-child(3) { transition-delay: 0.2s; }
+    .services-panel li:nth-child(4) { transition-delay: 0.25s; }
+
+    .services-panel a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      padding: 8px 0;
+    }
+
+    .services-panel a:hover {
+      color: #4fc3f7;
+      transform: translateX(5px);
+    }
+
+    .services-panel i {
+      width: 20px;
+      text-align: center;
+    }
+
+    .content {
+      display: flex;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .explanation, .implementation {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      color: #4fc3f7;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .code {
+      background: #2d2d2d;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .success {
+      text-align: center;
+      margin-top: 30px;
+      padding: 15px;
+      background: rgba(76, 175, 80, 0.2);
+      border-radius: 8px;
+      border-left: 4px solid #4CAF50;
+    }
+
+    .success i {
+      color: #4CAF50;
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-bars"></i> Rolldown Menu Fix</h1>
+    
+    <div class="header">
+      <!-- Services Rolldown -->
+      <div class="services-rolldown" id="servicesRolldown">
+        <button class="services-trigger" id="servicesTrigger">
+          <span class="services-trigger-label">Naše služby</span>
+          <i class="fas fa-chevron-down chevron"></i>
+        </button>
+        <ul class="services-panel" id="servicesPanel">
+          <li><a href="#"><i class="fas fa-bolt"></i> Energetika</a></li>
+          <li><a href="#"><i class="fas fa-tools"></i> TZB</a></li>
+          <li><a href="#"><i class="fas fa-hard-hat"></i> Stavebnictví</a></li>
+          <li><a href="#"><i class="fas fa-shopping-cart"></i> E-shop</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success">
+      <i class="fas fa-check-circle"></i> Rolldown menu is now working correctly!
+    </div>
+
+    <div class="content">
+      <div class="explanation">
+        <h2><i class="fas fa-info-circle"></i> Why It Works Now</h2>
+        <p>The previous implementation had issues with CSS transitions and JavaScript event handling.</p>
+        <p>Key fixes applied:</p>
+        <ul>
+          <li>Using <code>max-height</code> instead of <code>display</code> for smooth animation</li>
+          <li>Proper transition timing for each menu item</li>
+          <li>Correct event listener setup</li>
+          <li>Fixed z-index stacking context</li>
+          <li>Improved visual feedback with hover effects</li>
+        </ul>
+      </div>
+      
+      <div class="implementation">
+        <h2><i class="fas fa-code"></i> Implementation</h2>
+        <p>Add this JavaScript to your main.js file:</p>
+        <div class="code">
+// Services Rolldown functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const servicesTrigger = document.getElementById('servicesTrigger');
+  const servicesPanel = document.getElementById('servicesPanel');
+  const servicesRolldown = document.getElementById('servicesRolldown');
+  
+  if (!servicesTrigger || !servicesPanel) return;
+  
+  // Toggle menu on click
+  servicesTrigger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    servicesRolldown.classList.toggle('open');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!servicesRolldown.contains(e.target)) {
+      servicesRolldown.classList.remove('open');
+    }
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      servicesRolldown.classList.remove('open');
+    }
+  });
+});
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Services Rolldown functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const servicesTrigger = document.getElementById('servicesTrigger');
+      const servicesPanel = document.getElementById('servicesPanel');
+      const servicesRolldown = document.getElementById('servicesRolldown');
+      
+      if (!servicesTrigger || !servicesPanel) return;
+      
+      // Toggle menu on click
+      servicesTrigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        servicesRolldown.classList.toggle('open');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!servicesRolldown.contains(e.target)) {
+          servicesRolldown.classList.remove('open');
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          servicesRolldown.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

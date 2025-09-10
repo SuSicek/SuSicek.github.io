@@ -28,20 +28,6 @@
         </div>
         <div class="header-bottom">
           <div class="container header-bottom-inner">
-            <!-- Services Rolldown (added) -->
-            <div class="services-rolldown" id="servicesRolldown">
-              <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
-                <span class="services-trigger-label">Naše služby</span>
-                <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
-              </button>
-              <ul class="services-panel" id="servicesPanel" hidden>
-                <li style="--i:0"><a href="division-template.html?division=energetika">Energetika</a></li>
-                <li style="--i:1"><a href="division-template.html?division=prumysl">Průmysl</a></li>
-                <li style="--i:2"><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
-                <li style="--i:3"><a href="division-template.html?division=slaboproud">Slaboproud</a></li>
-                <li style="--i:4"><a href="division-template.html?division=obchod">Obchod</a></li>
-              </ul>
-            </div>
             <!-- Existing navbar -->
             <nav class="navbar" data-navbar>
               <div class="navbar-top">
@@ -51,6 +37,18 @@
                 <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
                   <ion-icon name="close-outline"></ion-icon>
                 </button>
+              </div>
+              <div class="services-rolldown" id="servicesRolldown">
+                <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+                  <span class="services-trigger-label">Naše služby</span>
+                  <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+                </button>
+                <ul class="services-panel" id="servicesPanel">
+                  <li><a href="division-template.html?division=energetika">Energetika</a></li>
+                  <li><a href="division-template.html?division=prumysl">TZB</a></li>
+                  <li><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
+                  <li><a href="eshop.html">E-shop</a></li>
+                </ul>
               </div>
               <ul class="navbar-list">
 
@@ -72,6 +70,10 @@
                         <section class="hero-section" id="home">
                             <div class="slideshow">
                                 <!-- Slides will be loaded from JSON -->
+                            </div>
+                            <div class="slideshow-overlay">
+                              <h1 class="slideshow-title">Uchytil s.r.o.</h1>
+                              <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
                             </div>
                         </section>
                     </section>
@@ -199,38 +201,7 @@
   <!-- Ionicons & main scripts -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="../js/main.js" defer></script>
-
-  <!-- Correct services rolldown init + debug force show -->
-<script>
-(function(){
-  const trigger = document.getElementById('servicesTrigger');
-  const panel = document.getElementById('servicesPanel');
-  if(!trigger || !panel) return;
-  // TEMP DEBUG: force visible so you can see it
-  panel.hidden = false; // remove hidden attribute
-  panel.classList.add('debug-visible');
-  // Apply stagger animation delays
-  panel.querySelectorAll('li').forEach(li=>{
-    const idx = parseInt(li.style.getPropertyValue('--i')) || 0;
-    const d = (idx/4) + 's';
-    li.style.animationDelay = d;
-  });
-  function open(){ panel.hidden=false; trigger.setAttribute('aria-expanded','true'); }
-  function close(){ panel.hidden=true; trigger.setAttribute('aria-expanded','false'); }
-  trigger.addEventListener('click', e=>{
-    e.preventDefault();
-    const expanded = trigger.getAttribute('aria-expanded') === 'true';
-    expanded ? close() : open();
-  });
-  document.addEventListener('click', e=>{ if(!panel.contains(e.target) && !trigger.contains(e.target)) close(); });
-})();
-</script>
-<style>
-/* TEMP DEBUG STYLES (remove after confirmed) */
-.services-panel.debug-visible { outline:2px dashed #ff9800; }
-</style>
-<!-- ...existing code before </body> -->
+    <script src="../js/main.js" defer></script>
 </body>
 </html>
 
