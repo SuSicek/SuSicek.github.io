@@ -1,0 +1,212 @@
+{
+  "hero": {
+    "title": "E-shop s rezervačním systémem",
+    "subtitle": "Rezervujte si materiál a vyberte si termín vyzvednutí v naší prodejně. Rychle, jednoduše a bez front.",
+  "image": "../fotky/prodejna.png",
+    "features": [
+      {
+        "icon": "calendar-outline",
+        "text": "Rezervace termínu"
+      },
+      {
+        "icon": "shield-checkmark-outline",
+        "text": "Garantovaná dostupnost"
+      },
+      {
+        "icon": "people-outline",
+        "text": "Připraveno k vyzvednutí"
+      },
+      {
+        "icon": "time-outline",
+        "text": "Bez čekání"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "energetika",
+      "name": "Energetika",
+      "description": "Komponenty a zařízení pro energetické systémy",
+      "icon": "flash-outline",
+      "productCount": 156,
+  "image": "../fotky/energetika.png"
+    },
+    {
+      "id": "tzb",
+      "name": "TZB - Technika budov",
+      "description": "Vybavení pro technické zabezpečení budov",
+      "icon": "build-outline",
+      "productCount": 243,
+  "image": "../fotky/tzb.png"
+    },
+    {
+      "id": "stavebni",
+      "name": "Stavební materiály",
+      "description": "Kvalitní materiály pro stavebnictví",
+      "icon": "hammer-outline",
+      "productCount": 89,
+  "image": "../fotky/stavba.png"
+    },
+    {
+      "id": "nastroje",
+      "name": "Nástroje a nářadí",
+      "description": "Profesionální nástroje pro všechny obory",
+      "icon": "construct-outline",
+      "productCount": 67,
+  "image": "../fotky/kontejner.png"
+    }
+  ],
+  "products": [
+    {
+      "id": "p001",
+      "name": "Regulátor tlaku RE-1000",
+      "description": "Vysoce přesný regulátor tlaku pro energetické systémy s automatickou kalibrací",
+      "price": "12 500 Kč",
+  "image": "../fotky/energetika2.png",
+      "gallery": [
+  "../fotky/energetika2.png",
+  "../fotky/energetika3.png",
+  "../fotky/energetika.png"
+      ],
+      "category": "energetika",
+      "badge": "Bestseller",
+      "availability": "Skladem",
+      "minReservationTime": "2 hodiny"
+    },
+    {
+      "id": "p002",
+      "name": "Čerpadlo EcoFlow 2000",
+      "description": "Energeticky úsporné čerpadlo s vysokou účinností pro TZB systémy",
+      "price": "8 900 Kč",
+  "image": "../fotky/tzb.png",
+      "gallery": [
+  "../fotky/tzb.png",
+  "../fotky/prodejna.png",
+  "../fotky/stavba2.png"
+      ],
+      "category": "tzb",
+      "availability": "Skladem",
+      "minReservationTime": "1 hodina"
+    },
+    {
+      "id": "p003",
+      "name": "Tepelný izolant ThermoMax",
+      "description": "Vysoce kvalitní tepelná izolace s vynikajícími vlastnostmi",
+      "price": "450 Kč/m²",
+  "image": "../fotky/stavba.png",
+      "gallery": [
+  "../fotky/stavba.png",
+  "../fotky/stavba2.png",
+  "../fotky/kontejner.png"
+      ],
+      "category": "stavebni",
+      "badge": "Novinka",
+      "availability": "Na objednávku",
+      "minReservationTime": "24 hodin"
+    },
+    {
+      "id": "p004",
+      "name": "Multimetr ProMeter 500",
+      "description": "Profesionální digitální multimetr s pokročilými funkcemi měření",
+      "price": "3 200 Kč",
+  "image": "../fotky/kontejner.png",
+      "gallery": [
+  "../fotky/kontejner.png",
+  "../fotky/energetika.png"
+      ],
+      "category": "nastroje",
+      "availability": "Na objednávku",
+      "minReservationTime": "3 dny"
+    },
+    {
+      "id": "p005",
+      "name": "Ventil bezpečnostní SV-100",
+      "description": "Bezpečnostní ventil s certifikací pro energetické aplikace",
+      "price": "2 800 Kč",
+  "image": "../fotky/energetika3.png",
+      "gallery": [
+  "../fotky/energetika3.png",
+  "../fotky/energetika2.png"
+      ],
+      "category": "energetika",
+      "availability": "Na objednávku",
+      "minReservationTime": "2 dny"
+    },
+    {
+      "id": "p006",
+      "name": "Rozdělovač topení HD-8",
+      "description": "8-okruhový rozdělovač pro podlahové vytápění s termostatem",
+      "price": "4 500 Kč",
+  "image": "../fotky/prodejna.png",
+      "gallery": [
+  "../fotky/prodejna.png",
+  "../fotky/tzb.png"
+      ],
+      "category": "tzb",
+      "availability": "Na objednávku",
+      "minReservationTime": "1 den"
+    }
+  ],
+  "shopInfo": {
+    "title": "Informace o prodejně",
+    "address": "K Terminálu 7, 619 00 Brno",
+    "hours": {
+      "weekdays": "Pondělí - Pátek: 8:00 - 17:00",
+      "weekend": "Sobota: 8:00 - 12:00"
+    },
+    "images": [
+  "../fotky/prodejna.png",
+  "../fotky/stavba.png",
+  "../fotky/tzb.png",
+  "../fotky/energetika.png"
+    ]
+  },
+  "reservationProcess": {
+    "title": "Jak funguje náš e-shop",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Vyberte produkty",
+        "description": "Procházejte náš e-shop a vyberte potřebné materiály",
+        "icon": "search-outline",
+  "image": "../fotky/stavba2.png"
+      },
+      {
+        "number": "2",
+        "title": "Rezervujte termín",
+        "description": "Zvolte si vhodný termín pro vyzvednutí v prodejně",
+        "icon": "calendar-outline",
+  "image": "../fotky/kontejner.png"
+      },
+      {
+        "number": "3",
+        "title": "Potvrďte objednávku",
+        "description": "Vyplňte kontaktní údaje a potvrďte rezervaci",
+        "icon": "checkmark-circle-outline",
+  "image": "../fotky/energetika2.png"
+      },
+      {
+        "number": "4",
+        "title": "Vyzvedněte si zboží",
+        "description": "Přijďte v rezervovaný čas a vyzvedněte si připravené zboží",
+        "icon": "bag-handle-outline",
+  "image": "../fotky/energetika3.png"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Potřebujete poradit s výběrem?",
+    "text": "Naši odborníci vám pomohou najít ideální řešení pro váš projekt. Kontaktujte nás pro bezplatnou konzultaci nebo si rezervujte termín pro osobní návštěvu prodejny."
+  },
+  "footer": {
+  "logo": "../fotky/logo.png",
+    "text": "Spolehlivý partner pro komplexní řešení v oblasti energetiky, TZB a stavebnictví.",
+    "contact": {
+      "title": "Kontaktní informace",
+      "address": "K Terminálu 7, 619 00 Brno",
+      "phone": "545423211",
+      "email": "brno@uchytil.eu"
+    },
+    "copyright": "© 2024 UCHYTIL s.r.o. Všechna práva vyhrazena."
+  }
+}

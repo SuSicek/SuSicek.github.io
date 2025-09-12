@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="preload" href="../css/style.css" as="style">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <script src="../js/content-loader.js"></script>
+</head>
+<body id="top">
+    <header class="header" data-header>
+        <div class="overlay" data-overlay></div>
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">
+                    <img src="" alt="" loading="eager">
+                </a>
+                <div class="header-btn-group">
+                    <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+          <div class="container header-bottom-inner">
+            <!-- Existing navbar -->
+            <nav class="navbar" data-navbar>
+              <div class="navbar-top">
+                <a href="#" class="logo">
+                  <img src="../fotky/logo.png" alt="" loading="lazy">
+                </a>
+                <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
+              </div>
+              <div class="services-rolldown" id="servicesRolldown">
+                <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+                  <span class="services-trigger-label">Naše služby</span>
+                  <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+                </button>
+                <ul class="services-panel" id="servicesPanel">
+                  <li><a href="division-template.html?division=energetika">Energetika</a></li>
+                  <li><a href="division-template.html?division=prumysl">TZB</a></li>
+                  <li><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
+                  <li><a href="eshop.html">E-shop</a></li>
+                </ul>
+              </div>
+              <ul class="navbar-list">
+
+                <!-- O nás tab (ensure it is the first visible tab) -->
+                <li class="navbar-item" style="margin-right: 24px;">
+                  <a class="navbar-link" href="aboutus.html">O nás</a>
+                </li>
+                <!-- ...rest of navigation items... -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+    </header>
+    <main>
+        <div id="scroll-animate">
+            <div id="scroll-animate-main">
+                <div class="wrapper-parallax">
+                    <section class="header-parallax">
+                        <section class="hero-section" id="home">
+                            <div class="slideshow">
+                                <!-- Slides will be loaded from JSON -->
+                            </div>
+                            <div class="slideshow-overlay">
+                              <h1 class="slideshow-title">Uchytil s.r.o.</h1>
+                              <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+                            </div>
+                        </section>
+                    </section>
+                    <section id="eshop-parallax" class="content-parallax"></section>
+                        <section class="content-section" id="eshop">
+                            <div class="eshop-highlight">
+                                <div class="eshop-layout">
+                                    <div class="eshop-strip-img"></div>
+                                    <div class="eshop-content-wrapper">
+                                        <h2 class="eshop-title"></h2>
+                                        <div class="eshop-description-group">
+                                            <p class="eshop-description"></p>
+                                            <a href="#" class="eshop-cta-btn"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+                    <section class="content-section" id="shop">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2 class="h2" id="shop-title">
+                                    <ion-icon name="storefront-outline"></ion-icon>
+                                    <!-- Dynamic content -->
+                                </h2>
+                                <p class="shop-subtitle" id="shop-subtitle"><!-- Dynamic content --></p>
+                            </div>
+                            
+                            <div class="shop-content-grid">
+                        <div class="shop-left-section">
+                            <div class="shop-hero-image">
+                            <img src="" alt="" class="shop-image">
+                            </div>
+                            
+                            <div class="shop-description-card">
+                            <div class="card-icon">
+                                <ion-icon name=""></ion-icon>
+                            </div>
+                            <h3 class="card-title"></h3>
+                            <p class="card-description"></p>
+                            </div>
+                        </div>
+
+                        <div class="shop-contact-section">
+                            <div class="contact-cards">
+                            <!-- Contact cards will be loaded from JSON -->
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </section>
+
+                    <!-- References Section -->
+                    <section class="references compact" id="references">
+                        <div class="container">
+                            <p class="section-subtitle"></p>
+                            <h2 class="h2 section-title"></h2>
+                            <p class="section-text" style="color:#fff;"></p>
+
+                            <div class="references-grid">
+                                <!-- Reference cards will be loaded from JSON or static HTML as before -->
+                            </div>
+                            <div class="references-cta">
+                                <div class="cta-buttons">
+                                <button class="btn btn-secondary" onclick="window.location.href='../html/projects.html'">Otevřít galerii projektů</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section class="cta" id="contact">
+                        <div class="container">
+                            <div class="cta-content">
+                                <p class="section-subtitle"></p>
+                                <h2 class="h2 section-title"></h2>
+                                <p class="section-text"></p>
+                            </div>
+
+                            <button class="btn btn-secondary"></button>
+                        </div>
+                    </section>
+                </main>
+
+    <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img id="footer-logo" src="" alt="UCHYTIL s.r.o."></a>
+        </div>
+
+        <!-- Replace the contact table with prefooter content -->
+        <div class="footer-links">
+          <div class="prefooter-groups">
+            <div class="pf-group">
+              <div class="pf-group-title">naše podstránky</div>
+              <div class="pf-list">
+                <a class="pf-card" href="aboutus.html"><h3 class="pf-title">O nás</h3></a>
+                <a class="pf-card" href="projects.html"><h3 class="pf-title">Reference</h3></a>
+                <a class="pf-card" href="contact-us.html"><h3 class="pf-title">Kontakty</h3></a>
+                <a class="pf-card" href="eshop.html"><h3 class="pf-title">E‑Shop</h3></a>
+                <a class="pf-card" href="division-template.html?division=energetika"><h3 class="pf-title">Divize</h3></a>
+              </div>
+            </div>
+            <div class="pf-group">
+              <div class="pf-group-title">jiné</div>
+              <div class="pf-list">
+                <a class="pf-card" href="ethics-code.html"><h3 class="pf-title">Etický kodex</h3></a>
+                <a class="pf-card" href="certifikace.html"><h3 class="pf-title">Certifikace</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end replaced column -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright" id="footer-copyright"><!-- Dynamic content --></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Ionicons & main scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../js/main.js" defer></script>
+</body>
+</html>
+

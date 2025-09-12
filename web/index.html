@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCHYTIL s.r.o.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/fotky/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+
+<body id="top">
+    <header class="header" data-header>
+        <div class="overlay " data-overlay></div>
+
+        <div class="header-top">
+            <div class="container">
+                <a href="tel:+11234567890" class="helpline-box">
+                    <div class="icon-box">
+                        <ion-icon name="call-outline"></ion-icon>
+                    </div>
+
+                    <div class="wrapper">
+                        <p class="helpline-title">Tel: </p>
+                        <p class="helpline-number">+1 (123) 456 7890</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="logo">
+                    
+                    <img src="/fotky/logo.png" alt="Tourly Logo">
+                </a>
+                <br>
+
+                <div class="header-btn-group">
+                    
+
+                    <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <br>
+            <div class="container">
+                <ul class="social-list">
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+
+                <nav class="navbar " data-navbar>
+                    <div class="navbar-top">
+                        <a href="#" class="logo">
+                            <img src="/fotky/logo.png" alt="Tourly Logo">
+                        </a>
+
+                        <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                    </div>
+                    <br>
+                    <ul class="navbar-list">
+                        <li><a href="index.html" class="navbar-link" data-nav-link>Domů </a></li>
+                        <li><a href="#about" class="navbar-link" data-nav-link>O nás</a></li>
+                        <li><a href="#package" class="navbar-link" data-nav-link>Volná místa</a></li>
+                        <li><a href="#contact" class="navbar-link" data-nav-link>Kontakty</a></li>
+                        <li><a href="#employes" class="navbar-link" data-nav-link>Zaměstnanci</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <section class="tabsection" id="home">
+                <div class="container">
+                <!-- SVG Filter for Gooey Effect -->
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                <defs>
+                    <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                    </filter>
+                </defs>
+                </svg>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                <!-- Tab 1 -->
+                <input type="radio" name="tabs" id="tabone" checked="checked">
+                <label for="tabone" class="tab-label">Stavba</label>
+                <div class="tab-content">
+                    <a href="#" class="tab-link">Projekce</a>
+                    <a href="#" class="tab-link">Realizace</a>
+                    <a href="#" class="tab-link">Reference</a>
+                    <a href="#" class="tab-link">Kontakty</a>
+                </div>
+
+                <!-- Tab 2 - Energetika (Updated) -->
+                <input type="radio" name="tabs" id="tabtwo">
+                <label for="tabtwo" class="tab-label">Energetika</label>
+                <div class="tab-content">
+                    <a href="#" class="tab-link">Projekce</a>
+                    <a href="#" class="tab-link">Strojní Středisko</a>
+                    <a href="#" class="tab-link">Elektro Středisko</a>
+                    <a href="#" class="tab-link">Reference</a>
+                    <a href="#" class="tab-link">Kontakty</a>
+                </div>
+
+                <!-- Tab 3 - TZB (Keep as is) -->
+                <input type="radio" name="tabs" id="tabthree">
+                <label for="tabthree" class="tab-label">TZB</label>
+                <div class="tab-content">
+                    <a href="#" class="tab-link">Projekce</a>
+                    <a href="#" class="tab-link">Realizace</a>
+                    <a href="#" class="tab-link">Servis</a>
+                    <a href="#" class="tab-link">Reference</a>
+                    <a href="#" class="tab-link">Kontakty</a>
+                </div>
+
+                <!-- Tab 4 - Prodejna (Keep as is) -->
+                <input type="radio" name="tabs" id="tabfour">
+                <label for="tabfour" class="tab-label">Prodejna</label>
+                <div class="tab-content">
+                    <a href="#" class="tab-link">Prodejna</a>
+                </div>
+
+
+                <div class="image-container">
+                    <div class="tab-image" data-tab="tabone">
+                    <img src="fotky/stavba.png" alt="Stavba">
+                    </div>
+                    <div class="tab-image" data-tab="tabtwo">
+                    <img src="fotky/energetika.png" alt="Energetika">
+                    </div>
+                    <div class="tab-image" data-tab="tabthree">
+                    <img src="fotky/tzb.png" alt="TZB">
+                    </div>
+                    <div class="tab-image" data-tab="tabfour">
+                    <img src="fotky/prodejna.png" alt="Prodejna">
+                    </div>
+                </div>
+            </div>
+
+            </section>
+            <section class="refsection" id="reference">
+                <div class="container">
+                    <h2 class="h2 section-title">Reference</h2>
+                    
+                    <div class="carousel">
+                        <!-- Card 1 -->
+                        <div class="card c1">
+                            <div class="img"></div>
+                            <p>Image 8</p>
+                            <span>ref1</span>
+                        </div>
+                        <div class="cardb cb1"></div>
+                        
+                        <!-- Card 2 -->
+                        <div class="card c2">
+                            <div class="img"></div>
+                            <p>Image 7</p>
+                            <span>ref2</span>
+                        </div>
+                        <div class="cardb cb2"></div>
+                        
+                        <!-- Card 3 -->
+                        <div class="card c3">
+                            <div class="img"></div>
+                            <p>Image 6</p>
+                            <span>ref3</span>
+                        </div>
+                        <div class="cardb cb3"></div>
+                        
+                        <!-- Card 4 -->
+                        <div class="card c4">
+                            <div class="img"></div>
+                            <p>Image 5</p>
+                            <span>ref4</span>
+                        </div>
+                        <div class="cardb cb4"></div>
+                        
+                        <!-- Card 5 -->
+                        <div class="card c5">
+                            <div class="img"></div>
+                            <p>Image 4</p>
+                            <span>ref5</span>
+                        </div>
+                        <div class="cardb cb5"></div>
+                        
+                        <!-- Card 6 -->
+                        <div class="card c6">
+                            <div class="img"></div>
+                            <p>Image 3</p>
+                            <span>ref6</span>
+                        </div>
+                        <div class="cardb cb6"></div>
+                        
+                        <!-- Card 7 -->
+                        <div class="card c7">
+                            <div class="img"></div>
+                            <p>Image 2</p>
+                            <span>ref7</span>
+                        </div>
+                        <div class="cardb cb7"></div>
+                        
+                        <!-- Card 8 -->
+                        <div class="card c8">
+                            <div class="img"></div>
+                            <p>Image 1</p>
+                            <span>ref8</span>
+                        </div>
+                        <div class="cardb cb8"></div>
+                    </div>
+                    
+                    <button class="btn btn-primary">Reference</button>
+                </div>
+            </section>
+
+            
+            <section class="gallery" id="gallery1">
+                <div class="container">
+                    <p class="section-subtitle">Galerie vybraných projektů</p>
+                    <h4 class="h4 section-title">projekt1</h4>
+
+                    <p class="section-text">neco o projektu</p>
+
+                    <ul class="gallery-list">
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/6qfpc2mw/gallery-1.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/yY7ddjDN/gallery-2.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/PrKq8DDQ/gallery-3.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/13j5vZJg/gallery-4.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/XvBNhDzs/gallery-5.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="gallery" id="gallery2">
+                <div class="container">
+                    <p class="section-subtitle">Galerie vybraných projektů</p>
+                    <h4 class="h4 section-title">projekt2</h4>
+
+                    <p class="section-text">neco o projektu</p>
+
+                    <ul class="gallery-list">
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/6qfpc2mw/gallery-1.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/yY7ddjDN/gallery-2.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/PrKq8DDQ/gallery-3.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/13j5vZJg/gallery-4.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/XvBNhDzs/gallery-5.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="gallery" id="gallery3">
+                <div class="container">
+                    <p class="section-subtitle">Galerie vybraných projektů</p>
+                    <h4 class="h4 section-title">projekt3</h4>
+
+                    <p class="section-text">neco o projektu</p>
+
+                    <ul class="gallery-list">
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/6qfpc2mw/gallery-1.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/yY7ddjDN/gallery-2.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/PrKq8DDQ/gallery-3.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/13j5vZJg/gallery-4.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+
+                        <li class="gallery-item">
+                            <figure class="gallery-image">
+                                <img src="https://i.postimg.cc/XvBNhDzs/gallery-5.jpg" alt="gallery image">
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="cta" id="contactmain">
+                <div class="container">
+                    <div class="cta-content">
+                        <p class="section-subtitle">líbí se vám naše práce?</p>
+                        <h2 class="h2 section-title">Kontaktujte nás pro více informací!</h2>
+                        <p class="section-text">Těšíme se na naši budoucí spolupráci</p>
+                        
+                    </div>
+
+                    <button class="btn btn-secondary">Kontaktujte nás!</button>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><img src="/fotky/logo.png" alt="Tourly logo"></a>
+
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="contact-title">Kontaktujte nás</h4>
+
+                    <ul>
+                        <li class="contact-item">
+                            <ion-icon name="call-outline"></ion-icon>
+                            <a class="contact-link">+01 (123) 456 7890</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <a class="contact-link">email@email.com</a>
+                        </li>
+
+                        <li class="contact-item">
+                            <ion-icon name="location-outline"></ion-icon>
+                            <address>K Terminálu 7, 619 00 Brno</address>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+
+                <ul class="footer-bottom-list">
+                    <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-bottom-link">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" class="go-top " data-go-top>
+        <ion-icon name="chevron-up-outline"></ion-icon>
+    </a>
+
+    <script src="/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

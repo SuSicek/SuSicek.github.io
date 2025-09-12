@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-shop | UCHYTIL s.r.o.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reststyle.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/eshop-style.css">
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <script src="../js/content-loader.js"></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/eshop-script.js"></script>
+</head>
+<body>
+  <!-- Header (same as main page) -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-top">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="" alt="" loading="eager">
+        </a>
+        <div class="header-btn-group">
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="../html/index.html" class="logo">
+              <img src="../fotky/logo.png" alt="" loading="lazy">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="services-rolldown" id="servicesRolldown">
+            <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+              <span class="services-trigger-label">Naše služby</span>
+              <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+            </button>
+            <ul class="services-panel" id="servicesPanel">
+              <li><a href="division-template.html?division=energetika">Energetika</a></li>
+              <li><a href="division-template.html?division=prumysl">TZB</a></li>
+              <li><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
+              <li><a href="eshop.html">E-shop</a></li>
+            </ul>
+          </div>
+          <ul class="navbar-list">
+            <!-- Navigation items will be loaded from JSON -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slideshow (same as main) -->
+  <section class="hero-section" id="home">
+    <section class="hero-section" id="home">
+        <div class="slideshow">
+            <!-- Slides will be loaded from JSON -->
+        </div>
+        <div class="slideshow-overlay">
+          <h1 class="slideshow-title">Uchytil s.r.o.</h1>
+          <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+        </div>
+    </section>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="eshop-hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 id="hero-title">E-SHOP UCHYTIL</h1>
+        <p id="hero-subtitle"><!-- Dynamic content --></p>
+        <div class="hero-features" id="hero-features">
+          <!-- Dynamic features -->
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image">
+          <img id="hero-image" src="" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>
+          <ion-icon name="grid-outline"></ion-icon>
+          Kategorie produktů
+        </h2>
+        <p class="section-subtitle">Prozkoumejte naši širokou nabídku produktů rozdělených do specializovaných kategorií</p>
+      </div>
+      <div class="categories-grid" id="categoriesGrid">
+        <!-- Dynamic categories -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Filter Section -->
+  <section class="search-filter-section">
+    <div class="search-filter-container">
+      <div class="search-filter-bar">
+        <div class="search-box">
+          <ion-icon name="search-outline"></ion-icon>
+          <input type="text" id="searchInput" placeholder="Hledat produkty v e-shopu...">
+        </div>
+        <div class="filter-controls">
+          <select id="categoryFilter">
+            <option value="">Všechny kategorie</option>
+            <!-- Dynamic categories -->
+          </select>
+          <select id="sortFilter">
+            <option value="name">Název A-Z</option>
+            <option value="name-desc">Název Z-A</option>
+            <option value="availability">Dostupnost</option>
+            <option value="price">Cena vzestupně</option>
+            <option value="price-desc">Cena sestupně</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>
+          <ion-icon name="cube-outline"></ion-icon>
+          E-shop produkty
+        </h2>
+        <p class="section-subtitle">Kvalitní produkty pro vaše projekty s možností rezervace a vyzvednutí v prodejně</p>
+      </div>
+      <div class="products-grid" id="productsGrid">
+        <!-- Dynamic products -->
+      </div>
+      <div class="load-more-container">
+        <button id="loadMoreBtn" class="btn btn-primary">
+          <ion-icon name="add-outline"></ion-icon>
+          Načíst více produktů
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dynamic sections will be added here -->
+
+  <!-- Contact CTA Section -->
+  <section class="eshop-cta section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 id="cta-title"><!-- Dynamic content --></h2>
+        <p id="cta-text"><!-- Dynamic content --></p>
+        <div class="cta-buttons">
+          <a href="../html/contact-us.html" class="btn btn-primary">
+            <ion-icon name="call-outline"></ion-icon>
+            Kontaktujte nás
+          </a>
+          <a href="tel:545423211" class="btn btn-secondary">
+            <ion-icon name="chatbubble-outline"></ion-icon>
+            Zavolejte
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Footer Links -->
+  <section class="prefooter-links">
+    <div class="container">
+      <div class="prefooter-groups">
+        <div class="pf-group">
+          <div class="pf-group-title">naše podstránky</div>
+          <div class="pf-list">
+            <a class="pf-card" href="aboutus.html"><h3 class="pf-title">O nás</h3></a>
+            <a class="pf-card" href="projects.html"><h3 class="pf-title">Reference</h3></a>
+            <a class="pf-card" href="contact-us.html"><h3 class="pf-title">Kontakty</h3></a>
+            <a class="pf-card" href="eshop.html"><h3 class="pf-title">E‑Shop</h3></a>
+            <a class="pf-card" href="division-template.html?division=energetika"><h3 class="pf-title">Divize</h3></a>
+          </div>
+        </div>
+        <div class="pf-group">
+          <div class="pf-group-title">jiné</div>
+          <div class="pf-list">
+            <a class="pf-card" href="ethics-code.html"><h3 class="pf-title">Etický kodex</h3></a>
+            <a class="pf-card" href="certifikace.html"><h3 class="pf-title">Certifikace</h3></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img id="footer-logo" src="" alt="UCHYTIL s.r.o."></a>
+          <p class="footer-text" id="footer-text"><!-- Dynamic content --></p>
+        </div>
+        <div class="footer-contact">
+          <h4 class="contact-title">Kontakt</h4>
+          <ul class="footer-contact-list">
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+              <a id="footer-phone" href="#">—</a>
+            </li>
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+              <a id="footer-email" href="#">—</a>
+            </li>
+            <li class="contact-item">
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span id="footer-ico">IČO: —</span>
+            </li>
+            <li class="contact-item social">
+              <a id="footer-linkedin" href="#" target="_blank" aria-label="LinkedIn">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+              <a id="footer-facebook" href="#" target="_blank" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright" id="footer-copyright"><!-- Dynamic content --></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('../data/content.json', { cache: 'no-cache' });
+        const data = await res.json();
+        const f = data.footer || {};
+        const c = f.contact || {};
+        const phone = c.phone || '';
+        const email = c.email || '';
+        const ico = c.ico || f.ico || '';
+        const ln = f.linkedin || '';
+        const fb = f.facebook || '';
+        const ph = document.getElementById('footer-phone');
+        const em = document.getElementById('footer-email');
+        const ic = document.getElementById('footer-ico');
+        const lnk = document.getElementById('footer-linkedin');
+        const fbk = document.getElementById('footer-facebook');
+        if (ph && phone) { ph.textContent = phone; ph.href = 'tel:' + phone.replace(/\s+/g,''); }
+        if (em && email) { em.textContent = email; em.href = 'mailto:' + email; }
+        if (ic && ico) { ic.textContent = 'IČO: ' + ico; }
+        if (lnk && ln) lnk.href = ln;
+        if (fbk && fb) fbk.href = fb;
+      } catch (e) { /* noop */ }
+    })();
+  </script>
+</body>
+</html>

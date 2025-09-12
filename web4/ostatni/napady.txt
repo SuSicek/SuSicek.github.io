@@ -1,0 +1,14 @@
+
+WEB4
+
+- remake reference cards
+- misto popup okna projekt bude mit vlastni podstranku
+- uchytil spravodaj stranka- prihlaseni na server, jen zpravy o firme atd
+- do referenci komentar z google maps ?rating?
+
+
+references
+- stejne karty jak na main
+- template pro otevreni referenci
+- link main na urcite reference + button na galerii
+ 

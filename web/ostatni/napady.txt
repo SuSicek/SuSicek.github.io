@@ -1,0 +1,5 @@
+KONTAKTY	
+- v kontaktech, tabs pro kazdou pobocku, s interaktivni mapou
+
+VSE
+- reference - udelat pristupovou stranku s lehkym formularem pro spravu obsahu stranek (mazani/pridani referenci, sprava galerie)

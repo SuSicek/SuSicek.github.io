@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontaktujte nás | UCHYTIL s.r.o.</title>
+  <link rel="preload" href="../css/style.css" as="style">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/con-style.css">
+  <link rel="stylesheet" href="../css/reststyle.css">
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- GSAP (as on main page) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <!-- Shared content loader -->
+  <script src="../js/content-loader.js" defer></script>
+</head>
+<body id="top">
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-top">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="" alt="" loading="eager">
+        </a>
+        <div class="header-btn-group">
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container header-bottom-inner">
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img src="../fotky/logo.png" alt="" loading="lazy">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="services-rolldown" id="servicesRolldown">
+            <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+              <span class="services-trigger-label">Naše služby</span>
+              <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+            </button>
+            <ul class="services-panel" id="servicesPanel">
+              <li><a href="division-template.html?division=energetika">Energetika</a></li>
+              <li><a href="division-template.html?division=prumysl">TZB</a></li>
+              <li><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
+              <li><a href="eshop.html">E-shop</a></li>
+            </ul>
+          </div>
+          <ul class="navbar-list">
+            <!-- Navigation items loaded from JSON -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Main slideshow, same as on index -->
+    <section class="hero-section" id="home">
+      <div class="slideshow"><!-- Slides will be loaded from JSON --></div>
+      <div class="slideshow-overlay">
+        <h1 class="slideshow-title">Uchytil s.r.o.</h1>
+        <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+      </div>
+    </section>
+
+    <!-- Contact page content -->
+    <!-- Contact page content -->
+    <div class="contact-container no-bottom-bg">
+      <!-- Leadership (redesigned with background strip) -->
+      <section class="leadership-section-wrapper">
+        <div class="leadership-strip">
+          <div class="leadership-content container">
+            <div class="section-title">
+              <h2 class="section-title" id="leadership-title">Vedení společnosti</h2>
+            </div>
+            <div class="contact-grid leadership-grid" id="leadership-grid">
+              <div class="contact-card leadership-card">
+                <div class="card-top">
+                  <span class="role-chip">Statutární zástupce – jednatel</span>
+                  <h3 class="name">Josef UCHYTIL</h3>
+                </div>
+              </div>
+              <div class="contact-card leadership-card">
+                <div class="card-top">
+                  <span class="role-chip">Ředitel společnosti</span>
+                  <h3 class="name">Ing. Richard ŠTĚPÁN</h3>
+                </div>
+              </div>
+              <div class="contact-card leadership-card">
+                <div class="card-top">
+                  <span class="role-chip">Asistentka ředitele</span>
+                  <h3 class="name">Šárka ZÁBRŠOVÁ</h3>
+                </div>
+                <div class="contact-info">
+                  <div><ion-icon name="mail-outline"></ion-icon><a href="mailto:sarka.zabrsova@uchytil.eu">sarka.zabrsova@uchytil.eu</a></div>
+                  <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">545 423 211</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Leadership Section -->
+
+      <!-- Shop Section (filled) -->
+      <section class="content-section" id="shop">
+        <div class="section-title">
+          <h2 class="section-title" id="shop-title">Naše prodejna</h2>
+          <p class="shop-subtitle" id="shop-subtitle">K Terminálu 7, 619 00 Brno • Po–Pá 8:00–17:00 • Tel. <a href="tel:+420545423211">+420 545 423 211</a></p>
+        </div>
+        <div class="container">
+          <div class="shop-content-grid">
+            <div class="shop-left-section">
+              <div class="shop-hero-image"><img src="../fotky/prodejna.png" alt="UCHYTIL prodejna" class="shop-image"></div>
+              <div class="shop-description-card">
+                <div class="card-icon"><ion-icon name="storefront-outline"></ion-icon></div>
+                <h3 class="card-title">Odborné poradenství a kompletní sortiment</h3>
+                <p class="card-description">Na místě vás obslouží zkušení technici. Nákup materiálu, příslušenství a rychlé vyřízení poptávek. Možnost rezervace a osobního odběru.</p>
+              </div>
+            </div>
+            <div class="shop-contact-section">
+              <div class="contact-cards">
+                <div class="contact-card"><h4>Adresa</h4><p>K Terminálu 7<br>619 00 Brno</p></div>
+                <div class="contact-card"><h4>Otevírací doba</h4><p>Po–Pá 8:00–17:00</p></div>
+                <div class="contact-card"><h4>Kontakt</h4><p><a href="tel:+420545423211">+420 545 423 211</a><br><a href="mailto:prodejna@uchytil.eu">prodejna@uchytil.eu</a></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Divisions Section (tabs with 3 cards each) -->
+      <div class="divisions-section-wrapper">
+        <div class="divisions-container">
+          <div class="section-title"><h2 class="section-title" id="divisions-title">Kontaktujte naše divize</h2></div>
+          <div class="div-tabs" role="tablist" aria-label="Divize">
+            <button class="div-tab active" role="tab" aria-selected="true" aria-controls="panel-energetika" id="tab-energetika">Energetika</button>
+            <button class="div-tab" role="tab" aria-selected="false" aria-controls="panel-stavba" id="tab-stavba">Stavba</button>
+            <button class="div-tab" role="tab" aria-selected="false" aria-controls="panel-tzb" id="tab-tzb">TZB</button>
+          </div>
+          <div class="div-panels">
+            <div id="panel-energetika" role="tabpanel" aria-labelledby="tab-energetika" class="div-tab-panel active">
+              <div class="contact-grid">
+                <div class="contact-card"><h3>Vedoucí divize Energetika</h3><p><a href="mailto:energetika@uchytil.eu">energetika@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Projektový manažer</h3><p><a href="mailto:projekty.energetika@uchytil.eu">projekty.energetika@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Obchod / servis</h3><p><a href="mailto:servis@uchytil.eu">servis@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+              </div>
+            </div>
+            <div id="panel-stavba" role="tabpanel" aria-labelledby="tab-stavba" class="div-tab-panel">
+              <div class="contact-grid">
+                <div class="contact-card"><h3>Vedoucí divize Stavba</h3><p><a href="mailto:stavba@uchytil.eu">stavba@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Projektový manažer</h3><p><a href="mailto:projekty.stavba@uchytil.eu">projekty.stavba@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Obchod / servis</h3><p><a href="mailto:obchod@uchytil.eu">obchod@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+              </div>
+            </div>
+            <div id="panel-tzb" role="tabpanel" aria-labelledby="tab-tzb" class="div-tab-panel">
+              <div class="contact-grid">
+                <div class="contact-card"><h3>Vedoucí divize TZB</h3><p><a href="mailto:tzb@uchytil.eu">tzb@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Projektový manažer</h3><p><a href="mailto:projekty.tzb@uchytil.eu">projekty.tzb@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+                <div class="contact-card"><h3>Obchod / servis</h3><p><a href="mailto:servis@uchytil.eu">servis@uchytil.eu</a><br>Tel.: <a href="tel:+420545423211">545 423 211</a></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Divisions Section -->
+
+      <!-- Branches (iframe slideshow free embed) -->
+      <section class="branches-section-wrapper">
+        <div class="branches-inner container">
+          <div class="section-title"><h2 class="section-title" id="branches-title">Naše pobočky</h2></div>
+          <!-- New tabs container moved outside slideshow -->
+          <div class="map-tabs">
+            <button class="map-control-btn active" data-target="0" style="background:#094070 url('fotky/energetika3.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Brno</span></button>
+            <button class="map-control-btn" data-target="1" style="background:#094070 url('fotky/bagr2.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Žďár</span></button>
+            <button class="map-control-btn" data-target="2" style="background:#094070 url('fotky/prodejna.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Hodonín</span></button>
+          </div>
+          <div class="branches-slideshow">
+            <div class="slideshow-container" id="slideshow">
+              <div class="branch-slide active">
+                <div class="branch-info">
+                  <h3>Brno – sídlo</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>K Terminálu 7, 619 00 Brno</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                    <div><ion-icon name="mail-outline"></ion-icon><a href="mailto:brno@uchytil.eu">brno@uchytil.eu</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/hQKopm84AvPN5Ro99">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=K%20Termin%C3%A1lu%207%2C%20Brno&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+              <div class="branch-slide">
+                <div class="branch-info">
+                  <h3>Žďár nad Sázavou - prodejna</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>U Stadionu, 591 01 Žďár nad Sázavou</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/Br44wJV1T4hXg7w59">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=U%20Stadionu%2C%20%C5%BDd%C3%A1r%20nad%20S%C3%A1zavou&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+              <div class="branch-slide">
+                <div class="branch-info">
+                  <h3>Hodonín</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>U Elektrárny 1, 695 01 Hodonín</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/t5HZrjzqSsBhTHEt5">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=U%20Elektr%C3%A1rny%201%2C%20Hodon%C3%ADn&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Branches -->
+    </div>
+  </main>
+
+  <!-- Footer same as main page -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img id="footer-logo" src="" alt="UCHYTIL s.r.o."></a>
+        </div>
+        <div class="footer-links">
+          <div class="prefooter-groups">
+            <div class="pf-group">
+              <div class="pf-group-title">naše podstránky</div>
+              <div class="pf-list">
+                <a class="pf-card" href="aboutus.html"><h3 class="pf-title">O nás</h3></a>
+                <a class="pf-card" href="projects.html"><h3 class="pf-title">Reference</h3></a>
+                <a class="pf-card" href="contact-us.html"><h3 class="pf-title">Kontakty</h3></a>
+                <a class="pf-card" href="eshop.html"><h3 class="pf-title">E‑Shop</h3></a>
+                <a class="pf-card" href="division-template.html?division=energetika"><h3 class="pf-title">Divize</h3></a>
+              </div>
+            </div>
+            <div class="pf-group">
+              <div class="pf-group-title">jiné</div>
+              <div class="pf-list">
+                <a class="pf-card" href="ethics-code.html"><h3 class="pf-title">Etický kodex</h3></a>
+                <a class="pf-card" href="certifikace.html"><h3 class="pf-title">Certifikace</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright" id="footer-copyright"><!-- Dynamic content --></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main scripts -->
+  <script src="../js/main.js" defer></script>
+  <script src="../js/contactus-us.js" defer></script>
+  <script src="../js/branches-iframe-slideshow.js" defer></script>
+</body>
+</html>

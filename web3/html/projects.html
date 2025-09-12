@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UCHYTIL s.r.o. - Galerie projektů a referencí. Podívejte se na naše dokončené projekty v oblasti energetiky, stavebnictví a TZB.">
+  <title>Galerie projektů - UCHYTIL s.r.o.</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <script src="/web3/js/projects-loader.js" defer></script>
+  <script src="/web3/js/main.js" defer></script>
+
+  <!-- Ionicons for all arrow/cross icons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="projects-page">
+    <!-- Logo top left and scroll-to-top button top right -->
+    <a href="/web3/html/index.html" style="position: fixed; top: 16px; left: 16px; z-index: 10001; display: flex; align-items: center; text-decoration: none;">
+      <img id="mainLogo" src="/web3/fotky/logo.png" alt="UCHYTIL s.r.o. Logo" style="height: 96px; width: auto; display: block; transition: opacity 0.3s; opacity: 1;" loading="lazy">
+    </a>
+    <button id="scrollTopBtn" aria-label="Zpět nahoru" style="background: none; border: none; cursor: pointer; position: fixed; top: 16px; right: 16px; font-size: 3.5rem; color: #fff; display: flex; align-items: center; justify-content: center; z-index: 10000;"><ion-icon name="arrow-up-outline"></ion-icon></button>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="projects-hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="hero-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-subtitle">naše realizace</p>
+                    <h1 class="hero-title">
+                        <span class="title-highlight">Naše projekty</span> 
+                    </h1>
+                    <p class="hero-description">
+                        Prohlédněte si naše dokončené projekty a reference. Každý projekt představuje naši odbornost, 
+                        kvalitu práce a závazek k excelenci v oblasti energetiky, stavebnictví a technických zařízení budov.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-mini">
+                            <div class="stat-mini-number">30+</div>
+                            <div class="stat-mini-label">Let zkušeností</div>
+                        </div>
+                        <div class="stat-mini">
+                            <div class="stat-mini-number">150+</div>
+                            <div class="stat-mini-label">Projektů</div>
+                        </div>
+                        <div class="stat-mini">
+                            <div class="stat-mini-number">95%</div>
+                            <div class="stat-mini-label">Spokojenost</div>
+                        </div>
+                    </div>
+                    <div class="hero-scroll-indicator">
+                        <span>Procházet projekty</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="projects-filter">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">Všechny projekty</button>
+                    <button class="filter-btn" data-filter="energetika">Energetika</button>
+                    <button class="filter-btn" data-filter="stavba">Stavba</button>
+                    <button class="filter-btn" data-filter="tzb">TZB</button>
+                </div>
+                
+                <div class="filter-sort">
+                    <select class="sort-select" id="sortSelect">
+                        <option value="newest">Nejnovější</option>
+                        <option value="oldest">Nejstarší</option>
+                        <option value="alphabetical">Abecedně</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid-section">
+            <div class="container">
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn" style="display: none;">
+                        Načíst další projekty
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="projects-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-counter="150">0</div>
+                        <div class="stat-label">Dokončených projektů</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-counter="30">0</div>
+                        <div class="stat-label">Let zkušeností</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-counter="95">0</div>
+                        <div class="stat-label">% spokojených klientů</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-counter="50">0</div>
+                        <div class="stat-label">Odborníků v týmu</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="projects-cta">
+            <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px;">
+                <div class="cta-content" style="width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <h2 class="cta-title">Máte zájem o spolupráci?</h2>
+                    <p class="cta-description">
+                        Rádi vám pomůžeme s realizací vašeho projektu. Kontaktujte nás pro nezávaznou konzultaci.
+                    </p>
+                    <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                        <a href="/web3/html/contact-us.html" class="btn btn-primary">Kontaktujte nás</a>
+                        <a href="/web3/html/index.html#AboutUs-section" class="btn btn-secondary">Více o nás</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-brand">
+                    <a href="#" class="logo"><img src="/web3/fotky/logo.png" alt="Tourly logo"></a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="contact-title">Kontaktujte nás</h4>
+                    <ul>
+                        <li><ion-icon name="call-outline"></ion-icon> <a href="tel:+420123456789" style="color: #fff;">+420 123 456 789</a></li>
+                        <li><ion-icon name="mail-outline"></ion-icon> <a href="mailto:info@uchytil.cz" style="color: #fff;">info@uchytil.cz</a></li>
+                        <li><ion-icon name="location-outline"></ion-icon> K Terminálu 7, 619 00 Brno</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <ul class="footer-bottom-list">
+                    <li><a href="#" style="color: #fff;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: #fff;">Terms & Conditions</a></li>
+                </ul>
+                <p class="footer-copyright">© 2025 UCHYTIL s.r.o. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts and styles moved to style.css and main.js -->
+</body>
+</html>
+</html>

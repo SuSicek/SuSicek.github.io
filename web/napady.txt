@@ -1,0 +1,12 @@
+KONTAKTY	
+- v kontaktech, tabs pro kazdou pobocku, s interaktivni mapou
+
+REFERENCE
+- udelat pristupovou stranku s lehkym formularem pro spravu obsahu stranek (mazani/pridani referenci, sprava galerie)
+- nacitat info na karticky z json souboru napojeneho na predem zminenou stranku
+
+
+Treba udelat:
+- podstranky
+- uchytil spravodaj stranka- prihlaseni na server, jen zpravy o firme atd
+- eshop?
