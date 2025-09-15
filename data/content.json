@@ -79,102 +79,72 @@
   },
   "jobs": {
     "title": "VOLNÁ MÍSTA",
+    "filters": [
+      "Administrativa",
+      "Práce v terénu",
+      "Práce pro absolventy"
+    ],
     "tabs": [
       {
-        "id": "construction",
-        "name": "Stavební práce",
+        "id": "administrativa",
+        "name": "Administrativa",
         "jobs": [
           {
-            "title": "Stavební dělník",
-            "location": "Praha, Brno",
-            "description": "Hledáme zkušené stavební dělníky pro práci na různých projektech. Vyžadujeme praxi v oboru a spolehlivost."
+            "title": "Asistent/ka administrativy",
+            "location": "Brno",
+            "description": "Podpora chodu kanceláře, práce s dokumenty, plánování schůzek a komunikace s partnery i kolegy."
           },
           {
-            "title": "Vedoucí stavby",
-            "location": "Praha",
-            "description": "Pozice pro zkušeného vedoucího stavby s minimálně 5 lety praxe. Odpovědnost za koordinaci stavebních prací."
-          }
-        ]
-      },
-      {
-        "id": "engineering",
-        "name": "Inženýrství",
-        "jobs": [
-          {
-            "title": "Stavební inženýr",
-            "location": "Praha, Ostrava",
-            "description": "Hledáme stavebního inženýra pro návrh a realizaci stavebních projektů. Vyžadujeme VŠ vzdělání technického směru."
-          }
-        ]
-      },
-      {
-        "id": "management",
-        "name": "Management",
-        "jobs": [
-          {
-            "title": "Projektový manažer",
-            "location": "Praha",
-            "description": "Pozice pro manažera s expertízou v řízení stavebních projektů a týmů."
-          }
-        ]
-      },
-      {
-        "id": "energy",
-        "name": "Energetika",
-        "jobs": [
-          {
-            "title": "Specialista energetiky",
-            "location": "Brno",
-            "description": "Hledáme odborníka na energetické systémy a úspory energie v budovách."
-          }
-        ]
-      },
-      {
-        "id": "safety",
-        "name": "BOZP",
-        "jobs": [
-          {
-            "title": "Technik BOZP",
-            "location": "Praha, Brno",
-            "description": "Pozice pro technika bezpečnosti a ochrany zdraví při práci na stavbách."
-          }
-        ]
-      },
-      {
-        "id": "logistics",
-        "name": "Logistika",
-        "jobs": [
-          {
-            "title": "Koordinátor logistiky",
-            "location": "Praha",
-            "description": "Odpovědnost za koordinaci dodávek materiálu a logistiky na stavbách."
-          }
-        ]
-      },
-      {
-        "id": "finance",
-        "name": "Finance",
-        "jobs": [
-          {
-            "title": "Finanční analytik",
-            "location": "Praha",
-            "description": "Pozice pro analytika zabývajícího se finančním řízením stavebních projektů."
-          }
-        ]
-      },
-      {
-        "id": "architecture",
-        "name": "Architektura",
-        "jobs": [
-          {
-            "title": "Architekt",
-            "location": "Praha",
-            "description": "Hledáme kreativního architekta s praxí v navrhování moderních staveb a rekonstrukcí."
+            "title": "Účetní",
+            "location": "Brno nebo Praha",
+            "description": "Zpracování přijatých a vydaných faktur, pokladny a DPH, závěrky, spolupráce s externím auditorem."
           },
           {
-            "title": "Projektant",
+            "title": "Recepční / Office manager",
             "location": "Brno",
-            "description": "Pozice pro projektanta se znalostí CAD softwaru a zkušenostmi se stavebními projekty."
+            "description": "Péče o návštěvy, správa recepce a kancelářského zázemí, objednávky materiálu a drobná administrativa."
+          }
+        ]
+      },
+      {
+        "id": "prace-v-terenu",
+        "name": "Práce v terénu",
+        "jobs": [
+          {
+            "title": "Montér TZB",
+            "location": "Praha, Brno",
+            "description": "Montáže a servis zařízení TZB na stavbách, práce dle projektové dokumentace, spolupráce s realizačním týmem."
+          },
+          {
+            "title": "Stavební technik",
+            "location": "Praha",
+            "description": "Koordinace subdodavatelů, kontrola kvality, vedení stavebního deníku a dohled nad BOZP na stavbě."
+          },
+          {
+            "title": "Elektrikář – slaboproud/silnoproud",
+            "location": "Brno",
+            "description": "Instalace kabeláže, rozvaděčů a uvedení do provozu, měření a zkoušky dle norem ČSN, práce v terénu."
+          }
+        ]
+      },
+      {
+        "id": "absolventi",
+        "name": "Práce pro absolventy",
+        "jobs": [
+          {
+            "title": "Junior projektant TZB",
+            "location": "Brno",
+            "description": "Návrhy dílčích částí projektů TZB, práce v CAD/BIM, zpracování podkladů pod vedením seniorních kolegů."
+          },
+          {
+            "title": "Junior stavbyvedoucí",
+            "location": "Praha",
+            "description": "Výpomoc s řízením staveb, koordinace provozu a materiálu, komunikace s dodavateli a subdodavateli."
+          },
+          {
+            "title": "Technik trainee",
+            "location": "Brno, Ostrava",
+            "description": "Roční trainee program napříč divizemi, zaškolení v praxi, rotace po střediscích a možnost další specializace."
           }
         ]
       }

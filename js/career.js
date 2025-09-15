@@ -249,3 +249,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // noop
   }
 });
+
+// Make entire job card clickable -> go to contact section
+(function(){
+  document.addEventListener('click', function(e){
+    const card = e.target.closest('.job-card');
+    if (!card) return;
+    const contact = document.querySelector('#contact');
+    if (contact) {
+      contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+})();

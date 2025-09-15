@@ -55,6 +55,7 @@
 .about-section.alt {
   background: linear-gradient(135deg, #eef6ff 0%, #ffffff 100%);
 }
+.about-section.divisions-section { background: #f3f6fa; }
 .about-intro h2 {
   font-family: var(--ff-montserrat);
   font-weight: var(--fw-800);
@@ -731,6 +732,7 @@
   position: relative;
   z-index: 2;
   white-space: nowrap;
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
 }
 @media (max-width: 900px) {
   .why-us-section .why-us-title { white-space: normal; }

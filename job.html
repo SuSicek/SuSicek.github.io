@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pozice | Kariéra</title>
+  <link rel="stylesheet" href="css/job.css">
+</head>
+<body>
+  <header class="job-hero" data-js="hero">
+    <div class="container">
+      <nav class="job-breadcrumbs">
+        <a href="career.html" class="back-link">← Zpět na kariéru</a>
+      </nav>
+      <h1 class="job-title" data-js="job-title">Název pozice</h1>
+      <ul class="job-meta">
+        <li><span class="meta-label">Lokalita:</span> <span data-js="job-location">N/A</span></li>
+        <li><span class="meta-label">Typ:</span> <span data-js="job-type">N/A</span></li>
+        <li><span class="meta-label">Oddělení:</span> <span data-js="job-dept">N/A</span></li>
+        <li class="meta-ref" hidden><span class="meta-label">Ref:</span> <span data-js="job-ref">—</span></li>
+      </ul>
+      <div class="job-cta">
+        <a class="btn btn-primary" data-js="apply-top" href="#apply">Přihlásit se</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="job-layout container">
+    <article class="job-main">
+      <section id="overview" class="job-section">
+        <h2>Přehled pozice</h2>
+        <p data-js="job-overview">Hledáme posilu do týmu. Na této pozici budete spolupracovat s kolegy napříč firmou a podílet se na zajímavých projektech.</p>
+      </section>
+
+      <section id="responsibilities" class="job-section">
+        <h2>Náplň práce</h2>
+        <ul class="list">
+          <li>Samostatné vedení svěřených úkolů a zodpovědnost za jejich včasné dokončení.</li>
+          <li>Spolupráce s interními i externími partnery.</li>
+          <li>Průběžné reportování výsledků a návrhy na zlepšení.</li>
+        </ul>
+      </section>
+
+      <section id="requirements" class="job-section">
+        <h2>Požadavky</h2>
+        <ul class="list">
+          <li>Relevantní praxe nebo silný zájem o obor.</li>
+          <li>Schopnost komunikace a týmové spolupráce.</li>
+          <li>Proaktivní přístup a chuť se učit.</li>
+        </ul>
+    </section>
+
+      <section id="apply" class="job-section">
+        <h2>Jak se přihlásit</h2>
+        <p>Pošlete prosím svůj životopis a krátký motivační dopis. Ozveme se zpět co nejdříve.</p>
+        <div class="apply-actions">
+          <a class="btn btn-primary" data-js="apply-bottom" href="#">Přihlásit se nyní</a>
+          <a class="btn btn-secondary" href="career.html">Zpět na přehled pozic</a>
+        </div>
+      </section>
+    </article>
+
+    <aside class="job-aside">
+      <div class="apply-card">
+        <h3>Rychlé info</h3>
+        <ul class="mini-meta">
+          <li><strong>Lokalita:</strong> <span data-js="job-location">N/A</span></li>
+          <li><strong>Typ:</strong> <span data-js="job-type">N/A</span></li>
+          <li><strong>Oddělení:</strong> <span data-js="job-dept">N/A</span></li>
+          <li class="meta-ref" hidden><strong>Ref:</strong> <span data-js="job-ref">—</span></li>
+        </ul>
+        <a class="btn btn-primary w-full" data-js="apply-side" href="#apply">Přihlásit se</a>
+      </div>
+
+      <div class="share-card">
+        <h3>Sdílet pozici</h3>
+        <button class="btn btn-light w-full" data-js="copy-link">Zkopírovat odkaz</button>
+        <p class="share-note" data-js="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/job.js"></script>
+</body>
+</html>

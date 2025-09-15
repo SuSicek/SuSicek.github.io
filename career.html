@@ -68,14 +68,25 @@
           </div>
           <div class="slideshow-overlay">
             <h1 class="slideshow-title">Uchytil s.r.o.</h1>
-            <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+            <div class="slideshow-subtitle">Postavte svou budoucnost na jistotě.</div>
           </div>
       </section>
     </section>
+
+    <!-- Career Intro -->
+    <section class="about-section career-intro">
+      <div class="container">
+        <div class="intro-text" style="max-width:900px;margin:0 auto 1.8rem;text-align:center;">
+          <h2 class="h2 section-title" style="margin-bottom: 2%;margin-top: 10%;font-size: 3rem;">Proč pracovat zrovna u nás?</h2>
+          <p style="font-size:1.15rem;color:#1a1a1a;">Stavíme už víc než 30 let – ale naši největší hodnotou nejsou stavby, nýbrž lidé, kteří je tvoří. Jsme tým odborníků a rádi mezi sebe přijmeme další kolegy, kteří chtějí být součástí firmy a chtějí růst spolu s námi.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Benefits Section -->
     <section class="benefits-section">
       <div class="container">
-        <h2 class="h2 section-title" style="text-align:center; margin-bottom:2.5rem;">Benefity pro naše zaměstnance</h2>
+        <h2 class="h2 section-title" style="text-align:center; margin-bottom:2.5rem; font-size: 3rem;">S čím můžete počítat?</h2>
         <div class="benefits-grid">
           <div class="benefit-card">
             <div class="benefit-icon"><ion-icon name="card-outline"></ion-icon></div>
@@ -91,6 +102,11 @@
             <div class="benefit-icon"><ion-icon name="restaurant-outline"></ion-icon></div>
             <div class="benefit-title">Příspěvek na stravování</div>
             <div class="benefit-desc">Příspěvek na stravování formou stravenek.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><ion-icon name="card-outline"></ion-icon></div>
+            <div class="benefit-title">Hlídání</div>
+            <div class="benefit-desc">Postaráme se o vaše děti během prázdnin</div>
           </div>
           <div class="benefit-card">
             <div class="benefit-icon"><ion-icon name="calendar-outline"></ion-icon></div>
@@ -194,5 +210,9 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="../js/main.js" defer></script>
   <script src="../js/career.js" defer></script>
-</body>
+  <!-- Auto-link job cards to the job subpage -->
+  <script src="js/career-cards.js" defer></script>
+  <!-- Show only first 4 jobs, reveal rest on click -->
+  <script src="js/career-load-more.js" defer></script>
+  </body>
 </html>
