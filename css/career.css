@@ -687,3 +687,47 @@
 .load-more-jobs:active { transform: translateY(0); filter: brightness(0.98); }
 .load-more-jobs:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(34,86,161,.28), 0 12px 26px rgba(2,8,23,.18); }
 .load-more-jobs::after { content: '…'; font-weight: 900; }
+/* Ensure colorful underline fits within navbar tabs */
+.navbar .navbar-list li { overflow: hidden; }
+.navbar .navbar-list .navbar-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px; /* space for underline */
+}
+.navbar .navbar-list .navbar-link::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, #00a70e, #0051ca);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+.navbar .navbar-list .navbar-link:hover::after,
+.navbar .navbar-list .navbar-link[aria-current="page"]::after,
+.navbar .navbar-list .navbar-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Tighter navbar underline to fit inside tabs */
+.navbar .navbar-list .navbar-link { --underline-inset: 10px; }
+.navbar .navbar-list .navbar-link::after {
+  left: var(--underline-inset);
+  right: var(--underline-inset);
+  height: 2px;
+  border-radius: 2px;
+}
+
+/* Centered, shorter navbar underline */
+.header .navbar .navbar-list .navbar-link { --underline-width: 70%; }
+.header .navbar .navbar-list .navbar-link::after {
+  left: 50%;
+  right: auto;
+  width: var(--underline-width);
+  transform: translateX(-50%) scaleX(0);
+  height: 2px;
+  border-radius: 2px;
+}
+@media (max-width: 768px) {
+  .header .navbar .navbar-list .navbar-link { --underline-width: 60%; }
+}
