@@ -6,7 +6,6 @@
   <title>Kontaktujte nás | UCHYTIL s.r.o.</title>
   <link rel="preload" href="../css/style.css" as="style">
   <link rel="stylesheet" href="../css/style.css">
-  <!-- Optional page-specific styles -->
   <link rel="stylesheet" href="../css/con-style.css">
   <link rel="stylesheet" href="../css/reststyle.css">
   <link rel="icon" href="../fotky/logo.png" type="image/png">
@@ -76,7 +75,8 @@
     </section>
 
     <!-- Contact page content -->
-    <div class="contact-container">
+    <!-- Contact page content -->
+    <div class="contact-container no-bottom-bg">
       <!-- Leadership (redesigned with background strip) -->
       <section class="leadership-section-wrapper">
         <div class="leadership-strip">
@@ -90,19 +90,11 @@
                   <span class="role-chip">Statutární zástupce – jednatel</span>
                   <h3 class="name">Josef UCHYTIL</h3>
                 </div>
-                <div class="contact-info">
-                  <div><ion-icon name="mail-outline"></ion-icon><a href="mailto:brno@uchytil.eu">brno@uchytil.eu</a></div>
-                  <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423212">545 423 212</a></div>
-                </div>
               </div>
               <div class="contact-card leadership-card">
                 <div class="card-top">
                   <span class="role-chip">Ředitel společnosti</span>
                   <h3 class="name">Ing. Richard ŠTĚPÁN</h3>
-                </div>
-                <div class="contact-info">
-                  <div><ion-icon name="mail-outline"></ion-icon><a href="mailto:richard.stepan@uchytil.eu">richard.stepan@uchytil.eu</a></div>
-                  <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">545 423 211</a></div>
                 </div>
               </div>
               <div class="contact-card leadership-card">
@@ -184,54 +176,63 @@
       </div>
       <!-- End Divisions Section -->
 
-      <!-- Branches Slideshow (filled) -->
-      <section>
-        <div class="section-title"><h2 class="section-title" id="branches-title">Naše pobočky</h2></div>
-        <div class="branches-slideshow">
-          <div class="slideshow-nav">
-            <button id="prevSlide" aria-label="Předchozí pobočka"><ion-icon name="chevron-back-outline"></ion-icon></button>
-            <button id="nextSlide" aria-label="Další pobočka"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+      <!-- Branches (iframe slideshow free embed) -->
+      <section class="branches-section-wrapper">
+        <div class="branches-inner container">
+          <div class="section-title"><h2 class="section-title" id="branches-title">Naše pobočky</h2></div>
+          <!-- New tabs container moved outside slideshow -->
+          <div class="map-tabs">
+            <button class="map-control-btn active" data-target="0" style="background:#094070 url('fotky/energetika3.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Brno</span></button>
+            <button class="map-control-btn" data-target="1" style="background:#094070 url('fotky/bagr2.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Žďár</span></button>
+            <button class="map-control-btn" data-target="2" style="background:#094070 url('fotky/prodejna.png') center/cover no-repeat;"><ion-icon name="location"></ion-icon><span>Hodonín</span></button>
           </div>
-          <div class="slideshow-container" id="slideshow">
-            <div class="branch-slide active">
-              <div class="branch-card">
-                <div class="branch-media"><img src="../fotky/prodejna.png" alt="Brno – sídlo"></div>
+          <div class="branches-slideshow">
+            <div class="slideshow-container" id="slideshow">
+              <div class="branch-slide active">
                 <div class="branch-info">
-                  <h3>Brno – sídlo a prodejna</h3>
-                  <p>K Terminálu 7, 619 00 Brno</p>
-                  <p>Po–Pá 8:00–17:00</p>
-                  <p><a href="tel:+420545423211">+420 545 423 211</a> • <a href="mailto:brno@uchytil.eu">brno@uchytil.eu</a></p>
-                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.google.com/?q=K%20Termin%C3%A1lu%207%2C%20Brno">Zobrazit na mapě</a></p>
+                  <h3>Brno – sídlo</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>K Terminálu 7, 619 00 Brno</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                    <div><ion-icon name="mail-outline"></ion-icon><a href="mailto:brno@uchytil.eu">brno@uchytil.eu</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/hQKopm84AvPN5Ro99">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=K%20Termin%C3%A1lu%207%2C%20Brno&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
-            </div>
-            <div class="branch-slide">
-              <div class="branch-card">
-                <div class="branch-media"><img src="../fotky/stavba.png" alt="Žďár nad Sázavou"></div>
+              <div class="branch-slide">
                 <div class="branch-info">
-                  <h3>Žďár nad Sázavou</h3>
-                  <p>U Stadionu, 591 01 Žďár nad Sázavou</p>
-                  <p>Po–Pá 8:00–16:00</p>
-                  <p><a href="tel:+420545423211">+420 545 423 211</a></p>
-                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.google.com/?q=%C5%BDd%C3%A1r%20nad%20S%C3%A1zavou">Zobrazit na mapě</a></p>
+                  <h3>Žďár nad Sázavou - prodejna</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>U Stadionu, 591 01 Žďár nad Sázavou</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/Br44wJV1T4hXg7w59">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=U%20Stadionu%2C%20%C5%BDd%C3%A1r%20nad%20S%C3%A1zavou&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
-            </div>
-            <div class="branch-slide">
-              <div class="branch-card">
-                <div class="branch-media"><img src="../fotky/energetika.png" alt="Radostín nad Oslavou"></div>
+              <div class="branch-slide">
                 <div class="branch-info">
-                  <h3>Radostín nad Oslavou</h3>
-                  <p>Radostín nad Oslavou, 594 44</p>
-                  <p>Po–Pá 8:00–16:00</p>
-                  <p><a href="tel:+420545423211">+420 545 423 211</a></p>
-                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.google.com/?q=Radost%C3%ADn%20nad%20Oslavou">Zobrazit na mapě</a></p>
+                  <h3>Hodonín</h3>
+                  <div class="contact-info">
+                    <div><ion-icon name="location-outline"></ion-icon>U Elektrárny 1, 695 01 Hodonín</div>
+                    <div><ion-icon name="call-outline"></ion-icon><a href="tel:+420545423211">+420 545 423 211</a></div>
+                  </div>
+                  <p><a class="btn btn-secondary" target="_blank" href="https://maps.app.goo.gl/t5HZrjzqSsBhTHEt5">Zobrazit na větší mapě</a></p>
+                </div>
+                <div class="branch-map">
+                  <iframe src="https://www.google.com/maps?q=U%20Elektr%C3%A1rny%201%2C%20Hodon%C3%ADn&output=embed" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- End Branches -->
     </div>
   </main>
 
@@ -275,5 +276,6 @@
   <!-- Main scripts -->
   <script src="../js/main.js" defer></script>
   <script src="../js/contactus-us.js" defer></script>
+  <script src="../js/branches-iframe-slideshow.js" defer></script>
 </body>
 </html>

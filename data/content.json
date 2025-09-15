@@ -30,26 +30,6 @@
       }
     ]
   },
-  "aboutUs": {
-    "title": "O nás",
-    "subtitle": "O SPOLEČNOSTI",
-    "description": "Jsme stabilní česká společnost s bohatou historií, působící na trhu již 30 let. Zabýváme se komplexními službami v oblasti technických zařízení budov, projekcí, montáží, servisu, stavební činnosti a energetiky. Naším cílem je poskytovat vysoce kvalitní řešení šitá na míru potřebám zákazníků, s důrazem na efektivitu, ochranu životního prostředí a bezpečnost práce. Klíčem k našemu úspěchu je profesionální tým, osobní přístup a dlouhodobá spokojenost klientů.",
-    "divisionsTitle": " NAŠE DIVIZE",
-    "divisions": [
-      {
-        "name": "Energetika",
-        "image": "../fotky/energetika.png"
-      },
-      {
-        "name": "Stavba",
-        "image": "../fotky/stavba.png"
-      },
-      {
-        "name": "TZB",
-        "image": "../fotky/tzb.png"
-      }
-    ]
-  },
   "eshop": {
     "title": "E-SHOP",
     "description": "Nakupujte pohodlně online v našem e-shopu. Najdete zde kompletní sortiment technických zařízení budov, materiálů a příslušenství.",
