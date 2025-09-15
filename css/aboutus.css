@@ -744,3 +744,40 @@
 }
 .why-us-section .why-us-subtitle { position: relative; z-index: 2; }
 .why-us-section p, .why-us-section .why-us-list { position: relative; z-index: 2; }
+
+/* Company stats (homepage) */
+#company-stats { padding: 40px 0; }
+#company-stats .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+#company-stats .stat-card {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(226,232,240,0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(2,8,23,0.06);
+  backdrop-filter: blur(8px);
+  padding: 18px 16px;
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+#company-stats .stat-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(2,8,23,0.10); }
+#company-stats .stat-number {
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: .5px;
+  background: linear-gradient(135deg, #2256A1 0%, #3b82f6 50%, #059669 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#company-stats .stat-label {
+  margin-top: 6px;
+  color: #334155;
+  font-weight: 600;
+  letter-spacing: .2px;
+  opacity: .9;
+}

@@ -6,6 +6,7 @@
   <meta name="description" content="">
   <link rel="preload" href="../css/style.css" as="style">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/aboutus.css">
   <link rel="icon" href="../fotky/logo.png" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
@@ -93,38 +94,78 @@
                             </div>
                         </section>
                     </section>
-                    <section class="content-section" id="shop">
+                    
+                    <!-- Replace Shop section with Company Stats and Division Cards -->
+                    <section class="content-section" id="company-stats">
                         <div class="container">
                             <div class="section-title">
-                                <h2 class="h2" id="shop-title">
-                                    <ion-icon name="storefront-outline"></ion-icon>
-                                    <!-- Dynamic content -->
-                                </h2>
-                                <p class="shop-subtitle" id="shop-subtitle"><!-- Dynamic content --></p>
+                                <h2 class="h2">Naše čísla</h2>
                             </div>
-                            
-                            <div class="shop-content-grid">
-                        <div class="shop-left-section">
-                            <div class="shop-hero-image">
-                            <img src="" alt="" class="shop-image">
-                            </div>
-                            
-                            <div class="shop-description-card">
-                            <div class="card-icon">
-                                <ion-icon name=""></ion-icon>
-                            </div>
-                            <h3 class="card-title"></h3>
-                            <p class="card-description"></p>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-number" data-target="30">30+</div>
+                                    <div class="stat-label">let zkušeností</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number" data-target="500">500+</div>
+                                    <div class="stat-label">dokončených projektů</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number" data-target="120">120+</div>
+                                    <div class="stat-label">zaměstnanců</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number" data-target="3">3</div>
+                                    <div class="stat-label">divize</div>
+                                </div>
                             </div>
                         </div>
+                    </section>
 
-                        <div class="shop-contact-section">
-                            <div class="contact-cards">
-                            <!-- Contact cards will be loaded from JSON -->
+                    <section class="about-section divisions-section">
+                      <div class="container">
+                        <div class="about-intro center reveal">
+                          <h2>Náše divize</h2>
+                        </div>
+                        <div class="team-grid">
+                          <!-- Energetika -->
+                          <a href="division-template.html?division=energetika" class="team-card reveal" aria-label="Otevřít divizi Energetika">
+                            <img src="../fotky/prodejna.png" alt="Energetika" loading="lazy">
+                            <div class="card-texts">
+                              <h3>Energetika</h3>
+                              <div class="subtitle">Výroba a úspory energií</div>
                             </div>
+                            <p>Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.</p>
+                          </a>
+                          <!-- Stavba -->
+                          <a href="division-template.html?division=stavba" class="team-card reveal" aria-label="Otevřít divizi Stavba">
+                            <img src="../fotky/stavba.png" alt="Stavební oddělení" loading="lazy">
+                            <div class="card-texts">
+                              <h3>Stavba</h3>
+                              <div class="subtitle">Kompletní stavební projekty</div>
+                            </div>
+                            <p>Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.</p>
+                          </a>
+                          <!-- TZB -->
+                          <a href="division-template.html?division=tzb" class="team-card reveal" aria-label="Otevřít divizi TZB">
+                            <img src="../fotky/energetika.png" alt="TZB" loading="lazy">
+                            <div class="card-texts">
+                              <h3>TZB</h3>
+                              <div class="subtitle">Technická zařízení budov</div>
+                            </div>
+                            <p>Poskytuje odborné řešení technických zařízení budov pro komfort, efektivitu a bezpečnost.</p>
+                          </a>
+                          <!-- E-shop -->
+                          <a href="eshop.html" class="team-card reveal" aria-label="Otevřít E-shop">
+                            <img src="../fotky/kontejner.png" alt="E-shop" loading="lazy">
+                            <div class="card-texts">
+                              <h3>E-shop</h3>
+                              <div class="subtitle">Online prodej a technika</div>
+                            </div>
+                            <p>Online prodej materiálu, příslušenství a techniky pro vaše projekty.</p>
+                          </a>
                         </div>
-                        </div>
-                        </div>
+                      </div>
                     </section>
 
                     <!-- References Section -->
@@ -201,7 +242,10 @@
   <!-- Ionicons & main scripts -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="../js/main.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/aboutus.js" defer></script>
+  <script src="../js/clone-divisions.js" defer></script>
+  <script src="../js/stats-counter.js" defer></script>
 </body>
 </html>
 
