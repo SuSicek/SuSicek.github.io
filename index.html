@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <link rel="preload" href="../css/style.css" as="style">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/aboutus.css">
-  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/aboutus.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./fotky/logo.png" type="image/png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
-  <script src="../js/content-loader.js"></script>
+  <script src="./js/content-loader.js"></script>
 </head>
 <body id="top">
     <header class="header" data-header>
@@ -33,7 +34,7 @@
             <nav class="navbar" data-navbar>
               <div class="navbar-top">
                 <a href="#" class="logo">
-                  <img src="../fotky/logo.png" alt="" loading="lazy">
+                  <img src="./fotky/logo.png" alt="" loading="lazy">
                 </a>
                 <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
                   <ion-icon name="close-outline"></ion-icon>
@@ -95,42 +96,52 @@
                         </section>
                     </section>
                     
-                    <!-- Replace Shop section with Company Stats and Division Cards -->
-                    <section class="content-section" id="company-stats">
-                        <div class="container">
-                            <div class="section-title">
-                                <h2 class="h2">Naše čísla</h2>
-                            </div>
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <div class="stat-number" data-target="30">30+</div>
-                                    <div class="stat-label">let zkušeností</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" data-target="500">500+</div>
-                                    <div class="stat-label">dokončených projektů</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" data-target="120">120+</div>
-                                    <div class="stat-label">zaměstnanců</div>
-                                </div>
-                                <div class="stat-card">
-                                    <div class="stat-number" data-target="3">3</div>
-                                    <div class="stat-label">divize</div>
-                                </div>
-                            </div>
+                    <!-- Company Stats (own section) -->
+                    <section class="stats-section">
+                      <div class="container">
+                        <div class="about-intro center reveal">
+                          <h2>Náše čísla</h2>
                         </div>
+                        <div class="stats compact">
+                          <div class="stat-card">
+                            <div class="stat-content">
+                              <div class="stat-value">30+</div>
+                              <div class="stat-label">Let na trhu</div>
+                            </div>
+                          </div>
+                          <div class="stat-card">
+                            <div class="stat-content">
+                              <div class="stat-value">650+</div>
+                              <div class="stat-label">Dokončených projektů</div>
+                            </div>
+                          </div>
+                          <div class="stat-card">
+                            <div class="stat-content">
+                              <div class="stat-value">300+</div>
+                              <div class="stat-label">Spokojených klientů</div>
+                            </div>
+                          </div>
+                          <div class="stat-card">
+                            <div class="stat-content">
+                              <div class="stat-value">120+</div>
+                              <div class="stat-label">Odborníků v týmu</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </section>
 
+                    <!-- Divisions Section (stats removed) -->
                     <section class="about-section divisions-section">
                       <div class="container">
                         <div class="about-intro center reveal">
                           <h2>Náše divize</h2>
                         </div>
+
                         <div class="team-grid">
                           <!-- Energetika -->
                           <a href="division-template.html?division=energetika" class="team-card reveal" aria-label="Otevřít divizi Energetika">
-                            <img src="../fotky/prodejna.png" alt="Energetika" loading="lazy">
+                            <img src="./fotky/prodejna.png" alt="Energetika" loading="lazy">
                             <div class="card-texts">
                               <h3>Energetika</h3>
                               <div class="subtitle">Výroba a úspory energií</div>
@@ -139,7 +150,7 @@
                           </a>
                           <!-- Stavba -->
                           <a href="division-template.html?division=stavba" class="team-card reveal" aria-label="Otevřít divizi Stavba">
-                            <img src="../fotky/stavba.png" alt="Stavební oddělení" loading="lazy">
+                            <img src="./fotky/stavba.png" alt="Stavebnictví" loading="lazy">
                             <div class="card-texts">
                               <h3>Stavba</h3>
                               <div class="subtitle">Kompletní stavební projekty</div>
@@ -148,7 +159,7 @@
                           </a>
                           <!-- TZB -->
                           <a href="division-template.html?division=tzb" class="team-card reveal" aria-label="Otevřít divizi TZB">
-                            <img src="../fotky/energetika.png" alt="TZB" loading="lazy">
+                            <img src="./fotky/energetika.png" alt="TZB" loading="lazy">
                             <div class="card-texts">
                               <h3>TZB</h3>
                               <div class="subtitle">Technická zařízení budov</div>
@@ -157,7 +168,7 @@
                           </a>
                           <!-- E-shop -->
                           <a href="eshop.html" class="team-card reveal" aria-label="Otevřít E-shop">
-                            <img src="../fotky/kontejner.png" alt="E-shop" loading="lazy">
+                            <img src="./fotky/kontejner.png" alt="E-shop" loading="lazy">
                             <div class="card-texts">
                               <h3>E-shop</h3>
                               <div class="subtitle">Online prodej a technika</div>
@@ -180,7 +191,7 @@
                             </div>
                             <div class="references-cta">
                                 <div class="cta-buttons">
-                                <button class="btn btn-secondary" onclick="window.location.href='../html/projects.html'">Otevřít galerii projektů</button>
+                                  <button class="btn btn-secondary" onclick="window.location.href='./html/projects.html'">Otevřít galerii projektů</button>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +209,9 @@
                             <button class="btn btn-secondary"></button>
                         </div>
                     </section>
-                </main>
+                </div>
+            </div>
+        </div>
 
     <footer class="footer">
     <div class="footer-top">
@@ -242,10 +255,8 @@
   <!-- Ionicons & main scripts -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="../js/main.js" defer></script>
-  <script src="../js/aboutus.js" defer></script>
-  <script src="../js/clone-divisions.js" defer></script>
-  <script src="../js/stats-counter.js" defer></script>
+  <script src="./js/main.js" defer></script>
+  <script src="./js/aboutus.js" defer></script>
 </body>
 </html>
 

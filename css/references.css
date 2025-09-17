@@ -202,166 +202,32 @@
 .references:not(.compact) .references-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 22px;
+  gap: 1.1rem;
+  width: 88vw;
+  max-width: 1350px;
   margin: 24px auto 36px;
-  max-width: 1100px;
 }
 
 /* Allow projects-loader.js to target #projectsGrid while using the same grid styles */
 .references:not(.compact) #projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 22px;
+  gap: 1.1rem;
+  width: 88vw;
+  max-width: 1350px;
   margin: 24px auto 36px;
-  max-width: 1100px;
 }
-
-/* Children of dynamic grid: match reference-card look if plain items are injected */
-.references:not(.compact) #projectsGrid > * {
-  background: #fff;
-  border: 1px solid rgba(226,232,240,0.8);
-  border-radius: 18px;
-  box-shadow: 0 10px 26px rgba(2, 8, 23, 0.06);
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-  position: relative;
+@media (min-width: 900px) {
+  .references:not(.compact) .references-grid,
+  .references:not(.compact) #projectsGrid {
+    grid-template-columns: repeat(2, minmax(480px, 1fr));
+  }
 }
-.references:not(.compact) #projectsGrid > *:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 44px rgba(2, 8, 23, 0.12);
-  filter: brightness(0.98);
-}
-.references:not(.compact) #projectsGrid > * img {
-  width: 100%; height: 220px; object-fit: cover; display: block;
-}
-.references:not(.compact) #projectsGrid > * .card-body { padding: 18px; }
-
-/* Card */
-.references:not(.compact) .reference-card {
-  background: #fff;
-  border: 1px solid rgba(226,232,240,0.8);
-  border-radius: 18px;
-  box-shadow: 0 10px 26px rgba(2, 8, 23, 0.06);
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-  position: relative;
-}
-.references:not(.compact) .reference-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 44px rgba(2, 8, 23, 0.12);
-}
-
-/* Image */
-.references:not(.compact) .reference-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  border-radius: 18px 18px 0 0;
-  filter: brightness(0.95) contrast(1.03);
-  transition: filter .25s ease, transform .25s ease;
-}
-.references:not(.compact) .reference-card:hover .reference-image {
-  filter: none;
-  transform: scale(1.02);
-}
-
-/* Content */
-.references:not(.compact) .reference-content {
-  padding: 18px;
-}
-.references:not(.compact) .reference-title {
-  font-family: var(--ff-montserrat);
-  font-weight: var(--fw-800);
-  color: #0f172a;
-  font-size: 1.15rem;
-  line-height: 1.35;
-  margin-bottom: 10px;
-}
-.references:not(.compact) .reference-category {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(34,86,161,0.08);
-  color: var(--bright-navy-blue);
-  font-size: 0.75rem;
-  font-weight: var(--fw-700);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-.references:not(.compact) .reference-description {
-  color: #334155;
-  font-size: 0.98rem;
-  line-height: 1.7;
-  margin-bottom: 14px;
-}
-
-/* Meta row */
-.references:not(.compact) .reference-details {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 12px; padding-top: 12px;
-  border-top: 1px solid rgba(226,232,240,0.8);
-}
-.references:not(.compact) .reference-location {
-  color: #1e40af;
-  font-weight: var(--fw-600);
-  font-size: 0.9rem;
-  display: inline-flex; gap: 6px; align-items: center;
-}
-.references:not(.compact) .reference-location::before { content: '📍'; font-size: 0.9rem; }
-.references:not(.compact) .reference-year {
-  color: #64748b;
-  font-weight: var(--fw-600);
-  font-size: 0.85rem;
-  background: rgba(226,232,240,0.6);
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(226,232,240,0.9);
-}
-
-/* CTA row (bottom button if present) */
-.references:not(.compact) .references-cta {
-  text-align: center;
-  margin-top: 12px;
-}
-.references:not(.compact) .references-btn,
-.references:not(.compact) .btn.btn-secondary {
-  display: inline-flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-  color: #fff;
-  padding: 14px 36px;
-  border-radius: 999px;
-  border: 1px solid rgba(14,165,233,0.25);
-  font-family: var(--ff-montserrat);
-  font-weight: var(--fw-700);
-  font-size: 1rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all .25s ease;
-  box-shadow: 0 8px 28px rgba(14,165,233,0.25);
-}
-.references:not(.compact) .references-btn:hover,
-.references:not(.compact) .btn.btn-secondary:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
-}
-
-/* Optional pager (if added) */
-.references:not(.compact) .references-pager {
-  display: flex; justify-content: center; gap: 8px; margin-top: 10px;
-}
-.references:not(.compact) .references-page-btn {
-  min-width: 40px; height: 40px; padding: 0 10px; border-radius: 10px;
-  background: #fff; border: 1px solid rgba(226,232,240,0.9);
-  color: #0f172a; font-weight: var(--fw-700);
-  transition: all .2s ease;
-}
-.references:not(.compact) .references-page-btn:hover { transform: translateY(-1px); background: #f8fafc; }
-.references:not(.compact) .references-page-btn.is-active {
-  background: var(--bright-navy-blue); border-color: var(--bright-navy-blue); color: #fff;
+@media (min-width: 1100px) {
+  .references:not(.compact) .references-grid,
+  .references:not(.compact) #projectsGrid {
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+  }
 }
 
 /* Responsive */
@@ -389,6 +255,9 @@
   .references:not(.compact) .section-text { font-size: 1rem; }
   .references:not(.compact) .reference-image { height: 180px; }
 }
+
+/* Reset leftover card-specific image sizing */
+.references:not(.compact) .reference-image { height: auto !important; }
 
 /* Modal overlay and content */
 .references-modal {
@@ -533,4 +402,98 @@
   .references-modal .modal-content { max-width: 99vw; }
   .references-modal .modal-gallery { height: 180px; }
   .references-modal .modal-details { padding: 16px 8px 12px 8px; }
+}
+
+/* Restore subpage look for compact section without touching cards */
+.references.compact {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+.references.compact::before,
+.references.compact::after { content: none !important; }
+
+/* Header area (match subpage typography/colors) */
+.references.compact .section-subtitle {
+  color: #1e40af;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.references.compact .section-title {
+  color: #0f172a;
+  text-align: center;
+  font-family: var(--ff-montserrat);
+  font-weight: var(--fw-800);
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+.references.compact .section-text {
+  color: #334155;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 28px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* Slightly increase compact card size */
+.references.compact .reference-card { min-height: 360px; }
+.references.compact .reference-image { height: 360px; }
+
+/* Make compact reference tiles perfectly rectangular */
+.references.compact .reference-card,
+.references.compact .reference-image,
+.references.compact .reference-card .reference-overlay { border-radius: 0 !important; }
+
+/* Reference detail layout styles */
+.reference-detail { padding: 48px 0 64px; background: #fff; }
+.reference-detail .detail-hero { display: grid; grid-template-columns: 1fr; gap: 20px; position: relative; }
+
+/* Square hero image with page side spacing */
+.detail-image-wrap { max-width: 720px; }
+.detail-image { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: 0; }
+
+/* Overlapping info panel */
+.detail-info-panel {
+  background: rgba(255,255,255,0.98);
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 12px 40px rgba(15,23,42,0.08);
+  padding: 20px 22px;
+  max-width: 620px;
+  transform: translateY(-18%);
+}
+.detail-title { font-family: var(--ff-montserrat); font-weight: var(--fw-800); font-size: clamp(1.4rem, 3.2vw, 2rem); color: #0f172a; margin-bottom: 8px; }
+.detail-meta { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 8px; }
+.detail-chip { background: #1e40af; color: #fff; border-radius: 999px; padding: 6px 12px; font-weight: 700; font-size: 0.9rem; }
+.detail-meta-item { color: #334155; font-weight: 600; }
+.detail-description { color: #475569; line-height: 1.7; margin-top: 6px; }
+
+/* Gallery */
+.detail-gallery { margin-top: -8px; }
+.gallery-title { font-family: var(--ff-montserrat); font-weight: var(--fw-800); font-size: 1.4rem; color: #0f172a; margin: 16px 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.gallery-grid a { display: block; border: 1px solid rgba(15,23,42,0.08); }
+.gallery-grid img { width: 100%; height: 180px; object-fit: cover; display: block; }
+
+@media (min-width: 992px) {
+  .reference-detail .detail-hero { grid-template-columns: 560px 1fr; align-items: end; }
+  .detail-image-wrap { max-width: none; }
+  .detail-info-panel { margin-left: -80px; }
+}
+
+/* Clickable affordance for cards */
+.references.compact .reference-card { cursor: pointer; }
+/* Ensure the link wrapper is a full-size clickable block */
+.references.compact .reference-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
 }

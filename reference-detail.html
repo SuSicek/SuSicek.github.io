@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail reference - UCHYTIL s.r.o.</title>
+  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/references.css">
+  <link rel="icon" href="./fotky/logo.png" type="image/png">
+  <script src="./js/content-loader.js"></script>
+  <script src="./js/reference-detail.js" defer></script>
+</head>
+<body>
+  <!-- Simple header include (optional same loader as other pages) -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-bottom">
+      <div class="container">
+        <nav class="navbar" data-navbar>
+          <a href="./index.html" class="logo"><img src="./fotky/logo.png" alt="" loading="lazy"></a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="reference-detail">
+      <div class="container detail-hero">
+        <div class="detail-image-wrap">
+          <img id="detailHeroImg" class="detail-image" src="" alt="">
+        </div>
+        <div class="detail-info-panel">
+          <h1 id="detailTitle" class="detail-title">Název reference</h1>
+          <div class="detail-meta">
+            <span id="detailDivision" class="detail-chip"></span>
+            <span id="detailLocation" class="detail-meta-item"></span>
+            <span id="detailYear" class="detail-meta-item"></span>
+          </div>
+          <p id="detailDescription" class="detail-description">Podrobnosti o projektu budou doplněny.</p>
+        </div>
+      </div>
+
+      <div class="container detail-gallery">
+        <h2 class="gallery-title">Fotogalerie</h2>
+        <div id="detailGalleryGrid" class="gallery-grid">
+          <!-- thumbnails injected by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="y"></span> UCHYTIL s.r.o.</p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

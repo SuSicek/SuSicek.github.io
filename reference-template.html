@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reference detail</title>
+  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/reference.css" />
+</head>
+<body>
+  <header class="header" data-header>
+    <!-- ...existing code... -->
+  </header>
+
+  <main>
+    <!-- Hero with background -->
+    <section class="ref-hero">
+      <div class="ref-hero-bg" id="ref-hero-bg"></div>
+      <div class="container ref-hero-inner">
+        <nav class="ref-breadcrumb">
+          <a href="projects.html" class="ref-breadcrumb-link ref-breadcrumb-main">Reference</a>
+          <span class="sep">›</span>
+          <span class="ref-breadcrumb-current" id="ref-title-crumb"></span>
+        </nav>
+        <span id="ref-category" class="ref-badge"></span>
+        <h1 id="ref-title" class="ref-title"></h1>
+        <div class="ref-meta">
+          <span id="ref-location" class="ref-meta-item"></span>
+          <span id="ref-year" class="ref-meta-item"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content layout -->
+    <section class="ref-content">
+      <div class="container ref-layout">
+        <div class="ref-main">
+          <div class="ref-image-wrap">
+            <img id="ref-image" class="ref-image" alt="Reference" />
+          </div>
+          <div class="ref-description" id="ref-description"></div>
+        </div>
+        <aside class="ref-sidebar">
+          <div class="ref-specs card-base">
+            <h3 class="ref-specs-title">Parametry projektu</h3>
+            <ul class="ref-specs-list">
+              <li><strong>Místo:</strong> <span id="ref-location-spec"></span></li>
+              <li><strong>Rok:</strong> <span id="ref-year-spec"></span></li>
+              <li><strong>Kategorie:</strong> <span id="ref-category-spec"></span></li>
+            </ul>
+          </div>
+          <a class="ref-cta btn-base" href="contact-us.html">Poptat podobný projekt</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Related references placeholder -->
+    <section class="ref-related">
+      <div class="container">
+        <h2 class="shop-title">Další projekty</h2>
+        <div class="references-grid" id="ref-related-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <!-- ...existing code... -->
+  </footer>
+
+  <script src="./js/content-loader.js" defer></script>
+</body>
+</html>

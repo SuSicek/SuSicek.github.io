@@ -657,6 +657,7 @@ class ContentRenderer {
                             const currentTextLines = currentSlide.querySelectorAll('.slide__text-line');
                             const targetTextLines = targetSlide.querySelectorAll('.slide__text-line');
                             
+
                             // Hide current
                             gsap.to(currentTextLines, {
                                 y: -100,
@@ -712,3 +713,99 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderer = new ContentRenderer();
     renderer.loadContent();
 });
+
+// References: delegate clicks to open detail page using the same loader flow as divisions
+(function(){
+  const GRID_SELECTOR = '#references .references-grid';
+  function slugify(str){
+    return (str||'').toString().toLowerCase()
+      .normalize('NFD').replace(/\p{Diacritic}/gu,'')
+      .replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  }
+  function findCard(target){
+    const grid = document.querySelector(GRID_SELECTOR);
+    if (!grid) return null;
+    let node = target;
+    while (node && node !== grid && !node.classList?.contains('reference-card')) node = node.parentElement;
+    return (node && node !== grid) ? node : null;
+  }
+  document.addEventListener('click', function(e){
+    const card = findCard(e.target);
+    if (!card) return;
+    e.preventDefault();
+    const title = (card.querySelector('.reference-title')?.textContent || 'Reference').trim();
+    const imgEl = card.querySelector('img, .reference-image');
+    let img = '';
+    if (imgEl) {
+      if (imgEl.tagName === 'IMG') img = imgEl.getAttribute('src') || '';
+      else {
+        const bg = getComputedStyle(imgEl).backgroundImage;
+        const m = bg && bg !== 'none' ? bg.match(/url\(["']?(.*?)["']?\)/) : null;
+        img = m && m[1] ? m[1] : '';
+      }
+    }
+    const desc = (card.querySelector('.reference-description')?.textContent || '').trim();
+    const category = (card.querySelector('.reference-category')?.textContent || '').trim();
+    const location = (card.querySelector('.reference-location')?.textContent || '').trim();
+    const year = (card.querySelector('.reference-year')?.textContent || '').trim();
+
+    const payload = { title, img, desc, category, location, year, slug: slugify(title) };
+    try { sessionStorage.setItem('selectedReference', JSON.stringify(payload)); } catch {}
+
+    const url = `reference-template.html?ref=${encodeURIComponent(payload.slug)}`;
+    window.location.href = url;
+  }, false);
+})();
+
+// Reference detail rendering (on reference-template.html)
+(function(){
+  if (!/reference-template\.html$/i.test(location.pathname)) return;
+  function el(id){ return document.getElementById(id); }
+  let data = null;
+  try {
+    const raw = sessionStorage.getItem('selectedReference');
+    if (raw) data = JSON.parse(raw);
+  } catch {}
+  data = Object.assign({ title: 'Reference', img: '', desc: '', category: '', location: '', year: '' }, data || {});
+
+  // Set page title
+  document.title = (data.title ? data.title + ' – Reference' : 'Reference detail');
+
+  const titleEl = el('ref-title');
+  const imgEl = el('ref-image');
+  const descEl = el('ref-description');
+  const catEl = el('ref-category');
+  const locEl = el('ref-location');
+  const yearEl = el('ref-year');
+
+  // New: breadcrumb title
+  const crumbEl = el('ref-title-crumb');
+  if (crumbEl) crumbEl.textContent = data.title;
+
+  // New: hero background
+  const heroBg = el('ref-hero-bg');
+  if (heroBg) {
+    if (data.img) {
+      heroBg.style.backgroundImage = `url('${data.img}')`;
+      heroBg.style.display = '';
+    } else {
+      heroBg.style.backgroundImage = '';
+      heroBg.style.display = 'none';
+    }
+  }
+
+  if (titleEl) titleEl.textContent = data.title;
+  if (imgEl) {
+    if (data.img) { imgEl.src = data.img; imgEl.style.display = ''; }
+    else { imgEl.style.display = 'none'; }
+  }
+  if (descEl) descEl.textContent = data.desc;
+  if (catEl) { catEl.textContent = data.category; catEl.style.display = data.category ? 'inline-flex' : 'none'; }
+  if (locEl) { locEl.textContent = data.location; locEl.style.display = data.location ? '' : 'none'; }
+  if (yearEl) { yearEl.textContent = data.year; yearEl.style.display = data.year ? '' : 'none'; }
+
+  // New: sidebar specs
+  const locSpec = el('ref-location-spec'); if (locSpec) locSpec.textContent = data.location || '';
+  const yearSpec = el('ref-year-spec'); if (yearSpec) yearSpec.textContent = data.year || '';
+  const catSpec = el('ref-category-spec'); if (catSpec) catSpec.textContent = data.category || '';
+})();
