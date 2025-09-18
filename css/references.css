@@ -1,3 +1,4 @@
+/* --- Start of references.css --- */
 /* Subpage scope: keep homepage (".references.compact") unchanged */
 .references:not(.compact) {
   padding: 80px 0;
@@ -404,6 +405,7 @@
   .references-modal .modal-details { padding: 16px 8px 12px 8px; }
 }
 
+/* --- Start of reference.css --- */
 /* Restore subpage look for compact section without touching cards */
 .references.compact {
   padding: 80px 0;

@@ -1,3 +1,19 @@
+// --- Add missing variable declarations to avoid ReferenceErrors ---
+const elements = window.elements || {
+  AboutUsText: null,
+  AboutUsSection: null,
+  counterStrip: null,
+  cursor: null,
+  slideshow: document.querySelector('.slideshow')
+};
+const slides = window.slides || Array.from(document.querySelectorAll('.slide'));
+const thumbnails = window.thumbnails || Array.from(document.querySelectorAll('.thumbnail'));
+const slideImages = window.slideImages || Array.from(document.querySelectorAll('.slide__img'));
+const NEXT = 'next';
+const PREV = 'prev';
+const SLIDE_DURATION = 0.8; // seconds, adjust as needed
+const RESET_DELAY = 8000; // ms, adjust as needed
+
 const UPDATE = ({ x, y }) => {
   const xNorm = (x / window.innerWidth - 0.5) * 2;
   const yNorm = (y / window.innerHeight - 0.5) * 2;
@@ -682,21 +698,25 @@ document.addEventListener('DOMContentLoaded', function() {
 // Remove any slideshow-generated text so only the static overlay remains
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    document.querySelectorAll('.slide .slide__text, .slide-info').forEach(el => el.remove());
+    // Restrict to main homepage slideshow only (assumes .slideshow--main or first .slideshow)
+    const mainSlideshow = document.querySelector('.slideshow--main') || document.querySelector('.slideshow');
+    if (!mainSlideshow) return;
+    mainSlideshow.querySelectorAll('.slide .slide__text, .slide-info').forEach(el => el.remove());
   } catch (e) { /* noop */ }
 });
 
 // Ensure no dynamic slide text appears; keep only static overlay
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    const slideshow = document.querySelector('.slideshow');
-    if (!slideshow) return;
+    // Restrict to main homepage slideshow only (assumes .slideshow--main or first .slideshow)
+    const mainSlideshow = document.querySelector('.slideshow--main') || document.querySelector('.slideshow');
+    if (!mainSlideshow) return;
 
     const cleanSlideTexts = () => {
-      // Remove known dynamic text containers
-      slideshow.querySelectorAll('.slide__text, .slide__subtitle, .slide__text-line, .slide-info').forEach(el => el.remove());
+      // Remove known dynamic text containers only in main slideshow
+      mainSlideshow.querySelectorAll('.slide__text, .slide__subtitle, .slide__text-line, .slide-info').forEach(el => el.remove());
       // Clear any literal 'undefined' texts
-      slideshow.querySelectorAll('*').forEach(el => {
+      mainSlideshow.querySelectorAll('*').forEach(el => {
         const t = el.textContent && el.textContent.trim().toLowerCase();
         if (t === 'undefined') el.textContent = '';
       });
@@ -707,6 +727,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe future changes and clean again
     const mo = new MutationObserver(() => cleanSlideTexts());
-    mo.observe(slideshow, { childList: true, subtree: true });
+    mo.observe(mainSlideshow, { childList: true, subtree: true });
   } catch (e) { /* noop */ }
 });
