@@ -12,3 +12,5 @@ references
 - template pro otevreni referenci
 - link main na urcite reference + button na galerii
  
+kontakty
+- jedna navic pobocka zvlast - zdar prodejna

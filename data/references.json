@@ -7,7 +7,13 @@
       "location": "Praha",
       "year": 2024,
       "description": "Komplexní modernizace rozvoden a elektroinstalace včetně výměny rozvaděčů, revizí a uvedení do provozu.",
-      "gallery": ["./fotky/energetika.png", "./fotky/energetika2.png", "./fotky/energetika3.png"]
+      "gallery": [
+        "../fotky/energetika.png",
+        "./fotky/energetika2.png",
+        "./fotky/energetika3.png",
+        "./fotky/bagr.png",
+        "./fotky/dronBrno.png"
+      ]
     },
     {
       "title": "Instalace fotovoltaických panelů",
@@ -16,7 +22,13 @@
       "location": "Brno",
       "year": 2023,
       "description": "Návrh a instalace střešní FVE se systémem monitoringu a napojením na stávající rozvody.",
-      "gallery": ["./fotky/energetika2.png", "./fotky/energetika.png", "./fotky/energetika3.png"]
+      "gallery": [
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/kontejner.png",
+        "./fotky/prodejna.png"
+      ]
     },
     {
       "title": "Rekonstrukce VN trafostanice",
@@ -25,7 +37,13 @@
       "location": "Ostrava",
       "year": 2023,
       "description": "Rekonstrukce VN trafostanice, výměna ochran a úprava řídicího systému pro zvýšení spolehlivosti.",
-      "gallery": ["./fotky/energetika3.png", "./fotky/energetika.png", "./fotky/energetika2.png"]
+      "gallery": [
+        "./fotky/energetika3.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika2.png",
+        "./fotky/bytovka.png",
+        "./fotky/stavba.png"
+      ]
     },
     {
       "title": "Administrativní budova – generální dodávka",
@@ -34,7 +52,13 @@
       "location": "Hradec Králové",
       "year": 2022,
       "description": "Kompletní generální dodávka novostavby administrativní budovy včetně koordinace profesí.",
-      "gallery": ["./fotky/stavba.png", "./fotky/stavba2.png", "./fotky/stavba3.png"]
+      "gallery": [
+        "./fotky/stavba.png",
+        "./fotky/stavba2.png",
+        "./fotky/stavba3.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/prodejna2.png"
+      ]
     },
     {
       "title": "Rekonstrukce objektu a interiérů",
