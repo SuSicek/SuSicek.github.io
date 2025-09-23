@@ -216,30 +216,37 @@
   "divisions": {
     "energetika": {
       "title": "Energetika",
-      "subtitle": "Komplexní energetické řešení pro váš objekt",
-  "heroImage": "../fotky/energetika.png",
-      "description": "Divize Energetiky je držitelem certifikací dle ČSN EN 1090-2:2019 a ČSN EN ISO 3834-2:2006 pro výrobu, montáž a opravy ocelových konstrukcí a energetických zařízení. Disponuje oprávněními TIČR pro práce na tlakových i elektrických zařízeních. Tvoří ji střediska Strojní, Elektro a Projekce s plným technickým a materiálním zázemím. Důraz klade na kvalitu, plnění smluv a průběžné vzdělávání pracovníků. Usiluje o předávání zkušeností a hodnot velké energetiky – systémovosti, preciznosti a spolehlivosti – i nové generaci odborníků. Rádi doplníme podrobnosti při osobním setkání.",
+      "subtitle": "Komplexní řešení v oblasti energetiky",
+      "heroImage": "../fotky/energetika.png",
+      "description": "Divize Energetika spojuje dlouholeté zkušenosti s moderními technologiemi. Zajišťujeme kompletní servis – od projektové přípravy přes montáž až po spolehlivý provoz. Našim zákazníkům nabízíme jistotu kvalitního provedení a dodržení všech závazků.\n\nSíla našeho týmu je v lidech. Podporujeme odborný růst, předáváme know-how velké energetiky a dáváme prostor nové generaci techniků a inženýrů.\n\nJsme držiteli certifikací ČSN EN 1090-2:2019 a ČSN EN ISO 3834-2:2006 a disponujeme oprávněními TIČR pro práce na tlakových i elektrických zařízeních. To nám umožňuje realizovat i nejnáročnější zakázky s maximální precizností a bezpečností.",
       "services": [
         {
-          "title": "Středisko strojní",
-          "description": "Komplexní služby v oblasti strojních zařízení včetně vytápění, ventilace a klimatizace",
-          "icon": "construct-outline",
-          "buttonText": "Více informací",
-          "buttonLink": "#contact"
-        },
-        {
-          "title": "Středisko elektro",
-          "description": "Elektrické instalace, rozvaděče a elektronická zařízení pro energetické systémy",
-          "icon": "flash-outline",
-          "buttonText": "Více informací",
-          "buttonLink": "#contact"
-        },
-        {
-          "title": "Projekce",
-          "description": "Projektování energetických řešení a technická dokumentace",
+          "title": "Projekce a energetické celky",
+          "description": "Projekční práce v oblasti energetiky\nDodávky energetických celků",
           "icon": "document-text-outline",
           "buttonText": "Více informací",
-          "buttonLink": "#contact"
+          "buttonLink": "#"
+        },
+        {
+          "title": "Realizace",
+          "description": "Komplexní montážní služby\nVýroba\nOpravy energetických zařízení",
+          "icon": "construct-outline",
+          "buttonText": "Více informací",
+          "buttonLink": "#"
+        },
+        {
+          "title": "Elektro a MaR",
+          "description": "Kompletní dodávky SIL a SLB\nSlužby MaR",
+          "icon": "flash-outline",
+          "buttonText": "Více informací",
+          "buttonLink": "#"
+        },
+        {
+          "title": "Servis a údržba",
+          "description": "Servis a údržba energetických zařízení",
+          "icon": "build-outline",
+          "buttonText": "Více informací",
+          "buttonLink": "#"
         }
       ],
       "projects": [

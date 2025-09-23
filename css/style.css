@@ -416,10 +416,10 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding-top: 97px;
+  padding-top: 130px;
     z-index: 101;
     background-color: transparent; /* Removed dark background */
-    min-height: 155px;
+  min-height: 190px;
 }
 
 .header-top { 
@@ -429,7 +429,7 @@ header {
     width: 100%; 
     transition: var(--transition); 
     border-bottom: 2px solid hsla(0, 0%, 100%, .1); 
-    padding-block: 30px; 
+  padding-block: 35px;
     z-index: 1; 
 }
 

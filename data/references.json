@@ -1,6 +1,60 @@
 {
   "projects": [
     {
+      "title": "Rezidenční komplex Brno",
+      "division": "Stavba",
+      "image": "./fotky/stavba.png",
+      "location": "Brno, Jihomoravský kraj",
+      "year": 2023,
+      "description": "Moderní bytový komplex s 120 bytovými jednotkami včetně kompletní infrastruktury a zelených ploch. Projekt realizován s důrazem na energetickou účinnost a udržitelnost.",
+      "gallery": [
+  "./fotky/stavba.png",
+  "./fotky/stavba2.png",
+  "./fotky/stavba3.png",
+  "./fotky/bytovka.png",
+  "./fotky/bagr.png",
+  "./fotky/bagr2.png",
+  "./fotky/kontejner.png",
+  "./fotky/kontejnerbig.png"
+      ]
+    },
+    {
+      "title": "Solární elektrárna Ostrava",
+      "division": "Energetika",
+      "image": "./fotky/energetika.png",
+      "location": "Ostrava, Moravskoslezský kraj",
+      "year": 2023,
+      "description": "Instalace fotovoltaické elektrárny o výkonu 2,5 MW včetně připojení k distribuční síti. Projekt přispívá k udržitelné energetice regionu.",
+      "gallery": [
+  "./fotky/energetika.png",
+  "./fotky/energetika2.png",
+  "./fotky/energetika3.png",
+  "./fotky/bagr.png",
+  "./fotky/bagr2.png",
+  "./fotky/kontejner.png",
+  "./fotky/kontejnerbig.png",
+  "./fotky/kontejnermid.png"
+      ]
+    },
+    {
+      "title": "Obchodní centrum Praha",
+      "division": "TZB",
+      "image": "./fotky/tzb.png",
+      "location": "Praha, Hlavní město Praha",
+      "year": 2022,
+      "description": "Kompletní realizace technických zařízení budov pro velké obchodní centrum včetně klimatizace, vytápění a elektrických rozvodů.",
+      "gallery": [
+  "./fotky/tzb.png",
+  "./fotky/prodejna.png",
+  "./fotky/prodejna2.png",
+  "./fotky/energetika.png",
+  "./fotky/energetika2.png",
+  "./fotky/energetika3.png",
+  "./fotky/kontejner.png",
+  "./fotky/kontejnerbig.png"
+      ]
+    },
+    {
       "title": "Modernizace rozvoden a elektroinstalace",
       "division": "Energetika",
       "image": "./fotky/energetika.png",
@@ -8,11 +62,14 @@
       "year": 2024,
       "description": "Komplexní modernizace rozvoden a elektroinstalace včetně výměny rozvaděčů, revizí a uvedení do provozu.",
       "gallery": [
-        "../fotky/energetika.png",
+        "./fotky/energetika.png",
         "./fotky/energetika2.png",
         "./fotky/energetika3.png",
         "./fotky/bagr.png",
-        "./fotky/dronBrno.png"
+        "./fotky/bagr2.png",
+        "./fotky/dronBrno.png",
+        "./fotky/bytovka.png",
+        "./fotky/kontejner.png"
       ]
     },
     {
@@ -27,7 +84,10 @@
         "./fotky/energetika.png",
         "./fotky/energetika3.png",
         "./fotky/kontejner.png",
-        "./fotky/prodejna.png"
+        "./fotky/prodejna.png",
+        "./fotky/prodejna2.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/kontejnermid.png"
       ]
     },
     {
@@ -42,7 +102,10 @@
         "./fotky/energetika.png",
         "./fotky/energetika2.png",
         "./fotky/bytovka.png",
-        "./fotky/stavba.png"
+        "./fotky/stavba.png",
+        "./fotky/stavba2.png",
+        "./fotky/stavba3.png",
+        "./fotky/kontejnerbig.png"
       ]
     },
     {
@@ -57,7 +120,10 @@
         "./fotky/stavba2.png",
         "./fotky/stavba3.png",
         "./fotky/kontejnerbig.png",
-        "./fotky/prodejna2.png"
+        "./fotky/prodejna2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnermid.png",
+        "./fotky/bagr.png"
       ]
     },
     {
@@ -67,7 +133,16 @@
       "location": "Plzeň",
       "year": 2022,
       "description": "Rekonstrukce nosných konstrukcí a kompletní modernizace interiérů včetně povrchů a technologií.",
-      "gallery": ["./fotky/stavba2.png", "./fotky/stavba.png", "./fotky/stavba3.png"]
+      "gallery": [
+        "./fotky/stavba2.png",
+        "./fotky/stavba.png",
+        "./fotky/stavba3.png",
+        "./fotky/bytovka.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/kontejnermid.png"
+      ]
     },
     {
       "title": "Výstavba výrobní haly",
@@ -76,7 +151,16 @@
       "location": "Zlín",
       "year": 2021,
       "description": "Novostavba průmyslové haly s důrazem na funkční logistiku a bezpečnost provozu.",
-      "gallery": ["./fotky/stavba3.png", "./fotky/stavba.png", "./fotky/stavba2.png"]
+      "gallery": [
+        "./fotky/stavba3.png",
+        "./fotky/stavba.png",
+        "./fotky/stavba2.png",
+        "./fotky/bytovka.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
     {
       "title": "Kompletní TZB – vytápění a vzduchotechnika",
@@ -85,7 +169,16 @@
       "location": "Olomouc",
       "year": 2021,
       "description": "Komplexní dodávka topení, chlazení a VZT v kancelářských prostorech včetně MAŘ.",
-      "gallery": ["./fotky/tzb.png", "./fotky/stavba2.png", "./fotky/energetika2.png"]
+      "gallery": [
+        "./fotky/tzb.png",
+        "./fotky/stavba2.png",
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/prodejna.png",
+        "./fotky/prodejna2.png",
+        "./fotky/kontejner.png"
+      ]
     },
     {
       "title": "Rekonstrukce prodejny a zázemí",
@@ -94,7 +187,16 @@
       "location": "Pardubice",
       "year": 2020,
       "description": "Úpravy retailového prostoru, nové rozvody TZB a optimalizace osvětlení pro zákaznický komfort.",
-      "gallery": ["./fotky/prodejna.png", "./fotky/stavba2.png", "./fotky/energetika.png"]
+      "gallery": [
+        "./fotky/prodejna.png",
+        "./fotky/stavba2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika2.png",
+        "./fotky/energetika3.png",
+        "./fotky/prodejna2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
 
     {
@@ -104,7 +206,16 @@
       "location": "Liberec",
       "year": 2024,
       "description": "Instalace chytré elektroinstalace s napojením na FVE a řízením spotřeby.",
-      "gallery": ["./fotky/energetika2.png", "./fotky/energetika.png"]
+      "gallery": [
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/kontejnermid.png"
+      ]
     },
     {
       "title": "Revize a údržba rozvodů",
@@ -113,7 +224,16 @@
       "location": "Jihlava",
       "year": 2022,
       "description": "Periodické revize a údržba elektrických rozvodů v administrativních objektech.",
-      "gallery": ["./fotky/energetika.png", "./fotky/energetika3.png"]
+      "gallery": [
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/energetika2.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/kontejnermid.png"
+      ]
     },
     {
       "title": "Polyfunkční dům – fitout",
@@ -122,7 +242,16 @@
       "location": "Praha",
       "year": 2023,
       "description": "Fitout bytových a komerčních jednotek v novém polyfunkčním objektu.",
-      "gallery": ["./fotky/stavba2.png", "./fotky/stavba.png"]
+      "gallery": [
+        "./fotky/stavba2.png",
+        "./fotky/stavba.png",
+        "./fotky/stavba3.png",
+        "./fotky/bytovka.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
     {
       "title": "Modernizace HVAC v kancelářích",
@@ -131,7 +260,16 @@
       "location": "Brno",
       "year": 2022,
       "description": "Výměna vzduchotechniky a modernizace chlazení pro zlepšení vnitřního prostředí.",
-      "gallery": ["./fotky/tzb.png", "./fotky/energetika2.png"]
+      "gallery": [
+        "./fotky/tzb.png",
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/prodejna.png",
+        "./fotky/prodejna2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
 
     {
@@ -141,7 +279,16 @@
       "location": "České Budějovice",
       "year": 2020,
       "description": "Realizace několika RD v rámci developerského projektu včetně inženýrských sítí.",
-      "gallery": ["./fotky/stavba3.png", "./fotky/stavba2.png"]
+      "gallery": [
+        "./fotky/stavba3.png",
+        "./fotky/stavba2.png",
+        "./fotky/stavba.png",
+        "./fotky/bytovka.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
     {
       "title": "Modernizace veřejného osvětlení",
@@ -150,7 +297,16 @@
       "location": "Pardubice",
       "year": 2022,
       "description": "Obměna veřejného osvětlení za LED s inteligentním řízením.",
-      "gallery": ["./fotky/energetika2.png", "./fotky/energetika.png"]
+      "gallery": [
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/energetika3.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png",
+        "./fotky/kontejnermid.png"
+      ]
     },
     {
       "title": "Instalace tepelných čerpadel",
@@ -159,7 +315,16 @@
       "location": "Karlovy Vary",
       "year": 2023,
       "description": "Dodávka a montáž tepelných čerpadel včetně hydraulického vyvážení.",
-      "gallery": ["./fotky/tzb.png", "./fotky/energetika3.png"]
+      "gallery": [
+        "./fotky/tzb.png",
+        "./fotky/energetika3.png",
+        "./fotky/energetika2.png",
+        "./fotky/energetika.png",
+        "./fotky/prodejna.png",
+        "./fotky/prodejna2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     },
     {
       "title": "Rekonstrukce školní budovy",
@@ -168,7 +333,16 @@
       "location": "Olomouc",
       "year": 2021,
       "description": "Stavební úpravy a modernizace učeben a zázemí včetně bezbariérových prvků.",
-      "gallery": ["./fotky/stavba2.png", "./fotky/stavba3.png"]
+      "gallery": [
+        "./fotky/stavba2.png",
+        "./fotky/stavba3.png",
+        "./fotky/stavba.png",
+        "./fotky/bytovka.png",
+        "./fotky/bagr.png",
+        "./fotky/bagr2.png",
+        "./fotky/kontejner.png",
+        "./fotky/kontejnerbig.png"
+      ]
     }
   ]
 }
