@@ -46,6 +46,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 };
     const slideshow = document.querySelector('.slideshow');
+    // Stat number animation (copied from aboutus.js)
+    document.addEventListener('DOMContentLoaded', function() {
+      const counters = document.querySelectorAll('.stat-number[data-count]');
+      if (!counters.length) return;
+      const co = new IntersectionObserver((ents) => {
+        ents.forEach(ent => {
+          if (!ent.isIntersecting) return;
+          const el = ent.target;
+          const target = parseInt(el.dataset.count || '0', 10);
+          const start = performance.now();
+          const dur = 1000 + Math.min(2000, target * 15);
+          function tick(ts) {
+            const p = Math.min(1, (ts - start) / dur);
+            el.textContent = Math.round(target * (0.2 + 0.8 * p));
+            if (p < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          co.unobserve(el);
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(el => co.observe(el));
+    });
     if (!slideshow) return;
 
     function addSubtitle(slide) {
