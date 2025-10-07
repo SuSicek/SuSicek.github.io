@@ -1,16 +1,15 @@
+07.10
+reference - filtr
+aboutus - rozlozeni textu a osa (potreba dasa)
+aboutus - proc my sekce predelat na styl kdo jsme
+career - roztahnout proc u nas
+career - moc tmave kareiera sekce, odstranit zatmaveni pozadi
+career - kdyz odchazis z inzeratu at te to hodi na seznam pozic ne na zacatek career.html
+kontakty - mapy redesignovat info u map (tabs - brno, hodonin, zdar nad sazavou, zdar - prodejna) 
+kontakty - mapy, hodonin pridat mail
+kontakty - mapy, zdar pridat mail
+kontakty - formular
+footer - odstranit nadpis nase podstranky
+footer - socky
 
-WEB4
-
-- remake reference cards
-- misto popup okna projekt bude mit vlastni podstranku
 - uchytil spravodaj stranka- prihlaseni na server, jen zpravy o firme atd
-- do referenci komentar z google maps ?rating?
-
-
-references
-- stejne karty jak na main
-- template pro otevreni referenci
-- link main na urcite reference + button na galerii
- 
-kontakty
-- jedna navic pobocka zvlast - zdar prodejna

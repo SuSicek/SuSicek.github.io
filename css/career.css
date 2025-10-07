@@ -325,20 +325,9 @@
   }
 }
 
-/* Mosaic (visual accent on large screens) */
-/* Removed custom hero in favor of global slideshow hero
-.career-hero { ... }
-.career-hero__img { ... }
-.career-hero__text { ... }
-.career-hero__kicker { ... }
-.career-hero__title { ... }
-.career-hero__subtitle { ... }
-*/
-
 /* Section */
 .career-section {
   padding: var(--section-padding) 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
 }
 
 /* Title redesign */
