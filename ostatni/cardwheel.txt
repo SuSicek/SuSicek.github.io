@@ -1,0 +1,225 @@
+<section class="refsection" id="reference">
+                <div class="container">
+                    <h2 class="h2 section-title">Reference</h2>
+                    
+                    <div class="carousel">
+                        <!-- Card 1 -->
+                        <div class="card c1">
+                            <div class="img"></div>
+                            <p>Image 8</p>
+                            <span>ref1</span>
+                        </div>
+                        <div class="cardb cb1"></div>
+                        
+                        <!-- Card 2 -->
+                        <div class="card c2">
+                            <div class="img"></div>
+                            <p>Image 7</p>
+                            <span>ref2</span>
+                        </div>
+                        <div class="cardb cb2"></div>
+                        
+                        <!-- Card 3 -->
+                        <div class="card c3">
+                            <div class="img"></div>
+                            <p>Image 6</p>
+                            <span>ref3</span>
+                        </div>
+                        <div class="cardb cb3"></div>
+                        
+                        <!-- Card 4 -->
+                        <div class="card c4">
+                            <div class="img"></div>
+                            <p>Image 5</p>
+                            <span>ref4</span>
+                        </div>
+                        <div class="cardb cb4"></div>
+                        
+                        <!-- Card 5 -->
+                        <div class="card c5">
+                            <div class="img"></div>
+                            <p>Image 4</p>
+                            <span>ref5</span>
+                        </div>
+                        <div class="cardb cb5"></div>
+                        
+                        <!-- Card 6 -->
+                        <div class="card c6">
+                            <div class="img"></div>
+                            <p>Image 3</p>
+                            <span>ref6</span>
+                        </div>
+                        <div class="cardb cb6"></div>
+                        
+                        <!-- Card 7 -->
+                        <div class="card c7">
+                            <div class="img"></div>
+                            <p>Image 2</p>
+                            <span>ref7</span>
+                        </div>
+                        <div class="cardb cb7"></div>
+                        
+                        <!-- Card 8 -->
+                        <div class="card c8">
+                            <div class="img"></div>
+                            <p>Image 1</p>
+                            <span>ref8</span>
+                        </div>
+                        <div class="cardb cb8"></div>
+                    </div>
+                    
+                    <button class="btn btn-primary">Reference</button>
+                </div>
+            </section>
+
+
+
+
+
+
+
+/* 3D Carousel Section */
+.refsection {
+    padding-block: var(--section-padding);
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(#617e11, #98c41c,#617e11);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.carousel {
+    transform: perspective(1000px) rotateX(80deg);
+    transform-style: preserve-3d;
+    display: grid;
+    place-items: center;
+    animation: rotate 90s linear infinite;
+    transition: all 1s;
+    background-image: radial-gradient(circle at 50% 50%, #617e11 30%, transparent 40%);
+    height: 500px;
+    margin: 50px 0;
+    margin-top: 10%;
+    padding-bottom: 8%;
+}
+
+.carousel:hover {
+    animation-play-state: paused;
+}
+
+.cardb {
+    display: grid;
+    place-items: center;
+    width: 225px;
+    height: 260px;
+    background-color: #08246c;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.card {
+    display: grid;
+    place-items: center;
+    width: 225px;
+    height: 260px;
+    background-color: var(--united-nations-blue);;
+    position: absolute;
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    border-radius: 5px;
+    -webkit-box-reflect: below 3px linear-gradient(transparent 75%, rgba(255,255,255,.125));
+}
+
+.card .img {
+    width: 180px;
+    height: 100px;
+    border-radius: 3px;
+    margin-bottom: -10px;
+    filter: brightness(.7);
+    background-size: cover;
+    background-position: center;
+}
+
+.card p {
+    font-size: 20px;
+    margin-bottom: -5px;
+}
+
+.card span {
+    font-size: 12px;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Position each card in 3D space */
+.c1 { transform: rotateZ(45deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c2 { transform: rotateZ(90deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c3 { transform: rotateZ(135deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c4 { transform: rotateZ(180deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c5 { transform: rotateZ(225deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c6 { transform: rotateZ(270deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c7 { transform: rotateZ(315deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+.c8 { transform: rotateZ(360deg) rotateX(90deg) translateY(120px) translateZ(420px) rotateZ(180deg); }
+
+/* Position each card background */
+.cb1 { transform: rotateZ(45deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb2 { transform: rotateZ(90deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb3 { transform: rotateZ(135deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb4 { transform: rotateZ(180deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb5 { transform: rotateZ(225deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb6 { transform: rotateZ(270deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb7 { transform: rotateZ(315deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+.cb8 { transform: rotateZ(360deg) rotateX(90deg) translateY(120px) translateZ(419px); }
+
+/* Set images for each card */
+.c1 .img { background-image: url('https://i.postimg.cc/fRNkQ8MC/popular-1.jpg'); }
+.c2 .img { background-image: url('https://i.postimg.cc/Nj9DZffm/popular-2.jpg'); }
+.c3 .img { background-image: url('https://i.postimg.cc/Hkwcrf6F/popular-3.jpg'); }
+.c4 .img { background-image: url('https://picsum.photos/300/300.webp?random=4'); }
+.c5 .img { background-image: url('https://picsum.photos/300/300.webp?random=5'); }
+.c6 .img { background-image: url('https://picsum.photos/300/300.webp?random=6'); }
+.c7 .img { background-image: url('https://picsum.photos/300/300.webp?random=7'); }
+.c8 .img { background-image: url('https://picsum.photos/300/300.webp?random=8'); }
+
+@keyframes rotate {
+    to {
+        transform: perspective(1000px) rotateX(80deg) rotateZ(360deg);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .carousel {
+        transform: perspective(1000px) rotateX(90deg) scale(0.7);
+    }
+}
+
+
+
+
+
+
+
+
+/* ///////////*/
+var tabs = $('.tabs');
+var selector = $('.tabs').find('a').length;
+//var selector = $(".tabs").find(".selector");
+var activeItem = tabs.find('.active');
+var activeWidth = activeItem.innerWidth();
+$(".selector").css({
+  "left": activeItem.position.left + "px", 
+  "width": activeWidth + "px"
+});
+
+$(".tabs").on("click","a",function(e){
+  e.preventDefault();
+  $('.tabs a').removeClass("active");
+  $(this).addClass('active');
+  var activeWidth = $(this).innerWidth();
+  var itemPos = $(this).position();
+  $(".selector").css({
+    "left":itemPos.left + "px", 
+    "width": activeWidth + "px"
+  });
+});
+
+
+
