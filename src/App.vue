@@ -1,24 +1,17 @@
 <template>
-  <div id="top">
-    <AppHeader />
-    <router-view />
-    <AppFooter />
-  </div>
+  <v-app>
+    <SiteHeader />
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
-import AppFooter from './components/AppFooter.vue'
+import SiteHeader from './components/SiteHeader.vue'
 
 export default {
   name: 'App',
-  components: {
-    AppHeader,
-    AppFooter
-  }
+  components: { SiteHeader }
 }
 </script>
-
-<style>
-/* Global styles are imported in main.js */
-</style>
