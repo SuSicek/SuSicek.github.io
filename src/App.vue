@@ -4,14 +4,16 @@
     <v-main>
       <router-view />
     </v-main>
+    <SiteFooter />
   </v-app>
 </template>
 
 <script>
 import SiteHeader from './components/SiteHeader.vue'
+import SiteFooter from './components/SiteFooter.vue'
 
 export default {
   name: 'App',
-  components: { SiteHeader }
+  components: { SiteHeader, SiteFooter }
 }
 </script>

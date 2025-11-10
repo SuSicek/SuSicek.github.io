@@ -1,0 +1,402 @@
+<template>
+  <section class="contact-section">
+    <!-- Hero / Intro with image background -->
+    <v-sheet class="contact-hero">
+      <v-img :src="contactHero" cover class="contact-hero-bg" />
+      <div class="contact-hero-overlay"></div>
+      <v-container class="contact-container position-relative hero-content">
+        <v-row align="center">
+          <v-col cols="12" md="7" class="pr-md-8 d-flex align-center">
+            <div class="text-content">
+              <h1 class="contact-title text-h4 text-md-h3 mb-4 font-weight-bold">Spojte se s námi</h1>
+              <p class="contact-sub text-subtitle-1 mb-6">Máte dotazy k našim službám v oblasti energetiky, TZB nebo stavebnictví? Ozvěte se – odpovíme obvykle do jednoho pracovního dne.</p>
+              <div class="d-flex align-center flex-wrap gap-4">
+                <div class="contact-chip d-flex align-center">
+                  <v-icon size="24" class="mr-2">mdi-phone</v-icon>
+                  <span>+420 123 456 789</span>
+                </div>
+                <div class="contact-chip d-flex align-center">
+                  <v-icon size="24" class="mr-2">mdi-email</v-icon>
+                  <span>info@uchytil.cz</span>
+                </div>
+                <div class="contact-chip d-flex align-center">
+                  <v-icon size="24" class="mr-2">mdi-map-marker</v-icon>
+                  <span>Brno, Česká republika</span>
+                </div>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" md="5" class="mt-8 mt-md-0">
+            <v-card elevation="4" class="pa-4 pa-md-5 contact-form-card contact-form-compact">
+              <h2 class="text-h6 mb-3">Napište nám</h2>
+              <v-form @submit.prevent="submit" ref="formRef">
+                <v-text-field v-model="form.name" label="Jméno" :rules="[rules.required]" variant="outlined" density="compact" class="mb-2" />
+                <v-text-field v-model="form.email" label="E‑mail" :rules="[rules.required, rules.email]" variant="outlined" density="compact" class="mb-2" />
+                <v-text-field v-model="form.phone" label="Telefon" variant="outlined" density="compact" class="mb-2" />
+                <v-select v-model="form.topic" :items="topics" label="Téma" variant="outlined" density="compact" class="mb-2" />
+                <v-textarea v-model="form.message" label="Zpráva" :rules="[rules.required]" rows="3" variant="outlined" class="mb-3" />
+                <v-checkbox v-model="form.agree" :rules="[rules.mustAgree]" label="Souhlasím se zpracováním údajů" density="compact" hide-details class="mb-3" />
+                <v-btn type="submit" color="primary" :disabled="submitting" :loading="submitting" block class="mb-1">Odeslat</v-btn>
+                <v-expand-transition>
+                  <div v-if="submitted" class="success-msg mt-2">Děkujeme, zpráva byla připravena k odeslání.</div>
+                </v-expand-transition>
+              </v-form>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
+
+    <!-- Leadership contacts -->
+    <v-container class="py-12 contact-container">
+      <v-row justify="center" class="mb-6">
+        <v-col cols="12" class="text-center">
+          <h2 class="text-h5 text-md-h4 font-weight-bold">Vedení společnosti</h2>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="12" md="4">
+          <v-card class="leadership-card" elevation="3">
+            <v-card-text class="text-center pa-6">
+              <v-icon size="56" class="mb-3 text-primary">mdi-account-tie</v-icon>
+              <h3 class="text-h6 font-weight-bold mb-1">Josef UCHYTIL</h3>
+              <p class="text-body-2 text-medium-emphasis mb-0">Statutární zástupce – jednatel</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-card class="leadership-card" elevation="3">
+            <v-card-text class="text-center pa-6">
+              <v-icon size="56" class="mb-3 text-primary">mdi-account-tie</v-icon>
+              <h3 class="text-h6 font-weight-bold mb-1">Ing. Richard ŠTĚPÁN</h3>
+              <p class="text-body-2 text-medium-emphasis mb-0">Ředitel společnosti</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-card class="leadership-card" elevation="3">
+            <v-card-text class="text-center pa-6">
+              <v-icon size="56" class="mb-3 text-primary">mdi-account</v-icon>
+              <h3 class="text-h6 font-weight-bold mb-1">Šárka ZÁBRŠOVÁ</h3>
+              <p class="text-body-2 text-medium-emphasis mb-2">Asistentka ředitele</p>
+              <div class="contact-details mt-3">
+                <div class="d-flex align-center justify-center mb-1">
+                  <v-icon size="18" class="mr-2">mdi-email</v-icon>
+                  <a href="mailto:sarka.zabrsova@uchytil.eu" class="text-body-2">sarka.zabrsova@uchytil.eu</a>
+                </div>
+                <div class="d-flex align-center justify-center">
+                  <v-icon size="18" class="mr-2">mdi-phone</v-icon>
+                  <a href="tel:545423211" class="text-body-2">545 423 211</a>
+                </div>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Division contacts with tabs -->
+    <v-sheet class="division-contacts-section">
+      <v-img :src="divisionBg" cover class="division-bg" />
+      <div class="division-overlay"></div>
+      <v-container class="py-12 contact-container position-relative">
+        <v-row justify="center" class="mb-6">
+          <v-col cols="12" class="text-center">
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2 division-title">Kontakty na oddělení</h2>
+            <p class="text-body-1 division-subtitle">Vyberte si oddělení a spojte se přímo s odpovědnou osobou</p>
+          </v-col>
+        </v-row>
+      <v-row>
+        <v-col cols="12">
+          <v-tabs v-model="activeTab" bg-color="transparent" color="primary" align-tabs="center" class="mb-6">
+            <v-tab value="energetika">
+              <v-icon start>mdi-lightning-bolt</v-icon>
+              Energetika
+            </v-tab>
+            <v-tab value="tzb">
+              <v-icon start>mdi-pipe</v-icon>
+              TZB
+            </v-tab>
+            <v-tab value="stavba">
+              <v-icon start>mdi-office-building</v-icon>
+              Stavebnictví
+            </v-tab>
+          </v-tabs>
+
+          <v-window v-model="activeTab">
+            <!-- Energetika tab -->
+            <v-window-item value="energetika">
+              <v-row>
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.energetika" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+
+            <!-- TZB tab -->
+            <v-window-item value="tzb">
+              <v-row>
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.tzb" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+
+            <!-- Stavba tab -->
+            <v-window-item value="stavba">
+              <v-row>
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.stavba" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+          </v-window>
+        </v-col>
+      </v-row>
+      </v-container>
+    </v-sheet>
+
+    <!-- Map / location placeholder -->
+    <div class="map-wrapper">
+      <v-container class="contact-container">
+        <v-row>
+          <v-col cols="12">
+            <v-card elevation="3" class="overflow-hidden">
+              <div class="map-embed" aria-label="Mapa firmy">
+                <!-- Replace this placeholder with actual map iframe when ready -->
+                <div class="map-placeholder d-flex align-center justify-center flex-column">
+                  <v-icon size="48" class="mb-2 text-primary">mdi-map</v-icon>
+                  <p class="text-body-2 mb-0">Mapa místa (bude doplněna)</p>
+                </div>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+// Contact hero background image (easy to change)
+const contactHero = ref('/fotky/energetika.png')
+// Division section background image
+const divisionBg = ref('/fotky/references/back.png')
+
+const formRef = ref(null)
+const submitting = ref(false)
+const submitted = ref(false)
+const topics = ['Dotaz', 'Energetika', 'TZB', 'Stavebnictví', 'Kariéra']
+
+// Division tabs
+const activeTab = ref('energetika')
+
+// Division contacts data (placeholder - replace with real data)
+const divisionContacts = ref({
+  energetika: [
+    { name: 'Jan NOVÁK', role: 'Vedoucí divize Energetika', email: 'jan.novak@uchytil.eu', phone: '545 423 212' },
+    { name: 'Petr DVOŘÁK', role: 'Projektant FVE', email: 'petr.dvorak@uchytil.eu', phone: '545 423 213' },
+    { name: 'Marie SVOBODOVÁ', role: 'Technik Energetika', email: 'marie.svobodova@uchytil.eu', phone: '545 423 214' }
+  ],
+  tzb: [
+    { name: 'Tomáš PROCHÁZKA', role: 'Vedoucí oddělení TZB', email: 'tomas.prochazka@uchytil.eu', phone: '545 423 215' },
+    { name: 'Lucie ČERNÁ', role: 'Projektantka TZB', email: 'lucie.cerna@uchytil.eu', phone: '545 423 216' },
+    { name: 'Pavel VESELÝ', role: 'Technický specialista', email: 'pavel.vesely@uchytil.eu', phone: '545 423 217' }
+  ],
+  stavba: [
+    { name: 'Martin KUČERA', role: 'Vedoucí oddělení Stavebnictví', email: 'martin.kucera@uchytil.eu', phone: '545 423 218' },
+    { name: 'Jana HORÁKOVÁ', role: 'Stavbyvedoucí', email: 'jana.horakova@uchytil.eu', phone: '545 423 219' },
+    { name: 'David MAREK', role: 'Projektový manažer', email: 'david.marek@uchytil.eu', phone: '545 423 220' }
+  ]
+})
+
+const form = ref({
+  name: '',
+  email: '',
+  phone: '',
+  topic: '',
+  message: '',
+  agree: false
+})
+
+const rules = {
+  required: v => !!v || 'Povinné pole',
+  email: v => /.+@.+\..+/.test(v) || 'Neplatný e‑mail',
+  mustAgree: v => v || 'Musíte souhlasit'
+}
+
+const submit = async () => {
+  if (!formRef.value) return
+  const valid = await formRef.value.validate()
+  if (!valid) return
+  submitting.value = true
+  // Simulate send
+  setTimeout(() => {
+    submitting.value = false
+    submitted.value = true
+    // mailto fallback (could open email client)
+    const mailto = `mailto:info@uchytil.cz?subject=${encodeURIComponent('Webový dotaz - ' + (form.value.topic || 'Obecný'))}&body=${encodeURIComponent(form.value.message + '\n\nJméno: ' + form.value.name + '\nTelefon: ' + form.value.phone)}`
+    // window.location.href = mailto // Uncomment to actually trigger the mail client
+  }, 800)
+}
+</script>
+
+<style scoped>
+.contact-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fb 60%, #f2f5f9 100%);
+}
+.contact-hero { position: relative; overflow: hidden; }
+.contact-hero-bg { position: absolute; inset: 0; filter: brightness(0.55); }
+.contact-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)); }
+.contact-title { color:#fff; }
+.contact-sub { color:#e5edf5; }
+.contact-container {
+  width: 75%;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+@media (max-width: 1280px){
+  .contact-container { width: 92%; }
+}
+@media (max-width: 960px){
+  .contact-container { width: 100%; }
+}
+.contact-chip {
+  background: #0c2b68;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 32px;
+  font-size: 0.9rem;
+}
+.contact-form-card {
+  border-radius: 18px;
+}
+.contact-form-compact {
+  max-width: 420px;
+}
+.success-msg {
+  color: #0c7e43;
+  font-weight: 600;
+}
+.leadership-card {
+  border-radius: 16px;
+  transition: box-shadow .25s ease, transform .25s ease;
+  height: 100%;
+}
+.leadership-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+}
+.leadership-card .contact-details a {
+  color: #2256A1;
+  text-decoration: none;
+}
+.leadership-card .contact-details a:hover {
+  text-decoration: underline;
+}
+.division-contacts-section {
+  position: relative;
+  overflow: hidden;
+}
+.division-bg {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.5);
+}
+.division-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45));
+}
+.division-title {
+  color: #fff;
+}
+.division-subtitle {
+  color: #e5edf5;
+}
+.division-contacts-section :deep(.v-tab) {
+  color: rgba(255,255,255,0.85);
+}
+.division-contacts-section :deep(.v-tab--selected) {
+  color: #fff;
+}
+.division-card {
+  border-radius: 14px;
+  transition: box-shadow .25s ease, transform .25s ease;
+  height: 100%;
+  background: rgba(255,255,255,0.96);
+}
+.division-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.12);
+}
+.division-card .contact-details a {
+  color: #2256A1;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+.division-card .contact-details a:hover {
+  text-decoration: underline;
+}
+.map-wrapper {
+  padding: 0 0 80px;
+}
+.map-embed { height: 340px; }
+.map-placeholder { height: 100%; background: repeating-linear-gradient(45deg,#eef2f7,#eef2f7 10px,#e3e8ef 10px,#e3e8ef 20px); }
+
+/* Hero content spacing - more space on top */
+.hero-content {
+  padding-top: clamp(96px, 15vh, 140px);
+  padding-bottom: clamp(48px, 8vh, 80px);
+}
+</style>

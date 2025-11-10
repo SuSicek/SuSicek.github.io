@@ -1,22 +1,27 @@
 <template>
   <v-app-bar
     fixed
-    :color="isAtTop ? 'transparent' : 'white'"
+    flat
     :elevation="isAtTop ? 0 : 2"
     height="96"
-    :class="['header-overlay', 'header-transition', { scrolled: !isAtTop }]"
+    :class="['header-overlay', 'header-transition', { 
+      'header-transparent': isAtTop, 
+      'header-scrolled': !isAtTop 
+    }]"
   >
-    <v-container class="py-0">
+    <v-container fluid class="py-0 px-0 header-container">
       <v-row align="center" no-gutters>
         <!-- Left: Logo -->
         <v-col cols="auto">
           <RouterLink to="/">
             <v-img
-              src="/fotky/logo.png"
+              :src="logoSrc"
               alt="UCHYTIL s.r.o."
               width="180"
               height="64"
               class="my-2 logo-img"
+              :class="{ 'logo-fade': true }"
+              @error="onLogoError"
             />
           </RouterLink>
         </v-col>
@@ -88,23 +93,60 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const drawer = ref(false)
 const isAtTop = ref(true)
+const whiteLogoError = ref(false)
+const blueLogoError = ref(false)
+
+// Compute logo source: white logo on transparent (top), blue logo on scrolled.
+// If a variant is missing, fall back to the default colored logo.
+const logoSrc = computed(() => {
+  if (isAtTop.value) {
+    return whiteLogoError.value ? '/fotky/logo.png' : '/fotky/logo-white.png'
+  } else {
+    return blueLogoError.value ? '/fotky/logo.png' : '/fotky/logo.blue.png'
+  }
+})
+
+const onLogoError = () => {
+  // Mark the currently intended variant as failed and fall back automatically
+  if (isAtTop.value) {
+    whiteLogoError.value = true
+  } else {
+    blueLogoError.value = true
+  }
+}
 
 const onScroll = () => {
-  isAtTop.value = (window.scrollY || window.pageYOffset) < 80
+  isAtTop.value = (window.scrollY || window.pageYOffset) < 50
+}
+
+const updateRootClass = () => {
+  const cls = 'header-at-top'
+  const root = document.documentElement
+  if (isAtTop.value) {
+    root.classList.add(cls)
+  } else {
+    root.classList.remove(cls)
+  }
 }
 
 onMounted(() => {
   onScroll()
+  updateRootClass()
   window.addEventListener('scroll', onScroll, { passive: true })
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
+  document.documentElement.classList.remove('header-at-top')
+})
+
+watch(isAtTop, () => {
+  updateRootClass()
 })
 </script>
 
@@ -112,16 +154,116 @@ onBeforeUnmount(() => {
 .header-overlay {
   z-index: 10000;
 }
+
 .header-transition {
-  transition: background-color 160ms ease, box-shadow 160ms ease;
+  transition: all 300ms ease;
 }
-.header-overlay:not(.scrolled) {
+
+/* Transparent state - completely remove any background */
+.header-overlay.header-transparent {
   background-color: transparent !important;
   background-image: none !important;
+  background: transparent !important;
   box-shadow: none !important;
   border: none !important;
 }
+
+.header-overlay.header-transparent :deep(.v-toolbar__content) {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.header-overlay.header-transparent :deep(.v-app-bar) {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+}
+
+.header-overlay.header-transparent::before,
+.header-overlay.header-transparent::after {
+  display: none !important;
+}
+
+.header-overlay.header-transparent :deep(.v-theme--light),
+.header-overlay.header-transparent :deep(.v-theme--dark) {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+}
+
+/* Override any Vuetify theme colors */
+.header-overlay.header-transparent :deep(*) {
+  background-color: transparent !important;
+}
+
+/* Scrolled state - white background */
+.header-overlay.header-scrolled {
+  background-color: white !important;
+  background: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.header-overlay.header-scrolled :deep(.v-toolbar__content) {
+  background-color: white !important;
+  background: white !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Slight inset width for header content */
+.header-container {
+  width: 75%; /* slightly shorter than previous 92% */
+  max-width: 1800px; /* tighten max width a bit */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+  .header-container { width: 92%; }
+}
+
+@media (max-width: 960px) {
+  .header-container { width: 100%; }
+}
+
+/* Legacy support for old class names */
+.header-overlay:not(.scrolled) {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 .header-overlay.scrolled {
-  background-color: #ffffff !important;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Logo transition */
+.logo-img.logo-fade {
+  transition: opacity 300ms ease, filter 300ms ease;
+}
+
+/* If you choose a single colored logo and want it to appear white at top without separate asset,
+   uncomment the filter rule below instead of providing /fotky/logo-white.png
+   .header-overlay.header-transparent .logo-img { filter: brightness(0) invert(1); } */
+</style>
+
+<style>
+/* When header is at top, remove Vuetify layout's reserved top space and background
+   so content (e.g., hero) can sit behind the transparent header. */
+.header-at-top .v-main {
+  /* Remove top offset reserved for app-bar */
+  --v-layout-top: 0px !important;
+  background-color: transparent !important;
+}
+
+.header-at-top .v-application,
+.header-at-top .v-application--wrap {
+  background-color: transparent !important;
 }
 </style>
