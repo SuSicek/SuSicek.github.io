@@ -15,13 +15,43 @@
     <v-container class="py-6 about-container">
       <v-row class="mb-4" align="center">
         <v-col cols="12" md="4">
-          <v-text-field v-model="search" prepend-inner-icon="mdi-magnify" label="Hledat" dense hide-details clearable></v-text-field>
+          <v-text-field 
+            v-model="search" 
+            prepend-inner-icon="mdi-magnify" 
+            label="Hledat" 
+            dense 
+            hide-details 
+            clearable
+            variant="solo"
+            flat
+            class="filter-input"
+          ></v-text-field>
         </v-col>
         <v-col cols="12" md="4">
-          <v-select v-model="selectedDivision" :items="divisionItems" label="Divize" dense hide-details clearable></v-select>
+          <v-select 
+            v-model="selectedDivision" 
+            :items="divisionItems" 
+            label="Divize" 
+            dense 
+            hide-details 
+            clearable
+            variant="solo"
+            flat
+            class="filter-input"
+          ></v-select>
         </v-col>
         <v-col cols="12" md="4">
-          <v-select v-model="selectedYear" :items="yearItems" label="Rok" dense hide-details clearable></v-select>
+          <v-select 
+            v-model="selectedYear" 
+            :items="yearItems" 
+            label="Rok" 
+            dense 
+            hide-details 
+            clearable
+            variant="solo"
+            flat
+            class="filter-input"
+          ></v-select>
         </v-col>
       </v-row>
     </v-container>
@@ -63,90 +93,76 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useReferences, divisionKeyToName } from '../composables/useReferences'
 
-// Mock reference data – replace with API integration later
-const references = ref([
-  {
-    id: 1,
-    title: 'Administrativní centrum Delta',
-    division: 'Stavba',
-    year: 2024,
-    image: '/fotky/stavba.png',
-    short: 'Komplexní výstavba admin centra, 8 000 m² podlahové plochy.'
-  },
-  {
-    id: 2,
-    title: 'Modernizace kotelny EnergoPlant',
-    division: 'Energetika',
-    year: 2023,
-    image: '/fotky/energetika.png',
-    short: 'Instalace vysoce účinných kotlů a optimalizace distribuce.'
-  },
-  {
-    id: 3,
-    title: 'Rekonstrukce retail parku Jih',
-    division: 'Stavba',
-    year: 2022,
-    image: '/fotky/prodejna.png',
-    short: 'Kompletní rekonstrukce objektu a technických systémů.'
-  },
-  {
-    id: 4,
-    title: 'Instalace HVAC systému TechLabs',
-    division: 'TZB',
-    year: 2024,
-    image: '/fotky/energetika.png',
-    short: 'Kompletní dodávka vzduchotechniky a řízení klimatu.'
-  },
-  {
-    id: 5,
-    title: 'Výstavba logistického centra NorthHub',
-    division: 'Stavba',
-    year: 2023,
-    image: '/fotky/kontejner.png',
-    short: 'Novostavba haly, administrativy a technologií.'
-  },
-  {
-    id: 6,
-    title: 'FVE a bateriové úložiště EcoSite',
-    division: 'Energetika',
-    year: 2024,
-    image: '/fotky/energetika.png',
-    short: 'Hybridní systém výroby a akumulace elektrické energie.'
-  }
-])
+// Shared references source
+const { references } = useReferences()
 
 // Filters
 const search = ref('')
 const selectedDivision = ref(null)
 const selectedYear = ref(null)
 
-const divisionItems = ['Stavba', 'Energetika', 'TZB']
-const yearItems = Array.from(new Set(references.value.map(r => r.year))).sort((a,b) => b-a)
+const divisionItems = computed(() => ['Všechny', ...Array.from(new Set(references.value.map(r => r.division)))])
+const yearItems = computed(() => Array.from(new Set(references.value.map(r => r.year))).sort((a,b) => b-a))
 
 // Pagination
 const page = ref(1)
 const perPage = 6
 
 const filtered = computed(() => {
-  return references.value.filter(r => {
-    return (
-      (!search.value || r.title.toLowerCase().includes(search.value.toLowerCase())) &&
-      (!selectedDivision.value || r.division === selectedDivision.value) &&
-      (!selectedYear.value || r.year === selectedYear.value)
-    )
-  })
+  return references.value.filter(r => (
+    (!search.value || r.title.toLowerCase().includes(search.value.toLowerCase())) &&
+    (!selectedDivision.value || selectedDivision.value === 'Všechny' || r.division === selectedDivision.value) &&
+    (!selectedYear.value || r.year === selectedYear.value)
+  ))
 })
 
 const pages = computed(() => Math.max(1, Math.ceil(filtered.value.length / perPage)))
-
 const pagedReferences = computed(() => {
   const start = (page.value - 1) * perPage
   return filtered.value.slice(start, start + perPage)
 })
 
-// Reset page on filter change
 watch([search, selectedDivision, selectedYear], () => { page.value = 1 })
+
+// Preselect division from query (?division=Stavba or ?division=stavba)
+const route = useRoute()
+const router = useRouter()
+
+const applyDivisionFromQuery = () => {
+  const q = route.query.division
+  if (!q || Array.isArray(q)) return
+  const raw = q.toString().toLowerCase()
+  if (['all','vse','vsechny'].includes(raw)) {
+    selectedDivision.value = 'Všechny'
+    return
+  }
+  let candidate = q
+  const slug = raw
+  if (['energetika', 'stavba', 'tzb'].includes(slug)) {
+    candidate = divisionKeyToName(slug)
+  }
+  if (divisionItems.value.includes(candidate)) {
+    selectedDivision.value = candidate
+  }
+}
+
+watch(() => route.query.division, applyDivisionFromQuery, { immediate: true })
+
+// When user picks 'Všechny', remove division from query for clean URL
+watch(selectedDivision, (val) => {
+  if (val === 'Všechny') {
+    if (route.query.division) {
+      const q = { ...route.query }
+      delete q.division
+      router.replace({ name: 'References', query: q })
+    }
+  } else if (val && route.query.division !== val) {
+    router.replace({ name: 'References', query: { ...route.query, division: val } })
+  }
+})
 </script>
 
 <style scoped>
@@ -165,6 +181,28 @@ watch([search, selectedDivision, selectedYear], () => { page.value = 1 })
 .ref-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px -6px rgba(0,0,0,0.25); }
 .ref-card .v-img__img { transition: transform .6s ease; }
 .ref-card:hover .v-img__img { transform: scale(1.06); }
+
+/* Darker blueish filter inputs - using primary color from header */
+.filter-input :deep(.v-field) {
+  background-color: #2256A1 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 8px;
+}
+.filter-input :deep(.v-field__input) {
+  color: #ffffff;
+  font-weight: 500;
+}
+.filter-input :deep(.v-label) {
+  color: #cce0f5;
+  font-weight: 500;
+}
+.filter-input :deep(.v-icon) {
+  color: #cce0f5;
+}
+.filter-input :deep(.v-field--focused .v-label),
+.filter-input :deep(.v-field--focused .v-icon) {
+  color: #ffffff;
+}
 
 @media (max-width: 960px){
   .hero-title { font-size: clamp(2rem,6vw,3rem); }

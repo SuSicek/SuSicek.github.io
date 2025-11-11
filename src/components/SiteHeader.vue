@@ -3,13 +3,13 @@
     fixed
     flat
     :elevation="isAtTop ? 0 : 2"
-    height="96"
+    height="112"
     :class="['header-overlay', 'header-transition', { 
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
     }]"
   >
-    <v-container fluid class="py-0 px-0 header-container">
+  <v-container fluid class="py-0 px-0 header-container">
       <v-row align="center" no-gutters>
         <!-- Left: Logo -->
         <v-col cols="auto">
@@ -17,8 +17,8 @@
             <v-img
               :src="logoSrc"
               alt="UCHYTIL s.r.o."
-              width="180"
-              height="64"
+              width="220"
+              height="78"
               class="my-2 logo-img"
               :class="{ 'logo-fade': true }"
               @error="onLogoError"
@@ -50,13 +50,16 @@
                 <v-btn v-bind="props" variant="text" :color="isAtTop ? 'white' : 'primary'" append-icon="mdi-chevron-down">Naše služby</v-btn>
               </template>
               <v-list>
-                <v-list-item :to="{ name: 'Division', params: { division: 'energetika' } }" title="Energetika" />
-                <v-list-item :to="{ name: 'Division', params: { division: 'prumysl' } }" title="TZB" />
-                <v-list-item :to="{ name: 'Division', params: { division: 'stavebnictvi' } }" title="Stavebnictví" />
+                <v-list-item
+                  v-for="divKey in divisionOrder"
+                  :key="divKey"
+                  :title="divisions[divKey].title"
+                  :to="{ name: 'Division', params: { division: divKey } }"
+                />
+                <v-divider class="my-1" />
                 <v-list-item :to="{ name: 'Eshop' }" title="E‑shop" />
               </v-list>
             </v-menu>
-            <v-divider v-if="!isAtTop" vertical class="mx-2" :color="'grey-darken-1'" />
             <v-btn variant="text" :color="isAtTop ? 'white' : 'primary'" :to="{ name: 'AboutUs' }">O nás</v-btn>
             <v-btn variant="text" :color="isAtTop ? 'white' : 'primary'" :to="{ name: 'References' }">Reference</v-btn>
             <v-btn variant="text" :color="isAtTop ? 'white' : 'primary'" :to="{ name: 'Career' }">Kariéra</v-btn>
@@ -79,9 +82,12 @@
         <template #activator="{ props }">
           <v-list-item v-bind="props" title="Naše služby" />
         </template>
-        <v-list-item :to="{ name: 'Division', params: { division: 'energetika' } }" title="Energetika" />
-        <v-list-item :to="{ name: 'Division', params: { division: 'prumysl' } }" title="TZB" />
-        <v-list-item :to="{ name: 'Division', params: { division: 'stavebnictvi' } }" title="Stavebnictví" />
+        <v-list-item
+          v-for="divKey in divisionOrder"
+          :key="divKey"
+          :title="divisions[divKey].title"
+          :to="{ name: 'Division', params: { division: divKey } }"
+        />
         <v-list-item :to="{ name: 'Eshop' }" title="E‑shop" />
       </v-list-group>
       <v-list-item :to="{ name: 'AboutUs' }" title="O nás" />
@@ -95,6 +101,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { divisions, divisionOrder } from '../data/divisions'
 
 const drawer = ref(false)
 const isAtTop = ref(true)

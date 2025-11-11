@@ -108,16 +108,16 @@
         </v-row>
       <v-row>
         <v-col cols="12">
-          <v-tabs v-model="activeTab" bg-color="transparent" color="primary" align-tabs="center" class="mb-6">
-            <v-tab value="energetika">
+          <v-tabs v-model="activeTab" bg-color="transparent" color="white" align-tabs="center" class="mb-6 division-tabs">
+            <v-tab value="energetika" class="division-tab">
               <v-icon start>mdi-lightning-bolt</v-icon>
               Energetika
             </v-tab>
-            <v-tab value="tzb">
+            <v-tab value="tzb" class="division-tab">
               <v-icon start>mdi-pipe</v-icon>
               TZB
             </v-tab>
-            <v-tab value="stavba">
+            <v-tab value="stavba" class="division-tab">
               <v-icon start>mdi-office-building</v-icon>
               Stavebnictví
             </v-tab>
@@ -204,20 +204,137 @@
       </v-container>
     </v-sheet>
 
-    <!-- Map / location placeholder -->
+    <!-- Map / location with tabs -->
     <div class="map-wrapper">
-      <v-container class="contact-container">
+      <v-container class="contact-container py-8">
+        <v-row justify="center" class="mb-4">
+          <v-col cols="12" class="text-center">
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Naše pobočky</h2>
+            <p class="text-body-1">Vyberte si pobočku a najděte nás na mapě</p>
+          </v-col>
+        </v-row>
         <v-row>
           <v-col cols="12">
-            <v-card elevation="3" class="overflow-hidden">
-              <div class="map-embed" aria-label="Mapa firmy">
-                <!-- Replace this placeholder with actual map iframe when ready -->
-                <div class="map-placeholder d-flex align-center justify-center flex-column">
-                  <v-icon size="48" class="mb-2 text-primary">mdi-map</v-icon>
-                  <p class="text-body-2 mb-0">Mapa místa (bude doplněna)</p>
-                </div>
-              </div>
-            </v-card>
+            <v-tabs v-model="activeLocation" bg-color="white" color="primary" align-tabs="center" class="mb-4">
+              <v-tab value="brno">
+                <v-icon start>mdi-map-marker</v-icon>
+                Brno
+              </v-tab>
+              <v-tab value="hodonin">
+                <v-icon start>mdi-map-marker</v-icon>
+                Hodonín
+              </v-tab>
+              <v-tab value="zdar">
+                <v-icon start>mdi-map-marker</v-icon>
+                Žďár nad Sázavou
+              </v-tab>
+              <v-tab value="zdar-prodejna">
+                <v-icon start>mdi-store</v-icon>
+                Žďár - prodejna
+              </v-tab>
+            </v-tabs>
+
+            <v-window v-model="activeLocation">
+              <!-- Brno -->
+              <v-window-item value="brno">
+                <v-card elevation="3" class="overflow-hidden">
+                  <div class="map-embed" aria-label="Mapa pobočky Brno">
+                    <iframe 
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=K+Terminálu+7,+619+00+Brno&zoom=15" 
+                      width="100%" 
+                      height="100%" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Mapa pobočky Brno"
+                    ></iframe>
+                  </div>
+                  <v-card-text class="pa-4">
+                    <h3 class="text-h6 font-weight-bold mb-2">Pobočka Brno</h3>
+                    <div class="d-flex align-center mb-1">
+                      <v-icon size="18" class="mr-2">mdi-map-marker</v-icon>
+                      <span>K Terminálu 7, 619 00 Brno</span>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-window-item>
+
+              <!-- Hodonín -->
+              <v-window-item value="hodonin">
+                <v-card elevation="3" class="overflow-hidden">
+                  <div class="map-embed" aria-label="Mapa pobočky Hodonín">
+                    <iframe 
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=U+Elektrárny+1,+695+01+Hodonín&zoom=15" 
+                      width="100%" 
+                      height="100%" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Mapa pobočky Hodonín"
+                    ></iframe>
+                  </div>
+                  <v-card-text class="pa-4">
+                    <h3 class="text-h6 font-weight-bold mb-2">Pobočka Hodonín</h3>
+                    <div class="d-flex align-center mb-1">
+                      <v-icon size="18" class="mr-2">mdi-map-marker</v-icon>
+                      <span>U Elektrárny 1, 695 01 Hodonín</span>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-window-item>
+
+              <!-- Žďár nad Sázavou -->
+              <v-window-item value="zdar">
+                <v-card elevation="3" class="overflow-hidden">
+                  <div class="map-embed" aria-label="Mapa pobočky Žďár nad Sázavou">
+                    <iframe 
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Brněnská+41,+591+01+Žďár+nad+Sázavou&zoom=15" 
+                      width="100%" 
+                      height="100%" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Mapa pobočky Žďár nad Sázavou"
+                    ></iframe>
+                  </div>
+                  <v-card-text class="pa-4">
+                    <h3 class="text-h6 font-weight-bold mb-2">Pobočka Žďár nad Sázavou</h3>
+                    <div class="d-flex align-center mb-1">
+                      <v-icon size="18" class="mr-2">mdi-map-marker</v-icon>
+                      <span>Brněnská 41, 591 01 Žďár nad Sázavou</span>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-window-item>
+
+              <!-- Žďár - prodejna -->
+              <v-window-item value="zdar-prodejna">
+                <v-card elevation="3" class="overflow-hidden">
+                  <div class="map-embed" aria-label="Mapa prodejny Žďár nad Sázavou">
+                    <iframe 
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Brněnská+41,+591+01+Žďár+nad+Sázavou&zoom=15" 
+                      width="100%" 
+                      height="100%" 
+                      style="border:0;" 
+                      allowfullscreen="" 
+                      loading="lazy" 
+                      referrerpolicy="no-referrer-when-downgrade"
+                      title="Mapa prodejny Žďár nad Sázavou"
+                    ></iframe>
+                  </div>
+                  <v-card-text class="pa-4">
+                    <h3 class="text-h6 font-weight-bold mb-2">Prodejna Žďár nad Sázavou</h3>
+                    <div class="d-flex align-center mb-1">
+                      <v-icon size="18" class="mr-2">mdi-store</v-icon>
+                      <span>Brněnská 41, 591 01 Žďár nad Sázavou</span>
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-window-item>
+            </v-window>
           </v-col>
         </v-row>
       </v-container>
@@ -240,6 +357,9 @@ const topics = ['Dotaz', 'Energetika', 'TZB', 'Stavebnictví', 'Kariéra']
 
 // Division tabs
 const activeTab = ref('energetika')
+
+// Location tabs
+const activeLocation = ref('brno')
 
 // Division contacts data (placeholder - replace with real data)
 const divisionContacts = ref({
@@ -391,8 +511,8 @@ const submit = async () => {
 .map-wrapper {
   padding: 0 0 80px;
 }
-.map-embed { height: 340px; }
-.map-placeholder { height: 100%; background: repeating-linear-gradient(45deg,#eef2f7,#eef2f7 10px,#e3e8ef 10px,#e3e8ef 20px); }
+.map-embed { height: 450px; position: relative; }
+.map-embed iframe { display: block; }
 
 /* Hero content spacing - more space on top */
 .hero-content {

@@ -5,8 +5,8 @@
       <v-carousel
         v-model="currentSlide"
         height="75vh"
-        hide-delimiter-background
-        show-arrows="hover"
+        hide-delimiters
+        :show-arrows="false"
         cycle
         interval="6000"
       >
@@ -14,30 +14,31 @@
           <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
         </v-carousel-item>
       </v-carousel>
-      <div class="hero-overlay d-flex flex-column justify-center">
+      <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
-          <h1 class="slideshow-title">UCHYTIL s.r.o.</h1>
-          <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+          <h1 class="slideshow-title">UCHYTIL <span class="hero-highlight">s.r.o.</span></h1>
+          <div class="slideshow-subtitle">Stavby, které <span class="hero-highlight">fungují</span>. Partnerství, které <span class="hero-highlight">trvá</span></div>
         </div>
       </div>
     </v-sheet>
 
     <!-- Stats section -->
-    <v-container class="py-16">
-      <v-row justify="center" class="mb-8">
-        <v-col cols="12" class="text-center">
-          <h2 class="text-h4 text-md-h3 font-weight-bold">Naše čísla</h2>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="6" md="3" v-for="s in stats" :key="s.label">
-          <v-card flat class="text-center pa-6">
-            <div class="text-h4 text-md-h3 font-weight-bold text-primary mb-1">{{ s.number }}+</div>
-            <div class="text-body-1">{{ s.label }}</div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="stats-wrapper">
+      <v-sheet class="stats-section position-relative">
+        <v-img src="/fotky/kontejner.png" cover class="stats-bg" />
+        <div class="stats-overlay"></div>
+        <v-container class="py-8 position-relative">
+          <v-row>
+            <v-col cols="6" md="3" v-for="s in stats" :key="s.label">
+              <v-card flat class="text-center pa-6 stats-card">
+                <div class="text-h4 text-md-h3 mb-1 stat-number">{{ animatedStats[s.label] || 0 }}+</div>
+                <div class="text-body-1 stat-label">{{ s.label }}</div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-sheet>
+    </div>
 
     <!-- Divisions section -->
     <v-container class="py-16">
@@ -46,54 +47,86 @@
           <h2 class="text-h4 text-md-h3 font-weight-bold">Naše divize</h2>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12" md="6" lg="3" v-for="d in divisions" :key="d.title">
-          <v-card :to="d.link" class="h-100" hover>
-            <v-img :src="d.image" :alt="d.title" height="200" cover />
-            <v-card-item>
-              <v-card-title>{{ d.title }}</v-card-title>
-              <v-card-subtitle>{{ d.subtitle }}</v-card-subtitle>
-            </v-card-item>
-            <v-card-text>{{ d.description }}</v-card-text>
-          </v-card>
+      <v-row class="division-cards-row">
+        <v-col cols="12" sm="6" lg="3" v-for="d in divisions" :key="d.title" class="division-col">
+          <router-link :to="d.link" class="division-card-link">
+            <div class="division-card">
+              <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
+              <div class="division-card-overlay"></div>
+              <div class="division-card-content">
+                <h3 class="division-card-title">{{ d.title }}</h3>
+                <div class="division-card-details">
+                  <p class="division-card-subtitle">{{ d.subtitle }}</p>
+                  <p class="division-card-description">{{ d.description }}</p>
+                </div>
+              </div>
+            </div>
+          </router-link>
         </v-col>
       </v-row>
     </v-container>
 
-    <!-- References header + CTA (dark section) -->
-    <v-sheet color="#0a2742" class="py-16">
+    <!-- References section -->
+    <div class="references-wrapper">
+      <v-sheet class="references-section position-relative">
+        <v-img src="/fotky/stavba.png" cover class="references-bg" />
+        <div class="references-overlay"></div>
+        <v-container class="py-16 position-relative">
+          <v-row class="mb-8">
+            <v-col cols="12" class="text-center">
+              <h2 class="text-h4 text-md-h3 font-weight-bold text-white mb-6">Naše Reference</h2>
+            </v-col>
+          </v-row>
+          <v-row class="references-cards-row">
+            <v-col cols="12" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
+              <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.id } }" class="reference-card-link">
+                <div class="reference-card">
+                  <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" />
+                  <div class="reference-card-overlay"></div>
+                  <div class="reference-card-content">
+                    <h3 class="reference-card-title">{{ ref.title }}</h3>
+                    <div class="reference-card-details">
+                      <p class="reference-card-division">{{ ref.division }}</p>
+                      <p class="reference-card-short">{{ ref.short }}</p>
+                    </div>
+                  </div>
+                </div>
+              </router-link>
+            </v-col>
+          </v-row>
+          <v-row class="mt-8">
+            <v-col cols="12" class="text-center">
+              <v-btn color="white" variant="outlined" size="large" :to="{ name: 'References' }">
+                <v-icon start>mdi-image-multiple-outline</v-icon>
+                Zobrazit všechny reference
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-sheet>
+    </div>
+
+    <!-- Contact CTA -->
+    <v-sheet color="white" class="py-16">
       <v-container>
-        <v-row>
+        <v-row justify="center">
           <v-col cols="12" class="text-center">
-            <h2 class="text-h4 text-md-h3 font-weight-bold text-white mb-6">Reference</h2>
-            <v-btn color="white" variant="outlined" :to="{ name: 'References' }">
-              <v-icon start>mdi-image-multiple-outline</v-icon>
-              Zobrazit galerii referencí
+            <h2 class="text-h4 text-md-h3 font-weight-bold mb-4">Máte projekt?</h2>
+            <p class="text-body-1 mb-6">Kontaktujte nás a probereme společně vaše požadavky.</p>
+            <v-btn color="primary" size="large" :to="{ name: 'ContactUs' }">
+              Kontaktujte nás
             </v-btn>
           </v-col>
         </v-row>
       </v-container>
     </v-sheet>
-
-    <!-- Contact CTA -->
-    <v-container class="py-16">
-      <v-row align="center" justify="space-between">
-        <v-col cols="12" md="8">
-          <h2 class="text-h4 text-md-h3 font-weight-bold mb-2">Spojte se s námi</h2>
-          <p class="text-body-1">Rádi s vámi probereme váš projekt a navrhneme nejlepší řešení.</p>
-        </v-col>
-        <v-col cols="12" md="4" class="text-md-right">
-          <v-btn color="primary" size="large" :to="{ name: 'ContactUs' }">
-            Kontaktujte nás
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
   </div>
   
 </template>
 
 <script>
+import { useReferences } from '@/composables/useReferences'
+
 export default {
   name: 'HomeView',
   data() {
@@ -110,6 +143,13 @@ export default {
         { number: 300, label: 'Spokojených klientů' },
         { number: 120, label: 'Odborníků v týmu' }
       ],
+      animatedStats: {
+        'Let na trhu': 0,
+        'Dokončených projektů': 0,
+        'Spokojených klientů': 0,
+        'Odborníků v týmu': 0
+      },
+      hasAnimated: false,
       divisions: [
         {
           title: 'Energetika',
@@ -141,6 +181,62 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    featuredReferences() {
+      const { references } = useReferences()
+      const divisions = ['Energetika', 'Stavba', 'TZB']
+      const featured = []
+      
+      divisions.forEach(division => {
+        const divRefs = references.value
+          .filter(r => r.division === division)
+          .sort((a, b) => b.year - a.year)
+        if (divRefs.length > 0) {
+          featured.push(divRefs[0])
+        }
+      })
+      
+      return featured
+    }
+  },
+  mounted() {
+    this.observeStats()
+  },
+  methods: {
+    observeStats() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.hasAnimated) {
+            this.hasAnimated = true
+            this.animateNumbers()
+          }
+        })
+      }, { threshold: 0.5 })
+
+      const statsSection = document.querySelector('.stats-section')
+      if (statsSection) {
+        observer.observe(statsSection)
+      }
+    },
+    animateNumbers() {
+      this.stats.forEach(stat => {
+        const duration = 2000
+        const steps = 60
+        const increment = stat.number / steps
+        let current = 0
+        
+        const timer = setInterval(() => {
+          current += increment
+          if (current >= stat.number) {
+            this.animatedStats[stat.label] = stat.number
+            clearInterval(timer)
+          } else {
+            this.animatedStats[stat.label] = Math.floor(current)
+          }
+        }, duration / steps)
+      })
+    }
   }
 }
 </script>
@@ -149,24 +245,241 @@ export default {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
 }
 .overlay-container {
-  max-width: 900px;
+  max-width: 1100px;
   margin-left: clamp(16px, 8vw, 120px);
+  margin-bottom: clamp(40px, 8vh, 80px);
 }
 .slideshow-title {
   color: #fff;
-  font-size: clamp(2.4rem, 5.2vw, 4rem);
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 900;
-  line-height: 1.07;
+  line-height: 1.05;
   letter-spacing: 0.015em;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.8rem 0;
 }
 .slideshow-subtitle {
   color: #fff;
-  font-size: clamp(1.05rem, 2vw, 1.6rem);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
   font-weight: 600;
   line-height: 1.3;
+}
+.hero-highlight {
+  color: #226ec4;
+}
+
+/* Stats section with background */
+.stats-wrapper {
+  padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 5vw, 4rem);
+  background: #f8fafc;
+}
+.stats-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+.stats-bg {
+  position: absolute;
+  inset: 0;
+}
+.stats-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
+}
+.stats-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.stat-number {
+  font-weight: 900 !important;
+  color: #2256A1 !important;
+}
+.stat-label {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Division cards */
+.division-cards-row {
+  gap: 0 !important;
+  margin: 0 -4px;
+}
+.division-col {
+  padding: 0 2px !important;
+}
+.division-card-link {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+.division-card {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.division-card:hover {
+  transform: translateY(-8px);
+}
+.division-card-bg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+.division-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.4s ease;
+}
+.division-card:hover .division-card-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+.division-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+.division-card-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+.division-card:hover .division-card-title {
+  transform: translateY(-20px);
+}
+.division-card-details {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.division-card:hover .division-card-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+.division-card-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+.division-card-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+/* References section */
+.references-wrapper {
+  background: #f8fafc;
+}
+.references-section {
+  position: relative;
+  overflow: hidden;
+}
+.references-bg {
+  position: absolute;
+  inset: 0;
+}
+.references-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.2));
+}
+.references-cards-row {
+  gap: 0 !important;
+  margin: 0 -8px;
+}
+.reference-col {
+  padding: 0 8px !important;
+}
+.reference-card-link {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+.reference-card {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.reference-card:hover {
+  transform: translateY(-8px);
+}
+.reference-card-bg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+.reference-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 0.4s ease;
+}
+.reference-card:hover .reference-card-overlay {
+  background: rgba(0, 0, 0, 0.15);
+}
+.reference-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+.reference-card-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+}
+.reference-card:hover .reference-card-title {
+  transform: translateY(-15px);
+}
+.reference-card-details {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.reference-card:hover .reference-card-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reference-card-division {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #4a9eff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.reference-card-short {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e2e8f0;
 }
 </style>
