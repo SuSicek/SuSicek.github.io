@@ -132,12 +132,14 @@ const onScroll = () => {
 }
 
 const updateRootClass = () => {
-  const cls = 'header-at-top'
   const root = document.documentElement
+  const body = document.body
   if (isAtTop.value) {
-    root.classList.add(cls)
+    root.classList.add('header-at-top')
+    body.classList.remove('header-scrolled')
   } else {
-    root.classList.remove(cls)
+    root.classList.remove('header-at-top')
+    body.classList.add('header-scrolled')
   }
 }
 
@@ -150,6 +152,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   document.documentElement.classList.remove('header-at-top')
+  document.body.classList.remove('header-scrolled')
 })
 
 watch(isAtTop, () => {

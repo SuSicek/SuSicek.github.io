@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O nás | UCHYTIL s.r.o.</title>
+  <link rel="icon" href="../fotky/logo.png" type="image/png">
+  <!-- Base site styles (for header/footer/etc.) -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="../css/aboutus.css">
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Content loader (populates nav/footer from JSON) -->
+  <script src="../js/content-loader.js" defer></script>
+  <!-- Page-specific script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <style>
+    /* Bigger division names on team cards */
+    .team-card h3 { font-size: 1.4rem; }
+    @media (min-width: 768px) {
+      .team-card h3 { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <!-- Header (same structure as main page) -->
+  <header class="header" data-header>
+    <div class="overlay" data-overlay></div>
+    <div class="header-top">
+      <div class="container">
+        <a href="../index.html" class="logo">
+          <img src="" alt="" loading="eager">
+        </a>
+        <div class="header-socials" aria-label="Sledujte nás">
+          <ul class="social-list">
+            <li>
+              <a class="social-link" href="https://www.facebook.com/uchytilsro" target="_blank" rel="noopener" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a class="social-link" href="https://www.instagram.com/uchytil_tzb_stavba_energetika" target="_blank" rel="noopener" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a class="social-link" href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-btn-group">
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom">
+      <div class="container header-bottom-inner">
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="../index.html" class="logo">
+              <img src="../fotky/logo.png" alt="" loading="lazy">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+          <div class="services-rolldown" id="servicesRolldown">
+            <button class="services-trigger" id="servicesTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicesPanel">
+              <span class="services-trigger-label">Naše služby</span>
+              <ion-icon name="chevron-down-outline" class="chevron"></ion-icon>
+            </button>
+            <ul class="services-panel" id="servicesPanel">
+              <li><a href="division-template.html?division=energetika">Energetika</a></li>
+              <li><a href="division-template.html?division=prumysl">TZB</a></li>
+              <li><a href="division-template.html?division=stavebnictvi">Stavebnictví</a></li>
+              <li><a href="eshop.html">E-shop</a></li>
+            </ul>
+          </div>
+          <div class="nav-divider" style="width:3px;height:32px;background:linear-gradient(180deg,#66666696);margin:0 18px;align-self:center;border-radius:2px;"></div>
+          <ul class="navbar-list">
+            <!-- Navigation items loaded from JSON -->
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Replace page hero with main slideshow -->
+    <section class="hero-section" id="home">
+      <section class="hero-section" id="home">
+          <div class="slideshow">
+              <!-- Slides will be loaded from JSON -->
+          </div>
+          <div class="slideshow-overlay">
+            <h1 class="slideshow-title">UCHYTIL s.r.o.</h1>
+            <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+          </div>
+      </section>
+    </section>
+
+    <!-- Intro -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-intro center reveal">
+          <h2>Kdo jsme</h2>
+          <p>Jsme UCHYTIL s.r.o. – tým odborníků, kteří spojují tradici s férovým přístupem. Už více než 30 let zajišťujeme kompletní služby ve stavebnictví, energetice a TZB. Naším cílem je být partnerem, na kterého se můžete spolehnout. Projektujeme, stavíme, instalujeme a servisujeme tak, aby naše řešení fungovala dlouhodobě a bez starostí.</p>
+        </div>
+
+        <!-- Values -->
+        <div class="values-grid">
+          <div class="value-card reveal" style="background-image:url('../fotky/bagr.png')">
+            <div class="value-texts">
+              <h3>Kvalita a bezpečnost</h3>
+              <p>Pracujeme dle platných norem, držíme certifikace a klademe důraz na bezpečnost práce.</p>
+            </div>
+          </div>
+          <div class="value-card reveal" style="background-image:url('../fotky/bagr2.png')">
+            <div class="value-texts">
+              <h3>Udržitelnost</h3>
+              <p>Navrhujeme úsporná řešení s ohledem na životní prostředí a dlouhodobý provoz.</p>
+            </div>
+          </div>
+          <div class="value-card reveal" style="background-image:url('../fotky/energetika.png')">
+            <div class="value-texts">
+              <h3>Odborný tým</h3>
+              <p>Silné zázemí strojních, elektro a projekčních středisek. Neustálé vzdělávání.</p>
+            </div>
+          </div>
+          <div class="value-card reveal" style="background-image:url('../fotky/energetika2.png')">
+            <div class="value-texts">
+              <h3>Spolehlivost</h3>
+              <p>Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats + Timeline -->
+    
+    <!-- Why Us Section (restyled to match standard about-section look) -->
+    <section class="about-section why-us-section">
+      <div class="container">
+        <div class="about-intro">
+          <h2>Proč my?</h2>
+          <p>Naší vizí je být dlouhodobým a spolehlivým partnerem, který férovým přístupem přináší zákazníkům komplexní a kvalitní řešení v oblasti stavebnictví, TZB a energetiky.</p>
+          <p>Stavíme na spolehlivosti, odbornosti a lidském přístupu. Dodáváme řešení včas, kvalitně a bez kompromisů – tak, aby se spokojený zákazník vracel.</p>
+        </div>
+        <div class="why-us-columns">
+          <div class="why-us-media">
+            <figure class="why-us-illustration">
+              <img src="fotky/energetika.png" alt="Ukázka našich interních kapacit" loading="lazy">
+            </figure>
+          </div>
+          <div class="why-us-content">
+            <div class="why-us-block">
+              <h3>Máme vlastní</h3>
+              <ul class="why-us-features">
+                <li>Projekční, montážní i realizační skupiny odborníků</li>
+                <li>Výrobní kapacity ve všech oblastech činnosti</li>
+              </ul>
+            </div>
+            <div class="why-us-block">
+              <h3>U nás je samozřejmostí</h3>
+              <ul class="why-us-list">
+                <li>Kvalita – nadstandardní úroveň realizací, důraz na detail a preciznost.</li>
+                <li>Spolehlivost – dodržování termínů i rozpočtů, zákazník je pro nás partner.</li>
+                <li>Komplexnost – služby od prvotní studie až po dlouhodobý servis.</li>
+                <li>Bezpečnost a ekologie – ochrana zdraví a životního prostředí jako samozřejmý standard.</li>
+                <li>Efektivní řízení projektů – máme pod kontrolou náklady i průběh stavby, zvládáme složité realizace.</li>
+                <li>Přístup k novým trendům – umožněný spoluprací na výzkumných projektech s VŠ.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-section about-stats-timeline">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <div class="stat-number" data-count="30">0</div>
+            <div class="stat-label">let na trhu +</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-number" data-count="4100">0</div>
+            <div class="stat-label">realizovaných zakázek +</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-number" data-count="300">0</div>
+            <div class="stat-label">Spokojených klientů +</div>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-number" data-count="100">0</div>
+            <div class="stat-label"> odborníků +</div>
+          </div>
+        </div>
+
+        <!-- Replace old vertical timeline with new horizontal timeline -->
+        <section class="cd-horizontal-timeline">
+          <div class="timeline">
+            <div class="events-wrapper">
+              <div class="events">
+                <ol>
+                  <li><a href="#0" data-date="23/12/1994" class="selected">prosinec 1994</a></li>
+                  <li><a href="#0" data-date="14/10/1996">říjen 1996</a></li>
+                  <li><a href="#0" data-date="16/10/2002">říjen 2002</a></li>
+                  <li><a href="#0" data-date="01/01/2005">2004–2006</a></li>
+                  <li><a href="#0" data-date="08/07/2013">červenec 2013</a></li>
+                  <li><a href="#0" data-date="18/03/2022">březen 2022</a></li>
+                </ol>
+                <span class="filling-line" aria-hidden="true"></span>
+              </div>
+            </div>
+            <ul class="cd-timeline-navigation">
+              <li><a href="#0" class="prev inactive" aria-label="Předchozí"><ion-icon name="chevron-forward-outline"></ion-icon></a></li>
+              <li><a href="#0" class="next" aria-label="Další"><ion-icon name="chevron-forward-outline"></ion-icon></a></li>
+            </ul>
+          </div>
+          <div class="events-content">
+            <ol>
+              <li class="selected" data-date="23/12/1994">
+                <h2>Založení společnosti</h2>
+                <em>23. prosince 1994</em>
+                <p>Firma byla založena pod názvem ENBRA Montáže s.r.o., zapsána do obchodního rejstříku spisovou značkou C 17690 vedenou Krajským soudem v Brně.</p>
+              </li>
+              <li data-date="14/10/1996">
+                <h2>Změna jednatele</h2>
+                <em>14. října 1996</em>
+                <p>Po odchodu prvního jednatele (František Lavický) se funkce jednatele ujal Josef Uchytil.</p>
+              </li>
+              <li data-date="16/10/2002">
+                <h2>Změna názvu společnosti</h2>
+                <em>16. října 2002</em>
+                <p>Společnost změnila svůj právní název na UCHYTIL s.r.o.</p>
+              </li>
+              <li data-date="01/01/2005">
+                <h2>Přesun sídla</h2>
+                <em>2004–2006</em>
+                <p>Firma postupně změnila sídlo: z Radostína nad Oslavou přes Žďár nad Sázavou až do Brna ("K terminálu 7").</p>
+              </li>
+              <li data-date="08/07/2013">
+                <h2>Rozdělení společnosti</h2>
+                <em>8. července 2013</em>
+                <p>Došlo k rozdělení společnosti; vznikla nová akciová společnost Nemovitosti UCHYTIL a.s., která převzala část majetku, jak je uvedeno v projektu rozdělení společnosti.</p>
+              </li>
+              <li data-date="18/03/2022">
+                <h2>Noví jednatelé</h2>
+                <em>18. března 2022</em>
+                <p>Do vedení společnosti jako jednatelé nastoupili Marie Uchytilová i Josef Uchytil – oba dosud zastávají tuto pozici.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- Team -->
+    <section class="about-section divisions-section">
+      <div class="container">
+        <div class="about-intro center reveal">
+          <h2>Náše divize</h2>
+        </div>
+        <div class="team-grid">
+          <!-- Energetika -->
+          <a href="division-template.html?division=energetika" class="team-card reveal" aria-label="Otevřít divizi Energetika">
+            <img src="../fotky/prodejna.png" alt="Energetika" loading="lazy">
+            <div class="card-texts">
+              <h3>Energetika</h3>
+              <div class="subtitle">Výroba a úspory energií</div>
+            </div>
+            <p>Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.</p>
+          </a>
+          <!-- Stavba -->
+          <a href="division-template.html?division=stavba" class="team-card reveal" aria-label="Otevřít divizi Stavba">
+            <img src="../fotky/stavba.png" alt="Stavební oddělení" loading="lazy">
+            <div class="card-texts">
+              <h3>Stavba</h3>
+              <div class="subtitle">Kompletní stavební projekty</div>
+            </div>
+            <p>Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.</p>
+          </a>
+          <!-- TZB -->
+          <a href="division-template.html?division=tzb" class="team-card reveal" aria-label="Otevřít divizi TZB">
+            <img src="../fotky/energetika.png" alt="TZB" loading="lazy">
+            <div class="card-texts">
+              <h3>TZB</h3>
+              <div class="subtitle">Technická zařízení budov</div>
+            </div>
+            <p>Poskytuje odborné řešení technických zařízení budov pro komfort, efektivitu a bezpečnost.</p>
+          </a>
+          <!-- E-shop -->
+          <a href="eshop.html" class="team-card reveal" aria-label="Otevřít E-shop">
+            <img src="../fotky/kontejner.png" alt="E-shop" loading="lazy">
+            <div class="card-texts">
+              <h3>E-shop</h3>
+              <div class="subtitle">Online prodej a technika</div>
+            </div>
+            <p>Online prodej materiálu, příslušenství a techniky pro vaše projekty.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <p class="section-subtitle"></p>
+                <h2 class="h2 section-title"></h2>
+                <p class="section-text"></p>
+            </div>
+
+            <button class="btn btn-secondary"></button>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <a href="#" class="logo"><img id="footer-logo" src="" alt="UCHYTIL s.r.o."></a>
+        </div>
+
+        <!-- Replace the contact table with prefooter content -->
+        <div class="footer-links">
+          <div class="prefooter-groups">
+            <div class="pf-group">
+              <div class="pf-group-title">naše podstránky</div>
+              <div class="pf-list">
+                <a class="pf-card" href="aboutus.html"><h3 class="pf-title">O nás</h3></a>
+                <a class="pf-card" href="projects.html"><h3 class="pf-title">Reference</h3></a>
+                <a class="pf-card" href="contact-us.html"><h3 class="pf-title">Kontakty</h3></a>
+                <a class="pf-card" href="eshop.html"><h3 class="pf-title">E‑Shop</h3></a>
+                <a class="pf-card" href="division-template.html?division=energetika"><h3 class="pf-title">Divize</h3></a>
+              </div>
+            </div>
+            <div class="pf-group">
+              <div class="pf-group-title">jiné</div>
+              <div class="pf-list">
+                <a class="pf-card" href="ethics-code.html"><h3 class="pf-title">Etický kodex</h3></a>
+                <a class="pf-card" href="certifikace.html"><h3 class="pf-title">Certifikace</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end replaced column -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="footer-copyright" id="footer-copyright"><!-- Dynamic content --></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/content-loader.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/aboutus.js" defer></script>
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('../data/content.json', { cache: 'no-cache' });
+        const data = await res.json();
+        const f = data.footer || {};
+        const c = f.contact || {};
+        const phone = c.phone || '';
+        const email = c.email || '';
+        const ico = c.ico || f.ico || '';
+        const ln = f.linkedin || '';
+        const fb = f.facebook || '';
+        const ph = document.getElementById('footer-phone');
+        const em = document.getElementById('footer-email');
+        const ic = document.getElementById('footer-ico');
+        const lnk = document.getElementById('footer-linkedin');
+        const fbk = document.getElementById('footer-facebook');
+        if (ph && phone) { ph.textContent = phone; ph.href = 'tel:' + phone.replace(/\s+/g,''); }
+        if (em && email) { em.textContent = email; em.href = 'mailto:' + email; }
+        if (ic && ico) { ic.textContent = 'IČO: ' + ico; }
+        if (lnk && ln) lnk.href = ln;
+        if (fbk && fb) fbk.href = fb;
+      } catch (e) { /* noop */ }
+    })();
+  </script>
+</body>
+</html>

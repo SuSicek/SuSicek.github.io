@@ -17,3 +17,12 @@ export default {
   components: { SiteHeader, SiteFooter }
 }
 </script>
+
+<style>
+.v-main {
+  transition: padding-top 300ms ease;
+}
+.header-scrolled .v-main {
+  padding-top: 112px !important;
+}
+</style>

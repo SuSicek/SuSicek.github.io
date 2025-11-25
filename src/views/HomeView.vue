@@ -69,7 +69,7 @@
     <!-- References section -->
     <div class="references-wrapper">
       <v-sheet class="references-section position-relative">
-        <v-img src="/fotky/stavba.png" cover class="references-bg" />
+        <v-img src="/fotky/energetika3.png" cover class="references-bg" />
         <div class="references-overlay"></div>
         <v-container class="py-16 position-relative">
           <v-row class="mb-8">
@@ -434,7 +434,7 @@ export default {
 .reference-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.65);
   transition: background 0.4s ease;
 }
 .reference-card:hover .reference-card-overlay {
@@ -470,10 +470,10 @@ export default {
   transform: translateY(0);
 }
 .reference-card-division {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #4a9eff;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

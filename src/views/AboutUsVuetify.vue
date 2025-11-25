@@ -5,10 +5,9 @@
       <v-carousel
         v-model="currentSlide"
         height="75vh"
-        hide-delimiter-background
-        show-arrows="hover"
-        cycle
-        interval="6000"
+        :show-arrows="false"
+        :hide-delimiters="true"
+        transition="fade-transition"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
           <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
@@ -85,6 +84,7 @@
 
     <!-- Numbers + Timeline combined with background image -->
     <v-sheet class="numbers-timeline-section py-12">
+      <div class="numbers-overlay"></div>
       <v-container class="about-container position-relative">
         <v-row class="mb-8">
           <v-col cols="12" class="text-center">
@@ -246,29 +246,72 @@ const divisions = [
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+  will-change: opacity;
 }
 .overlay-container {
   max-width: 900px;
-  margin-left: clamp(16px, 8vw, 120px);
+  margin-left: 16px;
+  will-change: transform;
+}
+@media (min-width: 600px) {
+  .overlay-container {
+    margin-left: 5vw;
+  }
+}
+@media (min-width: 960px) {
+  .overlay-container {
+    margin-left: 120px;
+  }
 }
 .slideshow-title {
   color: #fff;
-  font-size: clamp(2.4rem, 5.2vw, 4rem);
+  font-size: 2.4rem;
   font-weight: 900;
   line-height: 1.07;
   letter-spacing: 0.015em;
   margin: 0 0 0.5rem 0;
+  will-change: font-size;
+}
+@media (min-width: 600px) {
+  .slideshow-title {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 960px) {
+  .slideshow-title {
+    font-size: 4rem;
+  }
 }
 .slideshow-subtitle {
   color: #fff;
-  font-size: clamp(1.05rem, 2vw, 1.6rem);
+  font-size: 1.05rem;
   font-weight: 600;
   line-height: 1.3;
+  will-change: font-size;
+}
+@media (min-width: 600px) {
+  .slideshow-subtitle {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 960px) {
+  .slideshow-subtitle {
+    font-size: 1.6rem;
+  }
+}
+
+/* Smooth carousel transitions */
+.v-carousel__item {
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  will-change: opacity, transform;
+}
+.v-carousel {
+  will-change: transform;
 }
 
 .kpi { text-align: center; padding: 16px 8px; }
-.kpi-value { font-size: 2rem; font-weight: 800; color: #0c2b68; }
-.kpi-label { color: #4b5563; }
+.kpi-value { font-size: 2rem; font-weight: 800; color: #ffffff; }
+.kpi-label { color: #ffffff; }
 
 /* Numbers + Timeline background */
 .numbers-timeline-section {
@@ -277,14 +320,19 @@ const divisions = [
   background-size: cover;
   background-position: center;
 }
-.section-heading { color: #0c2b68; font-weight: 800; }
-.timeline-heading { color: #0c2b68; font-weight: 700; }
+.numbers-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+}
+.section-heading { color: #ffffff; font-weight: 800; }
+.timeline-heading { color: #ffffff; font-weight: 700; }
 
 
 
 .milestone { border-radius: 16px; }
-.milestone-year { font-weight: 800; color: #0c2b68; margin-bottom: 6px; }
-.milestone-text { color: #4b5563; }
+.milestone-year { font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+.milestone-text { color: #ffffff; }
 
 .cta { border-radius: 18px; background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%); }
 .kdo-jsme-text { line-height: 1.65; color:#374151; }
