@@ -19,10 +19,17 @@ export default {
 </script>
 
 <style>
-.v-main {
-  transition: padding-top 300ms ease;
+:root {
+  --app-header-height: 112px;
 }
-.header-scrolled .v-main {
-  padding-top: 112px !important;
+
+.v-application,
+.v-application--wrap {
+  --v-layout-top: 0px !important;
+}
+
+.v-main {
+  padding-top: 0 !important;
+  transition: padding-top 300ms ease;
 }
 </style>

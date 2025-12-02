@@ -1,9 +1,11 @@
 <template>
   <v-app-bar
-    fixed
+    :fixed="!isAtTop"
+    :absolute="isAtTop"
     flat
     :elevation="isAtTop ? 0 : 2"
     height="112"
+    :color="isAtTop ? 'transparent' : 'white'"
     :class="['header-overlay', 'header-transition', { 
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
@@ -131,32 +133,23 @@ const onScroll = () => {
   isAtTop.value = (window.scrollY || window.pageYOffset) < 50
 }
 
-const updateRootClass = () => {
-  const root = document.documentElement
-  const body = document.body
-  if (isAtTop.value) {
-    root.classList.add('header-at-top')
-    body.classList.remove('header-scrolled')
-  } else {
-    root.classList.remove('header-at-top')
-    body.classList.add('header-scrolled')
-  }
+const updateScrollState = () => {
+  document.body.classList.toggle('header-scrolled', !isAtTop.value)
 }
 
 onMounted(() => {
   onScroll()
-  updateRootClass()
+  updateScrollState()
   window.addEventListener('scroll', onScroll, { passive: true })
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
-  document.documentElement.classList.remove('header-at-top')
   document.body.classList.remove('header-scrolled')
 })
 
 watch(isAtTop, () => {
-  updateRootClass()
+  updateScrollState()
 })
 </script>
 
@@ -264,16 +257,12 @@ watch(isAtTop, () => {
 </style>
 
 <style>
-/* When header is at top, remove Vuetify layout's reserved top space and background
-   so content (e.g., hero) can sit behind the transparent header. */
-.header-at-top .v-main {
-  /* Remove top offset reserved for app-bar */
-  --v-layout-top: 0px !important;
+body:not(.header-scrolled) .v-main {
   background-color: transparent !important;
 }
 
-.header-at-top .v-application,
-.header-at-top .v-application--wrap {
+body:not(.header-scrolled) .v-application,
+body:not(.header-scrolled) .v-application--wrap {
   background-color: transparent !important;
 }
 </style>

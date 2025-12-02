@@ -1,9 +1,11 @@
 
+import { assetPath } from '../utils/assetPath'
+
 export const referencesProjects = [
   {
     id: 'project-1',
-    images: ['/web4/fotky/stavba.png', '/web4/fotky/stavba2.png'],
-    image: '/web4/fotky/stavba.png',
+    images: [assetPath('fotky/stavba.png'), assetPath('fotky/stavba2.png')],
+    image: assetPath('fotky/stavba.png'),
     imageAlt: 'Stavební práce',
     title: 'Rezidenční komplex Brno',
     category: 'Stavba',
@@ -13,8 +15,8 @@ export const referencesProjects = [
   },
   {
     id: 'project-2',
-    images: ['/web4/fotky/energetika.png', '/web4/fotky/energetika2.png'],
-    image: '/web4/fotky/energetika.png',
+    images: [assetPath('fotky/energetika.png'), assetPath('fotky/energetika2.png')],
+    image: assetPath('fotky/energetika.png'),
     imageAlt: 'Energetické řešení',
     title: 'Solární elektrárna Ostrava',
     category: 'Energetika',
@@ -24,8 +26,8 @@ export const referencesProjects = [
   },
   {
     id: 'project-3',
-    images: ['/web4/fotky/tzb.png', '/web4/fotky/prodejna.png'],
-    image: '/web4/fotky/tzb.png',
+    images: [assetPath('fotky/tzb.png'), assetPath('fotky/prodejna.png')],
+    image: assetPath('fotky/tzb.png'),
     imageAlt: 'TZB instalace',
     title: 'Obchodní centrum Praha',
     category: 'TZB',

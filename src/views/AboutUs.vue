@@ -2,34 +2,15 @@
 <template>
   <div>
     <!-- Hero slideshow with overlay title/subtitle -->
-    <v-sheet class="position-relative" height="75vh" color="black">
-      <v-carousel
-        v-model="currentSlide"
-        height="75vh"
-        :show-arrows="false"
-        :hide-delimiters="true"
-        cycle
-        interval="6000"
-      >
-        <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
-        </v-carousel-item>
-      </v-carousel>
-      <div class="hero-overlay d-flex flex-column justify-end">
-        <div class="overlay-container">
-          <h1 class="slideshow-title">UCHYTIL <span class="hero-highlight">s.r.o.</span></h1>
-          <div class="slideshow-subtitle">Stavby, které <span class="hero-highlight">fungují</span>. Partnerství, které <span class="hero-highlight">trvá</span></div>
-        </div>
-      </div>
-    </v-sheet>
+    <HeroCarousel :slides="slides" />
     <!-- Stats section -->
     <div class="stats-wrapper">
       <v-sheet class="stats-section position-relative">
         <v-img src="/fotky/kontejner.png" cover class="stats-bg" />
         <div class="stats-overlay"></div>
         <v-container class="py-8 position-relative">
-          <v-row>
-            <v-col cols="6" md="3" v-for="s in stats" :key="s.label">
+          <v-row align="stretch">
+            <v-col cols="6" md="3" v-for="s in stats" :key="s.label" class="d-flex">
               <v-card flat class="text-center pa-6 stats-card">
                 <div class="text-h4 text-md-h3 mb-1 stat-number">{{ animatedStats[s.label] || 0 }}+</div>
                 <div class="text-body-1 stat-label">{{ s.label }}</div>
@@ -43,11 +24,13 @@
 </template>
 
 <script>
+import HeroCarousel from '@/components/HeroCarousel.vue'
+
 export default {
   name: 'AboutUs',
+  components: { HeroCarousel },
   data() {
     return {
-      currentSlide: 0,
       slides: [
         { src: '/fotky/energetika.png', alt: 'Energetika' },
         { src: '/fotky/stavba.png', alt: 'Stavba' },
@@ -110,34 +93,6 @@ export default {
 </script>
 
 <style scoped>
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
-}
-.overlay-container {
-  max-width: 1100px;
-  margin-left: clamp(16px, 8vw, 120px);
-  margin-bottom: clamp(40px, 8vh, 80px);
-}
-.slideshow-title {
-  color: #fff;
-  font-size: clamp(3.2rem, 7vw, 5.5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: 0.015em;
-  margin: 0 0 0.8rem 0;
-}
-.slideshow-subtitle {
-  color: #fff;
-  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-  font-weight: 600;
-  line-height: 1.3;
-}
-.hero-highlight {
-  color: #226ec4;
-}
-
 /* Stats section with background */
 .stats-wrapper {
   padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 5vw, 4rem);
@@ -161,6 +116,11 @@ export default {
   background: rgba(0, 0, 0, 0.7) !important;
   border-radius: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 140px;
 }
 .stats-card:hover {
   transform: translateY(-4px);

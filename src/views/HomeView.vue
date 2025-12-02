@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- Hero slideshow with overlay title/subtitle -->
-    <v-sheet class="position-relative" height="75vh" color="black">
+    <v-sheet class="position-relative hero-shell" color="black">
       <v-carousel
+        class="hero-carousel"
         v-model="currentSlide"
-        height="75vh"
         hide-delimiters
         :show-arrows="false"
         cycle
@@ -28,8 +28,8 @@
         <v-img src="/fotky/kontejner.png" cover class="stats-bg" />
         <div class="stats-overlay"></div>
         <v-container class="py-8 position-relative">
-          <v-row>
-            <v-col cols="6" md="3" v-for="s in stats" :key="s.label">
+          <v-row align="stretch">
+            <v-col cols="6" md="3" v-for="s in stats" :key="s.label" class="d-flex">
               <v-card flat class="text-center pa-6 stats-card">
                 <div class="text-h4 text-md-h3 mb-1 stat-number">{{ animatedStats[s.label] || 0 }}+</div>
                 <div class="text-body-1 stat-label">{{ s.label }}</div>
@@ -48,7 +48,7 @@
         </v-col>
       </v-row>
       <v-row class="division-cards-row">
-        <v-col cols="12" sm="6" lg="3" v-for="d in divisions" :key="d.title" class="division-col">
+        <v-col cols="6" sm="6" md="4" lg="3" v-for="d in divisions" :key="d.title" class="division-col">
           <router-link :to="d.link" class="division-card-link">
             <div class="division-card">
               <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
@@ -78,7 +78,7 @@
             </v-col>
           </v-row>
           <v-row class="references-cards-row">
-            <v-col cols="12" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
+            <v-col cols="4" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
               <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.id } }" class="reference-card-link">
                 <div class="reference-card">
                   <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" />
@@ -242,6 +242,21 @@ export default {
 </script>
 
 <style scoped>
+.hero-shell {
+  min-height: 520px;
+  height: clamp(520px, 75vh, 720px);
+  border-radius: 0;
+  overflow: hidden;
+}
+.hero-shell :deep(.v-carousel),
+.hero-shell :deep(.v-window),
+.hero-shell :deep(.v-carousel-item),
+.hero-shell :deep(.v-img) {
+  height: 100% !important;
+}
+.hero-carousel {
+  height: 100%;
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -270,6 +285,36 @@ export default {
   color: #226ec4;
 }
 
+@media (max-width: 960px) {
+  .hero-shell {
+    height: clamp(460px, 70vh, 640px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-shell {
+    height: auto;
+    min-height: 420px;
+  }
+  .hero-shell :deep(.v-carousel),
+  .hero-shell :deep(.v-window),
+  .hero-shell :deep(.v-carousel-item),
+  .hero-shell :deep(.v-img) {
+    min-height: 420px;
+  }
+  .overlay-container {
+    margin-left: clamp(16px, 5vw, 32px);
+    margin-bottom: clamp(24px, 8vh, 48px);
+  }
+  .slideshow-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+  .slideshow-subtitle {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    line-height: 1.2;
+  }
+}
+
 /* Stats section with background */
 .stats-wrapper {
   padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 5vw, 4rem);
@@ -293,6 +338,13 @@ export default {
   background: rgba(255, 255, 255, 0.95) !important;
   border-radius: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px;
 }
 .stats-card:hover {
   transform: translateY(-4px);
@@ -313,7 +365,7 @@ export default {
   margin: 0 -4px;
 }
 .division-col {
-  padding: 0 2px !important;
+  padding: 0 2px 4px !important;
 }
 .division-card-link {
   text-decoration: none;
@@ -481,5 +533,29 @@ export default {
   font-size: 0.9rem;
   line-height: 1.5;
   color: #e2e8f0;
+}
+
+@media (max-width: 600px) {
+  .references-cards-row {
+    margin: 0 -4px;
+  }
+  .reference-col {
+    padding: 0 4px 8px !important;
+  }
+  .reference-card {
+    height: 280px;
+  }
+  .reference-card-content {
+    padding: 1.25rem;
+  }
+  .reference-card-title {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+  .reference-card-division {
+    font-size: 1rem;
+  }
+  .reference-card-short {
+    font-size: 0.85rem;
+  }
 }
 </style>
