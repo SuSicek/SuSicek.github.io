@@ -184,7 +184,7 @@ watch(selectedDivision, (val) => {
 
 /* Darker blueish filter inputs - using primary color from header */
 .filter-input :deep(.v-field) {
-  background-color: #2256A1 !important;
+  background-color: #031f68 !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   border-radius: 8px;
 }

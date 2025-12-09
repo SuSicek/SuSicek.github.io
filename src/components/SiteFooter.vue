@@ -14,7 +14,7 @@
             />
           </RouterLink>
           <div class="footer-note">
-            UCHYTIL s.r.o. – TZB, stavebnictví, energetika.
+            UCHYTIL s.r.o. – TZB, stavba, energetika.
           </div>
         </v-col>
 
@@ -23,7 +23,7 @@
           <ul class="footer-links">
             <li><RouterLink :to="{ name: 'Division', params: { division: 'energetika' } }">Energetika</RouterLink></li>
             <li><RouterLink :to="{ name: 'Division', params: { division: 'prumysl' } }">TZB</RouterLink></li>
-            <li><RouterLink :to="{ name: 'Division', params: { division: 'stavebnictvi' } }">Stavebnictví</RouterLink></li>
+            <li><RouterLink :to="{ name: 'Division', params: { division: 'stavebnictvi' } }">Stavba</RouterLink></li>
             <li><RouterLink :to="{ name: 'Eshop' }">E‑shop</RouterLink></li>
           </ul>
         </v-col>

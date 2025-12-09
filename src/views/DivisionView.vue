@@ -213,7 +213,7 @@ export default {
   padding-right: clamp(1.25rem, 10vw, 12rem) !important;
 }
 .intro-head { max-width: 900px; }
-.intro-kicker { text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #2256A1; opacity: .9; }
+.intro-kicker { text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #031f68; opacity: .9; }
 .intro-title { font-weight: 800; font-size: clamp(2rem,4.5vw,3rem); color: #1e293b; margin: .3rem 0 .5rem; }
 .intro-subtitle { font-size: 1.1rem; color: #475569; margin-bottom: 1.4rem; }
 .intro-paragraph { color: #475569; line-height: 1.7; font-size: 1.02rem; margin-bottom: 1rem; }
@@ -227,11 +227,11 @@ export default {
 .division-services.dark .service-card .service-desc { color: #1e293b; }
 .division-services.dark .service-card:hover { box-shadow: 0 18px 44px rgba(0,0,0,0.18); }
 .services-heading-contrast { text-shadow: 0 4px 14px rgba(0,0,0,0.45); }
-.section-heading { text-align: center; font-weight: 800; font-size: clamp(1.6rem,3vw,2.1rem); margin-bottom: 2.2rem; color: #2256A1; }
+.section-heading { text-align: center; font-weight: 800; font-size: clamp(1.6rem,3vw,2.1rem); margin-bottom: 2.2rem; color: #031f68; }
 .service-card { transition: transform .25s ease, box-shadow .25s ease; height: 100%; position: relative; }
 .service-card:hover { transform: translateY(-6px); box-shadow: 0 18px 44px rgba(0,0,0,0.12); }
 .service-icon-wrapper { position: relative; width: 60px; height: 60px; border-radius: 16px; display: grid; place-items: center; margin-bottom: 1rem; overflow: hidden; }
-.service-icon-gradient { position: absolute; inset: 0; background: linear-gradient(135deg,#2256A1,#1e3a8a); }
+.service-icon-gradient { position: absolute; inset: 0; background: linear-gradient(135deg,#031f68,#1e3a8a); }
 .service-title { font-weight: 700; margin: 0 0 .4rem; color: #1e293b; }
 .service-desc { flex-grow: 1; color: #475569; line-height: 1.5; font-size: .95rem; }
 .service-btn { margin-top: .6rem; }
@@ -243,7 +243,7 @@ export default {
 .project-desc { color: #475569; line-height: 1.5; font-size: .95rem; }
 .projects-cta-btn { margin-top: .5rem; }
 
-.division-cta-band { background: linear-gradient(135deg,#2256A1 0%,#1E3A8A 100%); color:#fff; }
+.division-cta-band { background: linear-gradient(135deg,#031f68 0%,#1E3A8A 100%); color:#fff; }
 .cta-copy { max-width: 640px; }
 .cta-title { font-weight: 700; font-size: clamp(1.4rem,3vw,2rem); margin: 0 0 .6rem; }
 .cta-text { margin: 0 0 1.2rem; line-height: 1.5; opacity: .92; }
@@ -251,7 +251,7 @@ export default {
 
 .prefooter-links { background: linear-gradient(135deg,#f8fafc 0%,#ffffff 100%); }
 .prefooter-groups { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 2.2rem; }
-.pf-group-title { text-transform: uppercase; font-size: .75rem; letter-spacing: 2px; font-weight: 700; color:#2256A1; margin-bottom: .9rem; }
+.pf-group-title { text-transform: uppercase; font-size: .75rem; letter-spacing: 2px; font-weight: 700; color:#031f68; margin-bottom: .9rem; }
 .pf-list { display: flex; flex-direction: column; gap: .6rem; }
 .pf-card { text-decoration: none; background: #fff; padding: .9rem 1.1rem; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: all .25s ease; }
 .pf-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.12); transform: translateY(-3px); }

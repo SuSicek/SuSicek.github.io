@@ -13,11 +13,11 @@
               <div class="d-flex align-center flex-wrap gap-4">
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-phone</v-icon>
-                  <span>+420 123 456 789</span>
+                  <span>+420 XXX XXX XXX</span>
                 </div>
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-email</v-icon>
-                  <span>info@uchytil.cz</span>
+                  <span>brno@uchytil.eu</span>
                 </div>
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-map-marker</v-icon>
@@ -458,7 +458,7 @@ const submit = async () => {
   box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
 }
 .leadership-card .contact-details a {
-  color: #2256A1;
+  color: #031f68;
   text-decoration: none;
 }
 .leadership-card .contact-details a:hover {
@@ -501,7 +501,7 @@ const submit = async () => {
   box-shadow: 0 8px 20px -6px rgba(0,0,0,0.12);
 }
 .division-card .contact-details a {
-  color: #2256A1;
+  color: #031f68;
   text-decoration: none;
   font-size: 0.875rem;
 }

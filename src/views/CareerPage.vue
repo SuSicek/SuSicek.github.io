@@ -262,7 +262,7 @@ const benefits = ref([
 .why-text { line-height: 1.65; color:#374151; }
 .about-list { margin: 0 0 10px; padding-left: 1.05rem; }
 .about-list li { margin: 6px 0; line-height: 1.6; color:#374151; }
-.atmo-list :deep(.v-list-item--active) { background: rgba(34,86,161,0.08); border-left: 3px solid #2256A1; }
+.atmo-list :deep(.v-list-item--active) { background: rgba(3,31,104,0.08); border-left: 3px solid #031f68; }
 .atmo-image-wrap { overflow: hidden; }
 .atmo-image { transition: transform .6s ease; }
 .atmo-image-wrap:hover .atmo-image { transform: scale(1.04); }

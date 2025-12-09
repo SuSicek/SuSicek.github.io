@@ -48,10 +48,8 @@ export default {
 
 <style scoped>
 .hero-shell {
-  position: relative;
-  width: 100%;
-  min-height: clamp(450px, 60vh, 600px);
-  height: clamp(450px, 60vh, 600px);
+  min-height: 520px;
+  height: clamp(520px, 75vh, 720px);
   border-radius: 0;
   overflow: hidden;
 }
@@ -60,16 +58,6 @@ export default {
 .hero-shell :deep(.v-carousel-item),
 .hero-shell :deep(.v-img) {
   height: 100% !important;
-}
-.hero-shell :deep(.v-img) {
-  background-position: center center !important;
-  background-size: cover !important;
-}
-.hero-shell :deep(.v-img img) {
-  object-fit: cover !important;
-  object-position: center center !important;
-  width: 100%;
-  height: 100%;
 }
 .hero-carousel {
   height: 100%;
@@ -90,7 +78,7 @@ export default {
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: 0.015em;
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.8rem 0;
 }
 .slideshow-subtitle {
   color: #fff;
@@ -99,13 +87,25 @@ export default {
   line-height: 1.3;
 }
 .hero-highlight {
-  color: #226ec4;
+  color: #031f68;
+}
+
+@media (max-width: 960px) {
+  .hero-shell {
+    height: clamp(460px, 70vh, 640px);
+  }
 }
 
 @media (max-width: 600px) {
   .hero-shell {
-    min-height: clamp(420px, 75vh, 540px);
-    height: clamp(420px, 75vh, 540px);
+    height: auto;
+    min-height: 420px;
+  }
+  .hero-shell :deep(.v-carousel),
+  .hero-shell :deep(.v-window),
+  .hero-shell :deep(.v-carousel-item),
+  .hero-shell :deep(.v-img) {
+    min-height: 420px;
   }
   .overlay-container {
     margin-left: clamp(16px, 5vw, 32px);

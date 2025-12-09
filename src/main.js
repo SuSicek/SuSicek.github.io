@@ -32,6 +32,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 const vuetify = createVuetify({
@@ -42,7 +49,7 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          primary: '#2256A1',
+          primary: '#031f68',
           secondary: '#047857',
           accent: '#00c6fb',
           error: '#FF5252',

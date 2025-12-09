@@ -25,8 +25,7 @@
     <!-- Stats section -->
     <div class="stats-wrapper">
       <v-sheet class="stats-section position-relative">
-        <v-img src="/fotky/kontejner.png" cover class="stats-bg" />
-        <div class="stats-overlay"></div>
+        <div class="stats-blue-bg"></div>
         <v-container class="py-8 position-relative">
           <v-row align="stretch">
             <v-col cols="6" md="3" v-for="s in stats" :key="s.label" class="d-flex">
@@ -68,9 +67,7 @@
 
     <!-- References section -->
     <div class="references-wrapper">
-      <v-sheet class="references-section position-relative">
-        <v-img src="/fotky/energetika3.png" cover class="references-bg" />
-        <div class="references-overlay"></div>
+      <v-sheet class="references-section position-relative" color="#031f68">
         <v-container class="py-16 position-relative">
           <v-row class="mb-8">
             <v-col cols="12" class="text-center">
@@ -282,7 +279,7 @@ export default {
   line-height: 1.3;
 }
 .hero-highlight {
-  color: #226ec4;
+  color: #ffffff;
 }
 
 @media (max-width: 960px) {
@@ -325,14 +322,32 @@ export default {
   overflow: hidden;
   border-radius: 20px;
 }
-.stats-bg {
+.stats-blue-bg {
   position: absolute;
   inset: 0;
+  background-color: #031f68;
 }
-.stats-overlay {
+.stats-blue-bg::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
+  top: 10%;
+  left: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(150, 200, 255, 0.25) 0%, rgba(150, 200, 255, 0.1) 30%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.stats-blue-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(180, 220, 255, 0.2) 0%, rgba(150, 200, 255, 0.08) 35%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 .stats-card {
   background: rgba(255, 255, 255, 0.95) !important;
@@ -352,7 +367,7 @@ export default {
 }
 .stat-number {
   font-weight: 900 !important;
-  color: #2256A1 !important;
+  color: #031f68 !important;
 }
 .stat-label {
   color: #1e293b;
@@ -440,11 +455,48 @@ export default {
 
 /* References section */
 .references-wrapper {
-  background: #f8fafc;
+  background: #031f68;
 }
 .references-section {
   position: relative;
   overflow: hidden;
+}
+.references-section::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(150, 200, 255, 0.25) 0%, rgba(150, 200, 255, 0.1) 30%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.references-section::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(180, 220, 255, 0.2) 0%, rgba(150, 200, 255, 0.08) 35%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.references-section .py-16::before {
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(200, 230, 255, 0.18) 0%, rgba(150, 200, 255, 0.06) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
 }
 .references-bg {
   position: absolute;
@@ -486,7 +538,7 @@ export default {
 .reference-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.4);
   transition: background 0.4s ease;
 }
 .reference-card:hover .reference-card-overlay {

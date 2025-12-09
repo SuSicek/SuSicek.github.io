@@ -4,8 +4,8 @@
     :absolute="isAtTop"
     flat
     :elevation="isAtTop ? 0 : 2"
-    height="112"
     :color="isAtTop ? 'transparent' : 'white'"
+    class="responsive-header"
     :class="['header-overlay', 'header-transition', { 
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
@@ -19,8 +19,6 @@
             <v-img
               :src="logoSrc"
               alt="UCHYTIL s.r.o."
-              width="220"
-              height="78"
               class="my-2 logo-img"
               :class="{ 'logo-fade': true }"
               @error="onLogoError"
@@ -156,6 +154,20 @@ watch(isAtTop, () => {
 <style scoped>
 .header-overlay {
   z-index: 10000;
+}
+
+/* Responsive header height */
+.responsive-header {
+  height: clamp(60px, 6vw, 100px) !important;
+}
+.responsive-header :deep(.v-toolbar__content) {
+  height: 100% !important;
+}
+
+/* Logo scales with header */
+.logo-img {
+  width: clamp(100px, 10vw, 150px) !important;
+  height: auto !important;
 }
 
 .header-transition {
