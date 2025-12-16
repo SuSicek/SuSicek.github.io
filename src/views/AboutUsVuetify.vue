@@ -39,30 +39,32 @@
       </v-row>
     </v-container>
 
-    <!-- Why us (centered) -->
-    <v-container class="py-10 about-container text-center">
-      <v-row justify="center">
-        <v-col cols="12" md="10" lg="8">
-          <h2 class="text-h5 text-md-h4 font-weight-bold mb-4">Proč my?</h2>
-          <p class="text-body-1 why-text mb-3">
-            Naší vizí je být dlouhodobým a spolehlivým partnerem, který férovým přístupem přináší zákazníkům
-            komplexní a kvalitní řešení v oblasti stavebnictví, TZB a energetiky.
-          </p>
-          <p class="text-body-1 why-text">
-            Stavíme na spolehlivosti, odbornosti a lidském přístupu. Dodáváme řešení včas, kvalitně a bez kompromisů –
-            tak, aby se spokojený zákazník vracel.
-          </p>
-        </v-col>
-      </v-row>
-    </v-container>
+    <!-- Why us (centered) - full width stripe -->
+    <section class="why-us-strip">
+      <v-container class="py-10 about-container text-center why-us-section">
+        <v-row justify="center">
+          <v-col cols="12" md="10" lg="8">
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-4">Proč my?</h2>
+            <p class="text-body-1 why-text mb-3">
+              Naší vizí je být dlouhodobým a spolehlivým partnerem, který férovým přístupem přináší zákazníkům
+              komplexní a kvalitní řešení v oblasti stavebnictví, TZB a energetiky.
+            </p>
+            <p class="text-body-1 why-text">
+              Stavíme na spolehlivosti, odbornosti a lidském přístupu. Dodáváme řešení včas, kvalitně a bez kompromisů –
+              tak, aby se spokojený zákazník vracel.
+            </p>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
 
     <!-- Image left / Text right -->
     <v-container class="py-12 about-container">
       <v-row align="center">
-        <v-col cols="12" md="6" class="mb-6 mb-md-0">
-          <v-img src="/fotky/stavba.png" alt="Naše týmy a realizace" height="360" cover class="rounded-xl" />
+          <v-col cols="12" md="6" class="mb-6 mb-md-0">
+          <v-img src="/fotky/stavba3.png" alt="Naše týmy a realizace" height="360" cover class="rounded-xl" />
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="6" class="about-right">
           <h3 class="text-h5 font-weight-bold mb-2">Máme vlastní</h3>
           <ul class="about-list mb-6">
             <li>Projekční, montážní i realizační skupiny odborníků</li>
@@ -91,7 +93,7 @@
             <h2 class="section-heading">Naše čísla & Milníky</h2>
           </v-col>
         </v-row>
-        <v-row class="mb-6">
+        <v-row class="mb-6 kpi-row">
           <v-col cols="6" md="3" v-for="(n, i) in aboutNumbers" :key="'n-'+i">
             <div class="kpi">
               <div class="kpi-value">{{ n.value }}</div>
@@ -103,11 +105,18 @@
           <v-col cols="12" class="text-center mb-4">
             <h3 class="timeline-heading">Milníky</h3>
           </v-col>
-          <v-col cols="12" md="4" v-for="(milestone, i) in milestones" :key="'m-'+i">
-            <v-card elevation="2" class="pa-4 milestone">
-              <div class="milestone-year">{{ milestone.year }}</div>
-              <div class="milestone-text">{{ milestone.text }}</div>
-            </v-card>
+          <v-col cols="12">
+            <section class="timeline">
+              <ul>
+                <li v-for="(m, i) in milestones" :key="'m-'+i">
+                  <div>
+                    <time>{{ m.date }}</time>
+                    <h4 class="milestone-title">{{ m.title }}</h4>
+                    <p class="milestone-desc">{{ m.description }}</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
           </v-col>
         </v-row>
       </v-container>
@@ -134,25 +143,27 @@
     </v-container>
 
     <!-- CTA (same as Home page) -->
-    <v-container class="py-16 about-container">
-      <v-row align="center" justify="space-between">
-        <v-col cols="12" md="8">
-          <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Spojte se s námi</h2>
-          <p class="text-body-1">Rádi s vámi probereme váš projekt a navrhneme nejlepší řešení.</p>
-        </v-col>
-        <v-col cols="12" md="4" class="text-md-right">
-          <v-btn color="primary" size="large" :to="{ name: 'ContactUs' }">
-            Kontaktujte nás
-          </v-btn>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-sheet class="cta-section py-16">
+      <v-container class="about-container">
+        <v-row align="center" justify="space-between">
+          <v-col cols="12" md="8">
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Spojte se s námi</h2>
+            <p class="text-body-1">Rádi s vámi probereme váš projekt a navrhneme nejlepší řešení.</p>
+          </v-col>
+          <v-col cols="12" md="4" class="text-md-right">
+            <v-btn color="primary" size="large" :to="{ name: 'ContactUs' }">
+              Kontaktujte nás
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
   </section>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const currentSlide = ref(0)
 const slides = [
@@ -176,10 +187,68 @@ const aboutNumbers = [
 ]
 
 const milestones = [
-  { year: '2005', text: 'Založení společnosti UCHYTIL s.r.o.' },
-  { year: '2012', text: 'Rozšíření o divizi Energetika' },
-  { year: '2020', text: '1000+ úspěšně dokončených projektů' },
+  {
+    date: '1993',
+    title: 'Založení rodinného podnikání',
+    description:
+      'Rodinná historie firmy začíná, kdy Jaroslav Uchytil st. zakládá se synem podnikání (původně v oblasti dopravy). Tento bod se hodí pro zdůraznění tradice.'
+  },
+  {
+    date: '23. 12. 1994',
+    title: 'Oficiální založení s.r.o.',
+    description:
+      'Zápis do Obchodního rejstříku u Krajského soudu v Brně. Společnost byla původně zapsána pod názvem ENBRA Montáže s.r.o.'
+  },
+  {
+    date: '1998',
+    title: 'Vznik Projekce TZB',
+    description:
+      'Společnost ustavuje oddělení Projekce technického zařízení budov (TZB) pro nezbytnou podporu realizačních prac.'
+  },
+  {
+    date: '16. 10. 2002',
+    title: 'Změna názvu společnosti',
+    description: 'Přejmenování společnosti z ENBRA Montáže s.r.o. na UCHYTIL s.r.o.'
+  },
+  {
+    date: '2007',
+    title: 'Vznik Projekce Energetiky',
+    description:
+      'Projekční činnost se rozšiřuje o samostatnou divizi specializující se na energetiku, rozvody potrubí a regulace otopných soustav.'
+  },
+  {
+    date: '2008 / 2009',
+    title: 'První velké dotační projekty',
+    description:
+      'Zapojení do výzkumných a rozvojových projektů podpořených z fondů EU, zaměřených na vývoj moderních technologií pro ekologické spalování nebo rekonstrukci sídla s cílem snížení energetické náročnosti.'
+  },
+  {
+    date: '2015',
+    title: 'Kapitálové posílení a změna partnera',
+    description:
+      'Změna ve struktuře společníků, kdy se partnerem stává Nemovitosti UCHYTIL a.s.'
+  },
+  {
+    date: 'Současnost',
+    title: 'Stabilní regionální lídr',
+    description:
+      'Společnost uvádí aktuální klíčové údaje: 100–199 zaměstnanců a základní kapitál 5 000 000 Kč. Hlavní sídlo je v Brně s dalšími pobočkami.'
+  }
 ]
+
+// Timeline intersection observer: add .in-view class when list items enter viewport
+onMounted(() => {
+  const items = document.querySelectorAll('.timeline li')
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in-view')
+    })
+  }, { threshold: 0.45 })
+
+  items.forEach(i => observer.observe(i))
+
+  onBeforeUnmount(() => observer.disconnect())
+})
 
 const features = [
   {
@@ -309,9 +378,46 @@ const divisions = [
   will-change: transform;
 }
 
-.kpi { text-align: center; padding: 16px 8px; }
-.kpi-value { font-size: 2rem; font-weight: 800; color: #ffffff; }
-.kpi-label { color: #ffffff; }
+.kpi {
+  text-align: center;
+  padding: 28px 8px; /* increased vertical space to match much thicker stripe */
+  position: relative;
+  z-index: 2; /* keep KPI content above the row stripe and highlight layer */
+}
+
+/* Single blue stripe behind the KPI row */
+.kpi-row { position: relative; }
+.kpi-row::before {
+  content: '';
+  position: absolute;
+  left: 0%; /* full-bleed inside container */
+  right: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 160px; /* much thicker stripe */
+  background: #031f68; /* match the "Proč my?" blue */
+  border-radius: 12px;
+  z-index: 0;
+  box-shadow: none;
+}
+kpi-row::after {
+  /* highlights removed per request; keep stripe flat */
+  display: none;
+}
+.kpi-value { font-size: clamp(2.4rem, 5.0vw, 4rem); font-weight: 900; color: #ffffff; margin-top: -8px; }
+.kpi-label { color: rgba(255,255,255,0.95); font-size: clamp(0.95rem, 1.6vw, 1.1rem); }
+
+@media screen and (max-width: 900px) {
+  .kpi { padding: 18px 8px; }
+  .kpi-row::before { height: 80px; left: 3%; right: 3%; border-radius: 12px; }
+}
+
+@media screen and (max-width: 600px) {
+  .kpi { padding: 12px 8px; }
+  /* hide the stripe on medium/smaller screens */
+  .kpi-row::before { display: none; }
+  .kpi-value { margin-top: 0; }
+}
 
 /* Numbers + Timeline background */
 .numbers-timeline-section {
@@ -325,8 +431,123 @@ const divisions = [
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
 }
-.section-heading { color: #ffffff; font-weight: 800; }
-.timeline-heading { color: #ffffff; font-weight: 700; }
+.section-heading {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: clamp(2rem, 5.2vw, 3.6rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.03;
+}
+.timeline-heading {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: clamp(1.6rem, 4.6vw, 3rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Vertical timeline styles */
+.timeline ul {
+  background: transparent;
+  padding: 30px 0;
+}
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 12px; /* thicker spine */
+  margin: 0 auto 40px auto;
+  padding-top: 50px;
+  background: #031f68; /* center vertical line (blue theme) */
+}
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 36px; /* slightly larger dot to match thicker spine */
+  height: 36px;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 1;
+  transition: background 0.35s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 420px;
+  padding: 16px 20px;
+  background: #ffffff;
+  color: #1e293b;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.milestone-title { margin: 8px 0 6px; font-weight: 800; color: #031f68; font-size: clamp(1.05rem, 2.2vw, 1.45rem); }
+.milestone-desc { margin: 0 0 6px; color: #475569; font-size: clamp(0.95rem, 1.9vw, 1.05rem); line-height: 1.45; }
+.milestone-source { font-size: 0.85rem; color: #9aa4b2; }
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.timeline ul li:nth-child(odd) div {
+  left: 66px; /* match left-side perceived spacing (increase gap from spine) */
+}
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
+.timeline ul li:nth-child(even) div {
+  left: -468px; /* make left-side spacing symmetric with right-side (420px width + 48px gap) */
+}
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #ffffff;
+}
+time {
+  display: block;
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  font-weight: 800;
+  color: #031f68;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+/* Effects */
+.timeline ul li::after { transition: background 0.35s ease-in-out, box-shadow 0.25s ease-in-out; }
+.timeline ul li.in-view::after { /* keep dot blue; no glow */ box-shadow: none; }
+.timeline ul li div { visibility: hidden; opacity: 0; transition: all 0.5s ease-in-out; }
+.timeline ul li:nth-child(odd) div { transform: translate3d(200px, 0, 0); }
+.timeline ul li:nth-child(even) div { transform: translate3d(-200px, 0, 0); }
+.timeline ul li.in-view div { transform: none; visibility: visible; opacity: 1; }
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div { width: 250px; }
+  .timeline ul li:nth-child(even) div { left: 45px; }
+  .timeline ul li:nth-child(odd) div { left: 60px; }
+}
+
+@media screen and (min-width: 900px) {
+  /* larger timeline cards and titles on normal/desktop screens */
+  .timeline ul li div { width: 480px; padding: 20px 26px; }
+  .timeline ul li:nth-child(odd) div { left: 78px; }
+  .timeline ul li:nth-child(even) div { left: -558px; }
+  .milestone-title { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+  time { font-size: 1.5rem; }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li { margin-left: 20px; }
+  .timeline ul li div { width: calc(100vw - 91px); }
+  .timeline ul li:nth-child(even) div { left: 45px; }
+  .timeline ul li:nth-child(even) div::before { left: -15px; border-width: 8px 16px 8px 0; border-color: transparent #ffffff transparent transparent; }
+}
 
 
 
@@ -336,6 +557,38 @@ const divisions = [
 
 .cta { border-radius: 18px; background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%); }
 .kdo-jsme-text { line-height: 1.65; color:#374151; }
+
+/* CTA section: blue background matching the site theme */
+.cta-section {
+  background: #031f68;
+  border-radius: 0 !important;
+  position: relative;
+  color: #ffffff;
+}
+.cta-section::after {
+  /* light-blue highlight layer for the CTA stripe */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle at 12% 40%, rgba(180,220,255,0.12) 0%, rgba(180,220,255,0.00) 18%),
+    radial-gradient(circle at 28% 62%, rgba(150,200,255,0.10) 0%, rgba(150,200,255,0.00) 20%),
+    radial-gradient(circle at 52% 50%, rgba(180,220,255,0.08) 0%, rgba(180,220,255,0.00) 20%),
+    radial-gradient(circle at 78% 26%, rgba(150,200,255,0.06) 0%, rgba(150,200,255,0.00) 20%);
+  mix-blend-mode: overlay;
+  animation: subtlePulse 7.5s ease-in-out infinite;
+}
+.cta-section h2, .cta-section p { color: #ffffff; }
+.cta-section :deep(.v-btn) {
+  background: #ffffff !important;
+  color: #031f68 !important;
+  font-weight: 800;
+}
 
 /* Feature cards */
 .feature-card { position: relative; border-radius: 20px; overflow: hidden; }
@@ -360,6 +613,51 @@ const divisions = [
 .feature-text { font-size: .85rem; line-height: 1.3; opacity: .9; }
 .why-text { line-height: 1.65; color:#374151; }
 
+/* Why us - blue themed block (consistent with stats/references) */
+.why-us-strip {
+  background: #031f68;
+  position: relative;
+  overflow: hidden;
+}
+.why-us-section {
+  color: #fff;
+  position: relative;
+  z-index: 1; /* keep content above glows */
+}
+.why-us-section h2 { color: #fff; }
+.why-us-section .why-text { color: #e5edf5; }
+.why-us-strip::before {
+  content: '';
+  position: absolute;
+  top: 6%;
+  left: 4%;
+  width: 320px;
+  height: 320px;
+  background-image:
+    radial-gradient(circle at 20% 28%, rgba(180,220,255,0.20) 0%, rgba(150,200,255,0.06) 30%, transparent 66%),
+    radial-gradient(circle at 62% 20%, rgba(150,200,255,0.14) 0%, rgba(150,200,255,0.04) 28%, transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 8s ease-in-out infinite;
+}
+.why-us-strip::after {
+  content: '';
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+  width: 420px;
+  height: 420px;
+  background-image:
+    radial-gradient(circle at 12% 68%, rgba(150,200,255,0.16) 0%, rgba(150,200,255,0.05) 28%, transparent 66%),
+    radial-gradient(circle at 72% 40%, rgba(180,220,255,0.14) 0%, rgba(180,220,255,0.04) 26%, transparent 66%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 10s ease-in-out infinite;
+}
+.why-us-section > .v-row, .why-us-section > .v-row .v-col { position: relative; }
+
 /* About bullet lists */
 .about-list { margin: 0 0 10px; padding-left: 1.05rem; }
 .about-list li { margin: 6px 0; line-height: 1.6; color:#374151; }
@@ -367,4 +665,25 @@ const divisions = [
 .about-list { margin: 0; padding-left: 1.2rem; line-height: 1.65; color:#374151; }
 .about-list.bullet-columns { columns: 1; column-gap: 28px; }
 @media (min-width: 960px){ .about-list.bullet-columns { columns: 2; } }
+
+/* Color subsection titles and list items in the about right column */
+.about-right h3.text-h5 {
+  color: #031f68 !important;
+  font-size: clamp(1.25rem, 2.6vw, 1.8rem) !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.6rem !important;
+}
+.about-right .about-list {
+  color: #031f68;
+}
+.about-right .about-list li strong {
+  color: #031f68;
+}
+
+/* subtle pulsing used by blue highlight overlays */
+@keyframes subtlePulse {
+  0% { opacity: 0.75; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 0.75; transform: translateY(0); }
+}
 </style>

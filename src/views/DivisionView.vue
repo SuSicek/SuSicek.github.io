@@ -144,13 +144,9 @@ export default {
       return this.current.projects || []
     },
     servicesBgStyle() {
-      const img = this.current.heroImage
+      // Use blue theme background instead of a hero image
       return {
-        // Dark overlay for stronger image with better text contrast
-        backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.48) 40%, rgba(0,0,0,0.42) 100%), url('${img}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        background: '#031f68'
       }
     }
   },
@@ -218,8 +214,34 @@ export default {
 .intro-subtitle { font-size: 1.1rem; color: #475569; margin-bottom: 1.4rem; }
 .intro-paragraph { color: #475569; line-height: 1.7; font-size: 1.02rem; margin-bottom: 1rem; }
 
-.division-services { background: linear-gradient(135deg, #ffffff 0%, #f1f7ff 100%); }
-.division-services.dark { color: #fff; }
+ .division-services { background: linear-gradient(135deg, #ffffff 0%, #f1f7ff 100%); }
+ .division-services.dark { color: #fff; background-color: #031f68; position: relative; overflow: hidden; }
+ .division-services .v-container { position: relative; z-index: 1; }
+
+ .division-services.dark::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(180,220,255,0.22) 0%, rgba(150,200,255,0.08) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+ }
+ .division-services.dark::after {
+  content: '';
+  position: absolute;
+  bottom: 6%;
+  right: 8%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(150,200,255,0.18) 0%, rgba(150,200,255,0.06) 35%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+ }
 .division-services.dark .section-heading { color: #fff; }
 /* Keep cards light on dark background */
 .division-services.dark .service-card { background-color: #fff; color: #1e293b; }

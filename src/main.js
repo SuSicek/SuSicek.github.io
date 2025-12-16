@@ -32,12 +32,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
+  // Always scroll to top when navigating to a new route to ensure users land at the page start
+  scrollBehavior() {
+    return { top: 0 }
   }
 })
 

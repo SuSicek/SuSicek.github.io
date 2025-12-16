@@ -68,7 +68,12 @@
     <!-- References section -->
     <div class="references-wrapper">
       <v-sheet class="references-section position-relative" color="#031f68">
-        <v-container class="py-16 position-relative">
+        <!-- decorative highlights container placed behind content (two large animated orbs) -->
+        <div class="references-highlights" aria-hidden="true">
+          <span class="orb orb-a"></span>
+          <span class="orb orb-b"></span>
+        </div>
+        <v-container class="py-16 position-relative references-content">
           <v-row class="mb-8">
             <v-col cols="12" class="text-center">
               <h2 class="text-h4 text-md-h3 font-weight-bold text-white mb-6">Naše Reference</h2>
@@ -289,7 +294,30 @@ export default {
 }
 
 @media (max-width: 600px) {
+  /* Simplify reference cards on small screens: remove hover details and shorten cards */
+  .reference-card {
+    height: 260px;
+    transition: none;
+    cursor: default;
+  }
+  .reference-card:hover { transform: none; }
+  .reference-card-overlay { background: rgba(0,0,0,0.45) !important; transition: none !important; }
+  .reference-card-details { display: none !important; }
+  .reference-card-title { font-size: clamp(1.05rem, 4.5vw, 1.45rem); margin-bottom: 0.5rem; }
   .hero-shell {
+
+@media (max-width: 900px) {
+  /* also apply simplified behavior for medium screens */
+  .reference-card {
+    height: 320px;
+    transition: none;
+    cursor: default;
+  }
+  .reference-card:hover { transform: none; }
+  .reference-card-overlay { background: rgba(0,0,0,0.45) !important; transition: none !important; }
+  .reference-card-details { display: none !important; }
+  .reference-card-title { font-size: clamp(1.15rem, 3.6vw, 1.6rem); }
+}
     height: auto;
     min-height: 420px;
   }
@@ -432,6 +460,28 @@ export default {
 .division-card:hover .division-card-title {
   transform: translateY(-20px);
 }
+
+/* Smaller screens: make division cards shorter and disable hover effects */
+@media screen and (max-width: 900px) {
+  .division-card {
+    height: 320px;
+    transition: none;
+    cursor: default;
+  }
+  .division-card:hover { transform: none; }
+  .division-card:hover .division-card-overlay { background: rgba(0,0,0,0.5); }
+  .division-card-title { transform: none; }
+  /* Remove detailed info and simplify layout on small screens */
+  .division-card-details { display: none !important; }
+  .division-card-overlay { background: rgba(0,0,0,0.55) !important; transition: none !important; }
+  .division-card-content { padding: 1rem !important; }
+  .division-card-title { font-size: clamp(1.35rem, 4.2vw, 1.9rem); margin-bottom: 0.5rem; }
+}
+
+@media screen and (max-width: 600px) {
+  .division-card { height: 260px; }
+  .division-card-title { font-size: clamp(1.15rem, 5.0vw, 1.6rem); }
+}
 .division-card-details {
   opacity: 0;
   transform: translateY(20px);
@@ -462,41 +512,25 @@ export default {
   overflow: hidden;
 }
 .references-section::before {
-  content: '';
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(150, 200, 255, 0.25) 0%, rgba(150, 200, 255, 0.1) 30%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
+  display: none !important; /* replaced by .references-highlights markup */
 }
-.references-section::after {
-  content: '';
-  position: absolute;
-  bottom: 5%;
-  right: 10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(180, 220, 255, 0.2) 0%, rgba(150, 200, 255, 0.08) 35%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.references-section .py-16::before {
-  content: '';
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(200, 230, 255, 0.18) 0%, rgba(150, 200, 255, 0.06) 40%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
+.references-section::after { display: none !important; }
+.references-section .py-16::before { display: none !important; }
+
+/* Highlights container (placed behind content but above background) */
+.references-highlights { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.references-highlights .orb { position: absolute; border-radius: 50%; background-repeat: no-repeat; mix-blend-mode: overlay; opacity: 0.9; animation: subtlePulse 5s ease-in-out infinite; }
+.references-highlights .orb-a { top: -10%; left: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); }
+.references-highlights .orb-b { bottom: -10%; right: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); }
+
+/* ensure content sits above the highlights */
+.references-content { position: relative; z-index: 1; }
+
+/* subtle pulsing used by blue highlight overlays in references */
+@keyframes subtlePulse {
+  0% { opacity: 0.65; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.65; transform: scale(0.98); }
 }
 .references-bg {
   position: absolute;

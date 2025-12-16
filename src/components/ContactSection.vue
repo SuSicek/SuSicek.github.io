@@ -490,6 +490,33 @@ const submit = async () => {
 .division-contacts-section :deep(.v-tab--selected) {
   color: #fff;
 }
+
+/* Larger, more tappable tabs for contact & location selectors */
+.division-contacts-section :deep(.v-tab),
+.map-wrapper :deep(.v-tab),
+.contact-section :deep(.v-tab) {
+  font-size: 1.05rem;
+  padding: 10px 18px;
+  min-height: 52px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.division-contacts-section :deep(.v-tab .v-icon),
+.map-wrapper :deep(.v-tab .v-icon),
+.contact-section :deep(.v-tab .v-icon) {
+  font-size: 1.15rem;
+}
+.division-contacts-section :deep(.v-tab--selected),
+.map-wrapper :deep(.v-tab--selected) {
+  font-weight: 800;
+}
+
+/* Slight spacing between tabs when they have transparent background */
+.division-contacts-section :deep(.v-tabs) {
+  gap: 8px;
+}
 .division-card {
   border-radius: 14px;
   transition: box-shadow .25s ease, transform .25s ease;
@@ -513,6 +540,36 @@ const submit = async () => {
 }
 .map-embed { height: 450px; position: relative; }
 .map-embed iframe { display: block; }
+
+/* Titles: larger and uppercase for the Contact section */
+.contact-section .contact-title,
+.contact-section h2,
+.contact-section h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.contact-section .contact-title {
+  font-size: clamp(2rem, 5.0vw, 3rem);
+  font-weight: 900;
+}
+
+.contact-section h2 {
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.contact-section h3 {
+  font-size: clamp(1.05rem, 2.0vw, 1.25rem);
+  font-weight: 800;
+}
+
+.division-title {
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+  font-weight: 900;
+}
 
 /* Hero content spacing - more space on top */
 .hero-content {
