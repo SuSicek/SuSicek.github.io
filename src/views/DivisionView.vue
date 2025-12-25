@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="py-0 px-0 division-view-root">
+  <v-container fluid class="py-0 px-0 division-view-root blue-rings-bg">
     <!-- Hero redesigned -->
     <header class="division-hero" :style="heroStyle" role="banner" aria-label="Hero">
       <div class="hero-inner">
@@ -28,7 +28,7 @@
     <section class="division-services dark" aria-labelledby="services-heading" :style="servicesBgStyle">
       <v-container fluid class="py-8 px-6 px-sm-8 px-md-10">
         <h3 id="services-heading" class="section-heading services-heading-contrast">Služby divize</h3>
-        <v-row dense>
+        <v-row dense justify="center">
           <v-col v-for="(s, idx) in current.services" :key="idx" cols="12" sm="6" md="4" lg="3">
             <v-card class="service-card" elevation="6" rounded="lg" :aria-label="'Služba: ' + s.title">
               <v-card-text class="d-flex flex-column">
@@ -202,11 +202,21 @@ export default {
 .hero-title { font-size: clamp(2.6rem, 5.5vw, 3.8rem); font-weight: 800; line-height: 1.05; margin: 0 0 .8rem; }
 .hero-subtitle { font-size: clamp(1rem, 2.2vw, 1.3rem); opacity: .92; margin: 0 0 1.6rem; }
 
-.division-intro { background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); }
+.division-intro { 
+  background: #ffffff; 
+  background-image: none;
+  box-shadow: none;
+  border: none;
+}
+.division-intro::before {
+  display: none;
+}
 .division-intro :deep(.v-container) {
   /* Mirror hero side padding to keep content centered on large screens */
   padding-left: clamp(1.25rem, 10vw, 12rem) !important;
   padding-right: clamp(1.25rem, 10vw, 12rem) !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 .intro-head { max-width: 900px; }
 .intro-kicker { text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #031f68; opacity: .9; }

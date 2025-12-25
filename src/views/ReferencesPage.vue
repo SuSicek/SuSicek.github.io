@@ -1,12 +1,23 @@
 <template>
-  <section class="references-page">
-    <!-- Hero / Header -->
-    <v-sheet class="ref-hero d-flex align-center" height="42vh" color="black">
-      <v-img src="/fotky/references/back.png" cover class="hero-bg" />
-      <div class="ref-hero-overlay d-flex align-center">
-        <div class="hero-inner about-container">
-          <h1 class="hero-title">Reference</h1>
-          <p class="hero-sub">Výběr z našich realizací a projektů.</p>
+  <section class="references-page blue-rings-bg">
+    <!-- Hero slideshow with overlay title/subtitle -->
+    <v-sheet class="position-relative hero-shell" color="black">
+      <v-carousel
+        class="hero-carousel"
+        v-model="currentSlide"
+        hide-delimiters
+        :show-arrows="false"
+        cycle
+        interval="6000"
+      >
+        <v-carousel-item v-for="(slide, i) in slides" :key="i">
+          <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
+        </v-carousel-item>
+      </v-carousel>
+      <div class="hero-overlay d-flex flex-column justify-end">
+        <div class="overlay-container">
+          <h1 class="slideshow-title">Naše <span class="hero-highlight">Reference</span></h1>
+          <div class="slideshow-subtitle">Výběr z našich <span class="hero-highlight">realizací</span> a projektů.</div>
         </div>
       </div>
     </v-sheet>
@@ -99,6 +110,15 @@ import { useReferences, divisionKeyToName } from '../composables/useReferences'
 // Shared references source
 const { references } = useReferences()
 
+// Hero carousel
+const currentSlide = ref(0)
+const slides = [
+  { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
+  { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+  { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
+  { src: '/fotky/energetika.png', alt: 'Energetika' }
+]
+
 // Filters
 const search = ref('')
 const selectedDivision = ref(null)
@@ -166,16 +186,82 @@ watch(selectedDivision, (val) => {
 </script>
 
 <style scoped>
+.hero-shell {
+  min-height: 520px;
+  height: clamp(520px, 75vh, 720px);
+  border-radius: 0;
+  overflow: hidden;
+}
+.hero-shell :deep(.v-carousel),
+.hero-shell :deep(.v-window),
+.hero-shell :deep(.v-carousel-item),
+.hero-shell :deep(.v-img) {
+  height: 100% !important;
+}
+.hero-carousel {
+  height: 100%;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+}
+.overlay-container {
+  max-width: 1100px;
+  margin-left: clamp(16px, 8vw, 120px);
+  margin-bottom: clamp(40px, 8vh, 80px);
+}
+.slideshow-title {
+  color: #fff;
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.015em;
+  margin: 0 0 0.8rem 0;
+}
+.slideshow-subtitle {
+  color: #fff;
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.hero-highlight {
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .hero-shell {
+    height: clamp(460px, 70vh, 640px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-shell {
+    height: clamp(420px, 65vh, 520px);
+  }
+  .hero-shell :deep(.v-carousel),
+  .hero-shell :deep(.v-window),
+  .hero-shell :deep(.v-carousel-item),
+  .hero-shell :deep(.v-img) {
+    min-height: 420px;
+  }
+  .overlay-container {
+    margin-left: clamp(16px, 5vw, 32px);
+    margin-bottom: clamp(24px, 8vh, 48px);
+  }
+  .slideshow-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+  .slideshow-subtitle {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    line-height: 1.2;
+  }
+}
+
 .about-container { width: 75%; max-width: 1700px; margin: 0 auto; }
 @media (max-width: 1280px){ .about-container { width: 92%; } }
 @media (max-width: 960px){ .about-container { width: 100%; } }
 .references-page { background: #fff; }
-.ref-hero { position: relative; overflow: hidden; }
-.ref-hero .hero-bg { filter: brightness(0.55); }
-.ref-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.55)); }
-.hero-inner { position: relative; }
-.hero-title { color:#fff; font-size: clamp(2.2rem,4.5vw,3.4rem); font-weight: 800; margin:0 0 .6rem; letter-spacing:.5px; }
-.hero-sub { color:#e5edf5; font-size: clamp(1rem,1.6vw,1.25rem); max-width: 680px; }
 
 .ref-card { transition: box-shadow .3s, transform .3s; border-radius: 18px; }
 .ref-card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px -6px rgba(0,0,0,0.25); }

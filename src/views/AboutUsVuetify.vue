@@ -1,22 +1,23 @@
 <template>
-  <section class="about-section">
-    <!-- Hero copied from Home page -->
-    <v-sheet class="position-relative" height="75vh" color="black">
+  <section class="about-section blue-rings-bg">
+    <!-- Hero slideshow with overlay title/subtitle -->
+    <v-sheet class="position-relative hero-shell" color="black">
       <v-carousel
+        class="hero-carousel"
         v-model="currentSlide"
-        height="75vh"
+        hide-delimiters
         :show-arrows="false"
-        :hide-delimiters="true"
-        transition="fade-transition"
+        cycle
+        interval="6000"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
           <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
         </v-carousel-item>
       </v-carousel>
-      <div class="hero-overlay d-flex flex-column justify-center">
+      <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
-          <h1 class="slideshow-title">UCHYTIL s.r.o.</h1>
-          <div class="slideshow-subtitle">Stavby, které fungují. Partnerství, které trvá</div>
+          <h1 class="slideshow-title">UCHYTIL <span class="hero-highlight">s.r.o.</span></h1>
+          <div class="slideshow-subtitle">Stavby, které <span class="hero-highlight">fungují</span>. Partnerství, které <span class="hero-highlight">trvá</span></div>
         </div>
       </div>
     </v-sheet>
@@ -167,9 +168,10 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const currentSlide = ref(0)
 const slides = [
-  { src: '/fotky/energetika.png', alt: 'Energetika' },
-  { src: '/fotky/stavba.png', alt: 'Stavba' },
-  { src: '/fotky/prodejna.png', alt: 'Prodejna' }
+  { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
+  { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+  { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
+  { src: '/fotky/energetika.png', alt: 'Energetika' }
 ]
 
 const kpis = [
@@ -311,61 +313,76 @@ const divisions = [
 @media (max-width: 1280px){ .about-container { width: 92%; } }
 @media (max-width: 960px){ .about-container { width: 100%; } }
 
+.hero-shell {
+  min-height: 520px;
+  height: clamp(520px, 75vh, 720px);
+  border-radius: 0;
+  overflow: hidden;
+}
+.hero-shell :deep(.v-carousel),
+.hero-shell :deep(.v-window),
+.hero-shell :deep(.v-carousel-item),
+.hero-shell :deep(.v-img) {
+  height: 100% !important;
+}
+.hero-carousel {
+  height: 100%;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.35));
-  will-change: opacity;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
 }
 .overlay-container {
-  max-width: 900px;
-  margin-left: 16px;
-  will-change: transform;
-}
-@media (min-width: 600px) {
-  .overlay-container {
-    margin-left: 5vw;
-  }
-}
-@media (min-width: 960px) {
-  .overlay-container {
-    margin-left: 120px;
-  }
+  max-width: 1100px;
+  margin-left: clamp(16px, 8vw, 120px);
+  margin-bottom: clamp(40px, 8vh, 80px);
 }
 .slideshow-title {
   color: #fff;
-  font-size: 2.4rem;
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 900;
-  line-height: 1.07;
+  line-height: 1.05;
   letter-spacing: 0.015em;
-  margin: 0 0 0.5rem 0;
-  will-change: font-size;
-}
-@media (min-width: 600px) {
-  .slideshow-title {
-    font-size: 3rem;
-  }
-}
-@media (min-width: 960px) {
-  .slideshow-title {
-    font-size: 4rem;
-  }
+  margin: 0 0 0.8rem 0;
 }
 .slideshow-subtitle {
   color: #fff;
-  font-size: 1.05rem;
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
   font-weight: 600;
   line-height: 1.3;
-  will-change: font-size;
 }
-@media (min-width: 600px) {
-  .slideshow-subtitle {
-    font-size: 1.3rem;
+.hero-highlight {
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .hero-shell {
+    height: clamp(460px, 70vh, 640px);
   }
 }
-@media (min-width: 960px) {
+
+@media (max-width: 600px) {
+  .hero-shell {
+    height: clamp(420px, 65vh, 520px);
+  }
+  .hero-shell :deep(.v-carousel),
+  .hero-shell :deep(.v-window),
+  .hero-shell :deep(.v-carousel-item),
+  .hero-shell :deep(.v-img) {
+    min-height: 420px;
+  }
+  .overlay-container {
+    margin-left: clamp(16px, 5vw, 32px);
+    margin-bottom: clamp(24px, 8vh, 48px);
+  }
+  .slideshow-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
   .slideshow-subtitle {
-    font-size: 1.6rem;
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    line-height: 1.2;
   }
 }
 

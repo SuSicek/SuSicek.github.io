@@ -109,7 +109,7 @@
     </div>
 
     <!-- Contact CTA -->
-    <v-sheet color="white" class="py-16">
+    <v-sheet color="white" class="py-16 blue-rings-bg">
       <v-container>
         <v-row justify="center">
           <v-col cols="12" class="text-center">
@@ -135,9 +135,10 @@ export default {
     return {
       currentSlide: 0,
       slides: [
-        { src: '/fotky/energetika.png', alt: 'Energetika' },
-        { src: '/fotky/stavba.png', alt: 'Stavba' },
-        { src: '/fotky/prodejna.png', alt: 'Prodejna' }
+        { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
+        { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+        { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
+        { src: '/fotky/energetika.png', alt: 'Energetika' }
       ],
       stats: [
         { number: 30, label: 'Let na trhu' },
@@ -262,7 +263,7 @@ export default {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
 }
 .overlay-container {
   max-width: 1100px;

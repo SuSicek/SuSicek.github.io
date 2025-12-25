@@ -146,7 +146,7 @@ export const divisions = {
       {
         title: 'Zdravotní centrum Ostrava',
         description: 'Specializované TZB instalace pro zdravotnické zařízení',
-        image: assetPath('fotky/prodejna2.png'),
+        image: assetPath('fotky/energetika.png'),
         year: '2023'
       }
     ],

@@ -5,7 +5,7 @@
     flat
     :elevation="isAtTop ? 0 : 2"
     :color="isAtTop ? 'transparent' : 'white'"
-    class="responsive-header"
+    class="responsive-header blue-rings-bg"
     :class="['header-overlay', 'header-transition', { 
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
@@ -14,12 +14,12 @@
   <v-container fluid class="py-0 px-0 header-container">
       <v-row align="center" no-gutters>
         <!-- Left: Logo -->
-        <v-col cols="auto">
+        <v-col cols="auto" class="logo-col pa-0">
           <RouterLink to="/">
             <v-img
               :src="logoSrc"
               alt="UCHYTIL s.r.o."
-              class="my-2 logo-img"
+              class="logo-img"
               :class="{ 'logo-fade': true }"
               @error="onLogoError"
             />
@@ -158,28 +158,73 @@ watch(isAtTop, () => {
 
 /* Responsive header height */
 .responsive-header {
-  height: clamp(60px, 6vw, 100px) !important;
+  height: clamp(80px, 8vw, 120px) !important;
 }
 .responsive-header :deep(.v-toolbar__content) {
   height: 100% !important;
 }
 
-/* Logo scales with header */
-.logo-img {
-  width: clamp(100px, 10vw, 150px) !important;
-  height: auto !important;
-}
-
-/* Add padding-top to logo on smaller resolutions */
+/* Even taller on smaller screens */
 @media (max-width: 960px) {
-  .logo-img {
-    padding-top: 8px !important;
+  .responsive-header {
+    height: clamp(100px, 10vw, 140px) !important;
   }
 }
 
 @media (max-width: 600px) {
+  .responsive-header {
+    height: clamp(120px, 12vw, 160px) !important;
+  }
+}
+
+/* Logo scales with header - larger on smaller resolutions */
+.logo-img {
+  width: clamp(120px, 12vw, 180px) !important;
+  height: auto !important;
+}
+
+/* Even larger on very small screens */
+@media (max-width: 600px) {
   .logo-img {
-    padding-top: 12px !important;
+    width: clamp(140px, 15vw, 200px) !important;
+  }
+}
+
+/* Logo column spacing */
+.logo-col {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+}
+
+/* Add padding to logo on smaller resolutions */
+@media (max-width: 960px) {
+  .logo-col {
+    padding: 8px !important;
+  }
+  .logo-col a {
+    padding: 8px !important;
+    display: block !important;
+  }
+  .logo-img {
+    padding: 8px !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-col {
+    padding: 12px !important;
+  }
+  .logo-col a {
+    padding: 12px !important;
+    display: block !important;
+  }
+  .logo-img {
+    padding: 12px !important;
+    margin: 0 !important;
   }
 }
 
@@ -227,16 +272,18 @@ watch(isAtTop, () => {
   background-color: transparent !important;
 }
 
-/* Scrolled state - white background */
+/* Scrolled state - solid blueish background */
 .header-overlay.header-scrolled {
-  background-color: white !important;
-  background: white !important;
+  background-color: #e0f0ff !important;
+  background: #e0f0ff !important;
+  background-image: none !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 .header-overlay.header-scrolled :deep(.v-toolbar__content) {
-  background-color: white !important;
-  background: white !important;
+  background-color: #e0f0ff !important;
+  background: #e0f0ff !important;
+  background-image: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }

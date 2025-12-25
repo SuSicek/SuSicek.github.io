@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section">
+  <section class="contact-section blue-rings-bg">
     <!-- Hero / Intro with image background -->
     <v-sheet class="contact-hero">
       <v-img :src="contactHero" cover class="contact-hero-bg" />
@@ -215,7 +215,7 @@
         </v-row>
         <v-row>
           <v-col cols="12">
-            <v-tabs v-model="activeLocation" bg-color="white" color="primary" align-tabs="center" class="mb-4">
+            <v-tabs v-model="activeLocation" bg-color="white" color="primary" align-tabs="center" class="mb-4 blue-rings-bg">
               <v-tab value="brno">
                 <v-icon start>mdi-map-marker</v-icon>
                 Brno
