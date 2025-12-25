@@ -170,6 +170,19 @@ watch(isAtTop, () => {
   height: auto !important;
 }
 
+/* Add padding-top to logo on smaller resolutions */
+@media (max-width: 960px) {
+  .logo-img {
+    padding-top: 8px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-img {
+    padding-top: 12px !important;
+  }
+}
+
 .header-transition {
   transition: all 300ms ease;
 }
