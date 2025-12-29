@@ -7,6 +7,7 @@
         v-model="currentSlide"
         hide-delimiters
         :show-arrows="false"
+        :touch="false"
         cycle
         interval="6000"
       >
@@ -416,6 +417,15 @@ const divisions = [
   border-radius: 12px;
   z-index: 0;
   box-shadow: none;
+  animation: enlightenStripe 4s ease-in-out infinite;
+}
+@keyframes enlightenStripe {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(3, 31, 104, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(3, 31, 104, 0.6);
+  }
 }
 kpi-row::after {
   /* highlights removed per request; keep stripe flat */

@@ -33,6 +33,11 @@ export default {
   transition: padding-top 300ms ease;
 }
 
+/* Prevent overscroll on mobile devices */
+body {
+  overscroll-behavior: none;
+}
+
 /* Blue ring background pattern for white sections */
 .blue-rings-bg {
   background-image:

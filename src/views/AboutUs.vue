@@ -201,6 +201,15 @@ export default {
   flex-direction: column;
   justify-content: center;
   min-height: 140px;
+  animation: enlighten 4s ease-in-out infinite;
+}
+@keyframes enlighten {
+  0%, 100% {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(3, 31, 104, 0.4);
+  }
 }
 .stats-card:hover {
   transform: translateY(-4px);

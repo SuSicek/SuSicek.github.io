@@ -359,24 +359,32 @@ export default {
 .stats-blue-bg::before {
   content: '';
   position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(150, 200, 255, 0.25) 0%, rgba(150, 200, 255, 0.1) 30%, transparent 70%);
+  top: 6%;
+  left: 4%;
+  width: 320px;
+  height: 320px;
+  background-image:
+    radial-gradient(circle at 20% 28%, rgba(180,220,255,0.35) 0%, rgba(150,200,255,0.15) 30%, transparent 66%),
+    radial-gradient(circle at 62% 20%, rgba(150,200,255,0.28) 0%, rgba(150,200,255,0.12) 28%, transparent 68%);
   border-radius: 50%;
   pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 8s ease-in-out infinite;
 }
 .stats-blue-bg::after {
   content: '';
   position: absolute;
-  bottom: 5%;
-  right: 10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(180, 220, 255, 0.2) 0%, rgba(150, 200, 255, 0.08) 35%, transparent 70%);
+  bottom: 6%;
+  right: 6%;
+  width: 420px;
+  height: 420px;
+  background-image:
+    radial-gradient(circle at 12% 68%, rgba(150,200,255,0.32) 0%, rgba(150,200,255,0.14) 28%, transparent 66%),
+    radial-gradient(circle at 72% 40%, rgba(180,220,255,0.26) 0%, rgba(180,220,255,0.10) 26%, transparent 66%);
   border-radius: 50%;
   pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 10s ease-in-out infinite;
 }
 .stats-card {
   background: rgba(255, 255, 255, 0.95) !important;

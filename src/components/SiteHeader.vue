@@ -4,13 +4,17 @@
     :absolute="isAtTop"
     flat
     :elevation="isAtTop ? 0 : 2"
-    :color="isAtTop ? 'transparent' : 'white'"
-    class="responsive-header blue-rings-bg"
+    :color="isAtTop ? 'transparent' : 'primary'"
+    class="responsive-header"
     :class="['header-overlay', 'header-transition', { 
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
     }]"
   >
+  <div v-if="!isAtTop" class="light-circle left-center"></div>
+  <div v-if="!isAtTop" class="light-circle right-center"></div>
+  <div v-if="!isAtTop" class="light-circle top-left"></div>
+  <div v-if="!isAtTop" class="light-circle bottom-right"></div>
   <v-container fluid class="py-0 px-0 header-container">
       <v-row align="center" no-gutters>
         <!-- Left: Logo -->
@@ -32,13 +36,14 @@
   <v-col cols="12" md="8" class="d-none d-md-flex" style="display:flex; flex-direction:column; align-items:flex-end; padding-top:6px;">
           <!-- Socials row -->
           <div class="d-flex align-center mb-1">
-            <v-btn icon :color="isAtTop ? 'white' : 'primary'" href="https://www.facebook.com/uchytilsro" target="_blank" size="small" class="mx-1">
+            <span :style="{ color: 'white' }" class="text-body-2 mr-2">IČO: 60734078</span>
+            <v-btn icon :color="'white'" href="https://www.facebook.com/uchytilsro" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
-            <v-btn icon :color="isAtTop ? 'white' : 'primary'" href="https://www.instagram.com/uchytil_tzb_stavba_energetika" target="_blank" size="small" class="mx-1">
+            <v-btn icon :color="'white'" href="https://www.instagram.com/uchytil_tzb_stavba_energetika" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-instagram</v-icon>
             </v-btn>
-            <v-btn icon :color="isAtTop ? 'white' : 'primary'" href="https://www.linkedin.com" target="_blank" size="small" class="mx-1">
+            <v-btn icon :color="'white'" href="https://www.linkedin.com" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-linkedin</v-icon>
             </v-btn>
           </div>
@@ -47,7 +52,7 @@
           <div class="d-flex align-center" style="gap:8px;">
             <v-menu open-on-hover>
               <template #activator="{ props }">
-                <v-btn v-bind="props" variant="text" :color="isAtTop ? 'white' : 'primary'" append-icon="mdi-chevron-down">Naše služby</v-btn>
+                <v-btn v-bind="props" variant="text" style="color: white !important" append-icon="mdi-chevron-down">Naše služby</v-btn>
               </template>
               <v-list>
                 <v-list-item
@@ -108,14 +113,10 @@ const isAtTop = ref(true)
 const whiteLogoError = ref(false)
 const blueLogoError = ref(false)
 
-// Compute logo source: white logo on transparent (top), blue logo on scrolled.
-// If a variant is missing, fall back to the default colored logo.
+// Compute logo source: always colored logo.
+// If colored variant is missing, fall back to the default colored logo.
 const logoSrc = computed(() => {
-  if (isAtTop.value) {
-    return whiteLogoError.value ? '/fotky/logo.png' : '/fotky/logo-white.png'
-  } else {
-    return blueLogoError.value ? '/fotky/logo.png' : '/fotky/logo.blue.png'
-  }
+  return '/fotky/logo.png'
 })
 
 const onLogoError = () => {
@@ -274,15 +275,53 @@ watch(isAtTop, () => {
 
 /* Scrolled state - solid blueish background */
 .header-overlay.header-scrolled {
-  background-color: #e0f0ff !important;
-  background: #e0f0ff !important;
+  background-color: #031f68 !important;
+  background: #031f68 !important;
   background-image: none !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  position: relative;
+  overflow: hidden;
+}
+.header-overlay.header-scrolled::before {
+  content: '';
+  position: absolute;
+  top: 6%;
+  left: 4%;
+  width: 400px;
+  height: 400px;
+  background-image:
+    radial-gradient(circle at 20% 28%, rgba(180,220,255,0.5) 0%, rgba(150,200,255,0.25) 30%, transparent 66%),
+    radial-gradient(circle at 62% 20%, rgba(150,200,255,0.4) 0%, rgba(150,200,255,0.2) 28%, transparent 68%),
+    radial-gradient(circle at 40% 60%, rgba(180,220,255,0.45) 0%, rgba(150,200,255,0.22) 35%, transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.21) 32%, transparent 68%),
+    radial-gradient(circle at 10% 80%, rgba(180,220,255,0.48) 0%, rgba(150,200,255,0.24) 30%, transparent 66%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 8s ease-in-out infinite;
+}
+.header-overlay.header-scrolled::after {
+  content: '';
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+  width: 520px;
+  height: 520px;
+  background-image:
+    radial-gradient(circle at 12% 68%, rgba(150,200,255,0.45) 0%, rgba(150,200,255,0.22) 28%, transparent 66%),
+    radial-gradient(circle at 72% 40%, rgba(180,220,255,0.38) 0%, rgba(180,220,255,0.18) 26%, transparent 66%),
+    radial-gradient(circle at 30% 20%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.2) 32%, transparent 68%),
+    radial-gradient(circle at 50% 80%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.19) 30%, transparent 70%),
+    radial-gradient(circle at 85% 10%, rgba(150,200,255,0.46) 0%, rgba(180,220,255,0.23) 28%, transparent 66%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 10s ease-in-out infinite;
 }
 
 .header-overlay.header-scrolled :deep(.v-toolbar__content) {
-  background-color: #e0f0ff !important;
-  background: #e0f0ff !important;
+  background-color: #031f68 !important;
+  background: #031f68 !important;
   background-image: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -337,4 +376,57 @@ body:not(.header-scrolled) .v-application,
 body:not(.header-scrolled) .v-application--wrap {
   background-color: transparent !important;
 }
+
+/* Ensure button contents are white in scrolled header */
+.header-scrolled .v-btn__content {
+  color: white !important;
+}
+
+@keyframes subtlePulse {
+  0% { opacity: 0.8; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.8; transform: scale(0.98); }
+}
+
+/* Additional light circles */
+.light-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 9s ease-in-out infinite;
+}
+.light-circle.left-center {
+  top: 10%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.35) 60%, transparent 90%);
+  animation: subtlePulse 7s ease-in-out infinite;
+}
+.light-circle.right-center {
+  top: 40%;
+  right: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.45) 0%, rgba(180,220,255,0.4) 55%, transparent 95%);
+  animation: subtlePulse 11s ease-in-out infinite;
+}
+.light-circle.top-left {
+  top: 5%;
+  left: 5%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+.light-circle.bottom-right {
+  bottom: 5%;
+  right: 5%;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.26) 0%, rgba(180,220,255,0.22) 56%, transparent 92%);
+  animation: subtlePulse 12s ease-in-out infinite;
+}
+
 </style>
