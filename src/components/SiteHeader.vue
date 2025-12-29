@@ -182,6 +182,7 @@ watch(isAtTop, () => {
 .logo-img {
   width: clamp(120px, 12vw, 180px) !important;
   height: auto !important;
+  z-index: 10;
 }
 
 /* Even larger on very small screens */
@@ -285,10 +286,10 @@ watch(isAtTop, () => {
 .header-overlay.header-scrolled::before {
   content: '';
   position: absolute;
-  top: 6%;
+  top: -10%;
   left: 4%;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background-image:
     radial-gradient(circle at 20% 28%, rgba(180,220,255,0.5) 0%, rgba(150,200,255,0.25) 30%, transparent 66%),
     radial-gradient(circle at 62% 20%, rgba(150,200,255,0.4) 0%, rgba(150,200,255,0.2) 28%, transparent 68%),
@@ -413,20 +414,12 @@ body:not(.header-scrolled) .v-application--wrap {
   animation: subtlePulse 11s ease-in-out infinite;
 }
 .light-circle.top-left {
-  top: 5%;
+  top: -20%;
   left: 5%;
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
   animation: subtlePulse 6s ease-in-out infinite;
-}
-.light-circle.bottom-right {
-  bottom: 5%;
-  right: 5%;
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.26) 0%, rgba(180,220,255,0.22) 56%, transparent 92%);
-  animation: subtlePulse 12s ease-in-out infinite;
 }
 
 </style>
