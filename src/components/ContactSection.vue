@@ -10,10 +10,10 @@
             <div class="text-content">
               <h1 class="contact-title text-h4 text-md-h3 mb-4 font-weight-bold">Spojte se s námi</h1>
               <p class="contact-sub text-subtitle-1 mb-6">Máte dotazy k našim službám v oblasti energetiky, TZB nebo stavebnictví? Ozvěte se – odpovíme obvykle do jednoho pracovního dne.</p>
-              <div class="d-flex align-center flex-wrap gap-4">
+              <div class="d-flex align-center flex-wrap contact-chips mb-4">
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-phone</v-icon>
-                  <span>+420 XXX XXX XXX</span>
+                  <span>+420 545 423 211</span>
                 </div>
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-email</v-icon>
@@ -215,7 +215,7 @@
         </v-row>
         <v-row>
           <v-col cols="12">
-            <v-tabs v-model="activeLocation" bg-color="white" color="primary" align-tabs="center" class="mb-4 blue-rings-bg">
+            <v-tabs v-model="activeLocation" bg-color="#0c2b68" color="white" align-tabs="center" class="mb-4">
               <v-tab value="brno">
                 <v-icon start>mdi-map-marker</v-icon>
                 Brno
@@ -438,6 +438,19 @@ const submit = async () => {
   border-radius: 32px;
   font-size: 0.9rem;
 }
+.contact-chips {
+  gap: 8px;
+}
+@media (max-width: 600px) {
+  .contact-chips {
+    gap: 8px;
+  }
+}
+@media (max-width: 400px) {
+  .contact-chips {
+    gap: 8px;
+  }
+}
 .contact-form-card {
   border-radius: 18px;
 }
@@ -538,6 +551,9 @@ const submit = async () => {
 .map-wrapper {
   padding: 0 0 80px;
 }
+.map-wrapper :deep(.v-tab) {
+  color: white;
+}
 .map-embed { height: 450px; position: relative; }
 .map-embed iframe { display: block; }
 
@@ -550,7 +566,7 @@ const submit = async () => {
 }
 
 .contact-section .contact-title {
-  font-size: clamp(2rem, 5.0vw, 3rem);
+  font-size: clamp(0.7rem, 2vw, 1.2rem);
   font-weight: 900;
 }
 
@@ -573,7 +589,7 @@ const submit = async () => {
 
 /* Hero content spacing - more space on top */
 .hero-content {
-  padding-top: clamp(96px, 15vh, 140px);
+  padding-top: clamp(80px, 12vh, 120px);
   padding-bottom: clamp(48px, 8vh, 80px);
 }
 </style>
