@@ -87,9 +87,18 @@
     </v-container>
 
     <!-- Numbers + Timeline combined with background image -->
-    <v-sheet class="numbers-timeline-section py-12">
+    <v-sheet class="numbers-timeline-section py-12 position-relative overflow-hidden">
+      <!-- Background Image & Overlay -->
+      <div class="numbers-bg-image"></div>
       <div class="numbers-overlay"></div>
-      <v-container class="about-container position-relative">
+      
+      <!-- Enlightening effect background -->
+      <div class="numbers-highlights" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+      </div>
+
+      <v-container class="about-container position-relative z-1">
         <v-row class="mb-8">
           <v-col cols="12" class="text-center">
             <h2 class="section-heading">Naše čísla & Milníky</h2>
@@ -403,22 +412,25 @@ const divisions = [
   z-index: 2; /* keep KPI content above the row stripe and highlight layer */
 }
 
-/* Single blue stripe behind the KPI row */
+/* Single blue stripe behind the KPI row - REMOVED */
 .kpi-row { position: relative; }
 .kpi-row::before {
+  display: none;
+}
+/*.kpi-row::before {
   content: '';
   position: absolute;
-  left: 0%; /* full-bleed inside container */
+  left: 0%; 
   right: 0%;
   top: 50%;
   transform: translateY(-50%);
-  height: 160px; /* much thicker stripe */
-  background: #031f68; /* match the "Proč my?" blue */
+  height: 160px; 
+  background: #031f68; 
   border-radius: 12px;
   z-index: 0;
   box-shadow: none;
   animation: enlightenStripe 4s ease-in-out infinite;
-}
+}*/
 @keyframes enlightenStripe {
   0%, 100% {
     box-shadow: 0 0 0 rgba(3, 31, 104, 0);
@@ -449,14 +461,58 @@ kpi-row::after {
 /* Numbers + Timeline background */
 .numbers-timeline-section {
   position: relative;
+  /* background handled by inner divs now to allow layering of highlights */
+  background-color: #031f68;
+}
+.numbers-bg-image {
+  position: absolute;
+  inset: 0;
   background-image: url('/fotky/energetika.png');
   background-size: cover;
   background-position: center;
+  z-index: 0;
 }
 .numbers-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.7));
+  /* Slightly more transparent to reveal bg image while keeping blue tone */
+  background: rgba(3, 31, 104, 0.85);
+  z-index: 0;
+}
+
+/* Highlights (Orbs) */
+.numbers-highlights { 
+  position: absolute; 
+  inset: 0; 
+  z-index: 1; 
+  pointer-events: none; 
+  overflow: hidden; 
+}
+.numbers-highlights .light-orb { 
+  position: absolute; 
+  border-radius: 50%; 
+  background-repeat: no-repeat; 
+  mix-blend-mode: overlay; 
+  opacity: 0.9; 
+  animation: subtlePulse 5s ease-in-out infinite; 
+}
+.numbers-highlights .orb-1 { 
+  top: -10%; left: -5%; width: 120%; height: 80%; 
+  background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); 
+}
+.numbers-highlights .orb-2 { 
+  top: 40%; right: -10%; width: 120%; height: 80%; 
+  background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); 
+}
+.numbers-highlights .orb-3 { 
+  bottom: -15%; left: 10%; width: 120%; height: 70%; 
+  background: radial-gradient(circle at 40% 60%, rgba(180,220,255,0.3) 0%, rgba(180,220,255,0.1) 40%, rgba(180,220,255,0.00) 80%); 
+}
+
+@keyframes subtlePulse {
+  0% { opacity: 0.65; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.65; transform: scale(0.98); }
 }
 .section-heading {
   color: #ffffff;
@@ -571,7 +627,8 @@ time {
 
 @media screen and (max-width: 600px) {
   .timeline ul li { margin-left: 20px; }
-  .timeline ul li div { width: calc(100vw - 91px); }
+  .timeline ul li div { width: calc(100vw - 120px); }
+  .timeline ul li:nth-child(odd) div,
   .timeline ul li:nth-child(even) div { left: 45px; }
   .timeline ul li:nth-child(even) div::before { left: -15px; border-width: 8px 16px 8px 0; border-color: transparent #ffffff transparent transparent; }
 }
@@ -584,6 +641,19 @@ time {
 
 .cta { border-radius: 18px; background: linear-gradient(180deg, #f7fafc 0%, #ffffff 100%); }
 .kdo-jsme-text { line-height: 1.65; color:#374151; }
+
+/* Highlights for Numbers Section */
+.numbers-highlights { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.numbers-highlights .orb { position: absolute; border-radius: 50%; background-repeat: no-repeat; mix-blend-mode: overlay; opacity: 0.9; animation: subtlePulse 5s ease-in-out infinite; }
+.numbers-highlights .orb-a { top: 0%; left: -5%; width: 140%; height: 60%; background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); }
+.numbers-highlights .orb-b { bottom: 0%; right: -5%; width: 140%; height: 60%; background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); }
+.z-1 { z-index: 1; }
+
+@keyframes subtlePulse {
+  0% { opacity: 0.65; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.65; transform: scale(0.98); }
+}
 
 /* CTA section: blue background matching the site theme */
 .cta-section {

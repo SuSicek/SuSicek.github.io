@@ -20,7 +20,7 @@ export default {
 
 <style>
 :root {
-  --app-header-height: 112px;
+  --app-header-height: 72px;
 }
 
 .v-application,
@@ -33,7 +33,13 @@ export default {
   transition: padding-top 300ms ease;
 }
 
-/* Prevent overscroll on mobile devices */
+/* Prevent overscroll on mobile devices and horizontal scrolling */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+}
+
 body {
   overscroll-behavior: none;
 }

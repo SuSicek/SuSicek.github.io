@@ -65,14 +65,17 @@
       </v-row>
     </v-container>
 
-    <!-- References section -->
-    <div class="references-wrapper">
-      <v-sheet class="references-section position-relative" color="#031f68">
-        <!-- decorative highlights container placed behind content (two large animated orbs) -->
-        <div class="references-highlights" aria-hidden="true">
-          <span class="orb orb-a"></span>
-          <span class="orb orb-b"></span>
-        </div>
+    <!-- References & CTA Wrapper -->
+    <div class="references-wrapper position-relative">
+      <!-- Shared Highlights (Orbs) covering both sections -->
+      <div class="references-highlights" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+      </div>
+
+      <!-- References Section -->
+      <v-sheet class="references-section position-relative bg-transparent" color="transparent">
         <v-container class="py-16 position-relative references-content">
           <v-row class="mb-8">
             <v-col cols="12" class="text-center">
@@ -98,30 +101,55 @@
           </v-row>
           <v-row class="mt-8">
             <v-col cols="12" class="text-center">
-              <v-btn color="white" variant="outlined" size="large" :to="{ name: 'References' }">
+              <v-btn color="white" variant="outlined" size="large" :to="{ name: 'References' }" class="refs-cta-btn">
                 <v-icon start>mdi-image-multiple-outline</v-icon>
-                Zobrazit všechny reference
+                <span class="d-inline-block text-wrap">Zobrazit všechny reference</span>
               </v-btn>
             </v-col>
           </v-row>
         </v-container>
       </v-sheet>
-    </div>
 
-    <!-- Contact CTA -->
-    <v-sheet color="white" class="py-16 blue-rings-bg">
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="12" class="text-center">
-            <h2 class="text-h4 text-md-h3 font-weight-bold mb-4">Máte projekt?</h2>
-            <p class="text-body-1 mb-6">Kontaktujte nás a probereme společně vaše požadavky.</p>
-            <v-btn color="primary" size="large" :to="{ name: 'ContactUs' }">
-              Kontaktujte nás
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-sheet>
+      <!-- Contact CTA Section (now inside the wrapper) -->
+      <v-sheet class="cta-section py-16 position-relative bg-transparent" elevation="0" color="transparent">
+        <div class="cta-bg-image"></div>
+        <div class="cta-overlay"></div>
+        <v-container class="position-relative z-2">
+          <v-row justify="center" align="center">
+            <v-col cols="12" md="10" lg="8" class="text-center">
+              <div class="cta-content-wrapper pa-8 pa-md-12 rounded-xl">
+                <h2 class="text-h4 text-md-h3 font-weight-bold mb-4 text-white">Máte projekt?</h2>
+                <p class="text-h6 text-md-h5 mb-8 text-white opacity-90 font-weight-regular">
+                  Od první konzultace až po finální realizaci – jsme připraveni proměnit vaše vize ve skutečnost.
+                </p>
+                <div class="d-flex justify-center flex-wrap gap-4">
+                  <v-btn 
+                    color="white" 
+                    size="x-large" 
+                    :to="{ name: 'ContactUs' }" 
+                    class="cta-primary-btn px-8 text-primary font-weight-bold"
+                    elevation="3"
+                  >
+                    Nezávazně poptat
+                    <v-icon end icon="mdi-arrow-right" class="ml-2"></v-icon>
+                  </v-btn>
+                  <v-btn 
+                    variant="outlined" 
+                    color="white" 
+                    size="x-large" 
+                    href="tel:+420545423211"
+                    class="cta-secondary-btn px-6 font-weight-bold"
+                  >
+                    <v-icon start icon="mdi-phone"></v-icon>
+                    +420 545 423 211
+                  </v-btn>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-sheet>
+    </div>
   </div>
   
 </template>
@@ -512,28 +540,32 @@ export default {
   color: #e2e8f0;
 }
 
-/* References section */
+/* References & CTA shared wrapper */
 .references-wrapper {
   background: #031f68;
-}
-.references-section {
   position: relative;
   overflow: hidden;
 }
+.references-section {
+  position: relative;
+  /* overflow: hidden; removed to allow shared highlights */
+}
 .references-section::before {
-  display: none !important; /* replaced by .references-highlights markup */
+  display: none !important; 
 }
 .references-section::after { display: none !important; }
 .references-section .py-16::before { display: none !important; }
 
 /* Highlights container (placed behind content but above background) */
-.references-highlights { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.references-highlights { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
 .references-highlights .orb { position: absolute; border-radius: 50%; background-repeat: no-repeat; mix-blend-mode: overlay; opacity: 0.9; animation: subtlePulse 5s ease-in-out infinite; }
-.references-highlights .orb-a { top: -10%; left: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); }
-.references-highlights .orb-b { bottom: -10%; right: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); }
+.references-highlights .orb-a { top: -5%; left: -10%; width: 140%; height: 80%; background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); }
+.references-highlights .orb-b { top: 45%; right: -10%; width: 140%; height: 80%; background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); }
+.references-highlights .orb-c { bottom: -10%; left: -20%; width: 140%; height: 80%; background: radial-gradient(circle at 40% 60%, rgba(180,220,255,0.3) 0%, rgba(180,220,255,0.1) 40%, rgba(180,220,255,0.00) 80%); }
 
 /* ensure content sits above the highlights */
-.references-content { position: relative; z-index: 1; }
+.references-content { position: relative; z-index: 2; }
+.z-2 { z-index: 2; }
 
 /* subtle pulsing used by blue highlight overlays in references */
 @keyframes subtlePulse {
@@ -630,6 +662,19 @@ export default {
   color: #e2e8f0;
 }
 
+/* Responsive button for mobile */
+.refs-cta-btn {
+  height: auto !important;
+  min-height: 48px;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  max-width: 90vw;
+}
+.refs-cta-btn .v-btn__content {
+  white-space: normal;
+  line-height: 1.2;
+}
+
 @media (max-width: 600px) {
   .references-cards-row {
     margin: 0 -4px;
@@ -652,5 +697,65 @@ export default {
   .reference-card-short {
     font-size: 0.85rem;
   }
+}
+
+/* Redesigned CTA Section */
+.cta-section {
+  /* background-color: #000; removed, handled by wrapper */
+  overflow: hidden;
+}
+.cta-bg-image {
+  position: absolute;
+  inset: 0;
+  /* Ensure background image is below the highlights */
+  z-index: 0; 
+  background-image: url('/fotky/trubkyvykop.png');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(30%);
+  opacity: 0.6;
+  /* Fade in from top to blend with previous section */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+}
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(3, 31, 104, 0.85) 0%, rgba(3, 31, 104, 0.75) 100%);
+  /* Fade in from top to blend with previous section */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
+}
+.cta-content-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+.cta-primary-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  letter-spacing: 0.5px;
+  color: #031f68 !important; /* Ensure text is brand blue */
+}
+.cta-primary-btn .v-btn__content {
+  color: #031f68 !important;
+}
+.cta-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+}
+.cta-secondary-btn {
+  border-width: 2px;
+  transition: background-color 0.2s ease;
+}
+.cta-secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.gap-4 {
+  gap: 16px;
+}
+.z-1 {
+  z-index: 1;
 }
 </style>

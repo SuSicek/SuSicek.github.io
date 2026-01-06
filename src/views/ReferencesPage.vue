@@ -22,50 +22,59 @@
       </div>
     </v-sheet>
 
-    <!-- Filters -->
-    <v-container class="py-6 about-container">
-      <v-row class="mb-4" align="center">
-        <v-col cols="12" md="4">
-          <v-text-field 
-            v-model="search" 
-            prepend-inner-icon="mdi-magnify" 
-            label="Hledat" 
-            dense 
-            hide-details 
-            clearable
-            variant="solo"
-            flat
-            class="filter-input"
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-select 
-            v-model="selectedDivision" 
-            :items="divisionItems" 
-            label="Divize" 
-            dense 
-            hide-details 
-            clearable
-            variant="solo"
-            flat
-            class="filter-input"
-          ></v-select>
-        </v-col>
-        <v-col cols="12" md="4">
-          <v-select 
-            v-model="selectedYear" 
-            :items="yearItems" 
-            label="Rok" 
-            dense 
-            hide-details 
-            clearable
-            variant="solo"
-            flat
-            class="filter-input"
-          ></v-select>
-        </v-col>
-      </v-row>
-    </v-container>
+    <!-- Filters with enlightening effect -->
+    <section class="filters-section position-relative overflow-hidden">
+      <!-- Background & Highlights -->
+      <div class="filters-bg"></div>
+      <div class="filters-highlights">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+      </div>
+
+      <v-container class="py-10 about-container position-relative z-1">
+        <v-row class="mb-0" align="center">
+          <v-col cols="12" md="4">
+            <v-text-field 
+              v-model="search" 
+              prepend-inner-icon="mdi-magnify" 
+              label="Hledat" 
+              dense 
+              hide-details 
+              clearable
+              variant="solo"
+              flat
+              class="filter-input"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="4">
+            <v-select 
+              v-model="selectedDivision" 
+              :items="divisionItems" 
+              label="Divize" 
+              dense 
+              hide-details 
+              clearable
+              variant="solo"
+              flat
+              class="filter-input"
+            ></v-select>
+          </v-col>
+          <v-col cols="12" md="4">
+            <v-select 
+              v-model="selectedYear" 
+              :items="yearItems" 
+              label="Rok" 
+              dense 
+              hide-details 
+              clearable
+              variant="solo"
+              flat
+              class="filter-input"
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
 
     <!-- References Grid -->
     <v-container class="pb-12 about-container">
@@ -268,26 +277,73 @@ watch(selectedDivision, (val) => {
 .ref-card .v-img__img { transition: transform .6s ease; }
 .ref-card:hover .v-img__img { transform: scale(1.06); }
 
-/* Darker blueish filter inputs - using primary color from header */
+/* Filters Section with Enlightening Effect */
+.filters-section {
+  position: relative;
+  background-color: #031f68;
+}
+.filters-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #031f68 0%, #1E3A8A 100%);
+  z-index: 0;
+}
+.filters-highlights {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.filters-highlights .orb {
+  position: absolute;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+  animation: subtlePulse 5s ease-in-out infinite;
+}
+.filters-highlights .orb-1 {
+  top: -30%; left: -10%; width: 600px; height: 600px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.3) 0%, rgba(180,220,255,0.1) 40%, transparent 70%);
+}
+.filters-highlights .orb-2 {
+  bottom: -30%; right: -5%; width: 500px; height: 500px;
+  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.25) 0%, rgba(150,200,255,0.08) 40%, transparent 70%);
+}
+.z-1 { position: relative; z-index: 1; }
+
+@keyframes subtlePulse {
+  0% { opacity: 0.7; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.7; transform: scale(0.98); }
+}
+
+/* Filter inputs - Light theme on dark background */
 .filter-input :deep(.v-field) {
-  background-color: #031f68 !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #031f68 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.filter-input :deep(.v-field):hover {
+  background-color: #ffffff !important;
 }
 .filter-input :deep(.v-field__input) {
-  color: #ffffff;
-  font-weight: 500;
+  color: #031f68 !important;
+  font-weight: 600;
 }
 .filter-input :deep(.v-label) {
-  color: #cce0f5;
+  color: #475569 !important;
   font-weight: 500;
 }
 .filter-input :deep(.v-icon) {
-  color: #cce0f5;
+  color: #031f68 !important;
+  opacity: 0.8;
 }
-.filter-input :deep(.v-field--focused .v-label),
-.filter-input :deep(.v-field--focused .v-icon) {
-  color: #ffffff;
+.filter-input :deep(.v-field--focused .v-label) {
+  color: #031f68 !important;
 }
 
 @media (max-width: 960px){

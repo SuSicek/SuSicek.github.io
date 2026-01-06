@@ -25,8 +25,14 @@
     </section>
 
     <!-- Services -->
-    <section class="division-services dark" aria-labelledby="services-heading" :style="servicesBgStyle">
-      <v-container fluid class="py-8 px-6 px-sm-8 px-md-10">
+    <section class="division-services dark position-relative overflow-hidden" aria-labelledby="services-heading" :style="servicesBgStyle">
+      <!-- Enlightening effect background -->
+      <div class="services-highlights" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+      </div>
+      
+      <v-container fluid class="py-8 px-6 px-sm-8 px-md-10 position-relative z-1">
         <h3 id="services-heading" class="section-heading services-heading-contrast">Služby divize</h3>
         <v-row dense justify="center">
           <v-col v-for="(s, idx) in current.services" :key="idx" cols="12" sm="6" md="4" lg="3">
@@ -309,5 +315,19 @@ export default {
     padding-left: 16vw !important;
     padding-right: 16vw !important;
   }
+}
+
+/* Highlights for Services Section */
+.services-highlights { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.services-highlights .orb { position: absolute; border-radius: 50%; background-repeat: no-repeat; mix-blend-mode: overlay; opacity: 0.9; animation: subtlePulse 5s ease-in-out infinite; }
+.services-highlights .orb-a { top: -10%; left: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 35% 35%, rgba(180,220,255,0.28) 0%, rgba(180,220,255,0.08) 35%, rgba(180,220,255,0.00) 70%); }
+.services-highlights .orb-b { bottom: -10%; right: -10%; width: 140%; height: 140%; background: radial-gradient(circle at 65% 65%, rgba(150,200,255,0.26) 0%, rgba(150,200,255,0.07) 35%, rgba(150,200,255,0.00) 70%); }
+
+.z-1 { z-index: 1; }
+
+@keyframes subtlePulse {
+  0% { opacity: 0.65; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.65; transform: scale(0.98); }
 }
 </style>

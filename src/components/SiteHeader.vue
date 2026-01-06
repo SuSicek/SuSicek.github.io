@@ -3,18 +3,21 @@
     :fixed="!isAtTop"
     :absolute="isAtTop"
     flat
-    :elevation="isAtTop ? 0 : 2"
-    :color="isAtTop ? 'transparent' : 'primary'"
+    :elevation="0"
+    color="transparent"
+    :height="mobile ? 62 : 180"
     class="responsive-header"
-    :class="['header-overlay', 'header-transition', { 
+    :class="['header-overlay', 'header-transition', {  
       'header-transparent': isAtTop, 
       'header-scrolled': !isAtTop 
     }]"
   >
-  <div v-if="!isAtTop" class="light-circle left-center"></div>
-  <div v-if="!isAtTop" class="light-circle right-center"></div>
-  <div v-if="!isAtTop" class="light-circle top-left"></div>
-  <div v-if="!isAtTop" class="light-circle bottom-right"></div>
+  <div v-if="!isAtTop" class="header-bg-container">
+    <div class="light-circle left-center"></div>
+    <div class="light-circle right-center"></div>
+    <div class="light-circle top-left"></div>
+    <div class="light-circle bottom-right"></div>
+  </div>
   <v-container fluid class="py-0 px-0 header-container">
       <v-row align="center" no-gutters>
         <!-- Left: Logo -->
@@ -106,8 +109,10 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useDisplay } from 'vuetify'
 import { divisions, divisionOrder } from '../data/divisions'
 
+const { mobile } = useDisplay()
 const drawer = ref(false)
 const isAtTop = ref(true)
 const whiteLogoError = ref(false)
@@ -157,26 +162,22 @@ watch(isAtTop, () => {
   z-index: 10000;
 }
 
-/* Responsive header height */
+/* Responsive header height - allow prop to control it, but ensure minimums */
 .responsive-header {
-  height: clamp(80px, 8vw, 120px) !important;
+  /* height handled by v-app-bar prop normally */
 }
 .responsive-header :deep(.v-toolbar__content) {
   height: 100% !important;
 }
 
-/* Even taller on smaller screens */
+/* On mobile, ensure we don't accidentally force it too tall via other rules */
 @media (max-width: 960px) {
+  /* Reset any potential legacy overrides */
   .responsive-header {
-    height: clamp(100px, 10vw, 140px) !important;
+     height: auto !important;
   }
 }
 
-@media (max-width: 600px) {
-  .responsive-header {
-    height: clamp(120px, 12vw, 160px) !important;
-  }
-}
 
 /* Logo scales with header - larger on smaller resolutions */
 .logo-img {
@@ -185,10 +186,10 @@ watch(isAtTop, () => {
   z-index: 10;
 }
 
-/* Even larger on very small screens */
+/* Smaller logo on mobile to fit reduced header height */
 @media (max-width: 600px) {
   .logo-img {
-    width: clamp(140px, 15vw, 200px) !important;
+    width: 85px !important;
   }
 }
 
@@ -204,34 +205,47 @@ watch(isAtTop, () => {
 /* Add padding to logo on smaller resolutions */
 @media (max-width: 960px) {
   .logo-col {
-    padding: 8px !important;
+    padding: 4px !important;
   }
   .logo-col a {
-    padding: 8px !important;
+    padding: 4px !important;
     display: block !important;
   }
   .logo-img {
-    padding: 8px !important;
+    padding: 4px !important;
     margin: 0 !important;
   }
 }
 
 @media (max-width: 600px) {
   .logo-col {
-    padding: 12px !important;
+    padding: 2px !important;
   }
   .logo-col a {
-    padding: 12px !important;
+    padding: 2px !important;
     display: block !important;
   }
   .logo-img {
-    padding: 12px !important;
+    padding: 2px !important;
     margin: 0 !important;
   }
 }
 
 .header-transition {
   transition: all 300ms ease;
+}
+
+/* Safe area support for iPhone notch etc. */
+.responsive-header :deep(.v-toolbar__content) {
+  /* Increase padding to ensure "empty header space" covers top of display securely */
+  padding-top: env(safe-area-inset-top, 10px) !important;
+  align-items: center;
+  transition: padding 300ms ease;
+}
+@media (min-width: 960px) {
+  .responsive-header :deep(.v-toolbar__content) {
+    padding-top: 0 !important;
+  }
 }
 
 /* Transparent state - completely remove any background */
@@ -276,14 +290,25 @@ watch(isAtTop, () => {
 
 /* Scrolled state - solid blueish background */
 .header-overlay.header-scrolled {
-  background-color: #031f68 !important;
-  background: #031f68 !important;
-  background-image: none !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  position: relative;
-  overflow: hidden;
+  /* background styles moved to container */
 }
-.header-overlay.header-scrolled::before {
+
+.header-bg-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #031f68;
+  background: #031f68;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* Slightly fade the bottom edge for a smooth transition */
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.header-bg-container::before {
   content: '';
   position: absolute;
   top: -10%;
@@ -301,7 +326,7 @@ watch(isAtTop, () => {
   z-index: 0;
   animation: subtlePulse 8s ease-in-out infinite;
 }
-.header-overlay.header-scrolled::after {
+.header-bg-container::after {
   content: '';
   position: absolute;
   bottom: 6%;
@@ -321,8 +346,8 @@ watch(isAtTop, () => {
 }
 
 .header-overlay.header-scrolled :deep(.v-toolbar__content) {
-  background-color: #031f68 !important;
-  background: #031f68 !important;
+  background-color: transparent !important;
+  background: transparent !important;
   background-image: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
@@ -330,6 +355,8 @@ watch(isAtTop, () => {
 
 /* Slight inset width for header content */
 .header-container {
+  position: relative;
+  z-index: 10;
   width: 75%; /* slightly shorter than previous 92% */
   max-width: 1800px; /* tighten max width a bit */
   margin-left: auto;
@@ -363,9 +390,6 @@ watch(isAtTop, () => {
   transition: opacity 300ms ease, filter 300ms ease;
 }
 
-/* If you choose a single colored logo and want it to appear white at top without separate asset,
-   uncomment the filter rule below instead of providing /fotky/logo-white.png
-   .header-overlay.header-transparent .logo-img { filter: brightness(0) invert(1); } */
 </style>
 
 <style>
@@ -378,8 +402,9 @@ body:not(.header-scrolled) .v-application--wrap {
   background-color: transparent !important;
 }
 
-/* Ensure button contents are white in scrolled header */
-.header-scrolled .v-btn__content {
+/* Ensure button contents are white in scrolled header - SCOPED TO HEADER ONLY */
+.header-overlay.header-scrolled .v-btn__content,
+.header-overlay.header-scrolled .v-icon {
   color: white !important;
 }
 
