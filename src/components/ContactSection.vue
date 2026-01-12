@@ -23,19 +23,23 @@
                   <v-icon size="24" class="mr-2">mdi-map-marker</v-icon>
                   <span>Brno, Česká republika</span>
                 </div>
+                <div class="contact-chip d-flex align-center">
+                  <v-icon size="24" class="mr-2">mdi-domain</v-icon>
+                  <span>IČO: 60734078</span>
+                </div>
               </div>
             </div>
           </v-col>
-          <v-col cols="12" md="5" class="mt-8 mt-md-0">
-            <v-card elevation="4" class="pa-4 pa-md-5 contact-form-card contact-form-compact">
-              <h2 class="text-h6 mb-3">Napište nám</h2>
+          <v-col cols="12" md="5" class="mt-8 mt-md-12 d-flex justify-center justify-md-end">
+            <v-card elevation="4" class="pa-3 pa-md-4 contact-form-card contact-form-compact">
+              <h2 class="text-h6 mb-2">Napište nám</h2>
               <v-form @submit.prevent="submit" ref="formRef">
-                <v-text-field v-model="form.name" label="Jméno" :rules="[rules.required]" variant="outlined" density="compact" class="mb-2" />
-                <v-text-field v-model="form.email" label="E‑mail" :rules="[rules.required, rules.email]" variant="outlined" density="compact" class="mb-2" />
-                <v-text-field v-model="form.phone" label="Telefon" variant="outlined" density="compact" class="mb-2" />
-                <v-select v-model="form.topic" :items="topics" label="Téma" variant="outlined" density="compact" class="mb-2" />
-                <v-textarea v-model="form.message" label="Zpráva" :rules="[rules.required]" rows="3" variant="outlined" class="mb-3" />
-                <v-checkbox v-model="form.agree" :rules="[rules.mustAgree]" label="Souhlasím se zpracováním údajů" density="compact" hide-details class="mb-3" />
+                <v-text-field v-model="form.name" label="Jméno" :rules="[rules.required]" variant="outlined" density="compact" hide-details="auto" class="mb-2" />
+                <v-text-field v-model="form.email" label="E‑mail" :rules="[rules.required, rules.email]" variant="outlined" density="compact" hide-details="auto" class="mb-2" />
+                <v-text-field v-model="form.phone" label="Telefon" variant="outlined" density="compact" hide-details="auto" class="mb-2" />
+                <v-select v-model="form.topic" :items="topics" label="Téma" variant="outlined" density="compact" hide-details="auto" class="mb-2" />
+                <v-textarea v-model="form.message" label="Zpráva" :rules="[rules.required]" rows="2" variant="outlined" hide-details="auto" class="mb-2" />
+                <v-checkbox v-model="form.agree" :rules="[rules.mustAgree]" label="Souhlasím se zpracováním údajů" density="compact" hide-details class="mb-2" />
                 <v-btn type="submit" color="primary" :disabled="submitting" :loading="submitting" block class="mb-1">Odeslat</v-btn>
                 <v-expand-transition>
                   <div v-if="submitted" class="success-msg mt-2">Děkujeme, zpráva byla připravena k odeslání.</div>
@@ -60,7 +64,7 @@
             <v-card-text class="text-center pa-6">
               <v-icon size="56" class="mb-3 text-primary">mdi-account-tie</v-icon>
               <h3 class="text-h6 font-weight-bold mb-1">Josef UCHYTIL</h3>
-              <p class="text-body-2 text-medium-emphasis mb-0">Statutární zástupce – jednatel</p>
+              <p class="text-body-2 text-medium-emphasis mb-0">Jednatel</p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -82,7 +86,7 @@
               <div class="contact-details mt-3">
                 <div class="d-flex align-center justify-center mb-1">
                   <v-icon size="18" class="mr-2">mdi-email</v-icon>
-                  <a href="mailto:sarka.zabrsova@uchytil.eu" class="text-body-2">sarka.zabrsova@uchytil.eu</a>
+                  <a href="mailto:brno@uchytil.eu" class="text-body-2">brno@uchytil.eu</a>
                 </div>
                 <div class="d-flex align-center justify-center">
                   <v-icon size="18" class="mr-2">mdi-phone</v-icon>
@@ -455,7 +459,7 @@ const submit = async () => {
   border-radius: 18px;
 }
 .contact-form-compact {
-  max-width: 420px;
+  max-width: 460px;
 }
 .success-msg {
   color: #0c7e43;

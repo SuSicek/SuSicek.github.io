@@ -1,57 +1,103 @@
 <template>
-  <section class="reference-detail">
-    <!-- Hero with slightly darkened image background -->
-    <v-sheet class="ref-detail-hero d-flex align-end" height="40vh" color="black">
-      <v-img :src="reference.image" cover class="hero-bg" />
-      <div class="ref-hero-overlay d-flex align-end">
-        <div class="hero-inner about-container">
-          <h1 class="hero-title">{{ reference.title }}</h1>
-          <div class="hero-sub">{{ reference.division }} • {{ reference.year }}</div>
-        </div>
+  <section class="reference-detail-page">
+    <!-- Top Stripe: Navigation & Header Info -->
+    <div class="ref-header-stripe position-relative py-8">
+      <!-- Background Image with Overlay -->
+      <div class="ref-stripe-bg">
+        <v-img :src="reference.image" cover class="fill-height">
+          <div class="fill-height" style="background: rgba(14, 25, 60, 0.85);"></div>
+        </v-img>
       </div>
-    </v-sheet>
 
-    <v-container class="py-10 about-container ref-detail">
-      <v-breadcrumbs :items="breadcrumbs" class="pa-10 mb-4" />
-    <v-row>
-      <v-col cols="12" md="7">
-        <h1 class="text-h5 text-md-h4 font-weight-bold mb-3">{{ reference.title }}</h1>
-        <p class="text-body-1 mb-6">{{ reference.long }}</p>
-        <v-divider class="my-4" />
-        <div class="text-body-2 grey--text">Divize: <strong>{{ reference.division }}</strong> • Rok: <strong>{{ reference.year }}</strong></div>
-      </v-col>
-      <v-col cols="12" md="5">
-        <v-card class="pa-4 mb-4" elevation="2">
-          <h2 class="text-h6 font-weight-bold mb-3">Klíčové parametry</h2>
-          <v-list density="compact" class="py-0">
-            <v-list-item v-for="(p, i) in reference.params" :key="i" :title="p.label" :subtitle="p.value"></v-list-item>
-          </v-list>
-        </v-card>
-        <v-card class="pa-4" elevation="2">
-          <h2 class="text-h6 font-weight-bold mb-3">Technologie & řešení</h2>
-          <ul class="tech-list">
-            <li v-for="(t,i) in reference.tech" :key="i">{{ t }}</li>
-          </ul>
-        </v-card>
-      </v-col>
-    </v-row>
+      <v-container class="about-container position-relative">
+        <!-- Breadcrumbs -->
+        <v-breadcrumbs :items="breadcrumbs" class="px-0 py-0 mb-6 text-body-2 text-grey-lighten-2" density="compact">
+          <template v-slot:divider>
+            <v-icon icon="mdi-chevron-right" size="small"></v-icon>
+          </template>
+        </v-breadcrumbs>
 
-    <v-divider class="my-8" />
+        <v-row align="end">
+          <v-col cols="12" md="8">
+            <h1 class="text-h3 font-weight-bold text-white mb-2">{{ reference.title }}</h1>
+            <div class="d-flex align-center text-subtitle-1 text-grey-lighten-4">
+              <v-chip color="white" variant="flat" label size="small" class="mr-3 font-weight-bold text-primary text-uppercase">{{ reference.division }}</v-chip>
+              <span class="text-h6 font-weight-regular">{{ reference.year }}</span>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
 
-    <!-- Gallery -->
-    <h2 class="text-h6 font-weight-bold mb-4">Galerie</h2>
-    <v-row>
-      <v-col cols="6" md="3" v-for="(img, i) in gallery" :key="i">
-        <v-img :src="img" height="140" cover class="rounded-lg ref-thumb" @click="openPreview(img)" />
-      </v-col>
-    </v-row>
+    <!-- Large Main Photo -->
+    <div class="ref-main-photo">
+      <v-container class="about-container py-0 pb-8">
+         <v-img :src="reference.image" cover height="500" class="rounded-xl elevation-3 mt-n8" />
+      </v-container>
+    </div>
 
-    <v-dialog v-model="preview" max-width="900">
-      <v-card class="pa-2">
-        <v-img :src="selectedImage" height="70vh" cover class="rounded-lg" />
+    <!-- Info Section: Description, Price, Year -->
+    <v-container class="about-container py-12">
+      <v-row>
+        <!-- Description -->
+        <v-col cols="12" md="8">
+          <h2 class="text-h5 font-weight-bold mb-4 text-primary">Popis stavby</h2>
+          <p class="text-body-1 text-grey-darken-3" style="line-height: 1.8;">
+            {{ reference.long }}
+          </p>
+        </v-col>
+        
+        <!-- Key Data Side -->
+        <v-col cols="12" md="4">
+          <v-card variant="outlined" class="pa-6 rounded-lg" style="border-color: #e0e0e0;">
+            <div class="mb-6">
+              <div class="text-overline text-grey-darken-1 mb-1">Finanční objem</div>
+              <div class="text-h4 font-weight-bold text-primary">{{ reference.price }}</div>
+            </div>
+            
+            <div>
+              <div class="text-overline text-grey-darken-1 mb-1">Rok realizace</div>
+               <div class="text-h5 font-weight-bold text-primary">{{ reference.year }}</div>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-divider class="my-12" />
+
+      <!-- Gallery -->
+      <h2 class="text-h4 font-weight-bold mb-8 text-center text-primary">Galerie</h2>
+      <v-row>
+        <v-col cols="12" sm="6" md="4" v-for="(img, i) in gallery" :key="i">
+          <v-hover v-slot="{ isHovering, props }">
+            <v-card v-bind="props" class="gallery-card rounded-lg" :elevation="isHovering ? 8 : 2" @click="openPreview(img)">
+              <v-img :src="img" height="260" cover class="transition-swing">
+                <template v-slot:placeholder>
+                  <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
+                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                  </div>
+                </template>
+                <div v-if="isHovering" class="gallery-overlay d-flex align-center justify-center">
+                  <v-icon color="white" size="48">mdi-magnify-plus-outline</v-icon>
+                </div>
+              </v-img>
+            </v-card>
+          </v-hover>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Image Preview Modal -->
+    <v-dialog v-model="preview" max-width="1200" scrim="black">
+      <v-card class="bg-black">
+        <v-toolbar density="compact" color="black">
+          <v-spacer></v-spacer>
+          <v-btn icon="mdi-close" variant="text" color="white" @click="preview = false"></v-btn>
+        </v-toolbar>
+        <v-img :src="selectedImage" max-height="85vh" contain />
       </v-card>
     </v-dialog>
-    </v-container>
+
   </section>
 </template>
 
@@ -69,6 +115,7 @@ const mock = [
     image: '/fotky/stavba.png',
     short: 'Komplexní výstavba admin centra, 8 000 m² podlahové plochy.',
     long: 'Projekt zahrnoval kompletní generální dodávku od zemních prací přes konstrukční systémy až po finální povrchy a technická zařízení budov. Důraz byl kladen na energetickou efektivitu, komfort uživatelů a flexibilitu prostor.',
+    price: '120 mil. Kč',
     params: [
       { label: 'Podlahová plocha', value: '8 000 m²' },
       { label: 'Doba realizace', value: '14 měsíců' },
@@ -84,6 +131,7 @@ const mock = [
     image: '/fotky/energetika.png',
     short: 'Instalace vysoce účinných kotlů a optimalizace distribuce.',
     long: 'Modernizace zahrnovala výměnu zastaralých kotlů za vysokoučinné jednotky, optimalizaci rozvodů tepla a implementaci systému pro vzdálený monitoring a řízení výkonu.',
+    price: '45 mil. Kč',
     params: [
       { label: 'Instalovaný výkon', value: '5 MW' },
       { label: 'Úspora energie', value: '23 % ročně' },
@@ -131,18 +179,34 @@ onMounted(() => {
 .about-container { width: 75%; max-width: 1700px; margin:0 auto; }
 @media (max-width:1280px){ .about-container { width:92%; } }
 @media (max-width:960px){ .about-container { width:100%; } }
-.ref-detail { padding-top: 24px; }
-@media (min-width: 960px){ .ref-detail { padding-top: 40px; } }
-.tech-list { margin:0; padding-left:1.1rem; }
-.tech-list li { margin:4px 0; line-height:1.5; }
-.ref-thumb { cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; }
-.ref-thumb:hover { transform: translateY(-3px); box-shadow: 0 10px 24px -10px rgba(0,0,0,0.35); }
 
-/* Hero */
-.ref-detail-hero { position: relative; overflow: hidden; }
-.ref-detail-hero .hero-bg { filter: brightness(0.7); }
-.ref-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.45)); }
-.hero-inner { position: relative; padding-bottom: 20px; }
-.hero-title { color:#fff; font-size: clamp(2rem,4.2vw,3.2rem); font-weight: 800; margin:0 0 .4rem; }
-.hero-sub { color:#e5edf5; font-size: clamp(.95rem,1.4vw,1.1rem); }
+.ref-header-stripe {
+  /* Padding top added to clear fixed header if necessary, depending on global layout */
+  padding-top: 140px !important; 
+}
+.ref-stripe-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+@media (max-width: 960px) {
+    .ref-header-stripe {
+        padding-top: 100px !important;
+    }
+}
+
+.gallery-card {
+    cursor: pointer;
+    overflow: hidden;
+}
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 31, 104, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.v-card:hover .gallery-overlay {
+    opacity: 1;
+}
 </style>

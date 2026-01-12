@@ -1,7 +1,7 @@
 <template>
   <section class="career-page blue-rings-bg">
     <!-- Hero -->
-    <v-sheet class="career-hero d-flex align-center" height="42vh" color="black">
+    <v-sheet class="career-hero d-flex align-center" height="65vh" color="black">
       <v-img src="/fotky/stavba.png" cover class="hero-bg" />
       <div class="hero-overlay d-flex align-center">
         <div class="hero-inner about-container">
@@ -13,38 +13,57 @@
 
   <!-- Redesigned Intro / Why section -->
   <v-container class="py-16 about-container">
-    <v-row justify="center" class="text-center mb-8">
-      <v-col cols="12" md="10" lg="8">
-        <h2 class="career-intro-title font-weight-bold mb-4">Proč pracovat zrovna u nás?</h2>
-        <p class="text-body-1 why-text mx-auto intro-text mb-5">
-          Stavíme už víc než 30 let – ale naši největší hodnotou nejsou stavby, nýbrž lidé, kteří je tvoří.
+    <v-row justify="center" class="text-center mb-16">
+      <v-col cols="12" md="10">
+        <div class="text-overline font-weight-black text-primary mb-3" style="font-size: 1rem !important; letter-spacing: 2px !important;">PŘIDEJTE SE K NÁM</div>
+        <h2 class="text-h3 text-md-h2 font-weight-black mb-8" style="line-height: 1.2;">Proč pracovat v UCHYTIL?</h2>
+        <p class="text-h5 font-weight-regular text-medium-emphasis mx-auto" style="max-width: 900px; line-height: 1.6;">
+          Už více než 30 let tvoříme hodnoty, které přetrvávají. Naším největším bohatstvím však nejsou stavby, ale <strong>lidé, kteří jim vdechují život.</strong>
         </p>
       </v-col>
     </v-row>
 
-    <!-- Key Benefits Cards -->
-    <v-row justify="center" class="mb-8">
-      <v-col cols="12" sm="6" md="4" class="mb-4">
-        <v-card class="benefit-card text-center pa-6" elevation="2" rounded="lg" height="100%">
-          <v-icon size="48" color="primary" class="mb-3">mdi-account-group</v-icon>
-          <h3 class="text-h6 font-weight-bold mb-3">Tým odborníků</h3>
-          <p class="text-body-2">Přidejte se k týmu zkušených profesionálů v oboru TZB a stavitelství</p>
+    <!-- Key Benefits Cards - Redesigned -->
+    <v-row class="mb-16">
+      <v-col cols="12" md="4" class="d-flex mb-6 mb-md-0">
+        <v-card class="benefit-card pa-8 w-100 d-flex flex-column" elevation="4" rounded="xl">
+          <div class="mb-6">
+             <v-avatar color="primary" variant="flat" size="72" class="rounded-lg elevation-2">
+                <v-icon color="white" size="36">mdi-account-group</v-icon>
+             </v-avatar>
+          </div>
+          <h3 class="text-h4 font-weight-bold mb-4 text-blue-dark">Tým odborníků</h3>
+          <p class="text-h6 font-weight-light text-medium-emphasis flex-grow-1" style="line-height: 1.6;">
+            Staňte se součástí kolektivu zkušených profesionálů v oboru TZB, energetiky a stavitelství. Sdílíme know-how a táhneme za jeden provaz.
+          </p>
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="6" md="4" class="mb-4">
-        <v-card class="benefit-card text-center pa-6" elevation="2" rounded="lg" height="100%">
-          <v-icon size="48" color="primary" class="mb-3">mdi-trending-up</v-icon>
-          <h3 class="text-h6 font-weight-bold mb-3">Růst a rozvoj</h3>
-          <p class="text-body-2">Možnost osobního i profesního růstu spolu s rozvíjející se firmou</p>
+      <v-col cols="12" md="4" class="d-flex mb-6 mb-md-0">
+        <v-card class="benefit-card pa-8 w-100 d-flex flex-column" elevation="4" rounded="xl">
+          <div class="mb-6">
+             <v-avatar color="primary" variant="flat" size="72" class="rounded-lg elevation-2">
+                <v-icon color="white" size="36">mdi-trending-up</v-icon>
+             </v-avatar>
+          </div>
+          <h3 class="text-h4 font-weight-bold mb-4 text-blue-dark">Růst a budoucnost</h3>
+          <p class="text-h6 font-weight-light text-medium-emphasis flex-grow-1" style="line-height: 1.6;">
+            Podporujeme osobní i kariérní rozvoj. U nás máte prostor ukázat, co ve vás je, a růst společně s celou firmou.
+          </p>
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="6" md="4" class="mb-4">
-        <v-card class="benefit-card text-center pa-6" elevation="2" rounded="lg" height="100%">
-          <v-icon size="48" color="primary" class="mb-3">mdi-handshake</v-icon>
-          <h3 class="text-h6 font-weight-bold mb-3">Stabilita</h3>
-          <p class="text-body-2">Spojitost s firmou, která už 30+ let plní sliby a podporuje své zaměstnance</p>
+      <v-col cols="12" md="4" class="d-flex mb-6 mb-md-0">
+        <v-card class="benefit-card pa-8 w-100 d-flex flex-column" elevation="4" rounded="xl">
+          <div class="mb-6">
+             <v-avatar color="primary" variant="flat" size="72" class="rounded-lg elevation-2">
+                <v-icon color="white" size="36">mdi-shield-check</v-icon>
+             </v-avatar>
+          </div>
+          <h3 class="text-h4 font-weight-bold mb-4 text-blue-dark">Jistota a stabilita</h3>
+          <p class="text-h6 font-weight-light text-medium-emphasis flex-grow-1" style="line-height: 1.6;">
+            Jsme finančně zdravá česká firma s tradicí. Plníme své sliby vůči klientům i zaměstnancům a sázíme na férové jednání.
+          </p>
         </v-card>
       </v-col>
     </v-row>
@@ -52,54 +71,60 @@
     <!-- Call to action -->
     <v-row justify="center">
       <v-col cols="12" class="text-center">
-        <p class="text-body-1 mb-4">Rádi mezi sebe přijmeme další kolegy, kteří chtějí být součástí našeho týmu.</p>
-        <v-btn color="primary" size="large" href="#contact" class="px-8">
-          Kontaktujte nás
-          <v-icon end>mdi-arrow-right</v-icon>
+        <v-btn color="primary" size="x-large" href="#contact" class="px-12 py-6 text-h6 font-weight-bold rounded-pill elevation-6" height="auto">
+          Napište nám
+          <v-icon end class="ml-3" size="large">mdi-arrow-right</v-icon>
         </v-btn>
       </v-col>
     </v-row>
   </v-container>
 
     <!-- Redesigned Atmosphere section -->
-    <section class="atmosphere-section py-16">
+    <section class="atmosphere-section py-16" style="background-color: #fafafa;">
       <v-container class="about-container">
         <!-- Header -->
-        <v-row justify="center" class="mb-8">
+        <v-row justify="center" class="mb-12">
           <v-col cols="12" md="10" lg="8" class="text-center">
-            <h2 class="text-h4 text-md-h3 font-weight-bold mb-4 primary--text">Proč je lidem u nás dobře</h2>
-            <p class="text-h6 mb-3">Poznejte atmosféru UCHYTIL</p>
-            <p class="text-body-1 text-medium-emphasis">
-              Společně držíme stabilní kurz, plníme sliby a navzájem se podporujeme. Klikněte na jednotlivé oblasti a nahlédněte do momentů, které vystihují náš tým – od každodenní práce až po společné zážitky.
+            <h2 class="text-h3 font-weight-black mb-6 primary--text">Proč je lidem u nás dobře</h2>
+            <p class="text-overline font-weight-bold text-medium-emphasis mb-4" style="font-size: 1rem !important; letter-spacing: 2px;">ATMOSFÉRA V UCHYTIL</p>
+            <p class="text-h6 font-weight-regular text-medium-emphasis mx-auto" style="max-width: 900px; line-height: 1.7;">
+              Společně držíme stabilní kurz, plníme sliby a navzájem se podporujeme. Nahlédněte do momentů, které vystihují náš tým – od každodenní práce až po společné zážitky.
             </p>
           </v-col>
         </v-row>
 
         <!-- Interactive Content -->
-        <v-row class="mt-8">
+        <v-row class="mt-4 align-stretch">
           <!-- Left: Enhanced clickable list -->
-          <v-col cols="12" md="6" class="mb-6 mb-md-0">
-            <v-card class="pa-6" elevation="0" style="border: 2px solid #e0e0e0; border-radius: 12px;">
-              <h3 class="text-h6 font-weight-bold mb-4 primary--text">Klikněte a prozkoumejte</h3>
-              <v-list class="atmo-list" density="comfortable" bg-color="transparent">
+          <v-col cols="12" md="5" class="d-flex flex-column mb-6 mb-md-0">
+            <v-card class="pa-2 h-100 d-flex flex-column justify-center" elevation="0" color="transparent">
+              <v-list class="atmo-list bg-transparent" density="comfortable">
                 <v-list-item
                   v-for="(item, i) in atmosphere"
                   :key="i"
-                  :title="item.title"
-                  :subtitle="item.text"
                   :active="activeAtmosphere === i"
                   @click="activeAtmosphere = i"
-                  class="mb-2"
-                  style="border-radius: 8px;"
-                  :style="{ backgroundColor: activeAtmosphere === i ? '#031f68' : 'transparent', color: activeAtmosphere === i ? 'white' : 'inherit' }"
+                  class="mb-3 py-4 pl-4 pr-6 atmo-item elevation-2"
+                  rounded="lg"
+                  :class="{'atmo-item-active': activeAtmosphere === i}"
                 >
                   <template #prepend>
-                    <v-icon :color="activeAtmosphere === i ? 'white' : 'primary'" class="mr-3">
-                      {{ item.icon }}
-                    </v-icon>
+                    <v-avatar :color="activeAtmosphere === i ? 'white' : 'grey-lighten-4'" size="48" class="mr-4 atmo-icon-bg">
+                       <v-icon :color="activeAtmosphere === i ? 'primary' : 'grey-darken-1'" size="28">
+                         {{ item.icon }}
+                       </v-icon>
+                    </v-avatar>
                   </template>
+                  
+                  <v-list-item-title class="text-h6 font-weight-bold mb-1" :class="activeAtmosphere === i ? 'text-white' : 'text-grey-darken-3'">
+                    {{ item.title }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle :class="activeAtmosphere === i ? 'text-white text-opacity-90' : 'text-grey-darken-1'">
+                    {{ item.text }}
+                  </v-list-item-subtitle>
+                  
                   <template #append>
-                    <v-icon :color="activeAtmosphere === i ? 'white' : 'grey'">
+                    <v-icon :color="activeAtmosphere === i ? 'white' : 'grey-lighten-1'">
                       mdi-chevron-right
                     </v-icon>
                   </template>
@@ -109,22 +134,22 @@
           </v-col>
 
           <!-- Right: Clean image display -->
-          <v-col cols="12" md="6">
-            <div class="pa-4">
-              <div class="atmo-image-wrap">
+          <v-col cols="12" md="7">
+            <div class="pa-2 h-100">
+              <v-card class="atmo-image-wrap h-100 rounded-xl overflow-hidden elevation-6" style="min-height: 500px;">
                 <v-img
                   :src="atmosphere[activeAtmosphere].image"
-                  height="400"
+                  height="100%"
                   cover
-                  class="atmo-image"
-                />
-                <div class="image-overlay pa-4">
-                  <div>
-                    <div class="text-h6 font-weight-bold">{{ atmosphere[activeAtmosphere].title }}</div>
-                    <div class="text-body-2 opacity-8">{{ atmosphere[activeAtmosphere].text }}</div>
-                  </div>
-                </div>
-              </div>
+                  class="atmo-image transition-swing"
+                >
+                    <template #placeholder>
+                        <div class="d-flex align-center justify-center fill-height">
+                        <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                        </div>
+                    </template>
+                </v-img>
+              </v-card>
             </div>
           </v-col>
         </v-row>
@@ -336,7 +361,14 @@ const benefits = ref([
 @media (max-width: 1280px){ .about-container { width: 92%; } }
 @media (max-width: 960px){ .about-container { width: 100%; } }
 .career-hero { position: relative; overflow: hidden; }
-.career-hero .hero-bg { filter: brightness(0.6); }
+.career-hero .hero-bg { 
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.6); 
+}
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)); }
 .hero-title { color:#fff; font-size: clamp(2.2rem,4.5vw,3.4rem); font-weight: 800; margin:0 0 .6rem; letter-spacing:.5px; }
 .hero-sub { color:#e5edf5; font-size: clamp(1rem,1.6vw,1.25rem); max-width: 720px; }
@@ -381,4 +413,29 @@ const benefits = ref([
 .job-modal { border-radius: 14px; overflow:hidden; }
 .job-modal-header { display:flex; justify-content:space-between; align-items:center; padding: 16px 20px; background: #f6f9ff; border-bottom: 1px solid #e5edf5; }
 .job-modal-title { font-weight: 800; color:#0c2b68; font-size: 1.25rem; letter-spacing:.3px; }
+
+/* Atmosphere section styles */
+.atmo-list {
+    width: 100%;
+    overflow: hidden; /* Prevent any horizontal scrollbars */
+}
+.atmo-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    background-color: white;
+}
+.atmo-item:hover {
+    transform: translateX(5px);
+}
+.atmo-item-active {
+    background-color: #031f68 !important; /* Primary color */
+    box-shadow: 0 4px 12px rgba(3, 31, 104, 0.3) !important;
+    transform: scale(1.02);
+    border: none;
+}
+.image-overlay.bg-gradient-to-t {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    position: absolute;
+    inset: 0;
+}
 </style>

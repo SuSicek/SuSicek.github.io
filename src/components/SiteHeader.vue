@@ -5,7 +5,7 @@
     flat
     :elevation="0"
     color="transparent"
-    :height="mobile ? 62 : 180"
+    :height="mobile ? 62 : 210"
     class="responsive-header"
     :class="['header-overlay', 'header-transition', {  
       'header-transparent': isAtTop, 
@@ -39,7 +39,6 @@
   <v-col cols="12" md="8" class="d-none d-md-flex" style="display:flex; flex-direction:column; align-items:flex-end; padding-top:6px;">
           <!-- Socials row -->
           <div class="d-flex align-center mb-1">
-            <span :style="{ color: 'white' }" class="text-body-2 mr-2">IČO: 60734078</span>
             <v-btn icon :color="'white'" href="https://www.facebook.com/uchytilsro" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-facebook</v-icon>
             </v-btn>
@@ -77,15 +76,20 @@
 
         <!-- Mobile menu button -->
         <v-col cols="auto" class="d-md-none">
-          <v-app-bar-nav-icon :color="isAtTop ? 'white' : 'primary'" @click="drawer = true" />
+          <v-app-bar-nav-icon
+            :color="(isAtTop && !drawer) ? 'white' : 'primary'"
+            class="mobile-nav-icon"
+            @click="drawer = !drawer"
+            style="z-index: 10001; position: relative;"
+          />
         </v-col>
       </v-row>
     </v-container>
   </v-app-bar>
 
   <!-- Mobile drawer -->
-  <v-navigation-drawer v-model="drawer" location="right" temporary>
-    <v-list density="comfortable">
+  <v-navigation-drawer v-model="drawer" location="right" temporary class="mobile-menu-drawer">
+    <v-list density="comfortable" class="pt-14">
       <v-list-group value="sluzby">
         <template #activator="{ props }">
           <v-list-item v-bind="props" title="Naše služby" />
@@ -134,7 +138,7 @@ const onLogoError = () => {
 }
 
 const onScroll = () => {
-  isAtTop.value = (window.scrollY || window.pageYOffset) < 50
+  isAtTop.value = (window.scrollY || window.pageYOffset) < 100
 }
 
 const updateScrollState = () => {
@@ -232,7 +236,7 @@ watch(isAtTop, () => {
 }
 
 .header-transition {
-  transition: all 300ms ease;
+  transition: all 150ms ease;
 }
 
 /* Safe area support for iPhone notch etc. */
@@ -240,7 +244,7 @@ watch(isAtTop, () => {
   /* Increase padding to ensure "empty header space" covers top of display securely */
   padding-top: env(safe-area-inset-top, 10px) !important;
   align-items: center;
-  transition: padding 300ms ease;
+  transition: padding 150ms ease;
 }
 @media (min-width: 960px) {
   .responsive-header :deep(.v-toolbar__content) {
@@ -304,8 +308,8 @@ watch(isAtTop, () => {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   /* Slightly fade the bottom edge for a smooth transition */
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 .header-bg-container::before {
@@ -387,9 +391,18 @@ watch(isAtTop, () => {
 
 /* Logo transition */
 .logo-img.logo-fade {
-  transition: opacity 300ms ease, filter 300ms ease;
+  transition: opacity 150ms ease, filter 150ms ease;
 }
 
+.mobile-menu-drawer {
+  z-index: 9000 !important;
+  top: 0 !important;
+  height: 100vh !important;
+}
+
+.header-overlay {
+  z-index: 10000 !important;
+}
 </style>
 
 <style>
