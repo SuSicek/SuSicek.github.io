@@ -2,11 +2,12 @@
   <section class="reference-detail-page">
     <!-- Top Stripe: Navigation & Header Info -->
     <div class="ref-header-stripe position-relative py-8">
-      <!-- Background Image with Overlay -->
+      <!-- Background & Highlights (Matches SiteHeader) -->
       <div class="ref-stripe-bg">
-        <v-img :src="reference.image" cover class="fill-height">
-          <div class="fill-height" style="background: rgba(14, 25, 60, 0.85);"></div>
-        </v-img>
+        <div class="light-circle left-center"></div>
+        <div class="light-circle right-center"></div>
+        <div class="light-circle top-left"></div>
+        <div class="light-circle bottom-right"></div>
       </div>
 
       <v-container class="about-container position-relative">
@@ -187,8 +188,103 @@ onMounted(() => {
 .ref-stripe-bg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
+  background-color: #031f68;
+  background: #031f68;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* Slightly fade the bottom edge for a smooth transition */
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
+
+.ref-stripe-bg::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 4%;
+  width: 500px;
+  height: 500px;
+  background-image:
+    radial-gradient(circle at 20% 28%, rgba(180,220,255,0.5) 0%, rgba(150,200,255,0.25) 30%, transparent 66%),
+    radial-gradient(circle at 62% 20%, rgba(150,200,255,0.4) 0%, rgba(150,200,255,0.2) 28%, transparent 68%),
+    radial-gradient(circle at 40% 60%, rgba(180,220,255,0.45) 0%, rgba(150,200,255,0.22) 35%, transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.21) 32%, transparent 68%),
+    radial-gradient(circle at 10% 80%, rgba(180,220,255,0.48) 0%, rgba(150,200,255,0.24) 30%, transparent 66%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 8s ease-in-out infinite;
+}
+
+.ref-stripe-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 6%;
+  right: 6%;
+  width: 520px;
+  height: 520px;
+  background-image:
+    radial-gradient(circle at 12% 68%, rgba(150,200,255,0.45) 0%, rgba(150,200,255,0.22) 28%, transparent 66%),
+    radial-gradient(circle at 72% 40%, rgba(180,220,255,0.38) 0%, rgba(180,220,255,0.18) 26%, transparent 66%),
+    radial-gradient(circle at 30% 20%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.2) 32%, transparent 68%),
+    radial-gradient(circle at 50% 80%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.19) 30%, transparent 70%),
+    radial-gradient(circle at 85% 10%, rgba(150,200,255,0.46) 0%, rgba(180,220,255,0.23) 28%, transparent 66%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 10s ease-in-out infinite;
+}
+
+/* Light circles from header */
+.light-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: subtlePulse 9s ease-in-out infinite;
+}
+.light-circle.left-center {
+  top: 10%;
+  left: 20%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.35) 60%, transparent 90%);
+  animation: subtlePulse 7s ease-in-out infinite;
+}
+.light-circle.right-center {
+  top: 40%;
+  right: 15%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.45) 0%, rgba(180,220,255,0.4) 55%, transparent 95%);
+  animation: subtlePulse 11s ease-in-out infinite;
+}
+.light-circle.top-left {
+  top: -20%;
+  left: 5%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
+  animation: subtlePulse 6s ease-in-out infinite;
+}
+.light-circle.bottom-right {
+  bottom: -10%;
+  right: 10%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.3) 0%, rgba(150,200,255,0.2) 55%, transparent 85%);
+  animation: subtlePulse 8s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0% { opacity: 0.8; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.8; transform: scale(0.98); }
+}
+
 @media (max-width: 960px) {
     .ref-header-stripe {
         padding-top: 100px !important;

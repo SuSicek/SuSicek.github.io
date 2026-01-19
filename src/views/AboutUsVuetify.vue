@@ -123,11 +123,29 @@
                   <div>
                     <time>{{ m.date }}</time>
                     <h4 class="milestone-title">{{ m.title }}</h4>
-                    <p class="milestone-desc">{{ m.description }}</p>
                   </div>
                 </li>
               </ul>
             </section>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
+
+    <!-- Charity Section -->
+    <v-sheet class="py-12 bg-grey-lighten-5">
+      <v-container class="about-container">
+        <v-row justify="center" class="mb-8">
+          <v-col cols="12" class="text-center">
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Přispíváme</h2>
+            <p class="text-body-1 text-medium-emphasis">Podporujeme smysluplné projekty a organizace v našem regionu</p>
+          </v-col>
+        </v-row>
+        <v-row justify="center" align="center">
+          <v-col cols="6" sm="4" md="2" v-for="n in 5" :key="n" class="text-center">
+            <v-sheet class="pa-4 d-flex align-center justify-center rounded-lg" color="white" elevation="1" height="100">
+               <span class="text-grey font-weight-bold">LOGO {{ n }}</span>
+            </v-sheet>
           </v-col>
         </v-row>
       </v-container>
@@ -192,10 +210,10 @@ const kpis = [
 ]
 
 const aboutNumbers = [
-  { value: '30+', label: 'let na trhu' },
+  { value: '32', label: 'let na trhu' },
   { value: '4100+', label: 'realizovaných zakázek' },
   { value: '300+', label: 'spokojených klientů' },
-  { value: '100+', label: 'odborníků' },
+  { value: '120', label: 'odborníků' },
 ]
 
 const milestones = [
@@ -206,7 +224,7 @@ const milestones = [
       'Rodinná historie firmy začíná, kdy Jaroslav Uchytil st. zakládá se synem podnikání (původně v oblasti dopravy). Tento bod se hodí pro zdůraznění tradice.'
   },
   {
-    date: '23. 12. 1994',
+    date: '1994',
     title: 'Oficiální založení s.r.o.',
     description:
       'Zápis do Obchodního rejstříku u Krajského soudu v Brně. Společnost byla původně zapsána pod názvem ENBRA Montáže s.r.o.'
@@ -218,7 +236,7 @@ const milestones = [
       'Společnost ustavuje oddělení Projekce technického zařízení budov (TZB) pro nezbytnou podporu realizačních prac.'
   },
   {
-    date: '16. 10. 2002',
+    date: '2002',
     title: 'Změna názvu společnosti',
     description: 'Přejmenování společnosti z ENBRA Montáže s.r.o. na UCHYTIL s.r.o.'
   },

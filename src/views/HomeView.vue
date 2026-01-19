@@ -169,8 +169,8 @@ export default {
         { src: '/fotky/energetika.png', alt: 'Energetika' }
       ],
       stats: [
-        { number: 30, label: 'Let na trhu' },
-        { number: 650, label: 'Dokončených projektů' },
+        { number: 32, label: 'Let na trhu' },
+        { number: 4100, label: 'Dokončených projektů' },
         { number: 300, label: 'Spokojených klientů' },
         { number: 120, label: 'Odborníků v týmu' }
       ],

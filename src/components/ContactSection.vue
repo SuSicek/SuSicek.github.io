@@ -106,7 +106,7 @@
       <v-container class="py-12 contact-container position-relative">
         <v-row justify="center" class="mb-6">
           <v-col cols="12" class="text-center">
-            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2 division-title">Kontakty na oddělení</h2>
+            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2 division-title">Kontakty na divize</h2>
             <p class="text-body-1 division-subtitle">Vyberte si oddělení a spojte se přímo s odpovědnou osobou</p>
           </v-col>
         </v-row>
@@ -125,12 +125,16 @@
               <v-icon start>mdi-office-building</v-icon>
               Stavebnictví
             </v-tab>
+             <v-tab value="ostatni" class="division-tab">
+              <v-icon start>mdi-account-group</v-icon>
+              Ostatní vedení
+            </v-tab>
           </v-tabs>
 
           <v-window v-model="activeTab">
             <!-- Energetika tab -->
             <v-window-item value="energetika">
-              <v-row>
+              <v-row justify="center">
                 <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.energetika" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
@@ -155,7 +159,7 @@
 
             <!-- TZB tab -->
             <v-window-item value="tzb">
-              <v-row>
+              <v-row justify="center">
                 <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.tzb" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
@@ -180,8 +184,33 @@
 
             <!-- Stavba tab -->
             <v-window-item value="stavba">
-              <v-row>
+              <v-row justify="center">
                 <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.stavba" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+
+            <!-- Ostatni tab -->
+            <v-window-item value="ostatni">
+              <v-row justify="center">
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.ostatni" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
@@ -365,22 +394,37 @@ const activeTab = ref('energetika')
 // Location tabs
 const activeLocation = ref('brno')
 
-// Division contacts data (placeholder - replace with real data)
+// Division contacts data
 const divisionContacts = ref({
-  energetika: [
-    { name: 'Jan NOVÁK', role: 'Vedoucí divize Energetika', email: 'jan.novak@uchytil.eu', phone: '545 423 212' },
-    { name: 'Petr DVOŘÁK', role: 'Projektant FVE', email: 'petr.dvorak@uchytil.eu', phone: '545 423 213' },
-    { name: 'Marie SVOBODOVÁ', role: 'Technik Energetika', email: 'marie.svobodova@uchytil.eu', phone: '545 423 214' }
-  ],
   tzb: [
-    { name: 'Tomáš PROCHÁZKA', role: 'Vedoucí oddělení TZB', email: 'tomas.prochazka@uchytil.eu', phone: '545 423 215' },
-    { name: 'Lucie ČERNÁ', role: 'Projektantka TZB', email: 'lucie.cerna@uchytil.eu', phone: '545 423 216' },
-    { name: 'Pavel VESELÝ', role: 'Technický specialista', email: 'pavel.vesely@uchytil.eu', phone: '545 423 217' }
+    { name: 'Martin Konečný DiS.', role: 'Ředitel divize', email: 'martin.konecny@uchytil.eu', phone: '545 423 223' },
+    { name: 'Ing. Markéta Miškářová', role: 'Asistentka', email: 'marketa.miskarova@uchytil.eu', phone: '545 423 235' },
+    { name: 'Radim Došek', role: 'Vedoucí střediska projekce', email: 'radim.dosek@uchytil.eu', phone: '560 594 121' },
+    { name: 'Martin Konečný DiS.', role: 'Vedoucí realizace TZB Brno', email: 'martin.konecny@uchytil.eu', phone: '545 423 223' },
+    { name: 'Jaroslav Peřina', role: 'Vedoucí realizace Žďár n. S.', email: 'jaroslav.perina@uchytil.eu', phone: '560 594 117' },
+    { name: 'Jaroslav Křivánek', role: 'Vedoucí střediska servis', email: 'jaroslav.krivanek@uchytil.eu', phone: '545 423 234' }
   ],
   stavba: [
-    { name: 'Martin KUČERA', role: 'Vedoucí oddělení Stavebnictví', email: 'martin.kucera@uchytil.eu', phone: '545 423 218' },
-    { name: 'Jana HORÁKOVÁ', role: 'Stavbyvedoucí', email: 'jana.horakova@uchytil.eu', phone: '545 423 219' },
-    { name: 'David MAREK', role: 'Projektový manažer', email: 'david.marek@uchytil.eu', phone: '545 423 220' }
+    { name: 'Ing. Radek Tkáč', role: 'Ředitel divize', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
+    { name: 'Ing. Tereza Böhmová', role: 'Asistentka (zástup za J. Malou)', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' },
+    { name: 'Ing. Martin Hublík', role: 'Vedoucí střediska projekce', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
+    { name: 'Ing. Martin Hublík', role: 'Vedoucí realizace pozemní stavby', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
+    { name: 'Ing. Radek Tkáč', role: 'Vedoucí realizace liniové stavby', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
+    { name: 'Martin Vangel', role: 'Vedoucí střediska tepelné rozvody', email: 'martin.vangel@uchytil.eu', phone: '545 423 282' }
+  ],
+  energetika: [
+    { name: 'Ing. Marek Dohnálek', role: 'Ředitel divize', email: 'marek.dohnalek@uchytil.eu', phone: '518 321 039' },
+    { name: 'Ing. Miroslava Šupová', role: 'Asistentka', email: 'miroslava.supova@uchytil.eu', phone: '518 321 039' },
+    { name: 'Ing. Matěj Obšil', role: 'Vedoucí střediska projekce', email: 'matej.obsil@uchytil.eu', phone: '545 423 232' },
+    { name: 'Ing. Petr Zábranský', role: 'Vedoucí realizace strojního stř.', email: 'petr.zabransky@uchytil.eu', phone: '518 321 039' },
+    { name: 'Jakub Grombíř', role: 'Vedoucí realizace střediska elektro', email: 'jakub.grombir@uchytil.eu', phone: '518 321 039' },
+    { name: 'Jakub Šešulka', role: 'Vedoucí střediska servis', email: 'jakub.sesulka@uchytil.eu', phone: '518 342 447' }
+  ],
+  ostatni: [
+    { name: 'Ivana Ješinová', role: 'Ekonomický úsek (spojovatelka)', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 211' },
+    { name: 'Ing. Jana Vacková', role: 'Personální úsek', email: 'jana.vackova@uchytil.eu', phone: '560 594 114' },
+    { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' },
+    { name: 'Jaroslav Ptáček', role: 'Prodejna', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
   ]
 })
 

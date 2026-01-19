@@ -5,7 +5,7 @@
     flat
     :elevation="0"
     color="transparent"
-    :height="mobile ? 62 : 210"
+    :height="headerHeight"
     class="responsive-header"
     :class="['header-overlay', 'header-transition', {  
       'header-transparent': isAtTop, 
@@ -122,6 +122,13 @@ const isAtTop = ref(true)
 const whiteLogoError = ref(false)
 const blueLogoError = ref(false)
 
+const headerHeight = computed(() => {
+  // Mobile/small screens
+  if (mobile.value) return 90 
+  // Desktop: Large when at top, smaller (sticky) when scrolled
+  return isAtTop.value ? 210 : 130
+})
+
 // Compute logo source: always colored logo.
 // If colored variant is missing, fall back to the default colored logo.
 const logoSrc = computed(() => {
@@ -174,19 +181,20 @@ watch(isAtTop, () => {
   height: 100% !important;
 }
 
-/* On mobile, ensure we don't accidentally force it too tall via other rules */
+/* On mobile, ensure we don't accidentally force it too tall via other rules 
 @media (max-width: 960px) {
-  /* Reset any potential legacy overrides */
+  /* Reset any potential legacy overrides 
   .responsive-header {
      height: auto !important;
   }
-}
+}*/
 
 
 /* Logo scales with header - larger on smaller resolutions */
 .logo-img {
   width: clamp(120px, 12vw, 180px) !important;
   height: auto !important;
+  max-height: 80%; /* Ensure it doesn't touch edges */
   z-index: 10;
 }
 
