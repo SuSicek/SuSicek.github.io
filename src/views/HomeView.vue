@@ -24,6 +24,7 @@
 
     <!-- Stats section -->
     <div class="stats-wrapper">
+      <div class="stats-grey-bg"></div>
       <v-sheet class="stats-section position-relative">
         <div class="stats-blue-bg"></div>
         <v-container class="py-8 position-relative">
@@ -40,30 +41,41 @@
     </div>
 
     <!-- Divisions section -->
-    <v-container class="py-16">
-      <v-row justify="center" class="mb-8">
-        <v-col cols="12" class="text-center">
-          <h2 class="text-h4 text-md-h3 font-weight-bold">Naše divize</h2>
-        </v-col>
-      </v-row>
-      <v-row class="division-cards-row">
-        <v-col cols="6" sm="6" md="4" lg="3" v-for="d in divisions" :key="d.title" class="division-col">
-          <router-link :to="d.link" class="division-card-link">
-            <div class="division-card">
-              <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
-              <div class="division-card-overlay"></div>
-              <div class="division-card-content">
-                <h3 class="division-card-title">{{ d.title }}</h3>
-                <div class="division-card-details">
-                  <p class="division-card-subtitle">{{ d.subtitle }}</p>
-                  <p class="division-card-description">{{ d.description }}</p>
+    <div class="position-relative z-index-1">
+      <div class="section-bg-element"></div>
+      
+      <!-- Square Highlights Background -->
+      <div class="division-highlights" aria-hidden="true">
+        <div class="square-shape sq-1"></div>
+        <div class="square-shape sq-2"></div>
+        <div class="square-shape sq-3"></div>
+      </div>
+
+      <v-container class="py-16 position-relative z-index-1">
+        <v-row justify="center" class="mb-8">
+          <v-col cols="12" class="text-center">
+            <h2 class="text-h4 text-md-h3 font-weight-bold">Naše divize</h2>
+          </v-col>
+        </v-row>
+        <v-row class="mt-4">
+          <v-col cols="12" sm="6" md="6" lg="3" v-for="d in divisions" :key="d.title">
+            <router-link :to="d.link" class="division-card-link">
+              <div class="division-card elevation-4">
+                <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
+                <div class="division-card-overlay"></div>
+                <div class="division-card-content">
+                  <h3 class="division-card-title">{{ d.title }}</h3>
+                  <div class="division-card-details">
+                    <p class="division-card-subtitle">{{ d.subtitle }}</p>
+                    <p class="division-card-description">{{ d.description }}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </router-link>
-        </v-col>
-      </v-row>
-    </v-container>
+            </router-link>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
 
     <!-- References & CTA Wrapper -->
     <div class="references-wrapper position-relative">
@@ -112,8 +124,6 @@
 
       <!-- Contact CTA Section (now inside the wrapper) -->
       <v-sheet class="cta-section py-16 position-relative bg-transparent" elevation="0" color="transparent">
-        <div class="cta-bg-image"></div>
-        <div class="cta-overlay"></div>
         <v-container class="position-relative z-2">
           <v-row justify="center" align="center">
             <v-col cols="12" md="10" lg="8" class="text-center">
@@ -372,17 +382,28 @@ export default {
 /* Stats section with background */
 .stats-wrapper {
   padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 5vw, 4rem);
+  position: relative;
+  /* background removed, moved to .stats-grey-bg */
+}
+.stats-grey-bg {
+  position: absolute;
+  inset: 0;
   background: #f8fafc;
+  z-index: 0;
 }
 .stats-section {
   position: relative;
-  overflow: hidden;
+  /* overflow: visible; allowed to ensure z-index works, but internal contents clipped by stats-blue-bg */
   border-radius: 20px;
+  z-index: 2; /* Content sits above division highlights */
 }
 .stats-blue-bg {
   position: absolute;
   inset: 0;
   background-color: #031f68;
+  border-radius: 20px;
+  overflow: hidden; /* Ensures the circular highlights (orbs) stay inside the blue stripe */
+  border: 2px solid #2a4785; /* Lighter blue outline */
 }
 .stats-blue-bg::before {
   content: '';
@@ -441,14 +462,75 @@ export default {
   font-weight: 500;
 }
 
+.z-index-1 { position: relative; z-index: 1; }
+/* Division section background element */
+.division-highlights {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.square-shape {
+  position: absolute;
+  border-radius: 20px; /* rounded squares */
+  background: #031f68; /* Solid dark blue as requested */
+  border: 2px solid #2a4785; /* Lighter blue outline */
+  animation: floatSquare 15s ease-in-out infinite;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+.sq-1 {
+  top: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  transform: rotate(15deg);
+}
+.sq-2 {
+  top: 30%;
+  right: -12%;
+  width: 400px;
+  height: 400px;
+  transform: rotate(-10deg);
+  animation-delay: -5s;
+}
+.sq-3 {
+  bottom: -20%;
+  left: 5%;
+  width: 450px;
+  height: 450px;
+  transform: rotate(5deg);
+  animation-delay: -10s;
+}
+
+@keyframes floatSquare {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-25px) rotate(calc(var(--r, 0deg) + 5deg)); }
+}
+
+/* Assign rotation vars for animation simplicity */
+.sq-1 { --r: 15deg; }
+.sq-2 { --r: -10deg; }
+.sq-3 { --r: 5deg; }
+
+.section-bg-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  background-image: url('/fotky/references/back.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.03; /* Very faint */
+  z-index: 0;
+  pointer-events: none;
+}
+.z-index-1 { position: relative; z-index: 1; }
+
 /* Division cards */
-.division-cards-row {
-  gap: 0 !important;
-  margin: 0 -4px;
-}
-.division-col {
-  padding: 0 2px 4px !important;
-}
 .division-card-link {
   text-decoration: none;
   display: block;
@@ -456,48 +538,54 @@ export default {
 }
 .division-card {
   position: relative;
-  height: 500px;
+  height: 440px;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 24px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
 }
 .division-card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25) !important;
 }
 .division-card-bg {
   position: absolute;
   inset: 0;
   height: 100%;
+  transition: transform 0.8s ease;
+}
+.division-card:hover .division-card-bg {
+  transform: scale(1.1);
 }
 .division-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  transition: background 0.4s ease;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+  transition: opacity 0.4s ease;
 }
 .division-card:hover .division-card-overlay {
-  background: rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 .division-card-content {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding: 2rem;
+  padding: 2.5rem 2rem;
   color: white;
   text-align: center;
 }
 .division-card-title {
-  font-size: clamp(2rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
   transition: transform 0.4s ease;
+  transform: translateY(20px);
 }
 .division-card:hover .division-card-title {
-  transform: translateY(-20px);
+  transform: translateY(0);
 }
 
 /* Smaller screens: make division cards shorter and disable hover effects */
@@ -507,14 +595,30 @@ export default {
     transition: none;
     cursor: default;
   }
-  .division-card:hover { transform: none; }
-  .division-card:hover .division-card-overlay { background: rgba(0,0,0,0.5); }
+  .division-card:hover { 
+    transform: none; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+  }
+  .division-card:hover .division-card-overlay { opacity: 1; }
+  .division-card:hover .division-card-bg { transform: none; }
+  
   .division-card-title { transform: none; }
   /* Remove detailed info and simplify layout on small screens */
   .division-card-details { display: none !important; }
-  .division-card-overlay { background: rgba(0,0,0,0.55) !important; transition: none !important; }
-  .division-card-content { padding: 1rem !important; }
-  .division-card-title { font-size: clamp(1.35rem, 4.2vw, 1.9rem); margin-bottom: 0.5rem; }
+  .division-card-overlay { 
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%) !important; 
+    transition: none !important; 
+    opacity: 1 !important;
+  }
+  .division-card-content { 
+    padding: 1.5rem 1.25rem !important; 
+    justify-content: flex-end;
+  }
+  .division-card-title { 
+    font-size: clamp(1.35rem, 4.2vw, 1.9rem); 
+    margin-bottom: 0; 
+    transform: none !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -547,6 +651,7 @@ export default {
   background: #031f68;
   position: relative;
   overflow: hidden;
+  z-index: 2; /* Ensure it covers division highlights overlap */
 }
 .references-section {
   position: relative;
@@ -600,7 +705,7 @@ export default {
   position: relative;
   height: 400px;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 12px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -706,29 +811,8 @@ export default {
   /* background-color: #000; removed, handled by wrapper */
   overflow: hidden;
 }
-.cta-bg-image {
-  position: absolute;
-  inset: 0;
-  /* Ensure background image is below the highlights */
-  z-index: 0; 
-  background-image: url('/fotky/trubkyvykop.png');
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(30%);
-  opacity: 0.6;
-  /* Fade in from top to blend with previous section */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-}
-.cta-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, rgba(3, 31, 104, 0.85) 0%, rgba(3, 31, 104, 0.75) 100%);
-  /* Fade in from top to blend with previous section */
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
-}
+/*.cta-bg-image, .cta-overlay styles removed */
+
 .cta-content-wrapper {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);

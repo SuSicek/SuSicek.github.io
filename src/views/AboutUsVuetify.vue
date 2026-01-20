@@ -435,20 +435,8 @@ const divisions = [
 .kpi-row::before {
   display: none;
 }
-/*.kpi-row::before {
-  content: '';
-  position: absolute;
-  left: 0%; 
-  right: 0%;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 160px; 
-  background: #031f68; 
-  border-radius: 12px;
-  z-index: 0;
-  box-shadow: none;
-  animation: enlightenStripe 4s ease-in-out infinite;
-}*/
+
+
 @keyframes enlightenStripe {
   0%, 100% {
     box-shadow: 0 0 0 rgba(3, 31, 104, 0);

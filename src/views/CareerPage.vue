@@ -254,7 +254,7 @@
     </v-sheet>
 
     <!-- Job modal redesigned -->
-    <v-dialog v-model="jobDialog" max-width="900">
+    <v-dialog v-model="jobDialog" max-width="900" :fullscreen="mobile">
       <v-card class="job-modal">
         <div class="job-modal-header">
           <div>
@@ -367,6 +367,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useDisplay } from 'vuetify'
+
+const { mobile } = useDisplay()
 
 const jobs = ref([
  {
@@ -665,7 +668,8 @@ const benefits = ref([
 .job-perex { color:#374151; line-height: 1.55; }
 
 /* Job modal */
-.job-modal { border-radius: 14px; overflow:hidden; }
+.job-modal { border-radius: 14px; overflow:hidden; display: flex; flex-direction: column; }
+.job-modal :deep(.v-window) { flex: 1; overflow-y: auto; }
 .job-modal-header { display:flex; justify-content:space-between; align-items:center; padding: 16px 20px; background: #f6f9ff; border-bottom: 1px solid #e5edf5; }
 .job-modal-title { font-weight: 800; color:#0c2b68; font-size: 1.25rem; letter-spacing:.3px; }
 
