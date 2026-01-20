@@ -54,7 +54,7 @@
       <v-container class="py-16 position-relative z-index-1">
         <v-row justify="center" class="mb-8">
           <v-col cols="12" class="text-center">
-            <h2 class="text-h4 text-md-h3 font-weight-bold">Naše divize</h2>
+            <h2 class="text-h4 text-md-h3 font-weight-bold division-heading">Naše divize</h2>
           </v-col>
         </v-row>
         <v-row class="mt-4">
@@ -94,8 +94,8 @@
               <h2 class="text-h4 text-md-h3 font-weight-bold text-white mb-6">Naše Reference</h2>
             </v-col>
           </v-row>
-          <v-row class="references-cards-row">
-            <v-col cols="4" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
+          <v-row class="references-cards-row" justify="center">
+            <v-col cols="6" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
               <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.id } }" class="reference-card-link">
                 <div class="reference-card">
                   <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" />
@@ -333,32 +333,8 @@ export default {
 }
 
 @media (max-width: 600px) {
-  /* Simplify reference cards on small screens: remove hover details and shorten cards */
-  .reference-card {
-    height: 260px;
-    transition: none;
-    cursor: default;
-  }
-  .reference-card:hover { transform: none; }
-  .reference-card-overlay { background: rgba(0,0,0,0.45) !important; transition: none !important; }
-  .reference-card-details { display: none !important; }
-  .reference-card-title { font-size: clamp(1.05rem, 4.5vw, 1.45rem); margin-bottom: 0.5rem; }
   .hero-shell {
-
-@media (max-width: 900px) {
-  /* also apply simplified behavior for medium screens */
-  .reference-card {
-    height: 320px;
-    transition: none;
-    cursor: default;
-  }
-  .reference-card:hover { transform: none; }
-  .reference-card-overlay { background: rgba(0,0,0,0.45) !important; transition: none !important; }
-  .reference-card-details { display: none !important; }
-  .reference-card-title { font-size: clamp(1.15rem, 3.6vw, 1.6rem); }
-}
-    height: auto;
-    min-height: 420px;
+    height: clamp(420px, 65vh, 520px);
   }
   .hero-shell :deep(.v-carousel),
   .hero-shell :deep(.v-window),
@@ -590,6 +566,9 @@ export default {
 
 /* Smaller screens: make division cards shorter and disable hover effects */
 @media screen and (max-width: 900px) {
+  .division-heading {
+    color: white !important;
+  }
   .division-card {
     height: 320px;
     transition: none;
@@ -782,27 +761,53 @@ export default {
   line-height: 1.2;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .references-cards-row {
-    margin: 0 -4px;
+    margin: 0 -6px;
   }
   .reference-col {
-    padding: 0 4px 8px !important;
+    padding: 0 6px 12px !important;
   }
   .reference-card {
-    height: 280px;
+    height: 320px;
+    cursor: default;
   }
+  .reference-card:hover {
+    transform: none;
+  }
+  .reference-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%) !important;
+    opacity: 1 !important;
+  }
+  
   .reference-card-content {
-    padding: 1.25rem;
+    padding: 1.5rem 1.25rem !important;
+    justify-content: flex-end;
   }
+  
+  /* Always show details on mobile but positioned nicely */
+  .reference-card-details {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+  }
+  .reference-card:hover .reference-card-title {
+    transform: none;
+  }
+  
   .reference-card-title {
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 0.25rem;
+    transform: none !important;
   }
   .reference-card-division {
-    font-size: 1rem;
-  }
-  .reference-card-short {
     font-size: 0.85rem;
+    margin-bottom: 0;
+    color: #93c5fd; /* lighter blue for contrast */
+  }
+  /* Hide the description text on mobile to keep it clean */
+  .reference-card-short {
+    display: none; 
   }
 }
 

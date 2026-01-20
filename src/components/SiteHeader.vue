@@ -124,7 +124,7 @@ const blueLogoError = ref(false)
 
 const headerHeight = computed(() => {
   // Mobile/small screens
-  if (mobile.value) return 90 
+  if (mobile.value) return 110 
   // Desktop: Large when at top, smaller (sticky) when scrolled
   return isAtTop.value ? 210 : 130
 })
@@ -201,7 +201,7 @@ watch(isAtTop, () => {
 /* Smaller logo on mobile to fit reduced header height */
 @media (max-width: 600px) {
   .logo-img {
-    width: 85px !important;
+    width: 100px !important;
   }
 }
 
@@ -466,6 +466,13 @@ body:not(.header-scrolled) .v-application--wrap {
   height: 450px;
   background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
   animation: subtlePulse 6s ease-in-out infinite;
+}
+
+@media (max-width: 960px) {
+  .light-circle.left-center,
+  .light-circle.right-center {
+    display: none;
+  }
 }
 
 </style>
