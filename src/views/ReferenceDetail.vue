@@ -4,8 +4,6 @@
     <div class="ref-header-stripe position-relative py-8">
       <!-- Background & Highlights (Matches SiteHeader) -->
       <div class="ref-stripe-bg">
-        <div class="light-circle left-center"></div>
-        <div class="light-circle right-center"></div>
         <div class="light-circle top-left"></div>
         <div class="light-circle bottom-right"></div>
       </div>
@@ -67,25 +65,27 @@
       <v-divider class="my-12" />
 
       <!-- Gallery -->
-      <h2 class="text-h4 font-weight-bold mb-8 text-center text-primary">Galerie</h2>
-      <v-row>
-        <v-col cols="12" sm="6" md="4" v-for="(img, i) in gallery" :key="i">
-          <v-hover v-slot="{ isHovering, props }">
-            <v-card v-bind="props" class="gallery-card rounded-lg" :elevation="isHovering ? 8 : 2" @click="openPreview(img)">
-              <v-img :src="img" height="260" cover class="transition-swing">
-                <template v-slot:placeholder>
-                  <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
-                    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+      <div v-if="gallery && gallery.length > 0">
+        <h2 class="text-h4 font-weight-bold mb-8 text-center text-primary">Galerie</h2>
+        <v-row>
+          <v-col cols="12" sm="6" md="4" v-for="(img, i) in gallery" :key="i">
+            <v-hover v-slot="{ isHovering, props }">
+              <v-card v-bind="props" class="gallery-card rounded-lg" :elevation="isHovering ? 8 : 2" @click="openPreview(img)">
+                <v-img :src="img" height="260" cover class="transition-swing">
+                  <template v-slot:placeholder>
+                    <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
+                      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                    </div>
+                  </template>
+                  <div v-if="isHovering" class="gallery-overlay d-flex align-center justify-center">
+                    <v-icon color="white" size="48">mdi-magnify-plus-outline</v-icon>
                   </div>
-                </template>
-                <div v-if="isHovering" class="gallery-overlay d-flex align-center justify-center">
-                  <v-icon color="white" size="48">mdi-magnify-plus-outline</v-icon>
-                </div>
-              </v-img>
-            </v-card>
-          </v-hover>
-        </v-col>
-      </v-row>
+                </v-img>
+              </v-card>
+            </v-hover>
+          </v-col>
+        </v-row>
+      </div>
     </v-container>
 
     <!-- Image Preview Modal -->
@@ -103,77 +103,37 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
-
-// Reuse mock data from ReferencesPage (keep in sync or refactor to shared store later)
-const mock = [
-  {
-    id: '1',
-    title: 'Administrativní centrum Delta',
-    division: 'Stavba',
-    year: 2024,
-    image: '/fotky/stavba.png',
-    short: 'Komplexní výstavba admin centra, 8 000 m² podlahové plochy.',
-    long: 'Projekt zahrnoval kompletní generální dodávku od zemních prací přes konstrukční systémy až po finální povrchy a technická zařízení budov. Důraz byl kladen na energetickou efektivitu, komfort uživatelů a flexibilitu prostor.',
-    price: '120 mil. Kč',
-    params: [
-      { label: 'Podlahová plocha', value: '8 000 m²' },
-      { label: 'Doba realizace', value: '14 měsíců' },
-      { label: 'Energetická třída', value: 'A' }
-    ],
-    tech: ['Prefabrikované konstrukce', 'Energeticky úsporné fasády', 'Inteligentní řízení HVAC']
-  },
-  {
-    id: '2',
-    title: 'Modernizace kotelny EnergoPlant',
-    division: 'Energetika',
-    year: 2023,
-    image: '/fotky/energetika.png',
-    short: 'Instalace vysoce účinných kotlů a optimalizace distribuce.',
-    long: 'Modernizace zahrnovala výměnu zastaralých kotlů za vysokoučinné jednotky, optimalizaci rozvodů tepla a implementaci systému pro vzdálený monitoring a řízení výkonu.',
-    price: '45 mil. Kč',
-    params: [
-      { label: 'Instalovaný výkon', value: '5 MW' },
-      { label: 'Úspora energie', value: '23 % ročně' },
-      { label: 'Snížení emisí', value: '18 % CO₂' }
-    ],
-    tech: ['Kondenzační kotle', 'Optimalizace rozvodů', 'Systém vzdáleného monitoringu']
-  }
-]
+import { useReferences } from '../composables/useReferences'
 
 const route = useRoute()
-const reference = computed(() => mock.find(r => r.id === route.params.id) || mock[0])
+const { references } = useReferences()
+
+const reference = computed(() => {
+  const id = Number(route.params.id)
+  return references.value.find(r => r.id === id) || references.value[0]
+})
 
 const breadcrumbs = computed(() => [
   { title: 'Domů', to: { name: 'Home' } },
   { title: 'Reference', to: { name: 'References' } },
-  { title: reference.value.title, disabled: true }
+  { title: reference.value ? reference.value.title : 'Detail', disabled: true }
 ])
 
-// Simple randomized gallery per project from available reference images
-const galleryPool = [
-  '/fotky/references/stavba.png',
-  '/fotky/references/energetika.png',
-  '/fotky/references/prodejna.png',
-  '/fotky/references/tzb.png'
-]
-const gallery = ref([])
+const gallery = computed(() => {
+  if (!reference.value) return []
+  // If reference has specific images array, use it
+  if (reference.value.images && reference.value.images.length) {
+    return reference.value.images
+  }
+  return [] 
+})
+
 const preview = ref(false)
 const selectedImage = ref('')
 
 function openPreview(src){ selectedImage.value = src; preview.value = true }
-
-onMounted(() => {
-  // pick up to 4 random distinct images
-  const pool = [...galleryPool]
-  const picks = []
-  while (pool.length && picks.length < 4) {
-    const idx = Math.floor(Math.random() * pool.length)
-    picks.push(pool.splice(idx, 1)[0])
-  }
-  gallery.value = picks
-})
 </script>
 
 <style scoped>
@@ -263,16 +223,16 @@ onMounted(() => {
   animation: subtlePulse 11s ease-in-out infinite;
 }
 .light-circle.top-left {
-  top: -20%;
-  left: 5%;
+  top: -25%;
+  left: -5%;
   width: 450px;
   height: 450px;
   background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
   animation: subtlePulse 6s ease-in-out infinite;
 }
 .light-circle.bottom-right {
-  bottom: -10%;
-  right: 10%;
+  bottom: -25%;
+  right: 5%;
   width: 420px;
   height: 420px;
   background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.3) 0%, rgba(150,200,255,0.2) 55%, transparent 85%);

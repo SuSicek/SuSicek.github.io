@@ -113,6 +113,10 @@
       <v-row>
         <v-col cols="12">
           <v-tabs v-model="activeTab" bg-color="transparent" color="white" align-tabs="center" class="mb-6 division-tabs">
+            <v-tab value="stavba" class="division-tab">
+              <v-icon start>mdi-office-building</v-icon>
+              Stavba
+            </v-tab>
             <v-tab value="energetika" class="division-tab">
               <v-icon start>mdi-lightning-bolt</v-icon>
               Energetika
@@ -121,17 +125,38 @@
               <v-icon start>mdi-pipe</v-icon>
               TZB
             </v-tab>
-            <v-tab value="stavba" class="division-tab">
-              <v-icon start>mdi-office-building</v-icon>
-              Stavebnictví
-            </v-tab>
              <v-tab value="ostatni" class="division-tab">
               <v-icon start>mdi-account-group</v-icon>
-              Ostatní vedení
+              Ostatní
             </v-tab>
           </v-tabs>
 
           <v-window v-model="activeTab">
+            <!-- Stavba tab -->
+            <v-window-item value="stavba">
+              <v-row justify="center">
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.stavba" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+
             <!-- Energetika tab -->
             <v-window-item value="energetika">
               <v-row justify="center">
@@ -161,31 +186,6 @@
             <v-window-item value="tzb">
               <v-row justify="center">
                 <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.tzb" :key="i">
-                  <v-card class="division-card" elevation="2">
-                    <v-card-text class="text-center pa-5">
-                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
-                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
-                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
-                      <div class="contact-details">
-                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
-                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
-                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
-                        </div>
-                        <div class="d-flex align-center justify-center" v-if="contact.phone">
-                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
-                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
-                        </div>
-                      </div>
-                    </v-card-text>
-                  </v-card>
-                </v-col>
-              </v-row>
-            </v-window-item>
-
-            <!-- Stavba tab -->
-            <v-window-item value="stavba">
-              <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.stavba" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
@@ -389,7 +389,7 @@ const submitted = ref(false)
 const topics = ['Dotaz', 'Energetika', 'TZB', 'Stavebnictví', 'Kariéra']
 
 // Division tabs
-const activeTab = ref('energetika')
+const activeTab = ref('stavba')
 
 // Location tabs
 const activeLocation = ref('brno')

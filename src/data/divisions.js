@@ -112,44 +112,31 @@ export const divisions = {
     subtitle: 'Technická zařízení budov na profesionální úrovni',
     heroImage: assetPath('fotky/tzb.png'),
     description:
-      'Projekční tým UCHYTIL s.r.o. funguje od roku 1998 jako podpora realizací v oblasti TZB. Zajišťuje kompletní projektovou dokumentaci, inženýrskou činnost i technický dozor. Od roku 1994 je hlavní činností firmy realizace zakázek v oblasti technických zařízení budov. Stabilní tým odborníků garantuje vysokou kvalitu montáží a dodávek. Servisní středisko zajišťuje uvedení zařízení do provozu, montáž regulací, zaškolení obsluhy i záruční a pozáruční servis ve spolupráci s realizačními týmy.',
+      'Realizace zakázek, projekce a servis v oborech Technických zařízení budov je pro firmu stěžejním programem činnosti od založení v roce 1994 do současnosti. Dlouhodobě stabilní kolektiv pracovníků poskytuje vysokou kvalitu dodávek a montáží zařízení a technologických celků.',
     services: [
       {
-        title: 'Servis',
-        description: 'Pravidelná údržba, opravy a servis technických zařízení budov pro zajištění jejich optimálního provozu',
-        icon: 'build-outline',
+        title: 'Projekce',
+        description: 'Zabýváme se tvorbou projektové dokumentace v oboru TZB',
+        icon: 'document-text-outline',
         buttonText: 'Více informací',
         buttonLink: '#contact'
       },
       {
         title: 'Realizace',
-        description: 'Kompletní realizace TZB systémů včetně vytápění, vzduchotechniky, zdravotní techniky a elektroinstalací',
+        description: 'Naše činnost spočívá v komplexním zajištění středních a velkých zakázek v oboru TZB',
         icon: 'construct-outline',
         buttonText: 'Více informací',
         buttonLink: '#contact'
       },
       {
-        title: 'Projekce',
-        description: 'Projektování technických zařízení budov a vypracování projektové dokumentace TZB',
-        icon: 'document-text-outline',
+        title: 'Servis',
+        description: 'Pevné místo má ve struktuře divize TZB servisní středisko. Servisní technici ve spolupráci se středisky realizace namontované zařízení uvádí do provozu, provádí montáže regulací, zaškolují obsluhu a v kontaktu se zákazníky zůstávají k provedení servisní činnosti.',
+        icon: 'build-outline',
         buttonText: 'Více informací',
         buttonLink: '#contact'
       }
     ],
-    projects: [
-      {
-        title: 'Kancelářský komplex Brno',
-        description: 'Kompletní TZB pro administrativní budovu včetně klimatizace',
-        image: assetPath('fotky/prodejna.png'),
-        year: '2024'
-      },
-      {
-        title: 'Zdravotní centrum Ostrava',
-        description: 'Specializované TZB instalace pro zdravotnické zařízení',
-        image: assetPath('fotky/energetika.png'),
-        year: '2023'
-      }
-    ],
+    projects: [],
     projectsCta: { text: 'Zobrazit všechny projekty', link: '/references?division=tzb' },
     cta: { title: 'Potřebujete TZB řešení?', text: 'Naši odborníci vám navrhnou optimální technické řešení.', buttonText: 'Konzultace zdarma', buttonLink: '/contact-us' }
   }

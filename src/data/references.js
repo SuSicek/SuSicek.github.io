@@ -23,17 +23,6 @@ export const referencesProjects = [
     description: 'Instalace fotovoltaické elektrárny o výkonu 2,5 MW včetně připojení k distribuční síti. Projekt přispívá k udržitelné energetice regionu.',
     location: 'Ostrava, Moravskoslezský kraj',
     year: '2023'
-  },
-  {
-    id: 'project-3',
-    images: [assetPath('fotky/tzb.png'), assetPath('fotky/prodejna.png')],
-    image: assetPath('fotky/tzb.png'),
-    imageAlt: 'TZB instalace',
-    title: 'Obchodní centrum Praha',
-    category: 'TZB',
-    description: 'Kompletní realizace technických zařízení budov pro velké obchodní centrum včetně klimatizace, vytápění a elektrických rozvodů.',
-    location: 'Praha, Hlavní město Praha',
-    year: '2022'
   }
 ];
 

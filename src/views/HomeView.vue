@@ -182,7 +182,7 @@ export default {
         { number: 32, label: 'Let na trhu' },
         { number: 4100, label: 'Dokončených projektů' },
         { number: 300, label: 'Spokojených klientů' },
-        { number: 120, label: 'Odborníků v týmu' }
+        { number: 150, label: 'Odborníků v týmu' }
       ],
       animatedStats: {
         'Let na trhu': 0,
@@ -741,11 +741,18 @@ export default {
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
 }
 .reference-card-short {
   font-size: 0.9rem;
   line-height: 1.5;
   color: #e2e8f0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
 /* Responsive button for mobile */

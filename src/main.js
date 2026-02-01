@@ -17,12 +17,14 @@ import ContactUs from './views/ContactUs.vue'
 import DivisionView from './views/DivisionView.vue'
 import EshopView from './views/EshopView.vue'
 import ReferenceDetail from './views/ReferenceDetail.vue'
+import JobDetail from './views/JobDetail.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/aboutus', name: 'AboutUs', component: AboutUs },
   { path: '/references', name: 'References', component: References },
   { path: '/career', name: 'Career', component: Career },
+  { path: '/career/:id', name: 'JobDetail', component: JobDetail, props: true },
   { path: '/contact-us', name: 'ContactUs', component: ContactUs },
   { path: '/division/:division', name: 'Division', component: DivisionView, props: true },
   { path: '/eshop', name: 'Eshop', component: EshopView },
@@ -33,7 +35,16 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   // Always scroll to top when navigating to a new route to ensure users land at the page start
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+    if (savedPosition) {
+      return savedPosition
+    }
     return { top: 0 }
   }
 })

@@ -14,7 +14,7 @@
             />
           </RouterLink>
           <div class="footer-note">
-            UCHYTIL s.r.o. – Stavba, Energetika, TZB.
+            Stavba, Energetika, TZB.
           </div>
         </v-col>
 
