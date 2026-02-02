@@ -47,6 +47,7 @@ export const careerJobs = [
     id: 5,
     title: 'Zedník, pomocný zedník',
     division: 'Stavba',
+    suitableForStudents: true,
     location: 'Brno a okolí',
     perex: 'Realizace stavebních zakázek, převážně v Brně a okolí.',
     duties: ['Realizace stavebních zakázek'],
@@ -58,6 +59,7 @@ export const careerJobs = [
     id: 6,
     title: 'Projektant - divize Energetika',
     division: 'Energetika',
+    suitableForStudents: true,
     location: 'Brno',
     perex: 'Projektová činnost v oblasti energetiky, rozvody sítí, výměníkové stanice.',
     duties: ['Zpracování technických podkladů', 'Projektová činnost v energetice', 'Rozvody sítí, výměníkové stanice', 'Projektování spalovacích zařízení', 'Spolupráce na větších projektech'],
@@ -69,6 +71,7 @@ export const careerJobs = [
     id: 7,
     title: 'Projektant elektro',
     division: 'Energetika',
+    suitableForStudents: true,
     location: 'Hodonín',
     perex: 'Projektová činnost v oblasti silnoproudu a slaboproudu.',
     duties: ['Projektová činnost (silnoproud, slaboproud)'],
@@ -96,17 +99,6 @@ export const careerJobs = [
     duties: ['Realizace zakázek TZB'],
     requirements: ['SŠ/SOU instalatér, topenář', 'Znalosti svařování vítány', 'Odpovědnost', 'Flexibilita', 'ŘP sk. B'],
     offers: ['Práce na zajímavých projektech', 'Stabilní zaměstnání', 'Možnost zaučení a rozvoje', 'Získání osvědčení TIČR', 'Dobré ohodnocení', '5 týdnů dovolené', 'Benefity'],
-    contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
-  },
-  {
-    id: 10,
-    title: 'Příležitost pro absolventy - Stavbyvedoucí',
-    division: 'Stavba',
-    location: 'Brno / ČR',
-    perex: 'Příležitost pro absolventy VUT FAST na pozici Stavbyvedoucí.',
-    duties: ['Efektivní přechod od teorie do praxe', 'Zaučení od zkušených kolegů', 'Možnost vyzkoušet různé obory'],
-    requirements: ['Absolvent VUT FAST', 'Chuť se učit a pracovat'],
-    offers: ['Čas na zaučení', 'Rostoucí finanční ohodnocení', 'Firemní vozidlo', '5 týdnů dovolené', 'Benefity', 'Osobní přístup'],
     contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
   }
 ]

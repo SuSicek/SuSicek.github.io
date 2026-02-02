@@ -64,7 +64,7 @@
                   :to="{ name: 'Division', params: { division: divKey } }"
                 />
                 <v-divider class="my-1" />
-                <v-list-item :to="{ name: 'Eshop' }" title="E‑shop" />
+                <v-list-item :to="{ name: 'Prodejna' }" title="Prodejna" />
               </v-list>
             </v-menu>
             <v-btn variant="text" :color="isAtTop ? 'white' : 'primary'" :to="{ name: 'AboutUs' }">O nás</v-btn>
@@ -100,7 +100,7 @@
           :title="divisions[divKey].title"
           :to="{ name: 'Division', params: { division: divKey } }"
         />
-        <v-list-item :to="{ name: 'Eshop' }" title="E‑shop" />
+        <v-list-item :to="{ name: 'Prodejna' }" title="Prodejna" />
       </v-list-group>
       <v-list-item :to="{ name: 'AboutUs' }" title="O nás" />
       <v-list-item :to="{ name: 'References' }" title="Reference" />

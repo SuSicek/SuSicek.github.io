@@ -24,7 +24,7 @@
             <li><RouterLink :to="{ name: 'Division', params: { division: 'energetika' } }">Energetika</RouterLink></li>
             <li><RouterLink :to="{ name: 'Division', params: { division: 'prumysl' } }">TZB</RouterLink></li>
             <li><RouterLink :to="{ name: 'Division', params: { division: 'stavebnictvi' } }">Stavba</RouterLink></li>
-            <li><RouterLink :to="{ name: 'Eshop' }">E‑shop</RouterLink></li>
+            <li><RouterLink :to="{ name: 'Prodejna' }">Prodejna</RouterLink></li>
           </ul>
         </v-col>
 
@@ -207,7 +207,7 @@ import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const footerLogoErrored = ref(false)
-const footerLogoSrc = computed(() => footerLogoErrored.value ? '/fotky/logo.png' : '/fotky/logo-white.png')
+const footerLogoSrc = computed(() => footerLogoErrored.value ? '/fotky/logo.png' : '/fotky/logo.png')
 const onFooterLogoError = () => { footerLogoErrored.value = true }
 const etickyKodexOpen = ref(false)
 const certifikaceOpen = ref(false)

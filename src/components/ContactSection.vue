@@ -125,6 +125,10 @@
               <v-icon start>mdi-pipe</v-icon>
               TZB
             </v-tab>
+            <v-tab value="prodejna" class="division-tab">
+              <v-icon start>mdi-store</v-icon>
+              Prodejna
+            </v-tab>
              <v-tab value="ostatni" class="division-tab">
               <v-icon start>mdi-account-group</v-icon>
               Ostatní
@@ -186,6 +190,31 @@
             <v-window-item value="tzb">
               <v-row justify="center">
                 <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.tzb" :key="i">
+                  <v-card class="division-card" elevation="2">
+                    <v-card-text class="text-center pa-5">
+                      <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
+                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <div class="contact-details">
+                        <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
+                          <v-icon size="16" class="mr-2">mdi-email</v-icon>
+                          <a :href="'mailto:' + contact.email" class="text-body-2">{{ contact.email }}</a>
+                        </div>
+                        <div class="d-flex align-center justify-center" v-if="contact.phone">
+                          <v-icon size="16" class="mr-2">mdi-phone</v-icon>
+                          <a :href="'tel:' + contact.phone.replace(/\s/g, '')" class="text-body-2">{{ contact.phone }}</a>
+                        </div>
+                      </div>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-window-item>
+
+            <!-- Prodejna tab -->
+            <v-window-item value="prodejna">
+              <v-row justify="center">
+                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.prodejna" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
@@ -381,7 +410,7 @@ import { ref } from 'vue'
 // Contact hero background image (easy to change)
 const contactHero = ref('/fotky/energetika.png')
 // Division section background image
-const divisionBg = ref('/fotky/references/back.png')
+const divisionBg = ref('/fotky/energetika3.png')
 
 const formRef = ref(null)
 const submitting = ref(false)
@@ -420,11 +449,13 @@ const divisionContacts = ref({
     { name: 'Jakub Grombíř', role: 'Vedoucí realizace střediska elektro', email: 'jakub.grombir@uchytil.eu', phone: '518 321 039' },
     { name: 'Jakub Šešulka', role: 'Vedoucí střediska servis', email: 'jakub.sesulka@uchytil.eu', phone: '518 342 447' }
   ],
+  prodejna: [
+    { name: 'Jaroslav Ptáček', role: 'Vedoucí prodejny', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
+  ],
   ostatni: [
     { name: 'Ivana Ješinová', role: 'Ekonomický úsek (spojovatelka)', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 211' },
     { name: 'Ing. Jana Vacková', role: 'Personální úsek', email: 'jana.vackova@uchytil.eu', phone: '560 594 114' },
-    { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' },
-    { name: 'Jaroslav Ptáček', role: 'Prodejna', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
+    { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' }
   ]
 })
 

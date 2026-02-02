@@ -1,13 +1,55 @@
 <template>
   <section class="career-page blue-rings-bg">
     <!-- Hero -->
-    <v-sheet class="career-hero d-flex align-center" height="65vh" color="black">
-      <v-img src="/fotky/stavba.png" cover class="hero-bg" />
-      <div class="hero-overlay d-flex align-center">
-        <div class="hero-inner about-container">
-          <h1 class="hero-title">Kariéra</h1>
-          <p class="hero-sub">Přidejte se k našemu týmu odborníků a budujte s námi projekty, které dávají smysl.</p>
+    <v-sheet class="career-hero position-relative" height="85vh" max-height="900" color="grey-darken-4">
+      <v-img 
+        src="/fotky/kontejner.png" 
+        cover 
+        class="h-100"
+        gradient="to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.8) 100%"
+      >
+        <div class="d-flex flex-column fill-height justify-center align-center text-center text-white px-4">
+            <v-slide-y-transition appear>
+                <div class="hero-content" style="max-width: 1000px;">
+                    <h1 class="text-h3 text-md-h1 font-weight-black mb-6 text-white" style="line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+                        Dělejte práci, která <span class="text-primary" style="-webkit-text-stroke: 6px white; paint-order: stroke fill;">reálně</span> pomáhá
+                    </h1>
+                    <p class="text-h6 text-md-h4 font-weight-light mb-10 opacity-90 mx-auto" style="max-width: 800px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
+                        Od energetiky po stavebnictví. Nabízíme stabilitu, fajn kolektiv a projekty, na které budete hrdí.
+                    </p>
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-center align-center gap-4">
+                        <v-btn 
+                            color="primary" 
+                            size="x-large" 
+                            class="px-10 text-body-1 font-weight-bold elevation-6 rounded-pill" 
+                            height="64"
+                            href="#jobs"
+                        >
+                            <v-icon start icon="mdi-magnify" class="mr-2"></v-icon>
+                            Najít pozici
+                        </v-btn>
+                        
+                        <v-btn
+                           variant="outlined" 
+                           color="white" 
+                           size="x-large" 
+                           class="px-10 text-body-1 font-weight-bold ml-sm-6 mt-4 mt-sm-0 rounded-pill backdrop-blur"
+                           height="64"
+                           style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-width: 2px;"
+                           to="/about-us"
+                        >
+                           Poznat firmu
+                        </v-btn>
+                    </div>
+                </div>
+            </v-slide-y-transition>
         </div>
+      </v-img>
+      
+      <!-- Scroll indicator -->
+      <div class="position-absolute w-100 text-center hero-scroll-indicator" style="bottom: 40px; left: 0; opacity: 0.7;">
+         <v-icon color="white" size="40">mdi-chevron-down</v-icon>
       </div>
     </v-sheet>
 
@@ -233,7 +275,7 @@
         </v-row>
         
         <!-- Filters -->
-        <v-row class="mb-8" justify="center">
+        <v-row class="mb-4" justify="center">
           <v-col cols="12" md="4">
             <v-select
               v-model="selectedDivision"
@@ -261,13 +303,27 @@
             ></v-select>
           </v-col>
         </v-row>
+        
+        <v-row class="mb-8" justify="center">
+           <v-col cols="12" class="d-flex justify-center">
+            <v-checkbox
+              v-model="onlyStudents"
+              label="Vhodné pro studenty"
+              hide-details
+              color="white"
+              base-color="white"
+              class="text-white font-weight-bold d-inline-flex"
+              density="comfortable"
+            ></v-checkbox>
+          </v-col>
+        </v-row>
 
         <v-row>
           <v-col cols="12" class="text-center mb-8" v-if="filteredJobs.length === 0">
              <v-sheet class="pa-6 rounded-lg d-inline-block" color="rgba(255,255,255,0.9)">
                 <v-icon size="48" color="grey" class="mb-2">mdi-magnify-remove-outline</v-icon>
                 <div class="text-h6 text-grey-darken-2">Pro zadaná kritéria jsme nenašli žádné pozice.</div>
-                <v-btn variant="text" color="primary" @click="selectedDivision = null; selectedLocation = null" class="mt-2">Zrušit filtry</v-btn>
+                <v-btn variant="text" color="primary" @click="selectedDivision = null; selectedLocation = null; onlyStudents = false" class="mt-2">Zrušit filtry</v-btn>
              </v-sheet>
           </v-col>
 
@@ -281,8 +337,11 @@
                       <v-chip size="small" color="primary" variant="elevated" class="mr-2">
                         <v-icon start size="16">mdi-domain</v-icon>{{ job.division }}
                       </v-chip>
-                      <v-chip size="small" variant="tonal">
+                      <v-chip size="small" variant="tonal" class="mr-2">
                         <v-icon start size="16">mdi-map-marker</v-icon>{{ job.location }}
+                      </v-chip>
+                      <v-chip v-if="job.suitableForStudents" size="small" color="success" variant="tonal">
+                        <v-icon start size="16">mdi-school</v-icon>Vhodné pro studenty
                       </v-chip>
                     </div>
                   </div>
@@ -295,6 +354,32 @@
               </div>
             </v-card>
           </v-col>
+        </v-row>
+
+        <!-- New Student Opportunities Card -->
+        <v-row>
+            <v-col cols="12">
+            <v-card class="student-card mt-8 pa-10 overflow-hidden text-center" elevation="6" rounded="xl">
+                <div class="position-relative z-1">
+                    <div class="d-flex align-center justify-center mb-4">
+                        <v-icon color="primary" size="48" class="mr-4">mdi-school</v-icon>
+                        <h3 class="text-h4 font-weight-black text-blue-dark">Příležitost pro studenty a absolventy</h3>
+                    </div>
+                    
+                    <p class="text-h6 font-weight-regular text-medium-emphasis mb-8 mx-auto" style="max-width: 800px; line-height: 1.6;">
+                    Nastartujte svou kariéru ještě při studiu! Nabízíme stáže, brigády a vedení závěrečných prací pro studenty technických škol.
+                    </p>
+                    
+                    <v-btn color="primary" size="x-large" :to="{ name: 'StudentOpportunities' }" class="px-8 font-weight-bold elevation-4 rounded-pill">
+                    Zjistit víc
+                    <v-icon end>mdi-arrow-right</v-icon>
+                    </v-btn>
+                </div>
+                
+                <!-- Background decoration -->
+                <div class="student-card-bg"></div>
+            </v-card>
+            </v-col>
         </v-row>
       </v-container>
     </v-sheet>
@@ -318,6 +403,7 @@ const jobs = ref(careerJobs)
 // Filters
 const selectedDivision = ref(null)
 const selectedLocation = ref(null)
+const onlyStudents = ref(false)
 
 const uniqueDivisions = computed(() => {
   const divs = new Set(jobs.value.map(j => j.division))
@@ -333,7 +419,8 @@ const filteredJobs = computed(() => {
   return jobs.value.filter(job => {
     const matchDivision = !selectedDivision.value || job.division === selectedDivision.value
     const matchLocation = !selectedLocation.value || job.location === selectedLocation.value
-    return matchDivision && matchLocation
+    const matchStudents = !onlyStudents.value || job.suitableForStudents
+    return matchDivision && matchLocation && matchStudents
   })
 })
 
@@ -382,6 +469,12 @@ const atmosphere = ref([
     text: 'Týmové aktivity posilují vztahy i atmosféru.',
     image: '/fotky/prodejna2.png',
     icon: 'mdi-account-multiple'
+  },
+  {
+    title: 'Studenti a absolventi',
+    text: 'Nabízíme praxe, stáže a startovací pozice pro absolventy. Propojujeme teorii s praxí.',
+    image: '/fotky/stavba2.png',
+    icon: 'mdi-school'
   }
 ])
 const activeAtmosphere = ref(0)
@@ -442,7 +535,7 @@ const benefits = ref([
 .benefits-heading { font-size: clamp(2rem,4.8vw,3.1rem); letter-spacing:.6px; font-weight:800; }
 
 /* Jobs section with background */
-.jobs-section { position: relative; background-image: url('/fotky/references/back.png'); background-size: cover; background-position: center; }
+.jobs-section { position: relative; background-image: url('/fotky/stavba3.png'); background-size: cover; background-position: center; }
 .jobs-overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.25)); }
 .jobs-heading { color:#fff; font-size: clamp(2rem,4.6vw,3rem); letter-spacing:.4px; }
 
@@ -528,5 +621,41 @@ const benefits = ref([
 }
 .montage-container:hover .montage-img-2 {
     transform: translate(0, 5px) rotate(-4deg) scale(1.02);
+}
+
+.student-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    position: relative;
+}
+
+.student-card-bg {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(3, 31, 104, 0.05) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+.hero-scroll-indicator i {
+    animation: bounce 2s infinite;
+}
+@keyframes fadeInMove {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-content {
+    animation: fadeInMove 1s ease-out forwards;
+}
+.backdrop-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 </style>

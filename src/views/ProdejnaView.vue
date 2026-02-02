@@ -1,7 +1,7 @@
 <template>
   <v-container class="py-10">
-    <h1 class="text-h4 mb-4">E‑shop</h1>
-    <p>Toto je dočasná stránka E‑shop. Obsah bude doplněn.</p>
+    <h1 class="text-h4 mb-4">Prodejna</h1>
+    <p>Toto je dočasná stránka Prodejna. Obsah bude doplněn.</p>
   </v-container>
 </template>
 

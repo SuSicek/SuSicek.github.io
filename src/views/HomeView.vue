@@ -214,11 +214,11 @@ export default {
           link: '/division/tzb'
         },
         {
-          title: 'E-shop',
-          subtitle: 'Online prodej a technika',
-          description: 'Online prodej materiálu, příslušenství a techniky pro vaše projekty.',
+          title: 'Prodejna',
+          subtitle: 'Prodej a technika',
+          description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
           image: '/fotky/kontejner.png',
-          link: '/eshop'
+          link: '/prodejna'
         }
       ]
     }
@@ -496,7 +496,7 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 1400px;
-  background-image: url('/fotky/references/back.png');
+  background-image: url('/fotky/logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

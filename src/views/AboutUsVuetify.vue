@@ -326,11 +326,11 @@ const divisions = [
     link: '/division/tzb'
   },
   {
-    title: 'E-shop',
-    subtitle: 'Online prodej a technika',
-    description: 'Online prodej materiálu, příslušenství a techniky pro vaše projekty.',
+    title: 'Prodejna',
+    subtitle: 'Prodej a technika',
+    description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
     image: '/fotky/kontejner.png',
-    link: '/eshop'
+    link: '/prodejna'
   }
 ]
 </script>

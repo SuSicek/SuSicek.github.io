@@ -15,19 +15,21 @@ import References from './views/ReferencesClean.vue'
 import Career from './views/CareerClean.vue'
 import ContactUs from './views/ContactUs.vue'
 import DivisionView from './views/DivisionView.vue'
-import EshopView from './views/EshopView.vue'
+import ProdejnaView from './views/ProdejnaView.vue'
 import ReferenceDetail from './views/ReferenceDetail.vue'
 import JobDetail from './views/JobDetail.vue'
+import StudentOpportunities from './views/StudentOpportunities.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/aboutus', name: 'AboutUs', component: AboutUs },
   { path: '/references', name: 'References', component: References },
   { path: '/career', name: 'Career', component: Career },
+  { path: '/career/students', name: 'StudentOpportunities', component: StudentOpportunities },
   { path: '/career/:id', name: 'JobDetail', component: JobDetail, props: true },
   { path: '/contact-us', name: 'ContactUs', component: ContactUs },
   { path: '/division/:division', name: 'Division', component: DivisionView, props: true },
-  { path: '/eshop', name: 'Eshop', component: EshopView },
+  { path: '/prodejna', name: 'Prodejna', component: ProdejnaView },
   { path: '/reference/:id', name: 'ReferenceDetail', component: ReferenceDetail, props: true },
 ]
 
