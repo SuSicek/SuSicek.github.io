@@ -123,6 +123,7 @@
                   <div>
                     <time>{{ m.date }}</time>
                     <h4 class="milestone-title">{{ m.title }}</h4>
+                    <p class="milestone-desc mt-2 text-body-2">{{ m.description }}</p>
                   </div>
                 </li>
               </ul>
@@ -218,51 +219,34 @@ const aboutNumbers = [
 
 const milestones = [
   {
-    date: '1993',
-    title: 'Založení rodinného podnikání',
-    description:
-      'Rodinná historie firmy začíná, kdy Jaroslav Uchytil st. zakládá se synem podnikání (původně v oblasti dopravy). Tento bod se hodí pro zdůraznění tradice.'
-  },
-  {
     date: '1994',
-    title: 'Oficiální založení s.r.o.',
-    description:
-      'Zápis do Obchodního rejstříku u Krajského soudu v Brně. Společnost byla původně zapsána pod názvem ENBRA Montáže s.r.o.'
-  },
-  {
-    date: '1998',
-    title: 'Vznik Projekce TZB',
-    description:
-      'Společnost ustavuje oddělení Projekce technického zařízení budov (TZB) pro nezbytnou podporu realizačních prac.'
+    title: 'Založení společnosti',
+    description: 'Založení ENBRA MONTÍŽE s.r.o.'
   },
   {
     date: '2002',
-    title: 'Změna názvu společnosti',
-    description: 'Přejmenování společnosti z ENBRA Montáže s.r.o. na UCHYTIL s.r.o.'
+    title: 'Změna názvu',
+    description: 'Změna názvu na UCHYTIL s.r.o.'
+  },
+  {
+    date: '2006',
+    title: 'Vlastní sídlo',
+    description: 'Vybudování vlastního sídla společnosti.'
   },
   {
     date: '2007',
-    title: 'Vznik Projekce Energetiky',
-    description:
-      'Projekční činnost se rozšiřuje o samostatnou divizi specializující se na energetiku, rozvody potrubí a regulace otopných soustav.'
+    title: 'Vstup do Energetiky',
+    description: 'Rozšíření působnosti o oblast energetiky.'
   },
   {
-    date: '2008 / 2009',
-    title: 'První velké dotační projekty',
-    description:
-      'Zapojení do výzkumných a rozvojových projektů podpořených z fondů EU, zaměřených na vývoj moderních technologií pro ekologické spalování nebo rekonstrukci sídla s cílem snížení energetické náročnosti.'
-  },
-  {
-    date: '2015',
-    title: 'Kapitálové posílení a změna partnera',
-    description:
-      'Změna ve struktuře společníků, kdy se partnerem stává Nemovitosti UCHYTIL a.s.'
+    date: '2020',
+    title: 'Začlenění',
+    description: 'Začlenění do NEMOVITOSTI a.s.'
   },
   {
     date: 'Současnost',
-    title: 'Stabilní regionální lídr',
-    description:
-      'Společnost uvádí aktuální klíčové údaje: 100–199 zaměstnanců a základní kapitál 5 000 000 Kč. Hlavní sídlo je v Brně s dalšími pobočkami.'
+    title: 'Stavba-Energetika-TZB',
+    description: 'Obrat 600 mil. Kč, počet zaměstnanců 150.'
   }
 ]
 
