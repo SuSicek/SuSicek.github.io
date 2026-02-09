@@ -4,16 +4,6 @@ import { ref, computed } from 'vue'
 // NOTE: Replace this mock with API/data loading when available
 const references = ref([
   {
-    id: 1,
-    title: 'Administrativní centrum Delta',
-    division: 'Stavba',
-    year: 2024,
-    price: '120.000.000,-',
-    image: '/fotky/stavba.png',
-    short: 'Komplexní výstavba admin centra, 8 000 m² podlahové plochy.',
-    long: 'Komplexní výstavba administrativního centra Delta s celkovou užitnou plochou 8 000 m². Součástí projektu byla kompletní inženýrská činnost, realizace hrubé stavby, technických zařízení budov a finálních interiérů.'
-  },
-  {
     id: 2,
     title: 'Modernizace kotelny EnergoPlant',
     division: 'Energetika',
@@ -22,26 +12,6 @@ const references = ref([
     image: '/fotky/energetika.png',
     short: 'Instalace vysoce účinných kotlů a optimalizace distribuce.',
     long: 'Modernizace stávající plynové kotelny na vysoce účinný nízkoemisní zdroj. Instalace kondenzačních kotlů a nového řídicího systému pro optimalizaci distribuce tepla.'
-  },
-  {
-    id: 3,
-    title: 'Rekonstrukce retail parku Jih',
-    division: 'Stavba',
-    year: 2022,
-    price: '32.500.000,-',
-    image: '/fotky/prodejna.png',
-    short: 'Kompletní rekonstrukce objektu a technických systémů.',
-    long: 'Rozsáhlá rekonstrukce nákupního parku Jih, zahrnující opravu fasády, výměnu oken a dveří, a kompletní modernizaci vnitřních instalací.'
-  },
-  {
-    id: 5,
-    title: 'Výstavba logistického centra NorthHub',
-    division: 'Stavba',
-    year: 2023,
-    price: '85.000.000,-',
-    image: '/fotky/kontejner.png',
-    short: 'Novostavba haly, administrativy a technologií.',
-    long: 'Výstavba nového logistického a skladovacího areálu NorthHub na zelené louce. Areál zahrnuje skladovou halu, administrativní budovu a zpevněné plochy pro kamionovou dopravu.'
   },
   {
     id: 6,
@@ -62,6 +32,127 @@ const references = ref([
     image: '/fotky/energetika.png',
     short: 'Dodávka a uvedení do provozu kogenerační jednotky.',
     long: 'Dodávka, instalace a zprovoznění kogenerační jednotky pro kombinovanou výrobu elektřiny a tepla. Jednotka slouží jako primární zdroj pro centrální zásobování teplem.'
+  },
+  // Stavba References
+  {
+    id: 201,
+    title: 'Křišťanov – modernizace ČOV a zdroje tepla',
+    division: 'Stavba',
+    year: 2020,
+    price: '6,3 mil. Kč',
+    image: '/fotky/references/kristanov/Křišťanov1.jpg',
+    images: [
+        '/fotky/references/kristanov/Křišťanov1.jpg',
+        '/fotky/references/kristanov/Křišťanov2.jpg',
+        '/fotky/references/kristanov/Křišťanov3.jpg',
+        '/fotky/references/kristanov/Křišťanov4.jpg'
+    ],
+    short: 'Výstavba zařízení pro čistění odpadních vod z rekreačního areálu a plynofikace uhelné kotelny.',
+    long: 'Výstavba zařízení pro čistění odpadních vod z rekreačního areálu a plynofikace uhelné kotelny.'
+  },
+  {
+    id: 202,
+    title: 'Oprava vodovodního řadu ve Vojenském újezdu Březina',
+    division: 'Stavba',
+    year: 2022,
+    price: '4,3 mil Kč',
+    image: '/fotky/references/brezina/Březina1.jpg',
+    images: [
+        '/fotky/references/brezina/Březina1.jpg',
+        '/fotky/references/brezina/Březina2.jpg',
+        '/fotky/references/brezina/Březina3.jpg',
+        '/fotky/references/brezina/Březina4.jpg'
+    ],
+    short: 'Rekonstrukce stávajícího litinového vodovodního řadu.',
+    long: 'Rekonstrukce stávajícího litinového vodovodního řadu pro zajištění dodávky pitné a požární vody do areálu kasáren a přilehlého území.'
+  },
+  {
+    id: 203,
+    title: 'Oprava ležaté kanalizace a přípojek Botanická',
+    division: 'Stavba',
+    year: 2024,
+    price: '4 mil Kč',
+    image: '/fotky/references/botanicka/Botanická1.JPG',
+    images: [
+        '/fotky/references/botanicka/Botanická1.JPG',
+        '/fotky/references/botanicka/Botanická2.JPG'
+    ],
+    short: 'Realizace nových domovních přípojek splaškové kanalizace.',
+    long: 'Realizace nových domovních přípojek splaškové kanalizace. Pro napojení na hlavní řad kanalizace byla použita metoda štolování.'
+  },
+  {
+    id: 204,
+    title: 'ENERGETICKÉ ÚSPORY BUDOVY SMETANOVA 841, VSETÍN',
+    division: 'Stavba',
+    year: 2023, 
+    price: '30 976 267,17 Kč bez DPH',
+    image: '/fotky/references/vsetin/Vsetín 1.jpg',
+    images: [
+        '/fotky/references/vsetin/Vsetín 1.jpg',
+        '/fotky/references/vsetin/Vsetín 2.jpg'
+    ],
+    short: 'Komplexní zateplení administrativního objektu včetně výměny všech oken a dveří.',
+    long: 'Komplexní zateplení administrativního objektu včetně výměny všech oken a dveří. Součástí projektu jsou stavební úpravy interiéru, zateplení střechy a půdy, instalace nového hromosvodu a obklad parteru domu mozaikovým obkladem.\n\nTermín: 04/2021 do 09/2023'
+  },
+  {
+    id: 205,
+    title: 'Rekonstrukce požární zbrojnice Brno-Starý Lískovec',
+    division: 'Stavba',
+    year: 2022,
+    price: '8 195 000 Kč',
+    image: '/fotky/references/liskovec/hasička Lískovec 1.jpg',
+    images: [
+        '/fotky/references/liskovec/hasička Lískovec 1.jpg',
+        '/fotky/references/liskovec/hasička Lískovec 2.jpg'
+    ],
+    short: 'Zateplení fasády, výměna oken, dveří a garážových vrat.',
+    long: 'Zateplení fasády, výměna oken, dveří a garážových vrat. Provedení nástavby objektu ve dvorní části a stavební úpravy v interiéru. Součástí stavby byly také nové instalace elektro, ZTI, ÚT a VZT.\n\nTermín: 01/2022 do 08/2022'
+  },
+  {
+    id: 206,
+    title: 'Rekonstrukce 2. NP administrativní budovy Lidická 25/27, Brno',
+    division: 'Stavba',
+    year: 2024,
+    price: 'cca 6 mil. Kč',
+    image: '/fotky/references/lidicka/Lidická1.jpg',
+    images: [
+        '/fotky/references/lidicka/Lidická1.jpg',
+        '/fotky/references/lidicka/Lidická2.jpg',
+        '/fotky/references/lidicka/Lidická3.jpg',
+        '/fotky/references/lidicka/Lidická4.jpg',
+        '/fotky/references/lidicka/Lidická6.jpg'
+    ],
+    short: 'Rekonstrukce a stavební úpravy 2. nadzemního podlaží administrativní budovy.',
+    long: 'Rekonstrukce a stavební úpravy 2. nadzemního podlaží administrativní budovy. Realizovaly se nové kanceláře, sociální zařízení, zázemí pro zaměstnance včetně nových vzduchotechnických zařízení, elektrorozvodů a osvětlení.\n\nTermín realizace: 08/2024 – 11/2024'
+  },
+  {
+    id: 207,
+    title: 'Tábor západ – přestavba parovodu na horkovod',
+    division: 'Stavba',
+    year: 2023,
+    price: 'cca 195 mil Kč',
+    image: '/fotky/references/tabor/Tábor1.jpg',
+     images: [
+        '/fotky/references/tabor/Tábor1.jpg',
+        '/fotky/references/tabor/Tábor2.jpg',
+        '/fotky/references/tabor/Tábor3.jpg'
+    ],
+    short: 'Přestavba parovodních tepelných rozvodů na horkovodní.',
+    long: 'Přestavba parovodních tepelných rozvodů na horkovodní. Cílem této realizace bylo zefektivnit systém centrálního zásobování tepla pro řadu obytných budov, budov občanské vybavenosti, organizací, úřadů a firem ve městě Tábor.\n\nTermín: 05/2021 – 06/2023'
+  },
+  {
+    id: 208,
+    title: 'Rekonstrukce stávajících rozvodů tepla a instalace nových potrubních rozvodů v Bystřici nad Pernštejnem',
+    division: 'Stavba',
+    year: 2024,
+    price: '14,7 mil. Kč',
+    image: '/fotky/references/bystrice/Bystřice_1.JPG',
+    images: [
+        '/fotky/references/bystrice/Bystřice_1.JPG',
+        '/fotky/references/bystrice/Bystřice_2.JPG'
+    ],
+    short: 'Provedení přeložky stávajících Teplovodních rozvodů a položení nových rozvodů.',
+    long: 'Provedení přeložky stávajících Teplovodních rozvodů a položení nových rozvodů v provedení PEX dimenzí DN 160, DN 125, DN 80, DN 65. Což znamenalo mimo jiné i překonat místní říčku Bystřici. Celková délka výkopů byla cca 650 bm, procházející zelenými, asfaltovými a dlážděnými povrchy.'
   },
   // TZB References
   {
