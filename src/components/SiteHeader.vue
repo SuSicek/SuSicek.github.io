@@ -45,7 +45,7 @@
             <v-btn icon :color="'white'" href="https://www.instagram.com/uchytil_tzb_stavba_energetika" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-instagram</v-icon>
             </v-btn>
-            <v-btn icon :color="'white'" href="https://www.linkedin.com" target="_blank" size="small" class="mx-1">
+            <v-btn icon :color="'white'" href="https://www.linkedin.com/company/uchytil-s-r-o-/" target="_blank" size="small" class="mx-1">
               <v-icon>mdi-linkedin</v-icon>
             </v-btn>
           </div>

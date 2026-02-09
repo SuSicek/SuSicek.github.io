@@ -3,7 +3,7 @@
     <!-- Hero -->
     <v-sheet class="career-hero position-relative" height="85vh" max-height="900" color="grey-darken-4">
       <v-img 
-        src="/fotky/kontejner.png" 
+        src="/fotky/dronBrno.png" 
         cover 
         class="h-100"
         gradient="to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.8) 100%"
@@ -12,7 +12,7 @@
             <v-slide-y-transition appear>
                 <div class="hero-content" style="max-width: 1000px;">
                     <h1 class="text-h3 text-md-h1 font-weight-black mb-6 text-white" style="line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
-                        Dělejte práci, která <span class="text-primary" style="-webkit-text-stroke: 6px white; paint-order: stroke fill;">reálně</span> pomáhá
+                        Kariéra
                     </h1>
                     <p class="text-h6 text-md-h4 font-weight-light mb-10 opacity-90 mx-auto" style="max-width: 800px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
                         Od energetiky po stavebnictví. Nabízíme stabilitu, fajn kolektiv a projekty, na které budete hrdí.
@@ -37,7 +37,7 @@
                            class="px-10 text-body-1 font-weight-bold ml-sm-6 mt-4 mt-sm-0 rounded-pill backdrop-blur"
                            height="64"
                            style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-width: 2px;"
-                           to="/about-us"
+                           :to="{ name: 'AboutUs' }"
                         >
                            Poznat firmu
                         </v-btn>
@@ -135,7 +135,7 @@
         </v-row>
 
         <!-- Interactive Content -->
-        <v-row class="mt-4 align-stretch">
+        <v-row class="mt-4 align-center">
           <!-- Left: Enhanced clickable list -->
           <v-col cols="12" md="5" class="d-flex flex-column mb-6 mb-md-0">
             <v-card class="pa-2 h-100 d-flex flex-column justify-center" elevation="0" color="transparent">
@@ -173,8 +173,8 @@
 
           <!-- Right: Clean image display -->
           <v-col cols="12" md="7">
-            <div class="pa-2 h-100">
-              <v-card class="atmo-image-wrap h-100 rounded-xl overflow-hidden elevation-6" style="min-height: 500px;">
+            <div class="pa-2">
+              <v-card class="atmo-image-wrap rounded-xl overflow-hidden elevation-6" height="520">
                 <!-- Montage view for "Stabilní zázemí" -->
                 <div v-if="atmosphere[activeAtmosphere].type === 'montage'" class="montage-container h-100 position-relative">
                    <div class="montage-bg h-100 w-100 position-absolute" :style="{ backgroundImage: `url(${atmosphere[activeAtmosphere].images[0]})`, filter: 'blur(20px) brightness(0.7)' }"></div>
@@ -308,12 +308,13 @@
            <v-col cols="12" class="d-flex justify-center">
             <v-checkbox
               v-model="onlyStudents"
-              label="Vhodné pro studenty"
+              label="Příležitost pro studenty a absolventy"
               hide-details
               color="white"
               base-color="white"
-              class="text-white font-weight-bold d-inline-flex"
+              class="text-white font-weight-black d-inline-flex"
               density="comfortable"
+              style="transform: scale(1.1);"
             ></v-checkbox>
           </v-col>
         </v-row>
@@ -357,28 +358,53 @@
         </v-row>
 
         <!-- New Student Opportunities Card -->
-        <v-row>
-            <v-col cols="12">
-            <v-card class="student-card mt-8 pa-10 overflow-hidden text-center" elevation="6" rounded="xl">
-                <div class="position-relative z-1">
-                    <div class="d-flex align-center justify-center mb-4">
-                        <v-icon color="primary" size="48" class="mr-4">mdi-school</v-icon>
-                        <h3 class="text-h4 font-weight-black text-blue-dark">Příležitost pro studenty a absolventy</h3>
+        <v-row justify="center">
+            <v-col cols="12" md="9">
+              <v-card 
+                class="student-card mt-12 mb-4 overflow-hidden" 
+                elevation="4" 
+                rounded="xl"
+                color="white"
+              >
+                <div class="d-flex flex-column flex-md-row align-stretch">
+                  <!-- Image Section (Left) -->
+                  <div class="d-none d-md-block" style="width: 35%; min-height: 100%;">
+                     <v-img 
+                        src="/fotky/stavba.png" 
+                        cover 
+                        height="100%"
+                      ></v-img>
+                  </div>
+
+                  <!-- Content Section (Right) -->
+                  <div class="d-flex flex-column justify-center pa-8 pa-md-10" style="flex: 1;">
+                    <div class="d-flex align-center mb-4">
+                       <v-chip color="secondary" size="small" label class="font-weight-bold mb-2">PŘÍLEŽITOST</v-chip>
                     </div>
+
+                    <h3 class="text-h4 font-weight-bold text-primary mb-4">
+                      Studenti a absolventi
+                    </h3>
                     
-                    <p class="text-h6 font-weight-regular text-medium-emphasis mb-8 mx-auto" style="max-width: 800px; line-height: 1.6;">
-                    Nastartujte svou kariéru ještě při studiu! Nabízíme stáže, brigády a vedení závěrečných prací pro studenty technických škol.
+                    <p class="text-body-1 text-grey-darken-1 mb-8" style="line-height: 1.6;">
+                      Nastartujte svou kariéru ještě při studiu. Nabízíme odborné stáže, brigády a vedení závěrečných prací. Učte se od profesionálů v praxi.
                     </p>
                     
-                    <v-btn color="primary" size="x-large" :to="{ name: 'StudentOpportunities' }" class="px-8 font-weight-bold elevation-4 rounded-pill">
-                    Zjistit víc
-                    <v-icon end>mdi-arrow-right</v-icon>
-                    </v-btn>
+                    <div>
+                      <v-btn 
+                        color="primary" 
+                        variant="flat" 
+                        size="large" 
+                        :to="{ name: 'StudentOpportunities' }" 
+                        class="px-8 rounded-pill"
+                      >
+                        Více informací
+                        <v-icon end>mdi-arrow-right</v-icon>
+                      </v-btn>
+                    </div>
+                  </div>
                 </div>
-                
-                <!-- Background decoration -->
-                <div class="student-card-bg"></div>
-            </v-card>
+              </v-card>
             </v-col>
         </v-row>
       </v-container>
@@ -466,15 +492,9 @@ const atmosphere = ref([
   },
   {
     title: 'Společné akce',
-    text: 'Týmové aktivity posilují vztahy i atmosféru.',
+    text: 'Týmové aktivity a firemní akce posilují vztahy i atmosféru.',
     image: '/fotky/prodejna2.png',
     icon: 'mdi-account-multiple'
-  },
-  {
-    title: 'Studenti a absolventi',
-    text: 'Nabízíme praxe, stáže a startovací pozice pro absolventy. Propojujeme teorii s praxí.',
-    image: '/fotky/stavba2.png',
-    icon: 'mdi-school'
   }
 ])
 const activeAtmosphere = ref(0)

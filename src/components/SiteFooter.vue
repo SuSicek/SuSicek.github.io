@@ -51,7 +51,7 @@
           <div class="socials">
             <v-btn icon size="small" href="https://www.facebook.com/uchytilsro" target="_blank" variant="text" class="mx-1" color="white"><v-icon>mdi-facebook</v-icon></v-btn>
             <v-btn icon size="small" href="https://www.instagram.com/uchytil_tzb_stavba_energetika" target="_blank" variant="text" class="mx-1" color="white"><v-icon>mdi-instagram</v-icon></v-btn>
-            <v-btn icon size="small" href="https://www.linkedin.com" target="_blank" variant="text" class="mx-1" color="white"><v-icon>mdi-linkedin</v-icon></v-btn>
+            <v-btn icon size="small" href="https://www.linkedin.com/company/uchytil-s-r-o-/" target="_blank" variant="text" class="mx-1" color="white"><v-icon>mdi-linkedin</v-icon></v-btn>
           </div>
         </v-col>
       </v-row>

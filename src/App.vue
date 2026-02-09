@@ -34,14 +34,15 @@ export default {
 }
 
 /* Prevent overscroll on mobile devices and horizontal scrolling */
-html, body {
+html {
   overflow-x: hidden !important;
-  width: 100%;
-  max-width: 100%;
+  overflow-y: auto !important; /* Ensure vertical scrolling is enabled */
 }
 
 body {
-  overscroll-behavior: none;
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
 }
 
 /* Blue ring background pattern for white sections */

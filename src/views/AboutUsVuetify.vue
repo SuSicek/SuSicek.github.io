@@ -139,13 +139,12 @@
         <v-row justify="center" class="mb-8">
           <v-col cols="12" class="text-center">
             <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Přispíváme</h2>
-            <p class="text-body-1 text-medium-emphasis">Podporujeme smysluplné projekty a organizace v našem regionu</p>
           </v-col>
         </v-row>
         <v-row justify="center" align="center">
-          <v-col cols="6" sm="4" md="2" v-for="n in 5" :key="n" class="text-center">
-            <v-sheet class="pa-4 d-flex align-center justify-center rounded-lg" color="white" elevation="1" height="100">
-               <span class="text-grey font-weight-bold">LOGO {{ n }}</span>
+          <v-col cols="6" sm="4" md="2" v-for="(item, i) in charityImages" :key="i" class="text-center">
+            <v-sheet class="d-flex align-center justify-center rounded-lg overflow-hidden" color="white" elevation="1" height="120">
+               <v-img :src="item.src" :alt="item.alt" cover height="100%" width="100%" />
             </v-sheet>
           </v-col>
         </v-row>
@@ -225,7 +224,7 @@ const milestones = [
   },
   {
     date: '2002',
-    title: 'Změna názvu',
+    title: 'Změna názvu společnosti',
     description: 'Změna názvu na UCHYTIL s.r.o.'
   },
   {
@@ -248,6 +247,12 @@ const milestones = [
     title: 'Stavba-Energetika-TZB',
     description: 'Obrat 600 mil. Kč, počet zaměstnanců 150.'
   }
+]
+
+const charityImages = [
+  { src: '/fotky/prispivame/charita1.png', alt: 'Charita' },
+  { src: '/fotky/prispivame/charita2.png', alt: 'Podpora' },
+  { src: '/fotky/prispivame/charita4.png', alt: 'Dar' }
 ]
 
 // Timeline intersection observer: add .in-view class when list items enter viewport

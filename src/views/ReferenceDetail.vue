@@ -1,13 +1,7 @@
 <template>
-  <section class="reference-detail-page">
+  <div class="reference-detail-page">
     <!-- Top Stripe: Navigation & Header Info -->
-    <div class="ref-header-stripe position-relative py-8">
-      <!-- Background & Highlights (Matches SiteHeader) -->
-      <div class="ref-stripe-bg">
-        <div class="light-circle top-left"></div>
-        <div class="light-circle bottom-right"></div>
-      </div>
-
+    <div class="ref-header-stripe position-relative">
       <v-container class="about-container position-relative">
         <!-- Breadcrumbs -->
         <v-breadcrumbs :items="breadcrumbs" class="px-0 py-0 mb-6 text-body-2 text-grey-lighten-2" density="compact">
@@ -18,7 +12,9 @@
 
         <v-row align="end">
           <v-col cols="12" md="8">
-            <h1 class="text-h3 font-weight-bold text-white mb-2">{{ reference.title }}</h1>
+            <div class="mb-2">
+              <h1 class="text-h4 font-weight-bold text-white d-inline-block">{{ reference.title }}</h1>
+            </div>
             <div class="d-flex align-center text-subtitle-1 text-grey-lighten-4">
               <v-chip color="white" variant="flat" label size="small" class="mr-3 font-weight-bold text-primary text-uppercase">{{ reference.division }}</v-chip>
               <span class="text-h6 font-weight-regular">{{ reference.year }}</span>
@@ -31,7 +27,7 @@
     <!-- Large Main Photo -->
     <div class="ref-main-photo">
       <v-container class="about-container py-0 pb-8">
-         <v-img :src="reference.image" cover height="500" class="rounded-xl elevation-3 mt-n8" />
+         <v-img :src="reference.image" cover height="500" class="rounded-xl elevation-3 mt-n8"></v-img>
       </v-container>
     </div>
 
@@ -48,17 +44,23 @@
         
         <!-- Key Data Side -->
         <v-col cols="12" md="4">
-          <v-card variant="outlined" class="pa-6 rounded-lg" style="border-color: #e0e0e0;">
-            <div class="mb-6">
-              <div class="text-overline text-grey-darken-1 mb-1">Finanční objem</div>
-              <div class="text-h4 font-weight-bold text-primary">{{ reference.price }}</div>
+          <v-sheet color="grey-lighten-4" class="pa-8 rounded-xl">
+            <div class="d-flex align-start mb-8">
+              <v-icon color="primary" icon="mdi-cash-multiple" size="large" class="mr-4 mt-1"></v-icon>
+              <div>
+                <div class="text-overline text-grey-darken-1 mb-1">Finanční objem</div>
+                <div class="text-h5 font-weight-bold text-primary">{{ reference.price }}</div>
+              </div>
             </div>
             
-            <div>
-              <div class="text-overline text-grey-darken-1 mb-1">Rok realizace</div>
-               <div class="text-h5 font-weight-bold text-primary">{{ reference.year }}</div>
+            <div class="d-flex align-start">
+               <v-icon color="primary" icon="mdi-calendar-check" size="large" class="mr-4 mt-1"></v-icon>
+               <div>
+                <div class="text-overline text-grey-darken-1 mb-1">Rok realizace</div>
+                <div class="text-h5 font-weight-bold text-primary">{{ reference.year }}</div>
+               </div>
             </div>
-          </v-card>
+          </v-sheet>
         </v-col>
       </v-row>
 
@@ -95,11 +97,11 @@
           <v-spacer></v-spacer>
           <v-btn icon="mdi-close" variant="text" color="white" @click="preview = false"></v-btn>
         </v-toolbar>
-        <v-img :src="selectedImage" max-height="85vh" contain />
+        <v-img :src="selectedImage" max-height="85vh" contain></v-img>
       </v-card>
     </v-dialog>
 
-  </section>
+  </div>
 </template>
 
 <script setup>
@@ -137,112 +139,20 @@ function openPreview(src){ selectedImage.value = src; preview.value = true }
 </script>
 
 <style scoped>
+.reference-detail-page {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
 .about-container { width: 75%; max-width: 1700px; margin:0 auto; }
 @media (max-width:1280px){ .about-container { width:92%; } }
 @media (max-width:960px){ .about-container { width:100%; } }
 
 .ref-header-stripe {
-  /* Padding top added to clear fixed header if necessary, depending on global layout */
-  padding-top: 140px !important; 
-}
-.ref-stripe-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
   background-color: #031f68;
-  background: #031f68;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  /* Slightly fade the bottom edge for a smooth transition */
-  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-}
-
-.ref-stripe-bg::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  left: 4%;
-  width: 500px;
-  height: 500px;
-  background-image:
-    radial-gradient(circle at 20% 28%, rgba(180,220,255,0.5) 0%, rgba(150,200,255,0.25) 30%, transparent 66%),
-    radial-gradient(circle at 62% 20%, rgba(150,200,255,0.4) 0%, rgba(150,200,255,0.2) 28%, transparent 68%),
-    radial-gradient(circle at 40% 60%, rgba(180,220,255,0.45) 0%, rgba(150,200,255,0.22) 35%, transparent 70%),
-    radial-gradient(circle at 80% 70%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.21) 32%, transparent 68%),
-    radial-gradient(circle at 10% 80%, rgba(180,220,255,0.48) 0%, rgba(150,200,255,0.24) 30%, transparent 66%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  animation: subtlePulse 8s ease-in-out infinite;
-}
-
-.ref-stripe-bg::after {
-  content: '';
-  position: absolute;
-  bottom: 6%;
-  right: 6%;
-  width: 520px;
-  height: 520px;
-  background-image:
-    radial-gradient(circle at 12% 68%, rgba(150,200,255,0.45) 0%, rgba(150,200,255,0.22) 28%, transparent 66%),
-    radial-gradient(circle at 72% 40%, rgba(180,220,255,0.38) 0%, rgba(180,220,255,0.18) 26%, transparent 66%),
-    radial-gradient(circle at 30% 20%, rgba(150,200,255,0.42) 0%, rgba(180,220,255,0.2) 32%, transparent 68%),
-    radial-gradient(circle at 50% 80%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.19) 30%, transparent 70%),
-    radial-gradient(circle at 85% 10%, rgba(150,200,255,0.46) 0%, rgba(180,220,255,0.23) 28%, transparent 66%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  animation: subtlePulse 10s ease-in-out infinite;
-}
-
-/* Light circles from header */
-.light-circle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-  animation: subtlePulse 9s ease-in-out infinite;
-}
-.light-circle.left-center {
-  top: 10%;
-  left: 20%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.4) 0%, rgba(150,200,255,0.35) 60%, transparent 90%);
-  animation: subtlePulse 7s ease-in-out infinite;
-}
-.light-circle.right-center {
-  top: 40%;
-  right: 15%;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle at 50% 50%, rgba(150,200,255,0.45) 0%, rgba(180,220,255,0.4) 55%, transparent 95%);
-  animation: subtlePulse 11s ease-in-out infinite;
-}
-.light-circle.top-left {
-  top: -25%;
-  left: -5%;
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.25) 0%, rgba(150,200,255,0.21) 58%, transparent 88%);
-  animation: subtlePulse 6s ease-in-out infinite;
-}
-.light-circle.bottom-right {
-  bottom: -25%;
-  right: 5%;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle at 50% 50%, rgba(180,220,255,0.3) 0%, rgba(150,200,255,0.2) 55%, transparent 85%);
-  animation: subtlePulse 8s ease-in-out infinite;
-}
-
-@keyframes subtlePulse {
-  0% { opacity: 0.8; transform: scale(0.98); }
-  50% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 0.8; transform: scale(0.98); }
+  /* Padding top reduced */
+  padding-top: 110px !important; 
+  padding-bottom: 20px !important;
 }
 
 @media (max-width: 960px) {
