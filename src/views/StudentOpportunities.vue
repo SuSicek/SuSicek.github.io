@@ -3,8 +3,8 @@
     <!-- Hero Header -->
     <div class="job-header py-16 position-relative overflow-hidden" style="min-height: 480px; display: flex; align-items: flex-end;">
         <!-- Background Image & Overlay -->
-        <div class="job-header-bg position-absolute w-100 h-100" style="top:0; left:0; z-index:0; background-image: url('/fotky/stavba2.png'); background-size: cover; background-position: center;"></div>
-        <div class="job-header-overlay position-absolute w-100 h-100 bg-black" style="top:0; left:0; z-index:1; opacity: 0.75;"></div>
+        <div class="job-header-bg position-absolute w-100 h-100" style="top:0; left:0; z-index:0; background-image: url('/fotky/savrec.png'); background-size: cover; background-position: center;"></div>
+        <div class="job-header-overlay position-absolute w-100 h-100 bg-black" style="top:0; left:0; z-index:1; opacity: 0.25;"></div>
 
         <v-container class="position-relative" style="z-index: 2;">
             <v-btn variant="text" color="white" class="mb-6 pl-0" :to="{ name: 'Career', hash: '#jobs' }">
@@ -183,6 +183,18 @@
                     <div class="d-flex justify-center align-center gap-3 mt-3">
                          <v-btn icon="mdi-email" variant="text" color="primary" href="mailto:dagmar.bendova@uchytil.eu"></v-btn>
                          <v-btn icon="mdi-phone" variant="text" color="primary" href="tel:+420603145928"></v-btn>
+                    </div>
+                    <div class="mt-4 text-body-2">
+                        <div class="mb-2">
+                            <a href="mailto:dagmar.bendova@uchytil.eu" class="text-decoration-none text-grey-darken-3 font-weight-medium">
+                                dagmar.bendova@uchytil.eu
+                            </a>
+                        </div>
+                        <div>
+                            <a href="tel:+420603145928" class="text-decoration-none text-grey-darken-3 font-weight-medium">
+                                +420 603 145 928
+                            </a>
+                        </div>
                     </div>
                 </v-card>
 

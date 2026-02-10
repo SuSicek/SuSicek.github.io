@@ -359,7 +359,7 @@
 
         <!-- New Student Opportunities Card -->
         <v-row justify="center">
-            <v-col cols="12" md="9">
+            <v-col cols="12" md="8">
               <v-card 
                 class="student-card mt-12 mb-4 overflow-hidden" 
                 elevation="4" 
@@ -370,14 +370,14 @@
                   <!-- Image Section (Left) -->
                   <div class="d-none d-md-block" style="width: 35%; min-height: 100%;">
                      <v-img 
-                        src="/fotky/stavba.png" 
+                        src="/fotky/savrec.png" 
                         cover 
                         height="100%"
                       ></v-img>
                   </div>
 
                   <!-- Content Section (Right) -->
-                  <div class="d-flex flex-column justify-center pa-8 pa-md-10" style="flex: 1;">
+                  <div class="d-flex flex-column justify-center pa-8 pa-md-8" style="flex: 1;">
                     <div class="d-flex align-center mb-4">
                        <v-chip color="secondary" size="small" label class="font-weight-bold mb-2">PŘÍLEŽITOST</v-chip>
                     </div>
