@@ -3,7 +3,7 @@
     <!-- Hero Header -->
     <div class="job-header py-16 position-relative overflow-hidden" style="min-height: 480px; display: flex; align-items: flex-end;">
         <!-- Background Image & Overlay -->
-        <div class="job-header-bg position-absolute w-100 h-100" style="top:0; left:0; z-index:0; background-image: url('/fotky/savrec.png'); background-size: cover; background-position: center;"></div>
+        <div class="job-header-bg position-absolute w-100 h-100" style="top:0; left:0; z-index:0; background-image: url('/fotky/stavba3.png'); background-size: cover; background-position: center;"></div>
         <div class="job-header-overlay position-absolute w-100 h-100 bg-black" style="top:0; left:0; z-index:1; opacity: 0.25;"></div>
 
         <v-container class="position-relative" style="z-index: 2;">
