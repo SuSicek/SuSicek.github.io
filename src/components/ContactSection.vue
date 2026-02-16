@@ -290,10 +290,6 @@
                 <v-icon start>mdi-map-marker</v-icon>
                 Žďár nad Sázavou
               </v-tab>
-              <v-tab value="zdar-prodejna">
-                <v-icon start>mdi-store</v-icon>
-                Žďár - prodejna
-              </v-tab>
             </v-tabs>
 
             <v-window v-model="activeLocation">
@@ -366,31 +362,6 @@
                     <h3 class="text-h6 font-weight-bold mb-2">Pobočka Žďár nad Sázavou</h3>
                     <div class="d-flex align-center mb-1">
                       <v-icon size="18" class="mr-2">mdi-map-marker</v-icon>
-                      <span>Brněnská 41, 591 01 Žďár nad Sázavou</span>
-                    </div>
-                  </v-card-text>
-                </v-card>
-              </v-window-item>
-
-              <!-- Žďár - prodejna -->
-              <v-window-item value="zdar-prodejna">
-                <v-card elevation="3" class="overflow-hidden">
-                  <div class="map-embed" aria-label="Mapa prodejny Žďár nad Sázavou">
-                    <iframe 
-                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Brněnská+41,+591+01+Žďár+nad+Sázavou&zoom=15" 
-                      width="100%" 
-                      height="100%" 
-                      style="border:0;" 
-                      allowfullscreen="" 
-                      loading="lazy" 
-                      referrerpolicy="no-referrer-when-downgrade"
-                      title="Mapa prodejny Žďár nad Sázavou"
-                    ></iframe>
-                  </div>
-                  <v-card-text class="pa-4">
-                    <h3 class="text-h6 font-weight-bold mb-2">Prodejna Žďár nad Sázavou</h3>
-                    <div class="d-flex align-center mb-1">
-                      <v-icon size="18" class="mr-2">mdi-store</v-icon>
                       <span>Brněnská 41, 591 01 Žďár nad Sázavou</span>
                     </div>
                   </v-card-text>

@@ -1,13 +1,24 @@
 export const careerJobs = [
- {
-    id: 1,
-    title: 'Asistentka na projekční středisko',
-    division: 'Projekce',
-    location: 'Brno - Horní Heršpice',
-    perex: 'Vedení administrativy na středisku strojní projekce, příprava zakázek.',
-    duties: ['Vedení administrativy na středisku strojní projekce', 'Vypracovávání nabídek, poptávek, objednávek', 'Příprava podkladů pro zakázky', 'Příprava podkladů do veřejných zakázek', 'Kompletace dokumentací', 'Kancelářské práce'],
-    requirements: ['SŠ vzdělání', 'Znalost MS Office', 'Důkladnost, samostatnost, zodpovědnost', 'Příjemné vystupování', 'ŘP sk. B', 'Praxe výhodou', 'Znalost AutoCAD výhodou'],
-    offers: ['Zázemí úspěšné společnosti', 'Zaučení na pozici', 'Možnost zkráceného úvazku', 'Odpovídající mzdové ohodnocení + prémie', 'Příjemné pracovní prostředí', 'Flexibilní pracovní doba', '5 týdnů dovolené', 'Stravování a příspěvek'],
+  {
+    id: 10,
+    title: 'Elektrikář',
+    division: 'Energetika',
+    location: 'Brno',
+    perex: 'Elektromontážní práce na zakázkách v Brně a Jihomoravském kraji.',
+    duties: ['Elektromontážní práce silnoproud / slaboproud', 'Zapojování rozvaděčů', 'Montáž kabelových tras'],
+    requirements: ['SOU/SŠ elektro', 'Platná vyhláška 50/1978 Sb. (min. §6)', 'ŘP sk. B', 'Samostatnost a zodpovědnost', 'Manuální zručnost'],
+    offers: ['Stabilní zaměstnání v Brně', 'Odborná školení', 'Motivační ohodnocení', '5 týdnů dovolené', 'Stravenkový paušál', 'Příspěvky na pojištění'],
+    contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
+  },
+  {
+    id: 11,
+    title: 'Servisní technik',
+    division: 'Servis',
+    location: 'Brno',
+    perex: 'Záruční a pozáruční servis technologií TZB, MaR a energetických zařízení.',
+    duties: ['Pravidelné servisní prohlídky', 'Diagnostika a opravy poruch', 'Výjezdy k zákazníkům v Brně a okolí', 'Držení pohotovostí (dle rozpisu)'],
+    requirements: ['SŠ/SOU elektro/technického směru', 'Platná vyhláška 50/1978 Sb.', 'ŘP sk. B', 'Znalost TZB technologií výhodou', 'Komunikativnost'],
+    offers: ['Služební vůz i k soukromým účelům', 'Notebook, mobilní telefon', 'Odborný růst', 'Odpovídající mzdové ohodnocení', 'Benefity (dovolená navíc, stravné...)'],
     contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
   },
   {
@@ -30,17 +41,6 @@ export const careerJobs = [
     duties: ['Zpracování projektů (rekonstrukce, novostavby...)', 'Komunikace se specialisty', 'Inženýrská činnost', 'Autorský dozor', 'Tisk a kompletace PD'],
     requirements: ['VŠ/SŠ stavební s praxí', 'ŘP sk. B', 'AutoCAD, ArchiCAD (pokročilý)', 'Znalost MS Office', 'Důkladnost, samostatnost'],
     offers: ['Práce na zakázkách od projektu po realizaci', 'Zaškolení a podpora', 'Odpovídající mzda + prémie', 'Osobní a profesní rozvoj', 'Zázemí stabilní společnosti', 'Benefity (stravné, dovolená navíc, pojištění...)'],
-    contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
-  },
-  {
-    id: 4,
-    title: 'Pracovník strojní údržby – zámečník, oprava čerpadel',
-    division: 'Energetika',
-    location: 'Brno - Obřany (Teplárny)',
-    perex: 'Montáže, opravy a servis energetických zařízení Tepláren v Brně.',
-    duties: ['Spolupráce na montážích a servisech', 'Opravy čerpadel, armatur, filtrů', 'Běžná údržba a opravy budov'],
-    requirements: ['Vyučen (Zámečník, Mechanik...)', 'Znalost údržby strojů', 'ŘP sk. B', 'Praxe v oboru', 'Svářečský kurz (výhodou)', 'Aktivita, zodpovědnost'],
-    offers: ['Práce na zajímavých projektech', 'Stabilní zaměstnání', 'Možnost rozvoje a kvalifikace', 'Dobré ohodnocení + odměny', '5 týdnů dovolené', 'Benefity', 'Možnost svářečského kurzu'],
     contact: { name: 'PhDr. Dagmar Bendová', phone: '545 423 222, 603 145 928', email: 'dagmar.bendova@uchytil.eu' }
   },
   {

@@ -15,7 +15,7 @@
                         Kariéra
                     </h1>
                     <p class="text-h6 text-md-h4 font-weight-light mb-10 opacity-90 mx-auto" style="max-width: 800px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.8);">
-                        Od energetiky po stavebnictví. Nabízíme stabilitu, fajn kolektiv a projekty, na které budete hrdí.
+                        Od stavby po energetiku. Nabízíme stabilitu, fajn kolektiv a projekty, na které budete hrdí.
                     </p>
                     
                     <div class="d-flex flex-column flex-sm-row justify-center align-center gap-4">
@@ -270,52 +270,85 @@
       <v-container class="about-container position-relative">
         <v-row class="mb-8" justify="center">
           <v-col cols="12" class="text-center">
-            <h2 class="jobs-heading font-weight-bold mb-2">Aktuálně hledáme</h2>
+            <h2 class="text-h3 font-weight-black mb-2 text-uppercase text-white">Aktuálně hledáme</h2>
           </v-col>
         </v-row>
         
         <!-- Filters -->
-        <v-row class="mb-4" justify="center">
-          <v-col cols="12" md="4">
-            <v-select
-              v-model="selectedDivision"
-              :items="uniqueDivisions"
-              label="Filtrovat podle divize"
-              variant="solo"
-              density="comfortable"
-              clearable
-              hide-details
-              prepend-inner-icon="mdi-domain"
-              bg-color="white"
-            ></v-select>
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-select
-              v-model="selectedLocation"
-              :items="uniqueLocations"
-              label="Filtrovat podle lokality"
-              variant="solo"
-              density="comfortable"
-              clearable
-              hide-details
-              prepend-inner-icon="mdi-map-marker"
-              bg-color="white"
-            ></v-select>
-          </v-col>
-        </v-row>
-        
-        <v-row class="mb-8" justify="center">
-           <v-col cols="12" class="d-flex justify-center">
-            <v-checkbox
-              v-model="onlyStudents"
-              label="Příležitost pro studenty a absolventy"
-              hide-details
-              color="white"
-              base-color="white"
-              class="text-white font-weight-black d-inline-flex"
-              density="comfortable"
-              style="transform: scale(1.1);"
-            ></v-checkbox>
+        <v-row justify="center" class="mb-10">
+          <v-col cols="12" lg="10">
+            <v-card class="pa-6 rounded-xl" elevation="6">
+              <v-row align="center" dense>
+                <v-col cols="12">
+                   <div class="text-subtitle-1 font-weight-bold text-grey-darken-2 mb-4 d-flex align-center">
+                      <v-icon color="primary" class="mr-2">mdi-filter-variant</v-icon>
+                      Filtrovat pozice
+                   </div>
+                </v-col>
+                <v-col cols="12" md="5">
+                  <v-autocomplete
+                    v-model="selectedDivision"
+                    :items="uniqueDivisions"
+                    label="Všechny divize"
+                    variant="outlined"
+                    density="comfortable"
+                    clearable
+                    hide-details
+                    prepend-inner-icon="mdi-domain"
+                    color="primary"
+                    placeholder="Vyberte divizi"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col cols="12" md="5">
+                  <v-autocomplete
+                    v-model="selectedLocation"
+                    :items="uniqueLocations"
+                    label="Všechny lokality"
+                    variant="outlined"
+                    density="comfortable"
+                    clearable
+                    hide-details
+                    prepend-inner-icon="mdi-map-marker"
+                    color="primary"
+                    placeholder="Vyberte lokalitu"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col cols="12" md="2" class="d-flex justify-md-center mt-4 mt-md-0">
+                   <v-tooltip location="top" text="Vhodné pro studenty a absolventy">
+                      <template v-slot:activator="{ props }">
+                        <v-btn
+                          v-bind="props"
+                          :color="onlyStudents ? 'success' : 'grey-lighten-2'"
+                          :variant="onlyStudents ? 'elevated' : 'flat'"
+                          @click="onlyStudents = !onlyStudents"
+                          prepend-icon="mdi-school"
+                          height="56"
+                          width="100%"
+                          class="student-toggle-btn"
+                        >
+                          Pro studenty
+                        </v-btn>
+                      </template>
+                   </v-tooltip>
+                </v-col>
+              </v-row>
+              
+               <!-- Active Filters Chips -->
+               <div class="mt-4 d-flex flex-wrap gap-2" v-if="selectedDivision || selectedLocation || onlyStudents">
+                  <v-chip v-if="selectedDivision" closetable @click:close="selectedDivision = null" color="primary" variant="tonal" class="mr-2 mb-2">
+                    Divize: {{ selectedDivision }}
+                  </v-chip>
+                  <v-chip v-if="selectedLocation" closetable @click:close="selectedLocation = null" color="primary" variant="tonal" class="mr-2 mb-2">
+                    Lokalita: {{ selectedLocation }}
+                  </v-chip>
+                  <v-chip v-if="onlyStudents" closetable @click:close="onlyStudents = false" color="success" variant="tonal" class="mb-2">
+                     Vhodné pro studenty
+                  </v-chip>
+                  <v-btn variant="text" density="compact" color="error" size="small" @click="selectedDivision = null; selectedLocation = null; onlyStudents = false" class="ml-auto">
+                    Vymazat vše
+                  </v-btn>
+               </div>
+            </v-card>
           </v-col>
         </v-row>
 
@@ -508,7 +541,7 @@ const benefits = ref([
   { icon: 'mdi-beach', title: '5 týdnů dovolené', text: 'Dostatek času na odpočinek a regeneraci' },
   { icon: 'mdi-heart-plus', title: 'Pojištění odpovědnosti & úrazové', text: 'Pojištění odpovědnosti a úrazové pojištění pro zaměstnance' },
   { icon: 'mdi-book-open-page-variant-outline', title: 'Výuka cizích jazyků', text: 'Možnost vzdělávání v cizích jazycích' },
-  { icon: 'mdi-cellphone', title: 'Smlouva s Vodafone', text: 'Výhodné firemní tarify pro zaměstnance a jejich rodiny' },
+  { icon: 'mdi-cellphone', title: 'Smlouva s operátorem', text: 'Výhodné firemní tarify pro zaměstnance a jejich rodiny' },
 ])
 </script>
 

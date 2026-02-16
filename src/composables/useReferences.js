@@ -39,7 +39,7 @@ const references = ref([
     title: 'Křišťanov – modernizace ČOV a zdroje tepla',
     division: 'Stavba',
     year: 2020,
-    price: '6,3 mil. Kč',
+    price: '6.300.000,-',
     image: '/fotky/references/kristanov/Křišťanov1.jpg',
     images: [
         '/fotky/references/kristanov/Křišťanov1.jpg',
@@ -55,7 +55,7 @@ const references = ref([
     title: 'Oprava vodovodního řadu ve Vojenském újezdu Březina',
     division: 'Stavba',
     year: 2022,
-    price: '4,3 mil Kč',
+    price: '4.300.000,-',
     image: '/fotky/references/brezina/Březina1.jpg',
     images: [
         '/fotky/references/brezina/Březina1.jpg',
@@ -71,7 +71,7 @@ const references = ref([
     title: 'Oprava ležaté kanalizace a přípojek Botanická',
     division: 'Stavba',
     year: 2024,
-    price: '4 mil Kč',
+    price: '4.000.000,-',
     image: '/fotky/references/botanicka/Botanická1.JPG',
     images: [
         '/fotky/references/botanicka/Botanická1.JPG',
@@ -85,35 +85,35 @@ const references = ref([
     title: 'ENERGETICKÉ ÚSPORY BUDOVY SMETANOVA 841, VSETÍN',
     division: 'Stavba',
     year: 2023, 
-    price: '30 976 267,17 Kč bez DPH',
+    price: '31.000.000,-',
     image: '/fotky/references/vsetin/Vsetín 1.jpg',
     images: [
         '/fotky/references/vsetin/Vsetín 1.jpg',
         '/fotky/references/vsetin/Vsetín 2.jpg'
     ],
     short: 'Komplexní zateplení administrativního objektu včetně výměny všech oken a dveří.',
-    long: 'Komplexní zateplení administrativního objektu včetně výměny všech oken a dveří. Součástí projektu jsou stavební úpravy interiéru, zateplení střechy a půdy, instalace nového hromosvodu a obklad parteru domu mozaikovým obkladem.\n\nTermín: 04/2021 do 09/2023'
+    long: 'Komplexní zateplení administrativního objektu včetně výměny všech oken a dveří. Součástí projektu jsou stavební úpravy interiéru, zateplení střechy a půdy, instalace nového hromosvodu a obklad parteru domu mozaikovým obkladem.'
   },
   {
     id: 205,
     title: 'Rekonstrukce požární zbrojnice Brno-Starý Lískovec',
     division: 'Stavba',
     year: 2022,
-    price: '8 195 000 Kč',
+    price: '8.200.000,-',
     image: '/fotky/references/liskovec/hasička Lískovec 1.jpg',
     images: [
         '/fotky/references/liskovec/hasička Lískovec 1.jpg',
         '/fotky/references/liskovec/hasička Lískovec 2.jpg'
     ],
     short: 'Zateplení fasády, výměna oken, dveří a garážových vrat.',
-    long: 'Zateplení fasády, výměna oken, dveří a garážových vrat. Provedení nástavby objektu ve dvorní části a stavební úpravy v interiéru. Součástí stavby byly také nové instalace elektro, ZTI, ÚT a VZT.\n\nTermín: 01/2022 do 08/2022'
+    long: 'Zateplení fasády, výměna oken, dveří a garážových vrat. Provedení nástavby objektu ve dvorní části a stavební úpravy v interiéru. Součástí stavby byly také nové instalace elektro, ZTI, ÚT a VZT.'
   },
   {
     id: 206,
     title: 'Rekonstrukce 2. NP administrativní budovy Lidická 25/27, Brno',
     division: 'Stavba',
     year: 2024,
-    price: 'cca 6 mil. Kč',
+    price: '6.000.000,-',
     image: '/fotky/references/lidicka/Lidická1.jpg',
     images: [
         '/fotky/references/lidicka/Lidická1.jpg',
@@ -123,14 +123,14 @@ const references = ref([
         '/fotky/references/lidicka/Lidická6.jpg'
     ],
     short: 'Rekonstrukce a stavební úpravy 2. nadzemního podlaží administrativní budovy.',
-    long: 'Rekonstrukce a stavební úpravy 2. nadzemního podlaží administrativní budovy. Realizovaly se nové kanceláře, sociální zařízení, zázemí pro zaměstnance včetně nových vzduchotechnických zařízení, elektrorozvodů a osvětlení.\n\nTermín realizace: 08/2024 – 11/2024'
+    long: 'Rekonstrukce a stavební úpravy 2. nadzemního podlaží administrativní budovy. Realizovaly se nové kanceláře, sociální zařízení, zázemí pro zaměstnance včetně nových vzduchotechnických zařízení, elektrorozvodů a osvětlení.'
   },
   {
     id: 207,
     title: 'Tábor západ – přestavba parovodu na horkovod',
     division: 'Stavba',
     year: 2023,
-    price: 'cca 195 mil Kč',
+    price: '195.000.000,-',
     image: '/fotky/references/tabor/Tábor1.jpg',
      images: [
         '/fotky/references/tabor/Tábor1.jpg',
@@ -138,14 +138,14 @@ const references = ref([
         '/fotky/references/tabor/Tábor3.jpg'
     ],
     short: 'Přestavba parovodních tepelných rozvodů na horkovodní.',
-    long: 'Přestavba parovodních tepelných rozvodů na horkovodní. Cílem této realizace bylo zefektivnit systém centrálního zásobování tepla pro řadu obytných budov, budov občanské vybavenosti, organizací, úřadů a firem ve městě Tábor.\n\nTermín: 05/2021 – 06/2023'
+    long: 'Přestavba parovodních tepelných rozvodů na horkovodní. Cílem této realizace bylo zefektivnit systém centrálního zásobování tepla pro řadu obytných budov, budov občanské vybavenosti, organizací, úřadů a firem ve městě Tábor.'
   },
   {
     id: 208,
     title: 'Rekonstrukce stávajících rozvodů tepla a instalace nových potrubních rozvodů v Bystřici nad Pernštejnem',
     division: 'Stavba',
     year: 2024,
-    price: '14,7 mil. Kč',
+    price: '14.700.000,-',
     image: '/fotky/references/bystrice/Bystřice_1.JPG',
     images: [
         '/fotky/references/bystrice/Bystřice_1.JPG',
@@ -160,80 +160,80 @@ const references = ref([
     title: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16',
     division: 'TZB',
     year: 2025,
-    price: '58.451.954,-',
+    price: '58.500.000,-',
     image: '/fotky/references/Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.jpg',
     short: 'Rekonstrukce horkovodu v úseku PŠ – B 16.',
-    long: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.\n\nDoba realizace: 02/2025 – 12/2025'
+    long: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.'
   },
   {
     id: 102,
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '14.466.018,-',
+    price: '14.500.000,-',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.jpg',
     short: 'Rekonstrukce parovodů a horkovodů v oblasti ul. Benešova – I. Etapa.',
-    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.\n\nDoba realizace: 07/2025 – 11/2025'
+    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.'
   },
   {
     id: 103,
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká',
     division: 'TZB',
     year: 2024,
-    price: '34.685.860,-',
+    price: '34.700.000,-',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.jpg',
     short: 'Instalace DPS v objektech VO10 Bzenecká v rámci rekonstrukce SZT.',
-    long: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.\n\nDoba realizace: 06/2024 – 10/2024'
+    long: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.'
   },
   {
     id: 104,
     title: 'ČOV – rekonstrukce kotelny',
     division: 'TZB',
     year: 2022,
-    price: '10.401.068,-',
+    price: '10.400.000,-',
     image: '/fotky/references/ČOV – rekonstrukce kotelny.jpg',
     short: 'Kompletní rekonstrukce technologie kotelny ČOV.',
-    long: 'ČOV – rekonstrukce kotelny.\n\nDoba realizace: 06/2022 – 10/2022'
+    long: 'ČOV – rekonstrukce kotelny.'
   },
   {
     id: 105,
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II',
     division: 'TZB',
     year: 2025,
-    price: '143.806.956,-',
+    price: '144.000.000,-',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II.jpg',
     short: 'Rozsáhlá rekonstrukce SCZT v oblasti ul. Kopečná, Anenská, FNUSA II.',
-    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská, FNUSA II.\n\nDoba realizace: 03/2025 – 12/2025'
+    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská, FNUSA II.'
   },
   {
     id: 106,
     title: 'Lipník – modernizace zdrojů tepla II. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '61.874.497,-',
+    price: '62.000.000,-',
     image: '/fotky/references/Lipník – modernizace zdrojů tepla II. Etapa.jpg',
     short: 'Druhá etapa modernizace zdrojů tepla v lokalitě Lipník.',
-    long: 'Lipník – modernizace zdrojů tepla II. Etapa.\n\nDoba realizace: 04/2024 – 04/2025'
+    long: 'Lipník – modernizace zdrojů tepla II. Etapa.'
   },
   {
     id: 107,
     title: 'Rodinný dům, sklad + připojení na inženýrské sítě',
     division: 'TZB',
     year: 2024,
-    price: '857.649,-',
+    price: '900.000,-',
     image: '/fotky/references/Rodinný dům, sklad + připojení na inženýrské sítě.jpg',
     short: 'Realizace části TZB pro rodinný dům a sklad.',
-    long: 'Rodinný dům, sklad + připojení na inženýrské sítě (část TZB).\n\nCena je uvedena pouze za část TZB.\n\nDoba realizace: 02/2023 – 07/2024'
+    long: 'Rodinný dům, sklad + připojení na inženýrské sítě (část TZB).\n\nCena je uvedena pouze za část TZB.'
   },
   {
     id: 108,
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická',
     division: 'TZB',
     year: 2025,
-    price: '35.402.180,-',
+    price: '35.500.000,-',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.jpg',
     short: 'Instalace DPS v objektech VO02 Velkopavlovická.',
-    long: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.\n\nDoba realizace: 06/2025 – 09/2025'
+    long: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.'
   }
 ])
 

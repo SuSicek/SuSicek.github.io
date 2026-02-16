@@ -173,10 +173,10 @@ export default {
     return {
       currentSlide: 0,
       slides: [
-        { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
+        { src: '/fotky/dronBrno.png', alt: 'Dron Brno' },
         { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
         { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
-        { src: '/fotky/energetika.png', alt: 'Energetika' }
+        { src: '/fotky/references/vsetin/Vsetín 2.jpg', alt: 'Vsetín' }
       ],
       stats: [
         { number: 32, label: 'Let na trhu' },

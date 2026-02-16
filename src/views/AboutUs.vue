@@ -32,6 +32,44 @@
         </v-container>
       </v-sheet>
     </div>
+
+    <!-- Podporujeme Section -->
+    <div class="podporujeme-section position-relative py-16">
+      <!-- Background Collage -->
+      <div class="collage-bg">
+        <div class="collage-item item-1"></div>
+        <div class="collage-item item-2"></div>
+        <div class="collage-item item-3"></div>
+        <div class="collage-item item-4"></div>
+        <div class="collage-item item-5"></div>
+        <div class="collage-item item-6"></div>
+      </div>
+      
+      <!-- Dark Overlay -->
+      <div class="section-overlay"></div>
+
+      <!-- Content -->
+      <v-container class="position-relative z-index-2 text-center text-white">
+        <h2 class="text-h3 font-weight-bold mb-4">Podporujeme</h2>
+        <p class="text-h6 mb-12 font-weight-regular text-grey-lighten-3" style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+          Pomáháme tam, kde je to potřeba. Podporujeme charitativní projekty, místní komunity a lidi, kteří se ocitli v těžké životní situaci.
+        </p>
+
+        <div class="d-flex align-center justify-center images-row">
+          <v-card class="support-card small-card" elevation="4">
+            <v-img src="/fotky/energetika.png" cover class="fill-height"></v-img>
+          </v-card>
+          
+          <v-card class="support-card big-card mx-6" elevation="10">
+            <v-img src="/fotky/kontejner.png" cover class="fill-height"></v-img>
+          </v-card>
+          
+          <v-card class="support-card small-card" elevation="4">
+            <v-img src="/fotky/energetika.png" cover class="fill-height"></v-img>
+          </v-card>
+        </div>
+      </v-container>
+    </div>
   </div>
 </template>
 
@@ -41,10 +79,10 @@ export default {
   data() {
     return {
       stats: [
-        { number: 30, label: 'Let na trhu' },
-        { number: 650, label: 'Dokončených projektů' },
+        { number: 32 , label: 'Let na trhu' },
+        { number: 4100, label: 'Dokončených projektů' },
         { number: 300, label: 'Spokojených klientů' },
-        { number: 120, label: 'Odborníků v týmu' }
+        { number: 150, label: 'Odborníků v týmu' }
       ],
       animatedStats: {
         'Let na trhu': 0,
@@ -222,5 +260,119 @@ export default {
 .stat-label {
   color: #ffffff;
   font-weight: 500;
+}
+
+/* Podporujeme Section */
+.podporujeme-section {
+  overflow: hidden;
+  background-color: #1a1a1a;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+.collage-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  transform: rotate(-2deg) scale(1.1);
+  width: 110%;
+  height: 110%;
+  left: -5%;
+  top: -5%;
+  gap: 8px;
+}
+.collage-item {
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.collage-item:hover {
+  filter: grayscale(0%);
+}
+.collage-item.item-1 { background-image: url('/fotky/energetika.png'); }
+.collage-item.item-2 { background-image: url('/fotky/kontejner.png'); }
+.collage-item.item-3 { background-image: url('/fotky/energetika.png'); }
+.collage-item.item-4 { background-image: url('/fotky/kontejner.png'); }
+.collage-item.item-5 { background-image: url('/fotky/energetika.png'); }
+.collage-item.item-6 { background-image: url('/fotky/kontejner.png'); }
+
+.section-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(3, 31, 104, 0.6), rgba(0, 0, 0, 0.85));
+  z-index: 1;
+}
+.z-index-2 { z-index: 2; }
+
+/* Images Row */
+.images-row {
+  margin-top: 2rem;
+}
+.support-card {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.support-card .v-img {
+  transition: transform 0.6s ease;
+}
+.support-card:hover .v-img {
+  transform: scale(1.1);
+}
+
+.small-card {
+  width: 280px;
+  height: 200px;
+  opacity: 0.9;
+}
+.small-card:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+  z-index: 3;
+}
+
+.big-card {
+  width: 400px;
+  height: 300px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 3;
+}
+.big-card:hover {
+  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 960px) {
+  .podporujeme-section {
+    padding: 60px 0;
+  }
+  .images-row {
+    flex-wrap: wrap;
+    gap: 20px !important;
+  }
+  .big-card {
+    /* On mobile, stack them? Or keep layout if possible? */
+    width: 100%;
+    max-width: 500px;
+    height: 280px;
+    margin: 10px 0 !important;
+  }
+  .small-card {
+    width: calc(50% - 20px);
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .small-card {
+    width: 100%;
+    height: 220px;
+  }
 }
 </style>

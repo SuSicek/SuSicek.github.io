@@ -133,23 +133,43 @@
       </v-container>
     </v-sheet>
 
-    <!-- Charity Section -->
-    <v-sheet class="py-12 bg-grey-lighten-5">
-      <v-container class="about-container">
-        <v-row justify="center" class="mb-8">
-          <v-col cols="12" class="text-center">
-            <h2 class="text-h5 text-md-h4 font-weight-bold mb-2">Přispíváme</h2>
-          </v-col>
-        </v-row>
-        <v-row justify="center" align="center">
-          <v-col cols="6" sm="4" md="2" v-for="(item, i) in charityImages" :key="i" class="text-center">
-            <v-sheet class="d-flex align-center justify-center rounded-lg overflow-hidden" color="white" elevation="1" height="120">
-               <v-img :src="item.src" :alt="item.alt" cover height="100%" width="100%" />
-            </v-sheet>
-          </v-col>
-        </v-row>
+    <!-- Podporujeme Section -->
+    <div class="podporujeme-section position-relative py-8">
+      <!-- Background Collage -->
+      <div class="collage-bg">
+        <div class="collage-item item-1"></div>
+        <div class="collage-item item-2"></div>
+        <div class="collage-item item-3"></div>
+        <div class="collage-item item-4"></div>
+        <div class="collage-item item-5"></div>
+        <div class="collage-item item-6"></div>
+      </div>
+      
+      <!-- Dark Overlay -->
+      <div class="section-overlay"></div>
+
+      <!-- Content -->
+      <v-container class="position-relative z-index-2 text-center text-white">
+        <h2 class="text-h3 font-weight-bold mb-2">Podporujeme</h2>
+        <p class="text-h6 mb-6 font-weight-regular text-grey-lighten-3" style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+          Pomáháme tam, kde je to potřeba. Podporujeme charitativní projekty, místní komunity a lidi, kteří se ocitli v těžké životní situaci.
+        </p>
+
+        <div class="d-flex align-center justify-center images-row">
+          <v-card class="support-card small-card" elevation="4">
+            <v-img src="/fotky/prispivame/charita2.png" cover class="fill-height" />
+          </v-card>
+          
+          <v-sheet class="support-card big-card mx-6" color="transparent">
+            <v-img src="/fotky/prispivame/krtek.png" contain class="fill-height" />
+          </v-sheet>
+          
+          <v-card class="support-card small-card" elevation="4">
+            <v-img src="/fotky/prispivame/charita4.png" cover class="fill-height" />
+          </v-card>
+        </div>
       </v-container>
-    </v-sheet>
+    </div>
     
     <v-container class="py-12 about-container">
       <v-row justify="center" class="mb-8">
@@ -220,7 +240,7 @@ const milestones = [
   {
     date: '1994',
     title: 'Založení společnosti',
-    description: 'Založení ENBRA MONTÍŽE s.r.o.'
+    description: 'Založení ENBRA MONTÁŽE s.r.o.'
   },
   {
     date: '2002',
@@ -777,5 +797,115 @@ time {
   0% { opacity: 0.75; transform: translateY(0); }
   50% { opacity: 1; transform: translateY(-2px); }
   100% { opacity: 0.75; transform: translateY(0); }
+}
+
+/* Podporujeme Section */
+.podporujeme-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #050505;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+.collage-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  transform: rotate(-3deg) scale(1.15);
+  width: 110%;
+  height: 110%;
+  left: -5%;
+  top: -5%;
+  gap: 0;
+  z-index: 1;
+}
+.collage-item {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) brightness(0.7);
+  transition: all 0.5s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.collage-item:hover {
+  filter: grayscale(0%) brightness(1);
+  z-index: 2;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.collage-item.item-1 { background-image: url('/fotky/prispivame/charita2.png'); }
+.collage-item.item-2 { background-image: url('/fotky/prispivame/krtek.png'); }
+.collage-item.item-3 { background-image: url('/fotky/prispivame/charita4.png'); }
+.collage-item.item-4 { background-image: url('/fotky/prispivame/charita2.png'); }
+.collage-item.item-5 { background-image: url('/fotky/prispivame/krtek.png'); }
+.collage-item.item-6 { background-image: url('/fotky/prispivame/charita4.png'); }
+
+.section-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(3, 31, 104, 0.55), rgba(7, 7, 7, 0.7));
+  z-index: 2;
+  pointer-events: none;
+}
+.z-index-2 { z-index: 3; }
+
+/* Images Row */
+.images-row {
+  margin-top: 1.5rem;
+}
+.support-card {
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.support-card .v-img {
+  /* Removed zoom transition */
+}
+.support-card:hover .v-img {
+  /* Removed zoom transform */
+}
+
+.small-card {
+  width: 220px;
+  height: 150px;
+}
+
+.big-card {
+  width: 480px;
+  height: 360px;
+  z-index: 3;
+}
+
+@media (max-width: 960px) {
+  .podporujeme-section {
+    padding: 60px 0;
+  }
+  .images-row {
+    flex-wrap: wrap;
+    gap: 20px !important;
+  }
+  .big-card {
+    width: 100%;
+    max-width: 500px;
+    height: 280px;
+    margin: 10px 0 !important;
+  }
+  .small-card {
+    width: calc(50% - 20px);
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .small-card {
+    width: 100%;
+    height: 220px;
+  }
 }
 </style>
