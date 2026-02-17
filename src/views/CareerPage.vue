@@ -403,7 +403,7 @@
                   <!-- Image Section (Left) -->
                   <div class="d-none d-md-block" style="width: 35%; min-height: 100%;">
                      <v-img 
-                        src="/fotky/savrec.png" 
+                        src="/fotky/studenti.jpg" 
                         cover 
                         height="100%"
                       ></v-img>
