@@ -294,7 +294,7 @@ const features = [
   },
   {
     title: 'Odborný tým',
-    text: 'Silné zázemí strojních, elektro a projekčních středisek. Neustálé vzdělávání.',
+    text: 'Silné odborné zázemí vysoce kvalifikovaných odborníků v oblasti Stavba, Energetika TZB.',
     image: '/fotky/prodejna.png'
   },
   {

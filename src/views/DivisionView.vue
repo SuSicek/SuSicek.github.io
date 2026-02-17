@@ -122,7 +122,7 @@ export default {
     heroStyle() {
       const img = this.current.heroImage
       return {
-        background: `linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.35)), url('${img}') center/cover no-repeat`
+        background: `linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('${img}') center/cover no-repeat`
       }
     },
     descriptionParagraphs() {
@@ -190,7 +190,7 @@ export default {
 }
 .hero-gradient {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.2) 70%);
+  background: linear-gradient(120deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.1) 70%);
   pointer-events: none;
 }
 .hero-inner { position: relative; z-index: 1; max-width: 760px; }

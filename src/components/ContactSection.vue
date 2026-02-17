@@ -9,7 +9,7 @@
           <v-col cols="12" md="7" class="pr-md-8 d-flex align-center">
             <div class="text-content">
               <h1 class="contact-title text-h4 text-md-h3 mb-4 font-weight-bold">Spojte se s námi</h1>
-              <p class="contact-sub text-subtitle-1 mb-6">Máte dotazy k našim službám v oblasti energetiky, TZB nebo stavebnictví? Ozvěte se – odpovíme obvykle do jednoho pracovního dne.</p>
+              <p class="contact-sub text-subtitle-1 mb-6">Máte dotazy k našim službám v oblasti stavebnictví, energetiky nebo TZB? Ozvěte se – odpovíme obvykle do jednoho pracovního dne.</p>
               <div class="d-flex align-center flex-wrap contact-chips mb-4">
                 <div class="contact-chip d-flex align-center">
                   <v-icon size="24" class="mr-2">mdi-phone</v-icon>
@@ -406,7 +406,7 @@ const divisionContacts = ref({
   ],
   stavba: [
     { name: 'Ing. Radek Tkáč', role: 'Ředitel divize', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
-    { name: 'Ing. Tereza Böhmová', role: 'Asistentka (zástup za J. Malou)', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' },
+    { name: 'Ing. Jana Malá', role: 'Asistentka', email: 'jana.mala@uchytil.eu', phone: '545 423 446' },
     { name: 'Ing. Martin Hublík', role: 'Vedoucí střediska projekce', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
     { name: 'Ing. Martin Hublík', role: 'Vedoucí realizace pozemní stavby', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
     { name: 'Ing. Radek Tkáč', role: 'Vedoucí realizace liniové stavby', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
@@ -424,9 +424,9 @@ const divisionContacts = ref({
     { name: 'Jaroslav Ptáček', role: 'Vedoucí prodejny', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
   ],
   ostatni: [
-    { name: 'Ivana Ješinová', role: 'Ekonomický úsek (spojovatelka)', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 211' },
+    { name: 'DiS. Ivana Ješinová', role: 'Ekonomický úsek', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 218' },
     { name: 'Ing. Jana Vacková', role: 'Personální úsek', email: 'jana.vackova@uchytil.eu', phone: '560 594 114' },
-    { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 246' }
+    { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 222' }
   ]
 })
 

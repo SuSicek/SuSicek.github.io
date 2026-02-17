@@ -289,7 +289,7 @@ const offers = [
   },
   {
     title: 'BENEFITY',
-    text: 'K pozici zaměstnance patří i zajímavé benefity - 5 týdnů dovolené, příspěvky na penzijní nebo životní pojištění, úrazové pojištění stravné, AJ, fond FKSP a další.'
+    text: 'K pozici zaměstnance patří i zajímavé benefity - 5 týdnů dovolené, příspěvky na penzijní nebo životní pojištění, úrazové pojištění, stravné, AJ, fond FKSP a další.'
   },
   {
     title: 'OSOBNÍ PŘÍSTUP',

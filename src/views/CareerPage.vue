@@ -76,7 +76,7 @@
           </div>
           <h3 class="text-h4 font-weight-bold mb-4 text-blue-dark">Tým odborníků</h3>
           <p class="text-h6 font-weight-light text-medium-emphasis flex-grow-1" style="line-height: 1.6;">
-            Staňte se součástí kolektivu zkušených profesionálů v oboru TZB, energetiky a stavitelství. Sdílíme know-how a táhneme za jeden provaz.
+            Staňte se součástí kolektivu zkušených profesionálů v oboru stavebnictví, energetiky a TZB. Sdílíme know-how a táhneme za jeden provaz.
           </p>
         </v-card>
       </v-col>
@@ -104,7 +104,7 @@
           </div>
           <h3 class="text-h4 font-weight-bold mb-4 text-blue-dark">Jistota a stabilita</h3>
           <p class="text-h6 font-weight-light text-medium-emphasis flex-grow-1" style="line-height: 1.6;">
-            Jsme finančně zdravá česká firma s tradicí. Plníme své sliby vůči klientům i zaměstnancům a sázíme na férové jednání.
+            Jsme finančně zdravá česká firma s tradicí. Plníme své sliby vůči klientům i zaměstnancům, sázíme na férové jednání.
           </p>
         </v-card>
       </v-col>
@@ -174,72 +174,91 @@
           <!-- Right: Clean image display -->
           <v-col cols="12" md="7">
             <div class="pa-2">
-              <v-card class="atmo-image-wrap rounded-xl overflow-hidden elevation-6" height="520">
-                <!-- Montage view for "Stabilní zázemí" -->
-                <div v-if="atmosphere[activeAtmosphere].type === 'montage'" class="montage-container h-100 position-relative">
-                   <div class="montage-bg h-100 w-100 position-absolute" :style="{ backgroundImage: `url(${atmosphere[activeAtmosphere].images[0]})`, filter: 'blur(20px) brightness(0.7)' }"></div>
-                   <div class="montage-images h-100 w-100 position-relative d-flex align-center justify-center">
-                      <v-img 
-                        v-for="(img, idx) in atmosphere[activeAtmosphere].images" 
-                        :key="idx"
-                        :src="img"
-                        class="montage-img elevation-10 rounded-lg"
-                        :class="`montage-img-${idx}`"
-                        cover
-                      ></v-img>
-                   </div>
-                   <div class="image-overlay d-flex align-end pa-8" style="z-index: 5;">
-                      <div>
-                        <h3 class="text-h4 font-weight-bold mb-2">{{ atmosphere[activeAtmosphere].title }}</h3>
-                        <p class="text-h6 font-weight-regular">{{ atmosphere[activeAtmosphere].text }}</p>
-                      </div>
-                    </div>
-                </div>
-
-                <!-- Slideshow view for "Férové jednání" -->
-                <div v-else-if="atmosphere[activeAtmosphere].type === 'slideshow'" class="h-100 position-relative">
-                    <v-carousel 
-                      cycle 
-                      height="100%" 
-                      hide-delimiter-background
-                      show-arrows="hover"
-                      interval="3000"
-                    >
-                      <v-carousel-item
-                        v-for="(img, i) in atmosphere[activeAtmosphere].images"
-                        :key="i"
-                        :src="img"
-                        cover
-                      ></v-carousel-item>
-                    </v-carousel>
-                    <div class="image-overlay d-flex align-end pa-8 position-absolute w-100 h-100" style="z-index: 5; top: 0; left: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);">
-                      <div class="text-white">
-                        <h3 class="text-h4 font-weight-bold mb-2">{{ atmosphere[activeAtmosphere].title }}</h3>
-                        <p class="text-h6 font-weight-regular">{{ atmosphere[activeAtmosphere].text }}</p>
-                      </div>
-                    </div>
-                </div>
-
-                <!-- Standard single image view -->
-                <v-img
-                  v-else
-                  :src="atmosphere[activeAtmosphere].image"
-                  height="100%"
-                  cover
-                  class="atmo-image transition-swing"
+              <v-card class="atmo-image-wrap rounded-xl overflow-hidden elevation-6 bg-grey-lighten-4" height="520">
+                <v-window 
+                  v-model="activeAtmosphere" 
+                  class="h-100"
+                  transition="fade-transition"
+                  reverse-transition="fade-transition"
                 >
-                    <div class="image-overlay d-flex align-end pa-8">
-                      <div>
-                        <h3 class="text-h4 font-weight-bold mb-2">{{ atmosphere[activeAtmosphere].title }}</h3>
-                        <p class="text-h6 font-weight-regular">{{ atmosphere[activeAtmosphere].text }}</p>
+                  <v-window-item 
+                    v-for="(item, index) in atmosphere" 
+                    :key="index" 
+                    :value="index" 
+                    class="h-100"
+                  >
+                    <!-- Montage view for "Stabilní zázemí" -->
+                    <div v-if="item.type === 'montage'" class="montage-container h-100 position-relative">
+                      <div class="montage-bg h-100 w-100 position-absolute" :style="{ backgroundImage: `url(${item.images[0]})`, filter: 'blur(20px) brightness(0.7)' }"></div>
+                      <div class="montage-images h-100 w-100 position-relative d-flex align-center justify-center">
+                          <v-img 
+                            v-for="(img, idx) in item.images" 
+                            :key="idx"
+                            :src="img"
+                            class="montage-img elevation-10 rounded-lg transition-swing"
+                            :class="`montage-img-${idx}`"
+                            cover
+                            :transition="false"
+                          ></v-img>
                       </div>
-                    </div>
-                    <template #placeholder>
-                        <div class="d-flex align-center justify-center fill-height">
-                        <v-progress-circular indeterminate color="primary"></v-progress-circular>
+                      <div class="image-overlay d-flex align-end pa-8" style="z-index: 5;">
+                          <div>
+                            <h3 class="text-h4 font-weight-bold mb-2">{{ item.title }}</h3>
+                            <p class="text-h6 font-weight-regular">{{ item.text }}</p>
+                          </div>
                         </div>
-                    </template>
-                </v-img>
+                    </div>
+
+                    <!-- Slideshow view for "Férové jednání" -->
+                    <div v-else-if="item.type === 'slideshow'" class="h-100 position-relative">
+                        <v-carousel 
+                          cycle 
+                          height="100%" 
+                          hide-delimiter-background
+                          show-arrows="hover"
+                          interval="3000"
+                          :show-arrows="false"
+                          hide-delimiters
+                        >
+                          <v-carousel-item
+                            v-for="(img, i) in item.images"
+                            :key="i"
+                            :src="img"
+                            cover
+                            transition="fade-transition"
+                            reverse-transition="fade-transition"
+                          ></v-carousel-item>
+                        </v-carousel>
+                        <div class="image-overlay d-flex align-end pa-8 position-absolute w-100 h-100" style="z-index: 5; top: 0; left: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);">
+                          <div class="text-white">
+                            <h3 class="text-h4 font-weight-bold mb-2">{{ item.title }}</h3>
+                            <p class="text-h6 font-weight-regular">{{ item.text }}</p>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!-- Standard single image view -->
+                    <v-img
+                      v-else
+                      :src="item.image"
+                      height="100%"
+                      cover
+                      class="atmo-image transition-swing"
+                      :transition="false"
+                    >
+                        <div class="image-overlay d-flex align-end pa-8">
+                          <div>
+                            <h3 class="text-h4 font-weight-bold mb-2">{{ item.title }}</h3>
+                            <p class="text-h6 font-weight-regular">{{ item.text }}</p>
+                          </div>
+                        </div>
+                        <template #placeholder>
+                            <div class="d-flex align-center justify-center fill-height bg-grey-lighten-4">
+                            </div>
+                        </template>
+                    </v-img>
+                  </v-window-item>
+                </v-window>
               </v-card>
             </div>
           </v-col>
@@ -493,7 +512,7 @@ const atmosphere = ref([
     title: 'Stabilní zázemí',
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
     image: '/fotky/dronBrno.png',
-    images: ['/fotky/dronBrno.png', '/fotky/zdar.png'],
+    images: ['/fotky/dronBrno.png', '/fotky/atrium.jpeg', '/fotky/zdar.png', '/fotky/foto 202 zr/kancl1.jpg'],
     type: 'slideshow',
     icon: 'mdi-shield-check'
   },
@@ -518,12 +537,6 @@ const atmosphere = ref([
     icon: 'mdi-trending-up'
   },
   {
-    title: 'Moderní zázemí',
-    text: 'Kvalitní technické vybavení usnadňuje práci.',
-    image: '/fotky/energetika.png',
-    icon: 'mdi-office-building'
-  },
-  {
     title: 'Společné akce',
     text: 'Týmové aktivity a firemní akce posilují vztahy i atmosféru.',
     image: '/fotky/hory.png',
@@ -537,8 +550,8 @@ const activeAtmosphere = ref(0)
 // Benefits
 const benefits = ref([
   { icon: 'mdi-account-group', title: 'FKSP', text: 'Fond kulturních a sociálních potřeb pro podporu zaměstnanců' },
-  { icon: 'mdi-cash-multiple', title: 'Penzijní & životní pojištění', text: 'Příspěvek na penzijní a životní pojištění' },
-  { icon: 'mdi-silverware-fork-knife', title: 'Příspěvek na stravování', text: 'Příspěvek na stravování formou stravenek' },
+  { icon: 'mdi-cash-multiple', title: 'Penzijní & životní pojištění', text: 'Příspěvek na penzijní / životní pojištění' },
+  { icon: 'mdi-silverware-fork-knife', title: 'Příspěvek na stravování', text: 'Příspěvek na stravování na účet zaměstnance' },
   { icon: 'mdi-baby-face-outline', title: 'Hlídání', text: 'Postaráme se o vaše děti během prázdnin' },
   { icon: 'mdi-beach', title: '5 týdnů dovolené', text: 'Dostatek času na odpočinek a regeneraci' },
   { icon: 'mdi-heart-plus', title: 'Pojištění odpovědnosti & úrazové', text: 'Pojištění odpovědnosti a úrazové pojištění pro zaměstnance' },

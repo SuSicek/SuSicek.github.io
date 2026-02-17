@@ -182,12 +182,12 @@
         <v-card-text class="pa-6 text-body-1">
           <p class="mb-4">
             Firma zavedla a používá integrovaný systém řízení, který odpovídá 
-            <strong>ČSN EN ISO 9001, ČSN EN ISO 14001, ČSN ISO 45001</strong>, politika společnosti.
+            <strong>ČSN EN ISO 9001:2016, ČSN EN ISO 14001:2016, ČSN ISO 45001:2018</strong>, politika společnosti.
           </p>
           <p class="mb-4">
             Společnost je certifikována pro výrobu a montáž, opravy a rekonstrukce energetických zařízení 
-            a ocelových konstrukcí dle normy <strong>ČSN EN ISO 3834-2:2021</strong>, pro výrobu a montáž 
-            ocelových konstrukcí energetických zařízení a staveb dle normy <strong>ČSN EN 1090-2+A1:2012</strong>.
+            a ocelových konstrukcí dle normy <strong>ČSN EN ISO 3834-2:2022</strong>, pro výrobu a montáž 
+            ocelových konstrukcí energetických zařízení a staveb dle normy <strong>ČSN EN 1090-2+A1:2024</strong>.
           </p>
           <p class="mb-0">
             Společnost je certifikována pro výkon společných činností v plynárenství ČR firmou <strong>GAS s.r.o.</strong>
