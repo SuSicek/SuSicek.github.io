@@ -492,9 +492,9 @@ const atmosphere = ref([
   {
     title: 'Stabilní zázemí',
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
-    image: '/fotky/stavba.png',
-    images: ['/fotky/stavba.png', '/fotky/bagr2.png', '/fotky/energetika2.png'],
-    type: 'montage',
+    image: '/fotky/dronBrno.png',
+    images: ['/fotky/dronBrno.png', '/fotky/zdar.png'],
+    type: 'slideshow',
     icon: 'mdi-shield-check'
   },
   {
@@ -526,7 +526,9 @@ const atmosphere = ref([
   {
     title: 'Společné akce',
     text: 'Týmové aktivity a firemní akce posilují vztahy i atmosféru.',
-    image: '/fotky/prodejna2.png',
+    image: '/fotky/hory.png',
+    images: ['/fotky/hory.png', '/fotky/bowling.png', '/fotky/jumppark.png'],
+    type: 'montage',
     icon: 'mdi-account-multiple'
   }
 ])
