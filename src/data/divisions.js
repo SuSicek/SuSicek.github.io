@@ -75,16 +75,30 @@ export const divisions = {
       'Stavební divize vznikla ve firmě UCHYTIL s.r.o. již na samém začátku a byla zaměřena na podporu realizačních středisek TZB. Během několika let se stavební středisko rozrostlo a začalo provádět stavby většího charakteru a tím vytvářet uplatnění pro střediska TZB a ENERGETIKA. Dnes má svoje nezastupitelné místo ve firmě. Hlavní předností divize stavební je zajištění kompletní dodávky staveb většího i menšího charakteru. Stavební divize disponuje potřebným vybavením a profesně zdatným týmem, který zaručuje vysokou kvalitu prováděných prací a garanci za provedené dílo. Velký důraz je kladen na maximální spokojenost zákazníka.',
     services: [
       {
-        title: 'Realizace',
-        description: 'Komplexní realizace stavebních projektů od základů po dokončení včetně novostaveb, rekonstrukcí a průmyslových staveb',
-        icon: 'hammer-outline',
+        title: 'Inženýrské sítě',
+        description: 'Výstavba a rekonstrukce vodohospodářských staveb a inženýrských sítí. Zasíťování pozemků – voda, kanalizace, plyn, silnoproud, slaboproud, komunikace.',
+        icon: 'water-outline',
+        buttonText: 'Více informací',
+        buttonLink: '#contact'
+      },
+      {
+        title: 'Pozemní stavby',
+        description: 'Výstavba a rekonstrukce bytových a rodinných domů, budov občanské vybavenosti, administrativních budov, průmyslových hal, kotelen a výměníkových stanic.',
+        icon: 'business-outline',
         buttonText: 'Více informací',
         buttonLink: '#contact'
       },
       {
         title: 'Projekce',
-        description: 'Projektování stavebních řešení, architektonické studie a kompletní projektová dokumentace',
+        description: 'Projektování stavebních řešení, architektonické studie a kompletní projektová dokumentace.',
         icon: 'document-text-outline',
+        buttonText: 'Více informací',
+        buttonLink: '#contact'
+      },
+      {
+        title: 'Tepelné rozvody',
+        description: 'Výstavba a rekonstrukce tepelných sítí.',
+        icon: 'flame-outline',
         buttonText: 'Více informací',
         buttonLink: '#contact'
       }

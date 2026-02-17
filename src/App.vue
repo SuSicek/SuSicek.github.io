@@ -14,7 +14,29 @@ import SiteFooter from './components/SiteFooter.vue'
 
 export default {
   name: 'App',
-  components: { SiteHeader, SiteFooter }
+  components: { SiteHeader, SiteFooter },
+  mounted() {
+    // Check if the page is already fully loaded
+    if (document.readyState === 'complete') {
+      this.hideLoader();
+    } else {
+      window.addEventListener('load', () => this.hideLoader());
+    }
+    
+    // Safety timeout: Ensure loader is removed even if load event stalls
+    setTimeout(() => this.hideLoader(), 3500);
+  },
+  methods: {
+    hideLoader() {
+      const loader = document.getElementById('app-loading');
+      if (loader && !loader.classList.contains('fade-out')) {
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 500); // Wait for CSS transition
+      }
+    }
+  }
 }
 </script>
 

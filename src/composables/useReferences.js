@@ -67,6 +67,34 @@ const references = ref([
     long: 'Rekonstrukce stávajícího litinového vodovodního řadu pro zajištění dodávky pitné a požární vody do areálu kasáren a přilehlého území.'
   },
   {
+    id: 206,
+    title: 'Rekonstrukce hasičské zbrojnice Husovice – 3. etapa',
+    division: 'Stavba',
+    year: 2024,
+    price: '380.000,-',
+    image: '/fotky/references/hasička Husovice/hasička1.png',
+    images: [
+        '/fotky/references/hasička Husovice/hasička1.png',
+        '/fotky/references/hasička Husovice/hasička2.png',
+        '/fotky/references/hasička Husovice/hasička3.png'
+    ],
+    short: 'Přístavba v areálu hasičské zbrojnice v Brně-Husovicích.',
+    long: 'Přístavba v areálu hasičské zbrojnice v Brně-Husovicích. Projekt zahrnuje kompletní stavební část, statiku a všechny profesní části včetně elektro, TZB, VZT, FVE a dalších souvisejících systémů.'
+  },
+  {
+    id: 207,
+    title: 'Projekt Lesná',
+    division: 'Stavba',
+    year: 2024,
+    price: '-',
+    image: '/fotky/references/Lesná/PD Lesná.jpg',
+    images: [
+        '/fotky/references/Lesná/PD Lesná.jpg'
+    ],
+    short: 'Kompletní projektová dokumentace a realizace pro lokalitu Lesná.',
+    long: 'Kompletní projektová dokumentace a realizace pro lokalitu Lesná. Projekt zahrnuje architektonické i technické řešení.'
+  },
+  {
     id: 203,
     title: 'Oprava ležaté kanalizace a přípojek Botanická',
     division: 'Stavba',

@@ -156,17 +156,9 @@
         </p>
 
         <div class="d-flex align-center justify-center images-row">
-          <v-card class="support-card small-card" elevation="4">
-            <v-img src="/fotky/prispivame/charita2.png" cover class="fill-height" />
-          </v-card>
-          
           <v-sheet class="support-card big-card mx-6" color="transparent">
             <v-img src="/fotky/prispivame/krtek.png" contain class="fill-height" />
           </v-sheet>
-          
-          <v-card class="support-card small-card" elevation="4">
-            <v-img src="/fotky/prispivame/charita4.png" cover class="fill-height" />
-          </v-card>
         </div>
       </v-container>
     </div>
@@ -216,10 +208,10 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const currentSlide = ref(0)
 const slides = [
-  { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
+  { src: '/fotky/dronBrno.png', alt: 'Dron Brno' },
   { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
   { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
-  { src: '/fotky/energetika.png', alt: 'Energetika' }
+  { src: '/fotky/references/vsetin/Vsetín 2.jpg', alt: 'Vsetín' }
 ]
 
 const kpis = [
@@ -838,11 +830,11 @@ time {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
-.collage-item.item-1 { background-image: url('/fotky/prispivame/charita2.png'); }
-.collage-item.item-2 { background-image: url('/fotky/prispivame/krtek.png'); }
+.collage-item.item-1 { background-image: url('/fotky/prispivame/charita1.png'); }
+.collage-item.item-2 { background-image: url('/fotky/prispivame/charita2.png'); }
 .collage-item.item-3 { background-image: url('/fotky/prispivame/charita4.png'); }
-.collage-item.item-4 { background-image: url('/fotky/prispivame/charita2.png'); }
-.collage-item.item-5 { background-image: url('/fotky/prispivame/krtek.png'); }
+.collage-item.item-4 { background-image: url('/fotky/prispivame/charita1.png'); }
+.collage-item.item-5 { background-image: url('/fotky/prispivame/charita2.png'); }
 .collage-item.item-6 { background-image: url('/fotky/prispivame/charita4.png'); }
 
 .section-overlay {
