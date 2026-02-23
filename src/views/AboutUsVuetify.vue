@@ -171,14 +171,19 @@
       </v-row>
       <v-row>
         <v-col cols="12" md="6" lg="3" v-for="d in divisions" :key="d.title">
-          <v-card :to="d.link" class="h-100" hover>
-            <v-img :src="d.image" :alt="d.title" height="200" cover />
-            <v-card-item>
-              <v-card-title>{{ d.title }}</v-card-title>
-              <v-card-subtitle>{{ d.subtitle }}</v-card-subtitle>
-            </v-card-item>
-            <v-card-text>{{ d.description }}</v-card-text>
-          </v-card>
+            <router-link :to="d.link" class="division-card-link">
+              <div class="division-card elevation-4">
+                <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
+                <div class="division-card-overlay"></div>
+                <div class="division-card-content">
+                  <h3 class="division-card-title">{{ d.title }}</h3>
+                  <div class="division-card-details">
+                    <p class="division-card-subtitle">{{ d.subtitle }}</p>
+                    <p class="division-card-description">{{ d.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </router-link>
         </v-col>
       </v-row>
     </v-container>
@@ -309,21 +314,21 @@ const divisions = [
     title: 'Energetika',
     subtitle: 'Výroba a úspory energií',
     description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-    image: '/fotky/prodejna.png',
+    image: '/fotky/modrozlutakotelna.png',
     link: '/division/energetika'
   },
   {
     title: 'Stavba',
     subtitle: 'Kompletní stavební projekty',
     description: 'Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.',
-    image: '/fotky/stavba.png',
+    image: '/fotky/references/vsetin/Vsetín 2.jpg',
     link: '/division/stavba'
   },
   {
     title: 'TZB',
     subtitle: 'Technická zařízení budov',
     description: 'Poskytuje odborné řešení technických zařízení budov pro komfort, efektivitu a bezpečnost.',
-    image: '/fotky/energetika.png',
+    image: '/fotky/sedetrubky.png',
     link: '/division/tzb'
   },
   {
@@ -894,6 +899,113 @@ time {
   }
 }
 
+
+/* Division Cards Styles */
+.division-card-link {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+.division-card {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+.division-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25) !important;
+}
+.division-card-bg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+.division-card:hover .division-card-bg {
+  transform: scale(1.1);
+}
+.division-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+  transition: opacity 0.4s ease;
+}
+.division-card:hover .division-card-overlay {
+  opacity: 0.8;
+}
+.division-card-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  color: white;
+  text-align: center;
+}
+.division-card-title {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  transition: transform 0.4s ease;
+  transform: translateY(20px);
+}
+.division-card:hover .division-card-title {
+  transform: translateY(0);
+}
+.division-card-details {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.division-card:hover .division-card-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+.division-card-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+.division-card-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+/* Smaller screens adjustments */
+@media screen and (max-width: 900px) {
+  .division-card {
+    height: 320px;
+    cursor: default;
+  }
+  .division-card:hover { 
+    transform: none; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+  }
+  .division-card:hover .division-card-overlay { opacity: 1; }
+  .division-card:hover .division-card-bg { transform: none; }
+  
+  .division-card-title { transform: none; }
+  .division-card-details { display: none !important; }
+  .division-card-overlay { 
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%) !important; 
+    opacity: 1 !important;
+  }
+  .division-card-content { 
+    padding: 1.5rem 1.25rem !important; 
+    justify-content: flex-end;
+  }
+  .division-card-title { 
+    margin-bottom: 0; 
+    transform: none !important;
+  }
+}
 @media (max-width: 600px) {
   .small-card {
     width: 100%;

@@ -16,7 +16,7 @@ export const divisions = {
     key: 'energetika',
     title: 'Energetika',
     subtitle: 'Komplexní řešení v oblasti energetiky',
-    heroImage: assetPath('fotky/energetika2.png'),
+    heroImage: assetPath('fotky/modrozlutakotelna.png'),
     description:
       'Divize Energetika spojuje dlouholeté zkušenosti s moderními technologiemi. Zajišťujeme kompletní servis – od projektové přípravy přes montáž až po spolehlivý provoz. Našim zákazníkům nabízíme jistotu kvalitního provedení a dodržení všech závazků. Síla našeho týmu je v lidech. Podporujeme odborný růst, předáváme know-how velké energetiky a dáváme prostor nové generaci techniků a inženýrů. Jsme držiteli certifikací ČSN EN 1090-2+A1:2024 a  ČSN EN ISO 3834-2:2022 a disponujeme oprávněními TIČR pro práce na tlakových i elektrických zařízeních. To nám umožňuje realizovat i nejnáročnější zakázky s maximální precizností a bezpečností.',
     services: [
@@ -70,7 +70,7 @@ export const divisions = {
     key: 'stavba',
     title: 'Stavba',
     subtitle: 'Kvalitní stavební práce od základů po dokončení',
-    heroImage: assetPath('fotky/references/vsetin/Vsetín 1.jpg'),
+    heroImage: assetPath('fotky/references/vsetin/Vsetín 2.jpg'),
     description:
       'Stavební divize společnosti UCHYTIL s.r.o. vznikla již v počátcích firmy s cílem podpořit realizační střediska TZB. Postupně se rozvíjela, rozšiřovala své kapacity a během několika let začala realizovat i stavby většího rozsahu. Dnes má stavební divize ve společnosti své pevné a nezastupitelné místo. Jejím hlavním přínosem je schopnost zajistit kompletní dodávku staveb menšího i většího charakteru – od přípravy až po finální realizaci. Divize disponuje odpovídajícím technickým vybavením a odborně zdatným týmem, který garantuje vysokou kvalitu prováděných prací i odpovědnost za výsledné dílo. Důraz klademe především na spolehlivost, kvalitu a maximální spokojenost zákazníka.',
     services: [
@@ -125,7 +125,7 @@ export const divisions = {
     key: 'tzb',
     title: 'TZB',
     subtitle: 'Technická zařízení budov na profesionální úrovni',
-    heroImage: assetPath('fotky/references/ČOV – rekonstrukce kotelny.jpg'),
+    heroImage: assetPath('fotky/sedetrubky.png'),
     description:
       'Realizace zakázek, projekce a servis v oborech Technických zařízení budov je pro firmu stěžejním programem činnosti od založení v roce 1994 do současnosti. Dlouhodobě stabilní kolektiv pracovníků poskytuje vysokou kvalitu dodávek, montáží zařízení a technologických celků.',
     services: [

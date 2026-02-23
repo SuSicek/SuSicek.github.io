@@ -188,80 +188,80 @@ const references = ref([
     title: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16',
     division: 'TZB',
     year: 2025,
-    price: '58.500.000,-',
+    price: '48.307.400,- (bez DPH)',
     image: '/fotky/references/Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.jpg',
-    short: 'Rekonstrukce horkovodu v úseku PŠ – B 16.',
-    long: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.'
+    short: 'Náhrada parovodního potrubí za nový horkovod na ulicích Špitálka, Plynárenská a Tkalcovská.',
+    long: 'Náhrada parovodního potrubí za nový horkovod převážně ve stávající trase na ulicích Špitálka, Plynárenská a Tkalcovská. Délka trasy potrubí 2x DN 300/500 – 449 m a 2x DN 250/400 – 52 m.'
   },
   {
     id: 102,
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '14.500.000,-',
+    price: '11.955.387,- (vč. DPH)',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.jpg',
-    short: 'Rekonstrukce parovodů a horkovodů v oblasti ul. Benešova – I. Etapa.',
-    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.'
+    short: 'Náhrada parovodního potrubí za nový horkovod na ulici Benešova.',
+    long: 'Náhrada parovodního potrubí za nový horkovod převážně ve stávající trase na ulici Benešova. Délka trasy předizolovaného potrubí 2x DN 150/280 – 98 m.'
   },
   {
     id: 103,
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká',
     division: 'TZB',
     year: 2024,
-    price: '34.700.000,-',
+    price: '28.666.000,- (bez DPH)',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.jpg',
-    short: 'Instalace DPS v objektech VO10 Bzenecká v rámci rekonstrukce SZT.',
-    long: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.'
+    short: 'Náhrada teplovodních rozvodů a decentralizace topení a přípravy teplé vody.',
+    long: 'Náhrada stávajících teplovodních rozvodů za horkovodní a současná decentralizace topení a přípravy teplé vody. Instalace jedenácti domovních předávacích stanic vč. měření a regulace.'
   },
   {
     id: 104,
     title: 'ČOV – rekonstrukce kotelny',
     division: 'TZB',
     year: 2022,
-    price: '10.400.000,-',
+    price: '8.595.924,- (bez DPH)',
     image: '/fotky/references/ČOV – rekonstrukce kotelny.jpg',
-    short: 'Kompletní rekonstrukce technologie kotelny ČOV.',
-    long: 'ČOV – rekonstrukce kotelny.'
+    short: 'Instalace tří plynových nízkoteplotních litinových kotlů s přetlakovým spalováním.',
+    long: 'Instalace tří plynových nízkoteplotních litinových kotlů s přetlakovým spalováním. Dva nízkoteplotní litinové kotle o maximálním výkonu 1020 kW, typ: BUDERUS LOGANO GE615 921-1020 a jeden nízkoteplotní litinový kotel o maximálním výkonu 740 kW, typ: BUDERUS LOGANO GE615 661-740. Celkový instalovaný výkon 2780 kW.'
   },
   {
     id: 105,
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II',
     division: 'TZB',
     year: 2025,
-    price: '144.000.000,-',
+    price: '118.848.724,- (bez DPH)',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II.jpg',
-    short: 'Rozsáhlá rekonstrukce SCZT v oblasti ul. Kopečná, Anenská, FNUSA II.',
-    long: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská, FNUSA II.'
+    short: 'Náhrada parovodního potrubí za nový horkovod na ulicích Kopečná, Anenská, Vodní a Hybešova v Brně.',
+    long: 'Náhrada parovodního potrubí za nový horkovod na ulicích Kopečná, Anenská, Vodní a Hybešova v Brně. Délka trasy potrubí 2x DN 250/450 – cca 680 m, potrubí 2x DN 200/355 – cca 86, potrubí 2x DN 150/280 – cca 53 m aj. Celková délka horkovodu ve stávající a nové trase cca 1202,9 m.'
   },
   {
     id: 106,
     title: 'Lipník – modernizace zdrojů tepla II. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '62.000.000,-',
+    price: '51.135.948,- (bez DPH)',
     image: '/fotky/references/Lipník – modernizace zdrojů tepla II. Etapa.jpg',
-    short: 'Druhá etapa modernizace zdrojů tepla v lokalitě Lipník.',
-    long: 'Lipník – modernizace zdrojů tepla II. Etapa.'
+    short: 'Stavební práce spočívající v modernizaci plynových kotelen ve vojenském areálu.',
+    long: 'Předmětem díla byly stavební práce spočívající v modernizaci plynových kotelen v objektech nacházejících se ve vojenském areálu Lipník nad Bečvou.'
   },
   {
     id: 107,
     title: 'Rodinný dům, sklad + připojení na inženýrské sítě',
     division: 'TZB',
     year: 2024,
-    price: '900.000,-',
+    price: '708.800,- (bez DPH)',
     image: '/fotky/references/Rodinný dům, sklad + připojení na inženýrské sítě.jpg',
-    short: 'Realizace části TZB pro rodinný dům a sklad.',
-    long: 'Rodinný dům, sklad + připojení na inženýrské sítě (část TZB).\n\nCena je uvedena pouze za část TZB.'
+    short: 'Realizace podlahového topení, rozvody vody a kanalizace a dodávka zdravotně zařizovacích předmětů.',
+    long: 'Realizace podlahového topení, rozvody vody a kanalizace a dodávka zdravotně zařizovacích předmětů.'
   },
   {
     id: 108,
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická',
     division: 'TZB',
     year: 2025,
-    price: '35.500.000,-',
+    price: '29.258.000,- (bez DPH)',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.jpg',
-    short: 'Instalace DPS v objektech VO02 Velkopavlovická.',
-    long: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.'
+    short: 'Náhrada teplovodních rozvodů a decentralizace topení a přípravy teplé vody.',
+    long: 'Náhrada stávajících teplovodních rozvodů za horkovodní a současná decentralizace topení a přípravy teplé vody. Instalace dvanácti domovních předávacích stanic vč. měření a regulace.'
   }
 ])
 
