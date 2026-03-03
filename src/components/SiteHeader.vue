@@ -126,7 +126,7 @@ const headerHeight = computed(() => {
   // Mobile/small screens
   if (mobile.value) return 110 
   // Desktop: Large when at top, smaller (sticky) when scrolled
-  return isAtTop.value ? 300 : 130
+  return isAtTop.value ? 300 : 160
 })
 
 // Compute logo source: always colored logo.
