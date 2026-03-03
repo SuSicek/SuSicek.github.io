@@ -6,13 +6,13 @@ export const referencesProjects = [
   {
     id: 'energetika-1',
     images: [
-      assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg'),
-      assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg'),
-      assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg'),
-      assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_073908_0039_1755585208419_photo.jpg'),
-      assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg')
+      assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg'),
+      assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg'),
+      assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg'),
+      assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073908_0039_1755585208419_photo.jpg'),
+      assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg')
     ],
-    image: assetPath('fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg'),
+    image: assetPath('fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg'),
     imageAlt: 'Auxilien_BFS - Montáž potrubních tras',
     title: 'Auxilien_BFS - Montáž potrubních tras – SVR v areálu BPS Vyškov',
     category: 'Energetika',
@@ -25,14 +25,14 @@ export const referencesProjects = [
   {
     id: 'energetika-2',
     images: [
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/Nový stav pohony.jpg'),
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/20250512_081237.jpg'),
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/att.eDn8QnGaZ51u6qfcLcVvBA_3h7rMYMyI68757gcQmaM.JPG'),
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/att.iTDdVS3nz_21JyY7AcgV8gJ613kFavBkL3_-F8mgxo8.JPG'),
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/att.xR_1CGnI0iXHHkGZtph7p7Aaa42cdSK_qn1O_5ZSxjk.JPG'),
-      assetPath('fotky/references/energetika/Reference/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG')
+      assetPath('fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg'),
+      assetPath('fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg'),
+      assetPath('fotky/references/energetika/620 - Bojkovice/att.eDn8QnGaZ51u6qfcLcVvBA_3h7rMYMyI68757gcQmaM.JPG'),
+      assetPath('fotky/references/energetika/620 - Bojkovice/att.iTDdVS3nz_21JyY7AcgV8gJ613kFavBkL3_-F8mgxo8.JPG'),
+      assetPath('fotky/references/energetika/620 - Bojkovice/att.xR_1CGnI0iXHHkGZtph7p7Aaa42cdSK_qn1O_5ZSxjk.JPG'),
+      assetPath('fotky/references/energetika/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG')
     ],
-    image: assetPath('fotky/references/energetika/Reference/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG'),
+    image: assetPath('fotky/references/energetika/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG'),
     imageAlt: 'VD Bojkovice - oprava elektroinstalace',
     title: 'VD Bojkovice - oprava elektroinstalace',
     category: 'Energetika',
@@ -46,11 +46,11 @@ export const referencesProjects = [
   {
     id: 'energetika-3',
     images: [
-      assetPath('fotky/references/energetika/Reference/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg'),
-      assetPath('fotky/references/energetika/Reference/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg'),
-      assetPath('fotky/references/energetika/Reference/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png')
+      assetPath('fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg'),
+      assetPath('fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg'),
+      assetPath('fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png')
     ],
-    image: assetPath('fotky/references/energetika/Reference/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg'),
+    image: assetPath('fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg'),
     imageAlt: 'C-Energy - PD - Redukční stanice páry',
     title: 'C-Energy - PD - Redukční stanice páry',
     category: 'Energetika',
@@ -63,13 +63,13 @@ export const referencesProjects = [
   {
     id: 'energetika-4',
     images: [
-      assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg'),
-      assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg'),
-      assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg'),
-      assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg'),
-      assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg')
+      assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg'),
+      assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg'),
+      assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg'),
+      assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg'),
+      assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg')
     ],
-    image: assetPath('fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg'),
+    image: assetPath('fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg'),
     imageAlt: 'Úprava ochrany před bleskem',
     title: 'Úprava ochrany před bleskem - Jihomoravské náměstí 1a',
     category: 'Energetika',
@@ -82,9 +82,9 @@ export const referencesProjects = [
   {
     id: 'energetika-5',
     images: [
-      assetPath('fotky/references/energetika/Reference/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg')
+      assetPath('fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg')
     ],
-    image: assetPath('fotky/references/energetika/Reference/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'),
+    image: assetPath('fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'),
     imageAlt: 'PLANÁ - HVS - PD - Navýšení výkonu HVS',
     title: 'PLANÁ - HVS - PD - Navýšení výkonu HVS na zdroji C-energy',
     category: 'Energetika',

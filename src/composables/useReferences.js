@@ -8,13 +8,13 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '7,3 mil. Kč',
-    image: '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
+    image: '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
     images: [
-      '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
-      '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg',
-      '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
-      '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_073908_0039_1755585208419_photo.jpg',
-      '/fotky/references/energetika/Reference/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg'
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073908_0039_1755585208419_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg'
     ],
     short: 'Výstavba nového elektrokotle a potrubních tras v bioplynové stanici.',
     long: 'V areálu bioplynové stanice Vyškov jsme realizovali výstavbu nového elektrokotle o výkonu 12 MWe, který zajistil stabilitu elektrické sítě pod dohledem ČEPS. Projekt zahrnoval montáž vysokonapěťového zdroje, rozsáhlých potrubních systémů DN200–400, 5 chladicích věží s výkonem 16,8 MWt, ocelových konstrukcí a všechny doprovodné práce.'
@@ -25,14 +25,14 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '2 mil. Kč',
-    image: '/fotky/references/energetika/Reference/620 - Bojkovice/Nový stav pohony.jpg',
+    image: '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
     images: [
-      '/fotky/references/energetika/Reference/620 - Bojkovice/Nový stav pohony.jpg',
-      '/fotky/references/energetika/Reference/620 - Bojkovice/20250512_081237.jpg',
-      '/fotky/references/energetika/Reference/620 - Bojkovice/att.eDn8QnGaZ51u6qfcLcVvBA_3h7rMYMyI68757gcQmaM.JPG',
-      '/fotky/references/energetika/Reference/620 - Bojkovice/att.iTDdVS3nz_21JyY7AcgV8gJ613kFavBkL3_-F8mgxo8.JPG',
-      '/fotky/references/energetika/Reference/620 - Bojkovice/att.xR_1CGnI0iXHHkGZtph7p7Aaa42cdSK_qn1O_5ZSxjk.JPG',
-      '/fotky/references/energetika/Reference/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG'
+      '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
+      '/fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg',
+      '/fotky/references/energetika/620 - Bojkovice/att.eDn8QnGaZ51u6qfcLcVvBA_3h7rMYMyI68757gcQmaM.JPG',
+      '/fotky/references/energetika/620 - Bojkovice/att.iTDdVS3nz_21JyY7AcgV8gJ613kFavBkL3_-F8mgxo8.JPG',
+      '/fotky/references/energetika/620 - Bojkovice/att.xR_1CGnI0iXHHkGZtph7p7Aaa42cdSK_qn1O_5ZSxjk.JPG',
+      '/fotky/references/energetika/620 - Bojkovice/att.z8Pgzb6-IpjlkxZDHpAyOksMXkEh4A-NfBRuaOp0k5o.JPG'
     ],
     short: 'Výměna dosloužilých pohonů návodních a provozních uzávěrů. Nová technologická i stavební elektroinstalace včetně nových rozvaděčů.',
     long: 'Výměna dosloužilých pohonů návodních a provozních uzávěrů. Nová technologická i stavební elektroinstalace včetně nových rozvaděčů. Zabezpečovací a kamerový systém. Dálková vizualizace a hlášení provozních stavů. Stávající pohony bylo nutné demontovat, detailně zaměřit a poté nechat přesně vysoustružit, aby nové pohony dokonale sedli na stávající uzávěry. Práce probíhala ve strojovně, která je více než 10 metrů pod hladinou, proto bylo nutné rozvaděče a pohony dopravit na místo určení pomocí jeřábu. Vzhledem ke koroznímu prostředí bylo vše dodáváno v nerezovém provedení.'
@@ -43,11 +43,11 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '20 mil. Kč',
-    image: '/fotky/references/energetika/Reference/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
+    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
     images: [
-      '/fotky/references/energetika/Reference/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
-      '/fotky/references/energetika/Reference/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
-      '/fotky/references/energetika/Reference/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
     ],
     short: 'Návrh a projektová dokumentace na rekonstrukci redukční stanice páry.',
     long: 'Byl zpracován návrh redukční stanice páry včetně projektové dokumentace na rekonstrukci stávající redukční stanice o výkonu 60 tun. Navržené řešení zajišťuje redukci parametrů páry z původních 520 °C a tlaku 40 barů na výstupní hodnoty 280 °C a 3 bary, a to v souladu s technologickými požadavky provozu. Součástí projektu je rovněž výměna potrubí za redukční stanicí až do stávajícího rozdělovače, včetně navazujících ocelových konstrukcí.'
@@ -58,13 +58,13 @@ const references = ref([
     division: 'Energetika',
     year: 2024,
     price: '0,3 mil. Kč',
-    image: '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
+    image: '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
     images: [
-      '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
-      '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg',
-      '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg',
-      '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg',
-      '/fotky/references/energetika/Reference/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg'
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg'
     ],
     short: 'Demontáž původní a montáž nové soustavy ochrany před bleskem.',
     long: 'Byla provedena demontáž původní soustavy ochrany před bleskem, konkrétně mřížové soustavy, která již nevyhovovala současným požadavkům. Následně byla realizována montáž nové soustavy ochrany před bleskem v souladu s platnými normami a projektovou dokumentací. Nové řešení zohledňuje instalaci fotovoltaické elektrárny (FVE) a zajišťuje odpovídající úroveň ochrany objektu i technologického vybavení.'
@@ -75,9 +75,9 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '76 mil. Kč',
-    image: '/fotky/references/energetika/Reference/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg',
+    image: '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg',
     images: [
-      '/fotky/references/energetika/Reference/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'
+      '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'
     ],
     short: 'Výměna oběhových čerpadel a navýšení výkonu výměníkových stanic.',
     long: 'Byla provedena výměna oběhových čerpadel v horkovodní soustavě Planá. Každé čerpadlo má průtok 600 tun a celkem budou instalována tři čerpadla. Součástí projektu bylo navýšení výkonu výměníkových stanic o 20 MW. Projekt zahrnoval kompletní realizaci, včetně stavby, měření a strojní části. Instalovány byly dva zaplavované trubkové výměníky.'

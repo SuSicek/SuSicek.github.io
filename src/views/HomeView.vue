@@ -11,7 +11,7 @@
         interval="6000"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
+          <v-img :src="slide.src" cover :alt="slide.alt" :eager="i === 0"></v-img>
         </v-carousel-item>
       </v-carousel>
       <div class="hero-overlay d-flex flex-column justify-end">
