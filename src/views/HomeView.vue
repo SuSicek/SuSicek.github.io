@@ -173,10 +173,10 @@ export default {
     return {
       currentSlide: 0,
       slides: [
-        { src: '/fotky/dronBrno.png', alt: 'Dron Brno' },
-        { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
-        { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
-        { src: '/fotky/references/vsetin/Vsetín 2.jpg', alt: 'Vsetín' }
+        { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
+        { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+        { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
+        { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín' }
       ],
       stats: [
         { number: 32, label: 'Let na trhu' },
@@ -196,28 +196,28 @@ export default {
           title: 'Energetika',
           subtitle: 'Výroba a úspory energií',
           description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-          image: '/fotky/modrozlutakotelna.png',
+          image: '/fotky/jine/modrozlutakotelna.png',
           link: '/division/energetika'
         },
         {
           title: 'Stavba',
           subtitle: 'Kompletní stavební projekty',
           description: 'Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.',
-          image: '/fotky/references/vsetin/Vsetín 2.jpg',
+          image: '/fotky/jine/Vsetín 2.jpg',
           link: '/division/stavba'
         },
         {
           title: 'TZB',
           subtitle: 'Technická zařízení budov',
           description: 'Poskytuje odborné řešení technických zařízení budov pro komfort, efektivitu a bezpečnost.',
-          image: '/fotky/sedetrubky.png',
+          image: '/fotky/jine/sedetrubky.png',
           link: '/division/tzb'
         },
         {
           title: 'Prodejna',
           subtitle: 'Prodej a technika',
           description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-          image: '/fotky/kontejner.png',
+          image: '/fotky/jine/kontejner.png',
           link: '/prodejna'
         }
       ]
@@ -225,20 +225,22 @@ export default {
   },
   computed: {
     featuredReferences() {
+      // Get all references
       const { references } = useReferences()
-      const divisions = ['Energetika', 'Stavba', 'TZB']
-      const featured = []
       
-      divisions.forEach(division => {
-        const divRefs = references.value
-          .filter(r => r.division === division)
-          .sort((a, b) => b.year - a.year)
-        if (divRefs.length > 0) {
-          featured.push(divRefs[0])
-        }
+      // We want specifically these references in this order:
+      // 1. Stavba (Tábor)
+      // 2. Energetika (Vyškov)
+      // 3. TZB (ČOV kotelna)
+      const targetIds = ['stavba-1', 'energetika-1', 'tzb-1']
+      
+      const ordered = []
+      targetIds.forEach(id => {
+        const found = references.value.find(r => r.id.toString() === id)
+        if (found) ordered.push(found)
       })
       
-      return featured
+      return ordered
     }
   },
   mounted() {
@@ -496,7 +498,7 @@ export default {
   width: 100%;
   height: 100%;
   max-width: 1400px;
-  background-image: url('/fotky/logo.png');
+  background-image: url('/fotky/jine/logo.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

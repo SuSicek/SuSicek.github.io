@@ -379,9 +379,9 @@
 import { ref } from 'vue'
 
 // Contact hero background image (easy to change)
-const contactHero = ref('/fotky/energetika.png')
+const contactHero = ref('/fotky/jine/energetika.png')
 // Division section background image
-const divisionBg = ref('/fotky/energetika3.png')
+const divisionBg = ref('/fotky/jine/energetika3.png')
 
 const formRef = ref(null)
 const submitting = ref(false)
@@ -424,7 +424,7 @@ const divisionContacts = ref({
     { name: 'Jaroslav Ptáček', role: 'Vedoucí prodejny', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
   ],
   ostatni: [
-    { name: 'DiS. Ivana Ješinová', role: 'Ekonomický úsek', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 218' },
+    { name: 'Ivana Ješinová DiS.', role: 'Ekonomický úsek', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 246' },
     { name: 'Ing. Jana Vacková', role: 'Personální úsek', email: 'jana.vackova@uchytil.eu', phone: '560 594 114' },
     { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 222' }
   ]

@@ -207,7 +207,7 @@ import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const footerLogoErrored = ref(false)
-const footerLogoSrc = computed(() => footerLogoErrored.value ? '/fotky/logo.png' : '/fotky/logo.png')
+const footerLogoSrc = computed(() => footerLogoErrored.value ? '/fotky/jine/logo.png' : '/fotky/jine/logo.png')
 const onFooterLogoError = () => { footerLogoErrored.value = true }
 const etickyKodexOpen = ref(false)
 const certifikaceOpen = ref(false)

@@ -113,8 +113,8 @@ const route = useRoute()
 const { references } = useReferences()
 
 const reference = computed(() => {
-  const id = Number(route.params.id)
-  return references.value.find(r => r.id === id) || references.value[0]
+  const paramId = route.params.id
+  return references.value.find(r => String(r.id) === String(paramId)) || references.value[0]
 })
 
 const breadcrumbs = computed(() => [

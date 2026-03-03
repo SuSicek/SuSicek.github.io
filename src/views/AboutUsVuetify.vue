@@ -61,10 +61,10 @@
     </section>
 
     <!-- Image left / Text right -->
-    <v-container class="py-12 about-container">
+    <v-container class="py-16 about-container">
       <v-row align="center">
-          <v-col cols="12" md="6" class="mb-6 mb-md-0">
-          <v-img src="/fotky/stavba3.png" alt="Naše týmy a realizace" height="360" cover class="rounded-xl" />
+          <v-col cols="12" md="6" class="mb-8 mb-md-0 position-relative">
+          <v-img src="/fotky/jine/savrec.png" alt="Naše týmy a realizace" height="500" cover class="rounded-xl" gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)" />
         </v-col>
         <v-col cols="12" md="6" class="about-right">
           <h3 class="text-h5 font-weight-bold mb-2">Máme vlastní</h3>
@@ -213,10 +213,10 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const currentSlide = ref(0)
 const slides = [
-  { src: '/fotky/dronBrno.png', alt: 'Dron Brno' },
-  { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
-  { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
-  { src: '/fotky/references/vsetin/Vsetín 2.jpg', alt: 'Vsetín' }
+  { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
+  { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+  { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
+  { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín' }
 ]
 
 const kpis = [
@@ -290,22 +290,22 @@ const features = [
   {
     title: 'Kvalita a bezpečnost',
     text: 'Pracujeme dle platných norem, držíme certifikace a klademe důraz na bezpečnost práce.',
-    image: '/fotky/stavba.png'
+    image: '/fotky/jine/stavba.png'
   },
   {
     title: 'Udržitelnost',
     text: 'Navrhujeme úsporná řešení s ohledem na životní prostředí a dlouhodobý provoz.',
-    image: '/fotky/energetika.png'
+    image: '/fotky/jine/energetika.png'
   },
   {
     title: 'Odborný tým',
     text: 'Silné odborné zázemí vysoce kvalifikovaných odborníků v oblasti Stavba, Energetika TZB.',
-    image: '/fotky/prodejna.png'
+    image: '/fotky/jine/prodejna.png'
   },
   {
     title: 'Spolehlivost',
     text: 'Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.',
-    image: '/fotky/kontejner.png'
+    image: '/fotky/jine/kontejner.png'
   }
 ]
 
@@ -314,28 +314,28 @@ const divisions = [
     title: 'Energetika',
     subtitle: 'Výroba a úspory energií',
     description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-    image: '/fotky/modrozlutakotelna.png',
+    image: '/fotky/jine/modrozlutakotelna.png',
     link: '/division/energetika'
   },
   {
     title: 'Stavba',
     subtitle: 'Kompletní stavební projekty',
     description: 'Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.',
-    image: '/fotky/references/vsetin/Vsetín 2.jpg',
+    image: '/fotky/jine/Vsetín 2.jpg',
     link: '/division/stavba'
   },
   {
     title: 'TZB',
     subtitle: 'Technická zařízení budov',
     description: 'Poskytuje odborné řešení technických zařízení budov pro komfort, efektivitu a bezpečnost.',
-    image: '/fotky/sedetrubky.png',
+    image: '/fotky/jine/sedetrubky.png',
     link: '/division/tzb'
   },
   {
     title: 'Prodejna',
     subtitle: 'Prodej a technika',
     description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-    image: '/fotky/kontejner.png',
+    image: '/fotky/jine/kontejner.png',
     link: '/prodejna'
   }
 ]
@@ -479,7 +479,7 @@ kpi-row::after {
 .numbers-bg-image {
   position: absolute;
   inset: 0;
-  background-image: url('/fotky/energetika.png');
+  background-image: url('/fotky/jine/energetika.png');
   background-size: cover;
   background-position: center;
   z-index: 0;

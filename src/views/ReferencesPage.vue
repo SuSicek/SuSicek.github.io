@@ -80,19 +80,30 @@
     <v-container class="pb-12 about-container">
       <v-row>
         <v-col cols="12" md="4" v-for="refItem in pagedReferences" :key="refItem.id">
-          <v-card class="ref-card h-100" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }" hover>
-            <v-img :src="refItem.image" height="180" cover :alt="refItem.title" />
-            <v-card-item>
-              <v-card-title class="text-h6">{{ refItem.title }}</v-card-title>
-              <v-card-subtitle>{{ refItem.division }} • {{ refItem.year }}</v-card-subtitle>
-            </v-card-item>
-            <v-card-text>{{ refItem.short }}</v-card-text>
-            <v-divider></v-divider>
-            <v-card-actions>
-              <v-btn variant="text" color="primary" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }">
-                Detail
-                <v-icon end>mdi-arrow-right</v-icon>
-              </v-btn>
+          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }" hover>
+            <!-- Background Image Layer -->
+            <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
+              <v-img :src="refItem.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100"></v-img>
+            </div>
+            
+            <!-- Content Layer - Pushes content to bottom -->
+            <div class="d-flex flex-column justify-end flex-grow-1 position-relative pa-3" style="z-index: 1;">
+                 <div class="mt-auto">
+                   <v-card-item class="px-0 pb-1">
+                     <v-card-title class="text-h5 text-white font-weight-bold" style="word-break: break-word; white-space: normal; line-height: 1.2;">{{ refItem.title }}</v-card-title>
+                     <v-card-subtitle class="text-white opacity-90 text-subtitle-1 mt-1">{{ refItem.division }} • {{ refItem.year }}</v-card-subtitle>
+                   </v-card-item>
+                   <v-card-text class="text-white opacity-90 text-body-1 px-0 pt-1 pb-2">{{ refItem.short }}</v-card-text>
+                 </div>
+            </div>
+            
+            <!-- Actions Layer - Always at bottom -->
+            <v-card-actions class="bg-white position-relative w-100" style="z-index: 1;">
+                 <v-spacer></v-spacer>
+                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }">
+                   Detail
+                   <v-icon end>mdi-arrow-right</v-icon>
+                 </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -122,10 +133,10 @@ const { references } = useReferences()
 // Hero carousel
 const currentSlide = ref(0)
 const slides = [
-  { src: '/fotky/trubkyvykop.png', alt: 'Trubky výkop' },
-  { src: '/fotky/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
-  { src: '/fotky/sedetrubky.png', alt: 'Sedé trubky' },
-  { src: '/fotky/energetika.png', alt: 'Energetika' }
+  { src: '/fotky/jine/trubkyvykop.png', alt: 'Trubky výkop' },
+  { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+  { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
+  { src: '/fotky/jine/energetika.png', alt: 'Energetika' }
 ]
 
 // Filters
@@ -133,7 +144,7 @@ const search = ref('')
 const selectedDivision = ref(null)
 const selectedYear = ref(null)
 
-const divisionItems = computed(() => ['Všechny', ...Array.from(new Set(references.value.map(r => r.division)))])
+const divisionItems = computed(() => ['Všechny', 'Stavba', 'Energetika', 'TZB'])
 const yearItems = computed(() => Array.from(new Set(references.value.map(r => r.year))).sort((a,b) => b-a))
 
 // Pagination

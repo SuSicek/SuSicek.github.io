@@ -57,24 +57,32 @@
         <h3 id="projects-heading" class="section-heading">Vybrané projekty</h3>
         <v-row dense>
           <v-col v-for="(p, idx) in displayProjects" :key="idx" cols="12" sm="6" md="4">
-            <v-card 
-              class="project-card" 
-              elevation="6" 
-              rounded="lg" 
-              :aria-label="'Projekt: ' + p.title"
-              :to="p.id ? { name: 'ReferenceDetail', params: { id: p.id } } : undefined"
-              hover
-            >
-              <v-img :src="p.image" height="200" cover :alt="p.title" class="project-image" />
-              <v-card-text>
-                <div class="d-flex align-center justify-space-between mb-2">
-                  <v-chip color="primary" size="small" label>{{ p.year }}</v-chip>
-                  <v-icon v-if="p.id" size="small" color="primary">mdi-open-in-new</v-icon>
-                </div>
-                <h4 class="project-title">{{ p.title }}</h4>
-                <p class="project-desc">{{ p.description }}</p>
-              </v-card-text>
-            </v-card>
+          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="p.id ? { name: 'ReferenceDetail', params: { id: p.id } } : undefined" hover>
+            <!-- Background Image Layer -->
+            <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
+              <v-img :src="p.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100"></v-img>
+            </div>
+            
+            <!-- Content Layer - Pushes content to bottom -->
+            <div class="d-flex flex-column justify-end flex-grow-1 position-relative pa-3" style="z-index: 1;">
+                 <div class="mt-auto">
+                   <v-card-item class="px-0 pb-1">
+                     <v-card-title class="text-h5 text-white font-weight-bold" style="word-break: break-word; white-space: normal; line-height: 1.2;">{{ p.title }}</v-card-title>
+                     <v-card-subtitle class="text-white opacity-90 text-subtitle-1 mt-1">{{ p.division }} • {{ p.year }}</v-card-subtitle>
+                   </v-card-item>
+                   <v-card-text class="text-white opacity-90 text-body-1 px-0 pt-1 pb-2">{{ p.description }}</v-card-text>
+                 </div>
+            </div>
+            
+            <!-- Actions Layer - Always at bottom -->
+            <v-card-actions class="bg-white position-relative w-100" style="z-index: 1;" v-if="p.id">
+                 <v-spacer></v-spacer>
+                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: p.id } }">
+                   Detail
+                   <v-icon end>mdi-arrow-right</v-icon>
+                 </v-btn>
+            </v-card-actions>
+          </v-card>
           </v-col>
         </v-row>
         <div class="text-center mt-6">

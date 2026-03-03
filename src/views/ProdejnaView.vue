@@ -1,13 +1,7 @@
 <template>
   <div class="prodejna-page blue-rings-bg">
     <!-- Hero Section -->
-    <v-sheet class="position-relative hero-shell" color="black">
-      <v-img 
-        src="/fotky/prodejna2.png" 
-        cover 
-        class="hero-image"
-        gradient="to bottom, rgba(3, 31, 104, 0.7), rgba(3, 31, 104, 0.4)"
-      >
+    <v-sheet class="position-relative hero-shell py-16" color="primary">
         <div class="hero-content d-flex flex-column justify-center align-center h-100 text-center text-white p-4">
           <h1 class="text-h2 font-weight-bold mb-4">Prodejna a Sklad</h1>
           <p class="text-h5 font-weight-light" style="max-width: 800px">
@@ -15,7 +9,6 @@
             Vyberte si zboží online a vyzvedněte si ho připravené na prodejně.
           </p>
         </div>
-      </v-img>
     </v-sheet>
 
     <v-container class="py-12 position-relative z-index-1">
@@ -52,22 +45,26 @@
           <!-- Contact Info Box -->
           <v-card class="contact-card bg-grey-lighten-4" elevation="0" border>
             <v-card-text>
-              <h3 class="text-h6 font-weight-bold mb-3 text-primary">Výdejní místo</h3>
+              <h3 class="text-h6 font-weight-bold mb-3 text-primary">Odštěpný závod Žďár nad Sázavou</h3>
               <div class="d-flex align-start mb-3">
                 <v-icon color="primary" class="mt-1 mr-3">mdi-map-marker</v-icon>
                 <div>
                   <strong>UCHYTIL s.r.o.</strong><br>
-                  K Terminálu 7<br>
-                  619 00 Brno
+                  Brněnská 41<br>
+                  591 01 Žďár nad Sázavou
                 </div>
               </div>
               <div class="d-flex align-center mb-3">
                 <v-icon color="primary" class="mr-3">mdi-clock-outline</v-icon>
                 <div>Po-Pá: 7:00 - 15:30</div>
               </div>
-              <div class="d-flex align-center">
+              <div class="d-flex align-center mb-1">
                 <v-icon color="primary" class="mr-3">mdi-phone</v-icon>
-                <div>+420 545 423 211</div>
+                <div><a href="tel:560594111" class="text-decoration-none text-body-1 text-high-emphasis">560 594 111</a> (Spojovatelka)</div>
+              </div>
+              <div class="d-flex align-center">
+                <v-icon color="primary" class="mr-3">mdi-email</v-icon>
+                <div><a href="mailto:zdar@uchytil.eu" class="text-decoration-none text-body-1 text-high-emphasis">zdar@uchytil.eu</a></div>
               </div>
             </v-card-text>
           </v-card>
@@ -101,7 +98,7 @@
               <v-card class="product-card h-100" hover elevation="2">
                 <div class="product-image-wrapper">
                   <v-img 
-                    :src="product.image || '/fotky/logo.png'" 
+                    :src="product.image || '/fotky/jine/logo.png'" 
                     height="200" 
                     cover
                     class="align-end"
@@ -183,7 +180,7 @@
             <v-card v-for="(item, index) in cart" :key="index" class="mb-3 px-2 py-2" elevation="1" border>
               <div class="d-flex align-center">
                 <v-avatar rounded="0" size="60" class="bg-grey-lighten-4 mr-3">
-                  <v-img :src="item.image || '/fotky/logo.png'" cover></v-img>
+                  <v-img :src="item.image || '/fotky/jine/logo.png'" cover></v-img>
                 </v-avatar>
                 <div class="flex-grow-1">
                   <div class="text-subtitle-2 font-weight-bold text-truncate" style="max-width: 200px">{{ item.name }}</div>

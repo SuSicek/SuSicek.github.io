@@ -132,7 +132,7 @@ const headerHeight = computed(() => {
 // Compute logo source: always colored logo.
 // If colored variant is missing, fall back to the default colored logo.
 const logoSrc = computed(() => {
-  return '/fotky/logo.png'
+  return '/fotky/jine/logo.png'
 })
 
 const onLogoError = () => {

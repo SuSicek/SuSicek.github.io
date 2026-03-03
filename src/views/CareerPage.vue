@@ -3,7 +3,7 @@
     <!-- Hero -->
     <v-sheet class="career-hero position-relative" height="85vh" max-height="900" color="grey-darken-4">
       <v-img 
-        src="/fotky/dronBrno.png" 
+        src="/fotky/jine/dronBrno.png" 
         cover 
         class="h-100"
         gradient="to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.8) 100%"
@@ -422,7 +422,7 @@
                   <!-- Image Section (Left) -->
                   <div class="d-none d-md-block" style="width: 35%; min-height: 100%;">
                      <v-img 
-                        src="/fotky/studenti.jpg" 
+                        src="/fotky/jine/studenti.jpg" 
                         cover 
                         height="100%"
                       ></v-img>
@@ -504,43 +504,41 @@ const filteredJobs = computed(() => {
 
 // Application form state (removed as moved to subpage)
 // Background image for jobs section (easy to change)
-const jobsBackground = ref('/fotky/stavba3.png')
+const jobsBackground = ref('/fotky/jine/stavba3.png')
 
 // Atmosphere items for the second section
 const atmosphere = ref([
   {
     title: 'Stabilní zázemí',
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
-    image: '/fotky/dronBrno.png',
-    images: ['/fotky/dronBrno.png', '/fotky/atrium.jpeg', '/fotky/zdar.png', '/fotky/foto 202 zr/kancl1.jpg'],
+    image: '/fotky/jine/dronBrno.png',
+    images: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/foto 202 zr/kancl1.jpg'],
     type: 'slideshow',
     icon: 'mdi-shield-check'
   },
   {
     title: 'Férové jednání',
     text: 'Sliby plníme a za prací stojí odpovídající ohodnocení.',
-    image: '/fotky/energetika.png',
-    images: ['/fotky/energetika.png', '/fotky/energetika2.png', '/fotky/energetika3.png'],
-    type: 'slideshow',
+    image: '/fotky/jine/ferovejednani.png',
     icon: 'mdi-handshake'
   },
   {
     title: 'Přátelský kolektiv',
     text: 'Nejsme anonymní korporát, ale tým lidí, kteří drží při sobě.',
-    image: '/fotky/prodejna.png',
+    image: '/fotky/jine/prodejna.png',
     icon: 'mdi-account-group'
   },
   {
     title: 'Možnost růstu',
     text: 'Podporujeme profesní i osobní rozvoj.',
-    image: '/fotky/stavba.png',
+    image: '/fotky/jine/kariernirust.png',
     icon: 'mdi-trending-up'
   },
   {
     title: 'Společné akce',
     text: 'Týmové aktivity a firemní akce posilují vztahy i atmosféru.',
-    image: '/fotky/hory.png',
-    images: ['/fotky/hory.png', '/fotky/bowling.png', '/fotky/jumppark.png'],
+    image: '/fotky/jine/hory.png',
+    images: ['/fotky/jine/hory.png', '/fotky/jine/bowling.png', '/fotky/jine/jumppark.png'],
     type: 'montage',
     icon: 'mdi-account-multiple'
   }
@@ -603,7 +601,7 @@ const benefits = ref([
 .benefits-heading { font-size: clamp(2rem,4.8vw,3.1rem); letter-spacing:.6px; font-weight:800; }
 
 /* Jobs section with background */
-.jobs-section { position: relative; background-image: url('/fotky/stavba3.png'); background-size: cover; background-position: center; }
+.jobs-section { position: relative; background-image: url('/fotky/jine/stavba3.png'); background-size: cover; background-position: center; }
 .jobs-overlay { position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.25)); }
 .jobs-heading { color:#fff; font-size: clamp(2rem,4.6vw,3rem); letter-spacing:.4px; }
 
