@@ -124,9 +124,9 @@ const blueLogoError = ref(false)
 
 const headerHeight = computed(() => {
   // Mobile/small screens
-  if (mobile.value) return 140 
+  if (mobile.value) return 110 
   // Desktop: Large when at top, smaller (sticky) when scrolled
-  return isAtTop.value ? 300 : 160
+  return isAtTop.value ? 280 : 130
 })
 
 // Compute logo source: always colored logo.
@@ -192,7 +192,7 @@ watch(isAtTop, () => {
 
 /* Logo scales with header - larger on smaller resolutions */
 .logo-img {
-  width: clamp(150px, 15vw, 250px) !important;
+  width: clamp(120px, 12vw, 180px) !important;
   height: auto !important;
   max-height: 80%; /* Ensure it doesn't touch edges */
   z-index: 10;
