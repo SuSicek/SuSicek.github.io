@@ -124,9 +124,9 @@ const blueLogoError = ref(false)
 
 const headerHeight = computed(() => {
   // Mobile/small screens
-  if (mobile.value) return 110 
+  if (mobile.value) return 140 
   // Desktop: Large when at top, smaller (sticky) when scrolled
-  return isAtTop.value ? 300 : 160
+  return isAtTop.value ? 300 : 220
 })
 
 // Compute logo source: always colored logo.
