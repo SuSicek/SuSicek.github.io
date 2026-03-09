@@ -20,5 +20,17 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-  }
+  },
+  "description": "",
+  "main": "playground-1.mongodb.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuSicek/SuSicek.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuSicek/SuSicek.github.io/issues"
+  },
+  "homepage": "https://github.com/SuSicek/SuSicek.github.io#readme"
 }

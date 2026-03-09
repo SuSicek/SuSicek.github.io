@@ -19,7 +19,7 @@ export const referencesProjects = [
     description: 'V areálu bioplynové stanice Vyškov jsme realizovali výstavbu nového elektrokotle o výkonu 12 MWe, který zajistil stabilitu elektrické sítě pod dohledem ČEPS. Projekt zahrnoval montáž vysokonapěťového zdroje, rozsáhlých potrubních systémů DN200–400, 5 chladicích věží s výkonem 16,8 MWt, ocelových konstrukcí a všechny doprovodné práce.',
     location: 'Vyškov',
     year: '2025',
-    financial: '7,3 mil. Kč',
+    financial: '8 mil. Kč',
     center: '610'
   },
   {

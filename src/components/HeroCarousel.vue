@@ -65,7 +65,7 @@ export default {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.25));
+  background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.15));
 }
 .overlay-container {
   max-width: 1100px;

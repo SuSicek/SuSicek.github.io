@@ -19,10 +19,12 @@ import ProdejnaView from './views/ProdejnaView.vue'
 import ReferenceDetail from './views/ReferenceDetail.vue'
 import JobDetail from './views/JobDetail.vue'
 import StudentOpportunities from './views/StudentOpportunities.vue'
+import CertificatesView from './views/CertificatesView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/aboutus', name: 'AboutUs', component: AboutUs },
+  { path: '/certificates', name: 'Certificates', component: CertificatesView },
   { path: '/references', name: 'References', component: References },
   { path: '/career', name: 'Career', component: Career },
   { path: '/career/students', name: 'StudentOpportunities', component: StudentOpportunities },

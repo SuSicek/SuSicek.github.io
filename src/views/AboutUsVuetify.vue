@@ -114,7 +114,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" class="text-center mb-4">
-            <h3 class="timeline-heading">Milníky</h3>
+            <h3 class="timeline-heading">Milníky UCHYTIL s.r.o</h3>
           </v-col>
           <v-col cols="12">
             <section class="timeline">
@@ -227,10 +227,10 @@ const kpis = [
 ]
 
 const aboutNumbers = [
-  { value: '32', label: 'let na trhu' },
+  { value: '32+', label: 'let na trhu' },
   { value: '4100+', label: 'realizovaných zakázek' },
   { value: '300+', label: 'spokojených klientů' },
-  { value: '120', label: 'odborníků' },
+  { value: '150+', label: 'odborníků' },
 ]
 
 const milestones = [
@@ -290,39 +290,39 @@ const features = [
   {
     title: 'Kvalita a bezpečnost',
     text: 'Pracujeme dle platných norem, držíme certifikace a klademe důraz na bezpečnost práce.',
-    image: '/fotky/jine/stavba.png'
+    image: '/fotky/jine/bezpecnost.png'
   },
   {
     title: 'Udržitelnost',
     text: 'Navrhujeme úsporná řešení s ohledem na životní prostředí a dlouhodobý provoz.',
-    image: '/fotky/jine/energetika.png'
+    image: '/fotky/jine/udrzitelnost.png'
   },
   {
     title: 'Odborný tým',
     text: 'Silné odborné zázemí vysoce kvalifikovaných odborníků v oblasti Stavba, Energetika TZB.',
-    image: '/fotky/jine/prodejna.png'
+    image: '/fotky/jine/savrec.png'
   },
   {
     title: 'Spolehlivost',
     text: 'Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.',
-    image: '/fotky/jine/kontejner.png'
+    image: '/fotky/jine/bagr2.png'
   }
 ]
 
 const divisions = [
-  {
-    title: 'Energetika',
-    subtitle: 'Výroba a úspory energií',
-    description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-    image: '/fotky/jine/modrozlutakotelna.png',
-    link: '/division/energetika'
-  },
   {
     title: 'Stavba',
     subtitle: 'Kompletní stavební projekty',
     description: 'Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.',
     image: '/fotky/jine/Vsetín 2.jpg',
     link: '/division/stavba'
+  },
+  {
+    title: 'Energetika',
+    subtitle: 'Výroba a úspory energií',
+    description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
+    image: '/fotky/jine/modrozlutakotelna.png',
+    link: '/division/energetika'
   },
   {
     title: 'TZB',
@@ -335,7 +335,7 @@ const divisions = [
     title: 'Prodejna',
     subtitle: 'Prodej a technika',
     description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-    image: '/fotky/jine/kontejner.png',
+    image: '/fotky/jine/zdar.png',
     link: '/prodejna'
   }
 ]
@@ -961,6 +961,10 @@ time {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .division-card:hover .division-card-details {
   opacity: 1;

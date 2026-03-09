@@ -525,13 +525,13 @@ const atmosphere = ref([
   {
     title: 'Přátelský kolektiv',
     text: 'Nejsme anonymní korporát, ale tým lidí, kteří drží při sobě.',
-    image: '/fotky/jine/prodejna.png',
+    image: '/fotky/jine/hory.png',
     icon: 'mdi-account-group'
   },
   {
     title: 'Možnost růstu',
     text: 'Podporujeme profesní i osobní rozvoj.',
-    image: '/fotky/jine/kariernirust.png',
+    image: '/fotky/jine/evo.png',
     icon: 'mdi-trending-up'
   },
   {
@@ -723,5 +723,13 @@ const benefits = ref([
 .backdrop-blur {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.student-toggle-btn {
+    font-size: clamp(0.75rem, 1.2vw, 1rem) !important;
+    letter-spacing: normal;
+}
+.student-toggle-btn :deep(.v-icon) {
+    font-size: 1.3em !important;
 }
 </style>

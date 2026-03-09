@@ -23,7 +23,7 @@
         <v-col cols="12" md="7" class="text-left">
           <h2 class="text-h4 text-primary font-weight-bold mb-6">Úvod</h2>
           <p class="text-body-1 mb-6 text-justify" style="font-size: 1.1rem !important; line-height: 1.8;">
-            Kamenná prodejna <strong>VODO TOPO Susicek</strong> nabízí kompletní sortiment topenářského a vodoinstalačního materiálu ihned k odběru – a k tomu odborné poradenství vycházející z více než 30 let zkušeností v oboru.
+            Kamenná prodejna <strong>VODO TOPO</strong> nabízí kompletní sortiment topenářského a vodoinstalačního materiálu ihned k odběru – a k tomu odborné poradenství vycházející z více než 30 let zkušeností v oboru.
           </p>
           
           <v-row class="mb-6">
@@ -65,7 +65,7 @@
           <!-- Craftsmen -->
           <v-col cols="12" md="4">
             <v-card class="h-100 ServiceCard" elevation="3">
-              <v-img src="/fotky/jine/stavba3.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
+              <v-img src="/fotky/jine/remeslnik.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
                 <v-card-title class="text-white position-absolute bottom-0 w-100 pb-4 text-h5">Pro řemeslníky</v-card-title>
               </v-img>
               <v-card-text class="pa-6 text-left">
@@ -82,7 +82,7 @@
           <!-- Households -->
           <v-col cols="12" md="4">
             <v-card class="h-100 ServiceCard" elevation="3">
-              <v-img src="/fotky/jine/kontejner.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
+              <v-img src="/fotky/jine/domacnosti.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
                 <v-card-title class="text-white position-absolute bottom-0 w-100 pb-4 text-h5">Pro domácnosti</v-card-title>
               </v-img>
               <v-card-text class="pa-6 text-left">

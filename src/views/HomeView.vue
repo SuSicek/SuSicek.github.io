@@ -11,7 +11,7 @@
         interval="6000"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :alt="slide.alt" :eager="i === 0"></v-img>
+          <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
         </v-carousel-item>
       </v-carousel>
       <div class="hero-overlay d-flex flex-column justify-end">
@@ -176,7 +176,7 @@ export default {
         { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
         { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
         { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
-        { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín' }
+        { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
       ],
       stats: [
         { number: 32, label: 'Let na trhu' },
@@ -193,18 +193,18 @@ export default {
       hasAnimated: false,
       divisions: [
         {
-          title: 'Energetika',
-          subtitle: 'Výroba a úspory energií',
-          description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-          image: '/fotky/jine/modrozlutakotelna.png',
-          link: '/division/energetika'
-        },
-        {
           title: 'Stavba',
           subtitle: 'Kompletní stavební projekty',
           description: 'Realizuje stavební projekty od návrhu po dokončení s důrazem na kvalitu a termíny.',
           image: '/fotky/jine/Vsetín 2.jpg',
           link: '/division/stavba'
+        },
+        {
+          title: 'Energetika',
+          subtitle: 'Výroba a úspory energií',
+          description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
+          image: '/fotky/jine/modrozlutakotelna.png',
+          link: '/division/energetika'
         },
         {
           title: 'TZB',
@@ -217,7 +217,7 @@ export default {
           title: 'Prodejna',
           subtitle: 'Prodej a technika',
           description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-          image: '/fotky/jine/kontejner.png',
+          image: '/fotky/jine/zdar.png',
           link: '/prodejna'
         }
       ]
@@ -610,6 +610,10 @@ export default {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .division-card:hover .division-card-details {
   opacity: 1;
