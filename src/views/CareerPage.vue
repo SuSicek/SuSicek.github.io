@@ -304,7 +304,7 @@
                       Filtrovat pozice
                    </div>
                 </v-col>
-                <v-col cols="12" md="5">
+                <v-col cols="12" md="4">
                   <v-autocomplete
                     v-model="selectedDivision"
                     :items="uniqueDivisions"
@@ -318,7 +318,7 @@
                     placeholder="Vyberte divizi"
                   ></v-autocomplete>
                 </v-col>
-                <v-col cols="12" md="5">
+                <v-col cols="12" md="4">
                   <v-autocomplete
                     v-model="selectedLocation"
                     :items="uniqueLocations"
@@ -332,7 +332,7 @@
                     placeholder="Vyberte lokalitu"
                   ></v-autocomplete>
                 </v-col>
-                <v-col cols="12" md="2" class="d-flex justify-md-center mt-4 mt-md-0">
+                <v-col cols="12" md="4" class="d-flex justify-md-center mt-4 mt-md-0">
                    <v-tooltip location="top" text="Vhodné pro studenty a absolventy">
                       <template v-slot:activator="{ props }">
                         <v-btn

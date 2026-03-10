@@ -406,7 +406,7 @@ const divisionContacts = ref({
   ],
   stavba: [
     { name: 'Ing. Radek Tkáč', role: 'Ředitel divize', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
-    { name: 'Ing. Jana Malá', role: 'Asistentka', email: 'jana.mala@uchytil.eu', phone: '545 423 446' },
+    { name: 'Jana Malá', role: 'Asistentka', email: 'jana.mala@uchytil.eu', phone: '545 423 246' },
     { name: 'Ing. Martin Hublík', role: 'Vedoucí střediska projekce', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
     { name: 'Ing. Martin Hublík', role: 'Vedoucí realizace pozemní stavby', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
     { name: 'Ing. Radek Tkáč', role: 'Vedoucí realizace liniové stavby', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },

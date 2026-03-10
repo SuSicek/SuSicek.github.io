@@ -88,7 +88,7 @@ const references = ref([
     title: 'Tábor západ – přestavba parovodu na horkovod',
     division: 'Stavba',
     year: 2023,
-    price: '195 000 000,- Kč',
+    price: '195 mil. Kč',
     image: '/fotky/references/tabor/Tábor1.jpg',
      images: [
         '/fotky/references/tabor/Tábor1.jpg',
@@ -103,7 +103,7 @@ const references = ref([
     title: 'ENERGETICKÉ ÚSPORY BUDOVY SMETANOVA 841, VSETÍN',
     division: 'Stavba',
     year: 2023, 
-    price: '31 000 000,- Kč',
+    price: '31 mil. Kč',
     image: '/fotky/references/vsetin/Vsetín 1.jpg',
     images: [
         '/fotky/references/vsetin/Vsetín 1.jpg',
@@ -117,7 +117,7 @@ const references = ref([
     title: 'Projekt Lesná',
     division: 'Stavba',
     year: 2024,
-    price: '-',
+    price: '2,9 mil. Kč',
     image: '/fotky/references/Lesná/PD Lesná.jpg',
     images: [
         '/fotky/references/Lesná/PD Lesná.jpg'
@@ -130,7 +130,7 @@ const references = ref([
     title: 'Rekonstrukce 2. NP administrativní budovy Lidická 25/27, Brno',
     division: 'Stavba',
     year: 2024,
-    price: '6 000 000,- Kč',
+    price: '6 mil. Kč',
     image: '/fotky/references/lidicka/Lidická1.jpg',
     images: [
         '/fotky/references/lidicka/Lidická1.jpg',
@@ -147,7 +147,7 @@ const references = ref([
     title: 'Rekonstrukce požární zbrojnice Brno-Starý Lískovec',
     division: 'Stavba',
     year: 2022,
-    price: '8 200 000,- Kč',
+    price: '8,2 mil. Kč',
     image: '/fotky/references/liskovec/hasička Lískovec 1.jpg',
     images: [
         '/fotky/references/liskovec/hasička Lískovec 1.jpg',
@@ -161,7 +161,7 @@ const references = ref([
     title: 'Rekonstrukce stávajících rozvodů tepla a instalace nových potrubních rozvodů v Bystřici nad Pernštejnem',
     division: 'Stavba',
     year: 2024,
-    price: '14 700 000,- Kč',
+    price: '14,7 mil. Kč',
     image: '/fotky/references/bystrice/Bystřice_1.JPG',
     images: [
         '/fotky/references/bystrice/Bystřice_1.JPG',
@@ -175,7 +175,7 @@ const references = ref([
     title: 'Křišťanov – modernizace ČOV a zdroje tepla',
     division: 'Stavba',
     year: 2020,
-    price: '6 300 000,- Kč',
+    price: '6,3 mil. Kč',
     image: '/fotky/references/kristanov/Křišťanov1.jpg',
     images: [
         '/fotky/references/kristanov/Křišťanov1.jpg',
@@ -191,7 +191,7 @@ const references = ref([
     title: 'Oprava vodovodního řadu ve Vojenském újezdu Březina',
     division: 'Stavba',
     year: 2022,
-    price: '4 300 000,-',
+    price: '4,3 mil. Kč',
     image: '/fotky/references/brezina/Březina1.jpg',
     images: [
         '/fotky/references/brezina/Březina1.jpg',
@@ -207,7 +207,7 @@ const references = ref([
     title: 'Rekonstrukce hasičské zbrojnice Husovice – 3. etapa',
     division: 'Stavba',
     year: 2024,
-    price: '380 000,- Kč',
+    price: '0,4 mil. Kč',
     image: '/fotky/references/hasička Husovice/hasička1.png',
     images: [
         '/fotky/references/hasička Husovice/hasička1.png',
@@ -222,7 +222,7 @@ const references = ref([
     title: 'Oprava ležaté kanalizace a přípojek Botanická',
     division: 'Stavba',
     year: 2024,
-    price: '4 000 000,- Kč',
+    price: '4 mil. Kč',
     image: '/fotky/references/botanicka/Botanická1.JPG',
     images: [
         '/fotky/references/botanicka/Botanická1.JPG',
@@ -237,7 +237,7 @@ const references = ref([
     title: 'ČOV – rekonstrukce kotelny',
     division: 'TZB',
     year: 2022,
-    price: '8 600 000,- Kč ',
+    price: '8,6 mil. Kč ',
     image: '/fotky/references/ČOV – rekonstrukce kotelny.jpg',
     short: 'Instalace tří plynových nízkoteplotních litinových kotlů s přetlakovým spalováním.',
     long: 'Instalace tří plynových nízkoteplotních litinových kotlů s přetlakovým spalováním. Dva nízkoteplotní litinové kotle o maximálním výkonu 1020 kW, typ: BUDERUS LOGANO GE615 921-1020 a jeden nízkoteplotní litinový kotel o maximálním výkonu 740 kW, typ: BUDERUS LOGANO GE615 661-740. Celkový instalovaný výkon 2780 kW.'
@@ -247,7 +247,7 @@ const references = ref([
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká',
     division: 'TZB',
     year: 2024,
-    price: '28 700 000,- Kč',
+    price: '28,7 mil. Kč',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká.jpg',
     short: 'Náhrada teplovodních rozvodů a decentralizace topení a přípravy teplé vody.',
     long: 'Náhrada stávajících teplovodních rozvodů za horkovodní a současná decentralizace topení a přípravy teplé vody. Instalace jedenácti domovních předávacích stanic vč. měření a regulace.'
@@ -257,7 +257,7 @@ const references = ref([
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '12 000 000,- Kč',
+    price: '12 mil. Kč',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa.jpg',
     short: 'Náhrada parovodního potrubí za nový horkovod na ulici Benešova.',
     long: 'Náhrada parovodního potrubí za nový horkovod převážně ve stávající trase na ulici Benešova. Délka trasy předizolovaného potrubí 2x DN 150/280 – 98 m.'
@@ -267,7 +267,7 @@ const references = ref([
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II',
     division: 'TZB',
     year: 2025,
-    price: '119 000 000,- Kč ',
+    price: '119 mil. Kč ',
     image: '/fotky/references/Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II.jpg',
     short: 'Náhrada parovodního potrubí za nový horkovod na ulicích Kopečná, Anenská, Vodní a Hybešova v Brně.',
     long: 'Náhrada parovodního potrubí za nový horkovod na ulicích Kopečná, Anenská, Vodní a Hybešova v Brně. Délka trasy potrubí 2x DN 250/450 – cca 680 m, potrubí 2x DN 200/355 – cca 86, potrubí 2x DN 150/280 – cca 53 m aj. Celková délka horkovodu ve stávající a nové trase cca 1202,9 m.'
@@ -277,7 +277,7 @@ const references = ref([
     title: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16',
     division: 'TZB',
     year: 2025,
-    price: '48 000 000,- Kč',
+    price: '48 mil. Kč',
     image: '/fotky/references/Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16.jpg',
     short: 'Náhrada parovodního potrubí za nový horkovod na ulicích Špitálka, Plynárenská a Tkalcovská.',
     long: 'Náhrada parovodního potrubí za nový horkovod převážně ve stávající trase na ulicích Špitálka, Plynárenská a Tkalcovská. Délka trasy potrubí 2x DN 300/500 – 449 m a 2x DN 250/400 – 52 m.'
@@ -287,7 +287,7 @@ const references = ref([
     title: 'Lipník – modernizace zdrojů tepla II. Etapa',
     division: 'TZB',
     year: 2025,
-    price: '51 100 000,- Kč ',
+    price: '51,1 mil. Kč ',
     image: '/fotky/references/Lipník – modernizace zdrojů tepla II. Etapa.jpg',
     short: 'Stavební práce spočívající v modernizaci plynových kotelen ve vojenském areálu.',
     long: 'Předmětem díla byly stavební práce spočívající v modernizaci plynových kotelen v objektech nacházejících se ve vojenském areálu Lipník nad Bečvou.'
@@ -297,7 +297,7 @@ const references = ref([
     title: 'Rodinný dům, sklad + připojení na inženýrské sítě',
     division: 'TZB',
     year: 2024,
-    price: '700 000,- Kč ',
+    price: '0,7 mil. Kč ',
     image: '/fotky/references/Rodinný dům, sklad + připojení na inženýrské sítě.jpg',
     short: 'Realizace podlahového topení, rozvody vody a kanalizace a dodávka zdravotně zařizovacích předmětů.',
     long: 'Realizace podlahového topení, rozvody vody a kanalizace a dodávka zdravotně zařizovacích předmětů.'
@@ -307,7 +307,7 @@ const references = ref([
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická',
     division: 'TZB',
     year: 2025,
-    price: '29 200 000,- Kč',
+    price: '29,2 mil. Kč',
     image: '/fotky/references/Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická.jpg',
     short: 'Náhrada teplovodních rozvodů a decentralizace topení a přípravy teplé vody.',
     long: 'Náhrada stávajících teplovodních rozvodů za horkovodní a současná decentralizace topení a přípravy teplé vody. Instalace dvanácti domovních předávacích stanic vč. měření a regulace.'

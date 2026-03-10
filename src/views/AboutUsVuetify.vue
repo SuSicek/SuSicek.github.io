@@ -12,7 +12,7 @@
         interval="6000"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
+          <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt"></v-img>
         </v-carousel-item>
       </v-carousel>
       <div class="hero-overlay d-flex flex-column justify-end">
@@ -114,7 +114,7 @@
         </v-row>
         <v-row>
           <v-col cols="12" class="text-center mb-4">
-            <h3 class="timeline-heading">Milníky UCHYTIL s.r.o</h3>
+            <h3 class="timeline-heading">Milníky společnosti</h3>
           </v-col>
           <v-col cols="12">
             <section class="timeline">
@@ -216,7 +216,7 @@ const slides = [
   { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
   { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
   { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
-  { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín' }
+  { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
 ]
 
 const kpis = [
@@ -257,12 +257,12 @@ const milestones = [
   {
     date: '2020',
     title: 'Začlenění',
-    description: 'Začlenění do NEMOVITOSTI a.s.'
+    description: 'Začlenění do Nemovitosti UCHYTIL a.s.'
   },
   {
     date: 'Současnost',
     title: 'Stavba-Energetika-TZB',
-    description: 'Obrat 600 mil. Kč, počet zaměstnanců 150.'
+    description: 'Obrat 600 mil. Kč, počet zaměstnanců 150+'
   }
 ]
 
@@ -305,7 +305,7 @@ const features = [
   {
     title: 'Spolehlivost',
     text: 'Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.',
-    image: '/fotky/jine/bagr2.png'
+    image: '/fotky/jine/spolehlivost.png'
   }
 ]
 
@@ -366,7 +366,7 @@ const divisions = [
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.16));
 }
 .overlay-container {
   max-width: 1100px;

@@ -224,7 +224,7 @@ watch(selectedDivision, (val) => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.16));
 }
 .overlay-container {
   max-width: 1100px;

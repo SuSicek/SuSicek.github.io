@@ -157,7 +157,7 @@ export const divisions = {
   }
 };
 
-export const divisionOrder = ['energetika', 'tzb', 'stavba'];
+export const divisionOrder = ['stavba', 'energetika', 'tzb'];
 
 export function normalizeDivisionSlug(slug) {
   if (!slug) return 'energetika';

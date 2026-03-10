@@ -180,35 +180,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <!-- Certifications Modal -->
-    <v-dialog v-model="certifikaceOpen" max-width="800">
-      <v-card>
-        <v-toolbar color="primary" density="compact">
-          <v-toolbar-title>Certifikace</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-btn icon="mdi-close" @click="certifikaceOpen = false"></v-btn>
-        </v-toolbar>
-        <v-card-text class="pa-6 text-body-1">
-          <p class="mb-4">
-            Firma zavedla a používá integrovaný systém řízení, který odpovídá 
-            <strong>ČSN EN ISO 9001:2016, ČSN EN ISO 14001:2016, ČSN ISO 45001:2018</strong>, politika společnosti.
-          </p>
-          <p class="mb-4">
-            Společnost je certifikována pro výrobu a montáž, opravy a rekonstrukce energetických zařízení 
-            a ocelových konstrukcí dle normy <strong>ČSN EN ISO 3834-2:2022</strong>, pro výrobu a montáž 
-            ocelových konstrukcí energetických zařízení a staveb dle normy <strong>ČSN EN 1090-2+A1:2024</strong>.
-          </p>
-          <p class="mb-0">
-            Společnost je certifikována pro výkon společných činností v plynárenství ČR firmou <strong>GAS s.r.o.</strong>
-          </p>
-        </v-card-text>
-        <v-card-actions>
-           <v-spacer></v-spacer>
-           <v-btn color="primary" @click="certifikaceOpen = false">Zavřít</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
+   
     <!-- Politika Spolecnosti Modal -->
     <v-dialog v-model="politikaOpen" max-width="900" scrollable>
       <v-card>
@@ -279,11 +251,6 @@
             <li class="mb-2">jsme otevřeni ke komunikaci se zainteresovanými stranami ve všech otázkách týkající se chování a dopadu společnosti na životní prostředí,</li>
             <li class="mb-2">řídíme a vychováváme zaměstnance k zodpovědnému chování vůči životnímu prostředí tak, aby plně chápali, podporovali a prosazovali politiku společnosti v oblasti ochrany životního prostředí</li>
           </ul>
-
-          <div class="mt-8 pt-4 border-t">
-            <p class="mb-0 font-weight-bold">schválil: Ing. Richard Štěpán</p>
-            <p class="text-caption">ředitel společnosti</p>
-          </div>
         </v-card-text>
         <v-card-actions>
            <v-spacer></v-spacer>
