@@ -49,7 +49,7 @@
         
         <v-col cols="12" md="5">
            <v-img 
-             src="/fotky/jine/zdar.png" 
+             src="/fotky/prodejna/fotky prodejna/p1.jpg" 
              rounded="xl" 
              cover 
              class="elevation-6 border-primary" 

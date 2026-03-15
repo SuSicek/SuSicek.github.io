@@ -58,6 +58,24 @@
               </p>
             </div>
           </div>
+          
+          <div class="d-flex align-top">
+            <v-icon color="primary" size="large" class="mr-4 mt-1">mdi-shield-check</v-icon>
+            <div>
+              <p class="text-body-1 mb-0">
+                Společnosti <strong>UCHYTIL s.r.o.</strong> má osvědčení o odborné způsobilosti k provádění vnějších kontaktních tepelně izolačních systémů s omítkou <strong>ETICS</strong>.
+              </p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-top">
+            <v-icon color="primary" size="large" class="mr-4 mt-1">mdi-security</v-icon>
+            <div>
+              <p class="text-body-1 mb-0">
+                Informační systém společnosti je certifikován od <strong>NÚKIB</strong> k nakládání s utajovanou informací do a včetně štupně utajení <strong>VYHRAZENÉ</strong>.
+              </p>
+            </div>
+          </div>
         </div>
       </v-card>
 
@@ -73,8 +91,14 @@
             :href="cert.path" 
             target="_blank"
           >
-            <div class="pdf-icon-wrapper py-8 bg-grey-lighten-4">
-              <v-icon size="64" color="red-darken-1">mdi-file-pdf-box</v-icon>
+            <div class="certificate-image-wrapper">
+              <v-img 
+                :src="cert.image" 
+                :alt="cert.name"
+                height="200"
+                cover
+                class="certificate-image"
+              />
             </div>
             <v-card-text class="flex-grow-1 d-flex align-center justify-center">
               <div class="font-weight-bold text-h6" style="line-height: 1.3;">{{ cert.name }}</div>
@@ -96,14 +120,14 @@
 import { ref } from 'vue'
 
 const certificates = ref([
-  { name: 'ISO 9001', path: '/fotky/certifikace/ISO 9001.pdf' },
-  { name: 'ISO 14001', path: '/fotky/certifikace/ISO 14001.pdf' },
-  { name: 'ISO 45001', path: '/fotky/certifikace/ISO 45001.pdf' },
-  { name: 'Certifikát NÚKIB', path: '/fotky/certifikace/NÚKIB_certifikát.pdf' },
-  { name: 'Certifikát GAS', path: '/fotky/certifikace/certifikat_gas_perina.pdf' },
-  { name: 'TAZUS', path: '/fotky/certifikace/TAZUS.pdf' },
-  { name: 'Svařování (Qualiform)', path: '/fotky/certifikace/Qualiform_svařování při výrobě, montáži, opravách a rekonstrukcí.pdf' },
-  { name: 'Ocelové konstrukce (Qualiform)', path: '/fotky/certifikace/Qualiform_výroba a montáž ocel konstr a energ zařízení staveb.pdf' },
+  { name: 'ISO 9001', path: '/fotky/certifikace/ISO 9001.pdf', image: '/fotky/certifikace/iso9001.png' },
+  { name: 'ISO 14001', path: '/fotky/certifikace/ISO 14001.pdf', image: '/fotky/certifikace/ISO 14001.png' },
+  { name: 'ISO 45001', path: '/fotky/certifikace/ISO 45001.pdf', image: '/fotky/certifikace/ISO 45001.png' },
+  { name: 'Certifikát NÚKIB', path: '/fotky/certifikace/NÚKIB_certifikát.pdf', image: '/fotky/certifikace/nukib.png' },
+  { name: 'Certifikát GAS', path: '/fotky/certifikace/certifikat_gas_perina.pdf', image: '/fotky/certifikace/gas.png' },
+  { name: 'TAZUS', path: '/fotky/certifikace/TAZUS.pdf', image: '/fotky/certifikace/TAZUS.png' },
+  { name: 'Svařování (Qualiform)', path: '/fotky/certifikace/Qualiform_svařování pří výrobě, montáži,  opravách a rekonstrukcí.pdf', image: '/fotky/certifikace/svarovani.png' },
+  { name: 'Ocelové konstrukce (Qualiform)', path: '/fotky/certifikace/Qualiform_výroba a montáž ocel konstr a energ zařízení staveb.pdf', image: '/fotky/certifikace/konstrukce.png' },
 ])
 </script>
 
@@ -155,10 +179,14 @@ const certificates = ref([
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
 }
-.pdf-icon-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.certificate-image-wrapper {
+  overflow: hidden;
   border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.certificate-image {
+  transition: transform 0.3s ease;
+}
+.pdf-card:hover .certificate-image {
+  transform: scale(1.05);
 }
 </style>

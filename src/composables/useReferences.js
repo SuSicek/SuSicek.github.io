@@ -7,8 +7,11 @@ const references = ref([
     title: 'Auxilien_BFS - Montáž potrubních tras – SVR v areálu BPS Vyškov',
     division: 'Energetika',
     year: 2025,
-    price: '7,3 mil. Kč',
-    image: '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
+    price: '8 mil. Kč',
+    location: 'Vyškov',
+    financial: '8 mil. Kč',
+    center: '610',
+    image: '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
     images: [
       '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
       '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg',
@@ -25,7 +28,11 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '2 mil. Kč',
-    image: '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
+    location: 'Bojkovice',
+    financial: '2 mil. Kč',
+    center: '620',
+    technicians: 'Grombíř, Šmerda',
+    image: '/fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg',
     images: [
       '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
       '/fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg',
@@ -43,6 +50,9 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '20 mil. Kč',
+    location: 'Planá',
+    financial: '20 mil. Kč',
+    center: '603',
     image: '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
     images: [
       '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
@@ -58,6 +68,9 @@ const references = ref([
     division: 'Energetika',
     year: 2024,
     price: '0,3 mil. Kč',
+    location: 'Brno - Jihomoravské náměstí',
+    financial: '0,3 mil. Kč',
+    center: '630',
     image: '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
     images: [
       '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
@@ -75,6 +88,9 @@ const references = ref([
     division: 'Energetika',
     year: 2025,
     price: '76 mil. Kč',
+    location: 'Planá',
+    financial: '76 mil. Kč',
+    center: '603',
     image: '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg',
     images: [
       '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'
@@ -176,7 +192,7 @@ const references = ref([
     division: 'Stavba',
     year: 2020,
     price: '6,3 mil. Kč',
-    image: '/fotky/references/kristanov/Křišťanov1.jpg',
+    image: '/fotky/references/kristanov/Křišťanov3.jpg',
     images: [
         '/fotky/references/kristanov/Křišťanov1.jpg',
         '/fotky/references/kristanov/Křišťanov2.jpg',
@@ -192,7 +208,7 @@ const references = ref([
     division: 'Stavba',
     year: 2022,
     price: '4,3 mil. Kč',
-    image: '/fotky/references/brezina/Březina1.jpg',
+    image: '/fotky/references/brezina/Březina4.jpg',
     images: [
         '/fotky/references/brezina/Březina1.jpg',
         '/fotky/references/brezina/Březina2.jpg',

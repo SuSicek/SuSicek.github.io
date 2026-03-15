@@ -217,7 +217,7 @@ export default {
           title: 'Prodejna',
           subtitle: 'Prodej a technika',
           description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-          image: '/fotky/jine/zdar.png',
+          image: '/fotky/prodejna/fotky prodejna/p3.jpg',
           link: '/prodejna'
         }
       ]

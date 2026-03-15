@@ -305,7 +305,7 @@ const features = [
   {
     title: 'Spolehlivost',
     text: 'Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.',
-    image: '/fotky/jine/spolehlivost.png'
+    image: '/fotky/jine/spolehlivost.jpg'
   }
 ]
 
@@ -335,7 +335,7 @@ const divisions = [
     title: 'Prodejna',
     subtitle: 'Prodej a technika',
     description: 'Prodej materiálu, příslušenství a techniky pro vaše projekty.',
-    image: '/fotky/jine/zdar.png',
+    image: '/fotky/prodejna/fotky prodejna/p2.jpg',
     link: '/prodejna'
   }
 ]

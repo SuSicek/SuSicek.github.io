@@ -178,8 +178,8 @@
                 <v-window 
                   v-model="activeAtmosphere" 
                   class="h-100"
-                  transition="fade-transition"
-                  reverse-transition="fade-transition"
+                  transition="slide-x-transition"
+                  reverse-transition="slide-x-transition"
                 >
                   <v-window-item 
                     v-for="(item, index) in atmosphere" 
@@ -211,22 +211,19 @@
 
                     <!-- Slideshow view for "Férové jednání" -->
                     <div v-else-if="item.type === 'slideshow'" class="h-100 position-relative">
-                        <v-carousel 
-                          cycle 
-                          height="100%" 
+                        <v-carousel
+                          cycle
+                          height="100%"
                           hide-delimiter-background
-                          show-arrows="hover"
-                          interval="3000"
                           :show-arrows="false"
                           hide-delimiters
+                          interval="2500"
                         >
                           <v-carousel-item
                             v-for="(img, i) in item.images"
                             :key="i"
                             :src="img"
                             cover
-                            transition="fade-transition"
-                            reverse-transition="fade-transition"
                           ></v-carousel-item>
                         </v-carousel>
                         <div class="image-overlay d-flex align-end pa-8 position-absolute w-100 h-100" style="z-index: 5; top: 0; left: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);">
@@ -525,13 +522,14 @@ const atmosphere = ref([
   {
     title: 'Přátelský kolektiv',
     text: 'Nejsme anonymní korporát, ale tým lidí, kteří drží při sobě.',
-    image: '/fotky/jine/hory.png',
+    image: '/fotky/jine/kolektiv.png',
     icon: 'mdi-account-group'
   },
   {
     title: 'Možnost růstu',
     text: 'Podporujeme profesní i osobní rozvoj.',
-    image: '/fotky/jine/evo.png',
+    images: ['/fotky/jine/evo1.png', '/fotky/jine/evo2.png', '/fotky/jine/evo3.png', '/fotky/jine/evo4.png'],
+    type: 'slideshow',
     icon: 'mdi-trending-up'
   },
   {
@@ -624,17 +622,19 @@ const benefits = ref([
     overflow: hidden; /* Prevent any horizontal scrollbars */
 }
 .atmo-item {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid transparent;
     background-color: white;
+    cursor: pointer;
 }
 .atmo-item:hover {
-    transform: translateX(5px);
+    transform: translateX(8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 .atmo-item-active {
     background-color: #031f68 !important; /* Primary color */
-    box-shadow: 0 4px 12px rgba(3, 31, 104, 0.3) !important;
-    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(3, 31, 104, 0.4) !important;
+    transform: scale(1.03) translateX(5px);
     border: none;
 }
 .image-overlay.bg-gradient-to-t {
@@ -731,5 +731,19 @@ const benefits = ref([
 }
 .student-toggle-btn :deep(.v-icon) {
     font-size: 1.3em !important;
+}
+
+/* Enhanced tab interactions */
+.atmo-icon-bg {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.atmo-item:hover .atmo-icon-bg {
+  transform: scale(1.1);
+}
+
+.atmo-item-active .atmo-icon-bg {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(3, 31, 104, 0.3);
 }
 </style>

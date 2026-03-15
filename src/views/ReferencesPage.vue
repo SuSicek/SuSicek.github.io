@@ -80,7 +80,7 @@
     <v-container class="pb-12 about-container">
       <v-row>
         <v-col cols="12" md="4" v-for="refItem in pagedReferences" :key="refItem.id">
-          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }" hover>
+          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.id }, query: { page: page } }" hover>
             <!-- Background Image Layer -->
             <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
               <v-img :src="refItem.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100"></v-img>
@@ -151,6 +151,29 @@ const yearItems = computed(() => Array.from(new Set(references.value.map(r => r.
 const page = ref(1)
 const perPage = 6
 
+// Preselect division from query (?division=Stavba or ?division=stavba)
+const route = useRoute()
+const router = useRouter()
+
+// Update page in URL
+const updatePageInUrl = (pageNum) => {
+  const query = { ...route.query }
+  if (pageNum === 1) {
+    delete query.page
+  } else {
+    query.page = pageNum.toString()
+  }
+  router.replace({ name: 'References', query })
+}
+
+// Initialize page from URL query
+if (route.query.page) {
+  const pageNum = parseInt(route.query.page)
+  if (pageNum > 0) {
+    page.value = pageNum
+  }
+}
+
 const filtered = computed(() => {
   return references.value.filter(r => (
     (!search.value || r.title.toLowerCase().includes(search.value.toLowerCase())) &&
@@ -165,11 +188,29 @@ const pagedReferences = computed(() => {
   return filtered.value.slice(start, start + perPage)
 })
 
-watch([search, selectedDivision, selectedYear], () => { page.value = 1 })
+watch([search, selectedDivision, selectedYear], () => { 
+  page.value = 1
+  updatePageInUrl(1)
+})
+
+// Watch page changes and update URL (skip initial load)
+let isInitialLoad = true
+watch(page, (newPage) => {
+  if (!isInitialLoad) {
+    updatePageInUrl(newPage)
+  }
+  isInitialLoad = false
+})
 
 // Preselect division from query (?division=Stavba or ?division=stavba)
-const route = useRoute()
-const router = useRouter()
+
+// Initialize page from URL query
+if (route.query.page) {
+  const pageNum = parseInt(route.query.page)
+  if (pageNum > 0) {
+    page.value = pageNum
+  }
+}
 
 const applyDivisionFromQuery = () => {
   const q = route.query.division

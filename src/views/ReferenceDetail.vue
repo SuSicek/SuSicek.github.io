@@ -119,7 +119,7 @@ const reference = computed(() => {
 
 const breadcrumbs = computed(() => [
   { title: 'Domů', to: { name: 'Home' } },
-  { title: 'Reference', to: { name: 'References' } },
+  { title: 'Reference', to: { name: 'References', query: route.query } },
   { title: reference.value ? reference.value.title : 'Detail', disabled: true }
 ])
 
