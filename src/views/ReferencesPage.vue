@@ -90,7 +90,7 @@
             <div class="d-flex flex-column justify-end flex-grow-1 position-relative pa-3" style="z-index: 1;">
                  <div class="mt-auto">
                    <v-card-item class="px-0 pb-1">
-                     <v-card-title class="text-h5 text-white font-weight-bold" style="word-break: break-word; white-space: normal; line-height: 1.2;">{{ refItem.title }}</v-card-title>
+                     <v-card-title class="text-h5 text-white font-weight-bold" style="word-break: normal; overflow-wrap: normal; white-space: normal; line-height: 1.2; hyphens: none;">{{ refItem.title }}</v-card-title>
                      <v-card-subtitle class="text-white opacity-90 text-subtitle-1 mt-1">{{ refItem.division }} • {{ refItem.year }}</v-card-subtitle>
                    </v-card-item>
                    <v-card-text class="text-white opacity-90 text-body-1 px-0 pt-1 pb-2">{{ refItem.short }}</v-card-text>
