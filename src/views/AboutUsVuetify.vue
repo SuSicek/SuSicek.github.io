@@ -2,19 +2,13 @@
   <section class="about-section blue-rings-bg">
     <!-- Hero slideshow with overlay title/subtitle -->
     <v-sheet class="position-relative hero-shell" color="black">
-      <v-carousel
-        class="hero-carousel"
-        v-model="currentSlide"
-        hide-delimiters
-        :show-arrows="false"
-        :touch="false"
-        cycle
-        interval="6000"
-      >
-        <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt"></v-img>
-        </v-carousel-item>
-      </v-carousel>
+      <div class="hero-custom-slider">
+        <transition-group name="hero-slide" tag="div" class="hero-slides-wrapper">
+          <div v-for="(slide, i) in slides" :key="i" v-show="currentSlide === i" class="hero-slide-item">
+            <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
+          </div>
+        </transition-group>
+      </div>
       <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
           <h1 class="slideshow-title">UCHYTIL <span class="hero-highlight">s.r.o.</span></h1>
@@ -64,7 +58,7 @@
     <v-container class="py-16 about-container">
       <v-row align="center">
           <v-col cols="12" md="6" class="mb-8 mb-md-0 position-relative">
-          <v-img src="/fotky/jine/savrec.png" alt="Naše týmy a realizace" height="500" cover class="rounded-xl" gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)" />
+          <v-img src="/fotky/jine/dronBrno.png" alt="Naše týmy a realizace" height="500" cover class="rounded-xl" gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)" />
         </v-col>
         <v-col cols="12" md="6" class="about-right">
           <h3 class="text-h5 font-weight-bold mb-2">Máme vlastní</h3>
@@ -155,10 +149,25 @@
           Pomáháme tam, kde je to potřeba. Podporujeme charitativní projekty, místní komunity a lidi, kteří se ocitli v těžké životní situaci.
         </p>
 
-        <div class="d-flex align-center justify-center images-row">
-          <v-sheet class="support-card big-card mx-6" color="transparent">
-            <v-img src="/fotky/prispivame/krtek.png" contain class="fill-height" />
-          </v-sheet>
+        <div class="logos-collage-wrapper position-relative py-12" style="min-height: 480px;">
+           <!-- Main Logo (Krtek) - Centered -->
+           <div class="position-absolute logo-item main-logo-item">
+              <v-sheet color="transparent" width="280">
+                 <v-img src="/fotky/prispivame/krtek.png" contain aspect-ratio="1" class="scale-up-hover main-logo-img" />
+              </v-sheet>
+           </div>
+           
+           <!-- Random Logos - Positioned absolutely around -->
+           <div 
+              v-for="(img, i) in charityImages" 
+              :key="'l-'+i"
+              class="position-absolute logo-item small-logo-item"
+              :class="`pos-${i}`"
+           >
+              <v-sheet color="transparent" :width="img.width">
+                  <v-img :src="img.src" :alt="img.alt" contain aspect-ratio="1" class="grayscale-hover logo-img" />
+              </v-sheet>
+           </div>
         </div>
       </v-container>
     </div>
@@ -212,12 +221,32 @@ import { RouterLink } from 'vue-router'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const currentSlide = ref(0)
+const currentInterval = ref(null)
+
 const slides = [
   { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
   { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
   { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
   { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
 ]
+
+const startSlideShow = () => {
+  currentInterval.value = setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % slides.length
+  }, 6000)
+}
+
+const stopSlideShow = () => {
+  if (currentInterval.value) clearInterval(currentInterval.value)
+}
+
+onMounted(() => {
+  startSlideShow()
+})
+
+onBeforeUnmount(() => {
+  stopSlideShow()
+})
 
 const kpis = [
   { value: '20+', label: 'Let zkušeností' },
@@ -267,10 +296,14 @@ const milestones = [
 ]
 
 const charityImages = [
-  { src: '/fotky/prispivame/charita1.png', alt: 'Charita' },
-  { src: '/fotky/prispivame/charita2.png', alt: 'Podpora' },
-  { src: '/fotky/prispivame/charita4.png', alt: 'Dar' }
-]
+  // Keeping krtek separate as main. Shuffled list of others:
+  { src: '/fotky/prispivame/dumprojulii.png', alt: 'Dům pro Julii', width: 130 },
+  { src: '/fotky/prispivame/hctabor.png', alt: 'HC Tábor', width: 140 },
+  { src: '/fotky/prispivame/knezeves.png', alt: 'Kněževes', width: 120 },
+  { src: '/fotky/prispivame/osh.png', alt: 'OSH', width: 130 },
+  { src: '/fotky/prispivame/skchrlice.png', alt: 'SK Chrlice', width: 150 },
+  { src: '/fotky/prispivame/skvojkovice.png', alt: 'SK Vojkovice', width: 130 }
+].sort(() => Math.random() - 0.5)
 
 // Timeline intersection observer: add .in-view class when list items enter viewport
 onMounted(() => {
@@ -353,14 +386,43 @@ const divisions = [
   border-radius: 0;
   overflow: hidden;
 }
-.hero-shell :deep(.v-carousel),
-.hero-shell :deep(.v-window),
-.hero-shell :deep(.v-carousel-item),
 .hero-shell :deep(.v-img) {
   height: 100% !important;
 }
-.hero-carousel {
+
+.hero-custom-slider,
+.hero-slides-wrapper {
+  position: relative;
+  width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide-enter-active,
+.hero-slide-leave-active {
+  transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+  will-change: transform;
+}
+
+.hero-slide-enter-from {
+  transform: translateX(100%);
+}
+
+.hero-slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.hero-slide-leave-from,
+.hero-slide-enter-to {
+  transform: translateX(0);
 }
 
 .hero-overlay {
@@ -851,32 +913,93 @@ time {
 }
 .z-index-2 { z-index: 3; }
 
-/* Images Row */
-.images-row {
-  margin-top: 1.5rem;
-}
-.support-card {
-  overflow: hidden;
-  border-radius: 12px;
-  transition: all 0.4s ease;
+/* Logos Collage */
+.logos-collage-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
   position: relative;
-}
-.support-card .v-img {
-  /* Removed zoom transition */
-}
-.support-card:hover .v-img {
-  /* Removed zoom transform */
+  overflow: visible;
 }
 
-.small-card {
-  width: 220px;
-  height: 150px;
+.logo-item {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.big-card {
-  width: 480px;
-  height: 360px;
-  z-index: 3;
+/* Center Krtek */
+.main-logo-item {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 280px; /* Base width for wrapper */
+}
+.main-logo-img {
+  /* Removed drop-shadow */
+}
+
+/* Scattered Positions - larger spread */
+.pos-0 { top: 8%; left: 12%; }
+.pos-1 { top: 12%; right: 12%; }
+.pos-2 { top: 42%; left: 2%; }
+.pos-3 { top: 45%; right: 2%; }
+.pos-4 { bottom: 12%; left: 18%; }
+.pos-5 { bottom: 8%; right: 18%; }
+
+/* Item Styles */
+.logo-img, .main-logo-img {
+  transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+.grayscale-hover {
+  filter: grayscale(0%) brightness(1.1); /* Show original colors */
+  opacity: 0.95;
+  transition: all 0.4s ease;
+}
+
+.logo-item:hover {
+  z-index: 20;
+}
+
+.logo-item:hover .grayscale-hover {
+  filter: brightness(1.2);
+  opacity: 1;
+  transform: scale(1.15) rotate(2deg);
+}
+
+.scale-up-hover {
+  animation: pulseLogo 3s infinite ease-in-out;
+}
+
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@media (max-width: 900px) {
+  .logos-collage-wrapper { min-height: 450px !important; }
+  
+  /* Resize for mobile to prevent severe overlap */
+  .main-logo-item { width: 160px !important; } /* Wrapper width */
+  .main-logo-item .v-sheet { width: 100% !important; }
+
+  .logo-item.small-logo-item { width: 80px !important; } /* Wrapper width */
+  .logo-item.small-logo-item .v-sheet { width: 100% !important; }
+  
+  /* Distribute vertically */
+  .pos-0 { top: 5%; left: 5%; }
+  .pos-1 { top: 5%; right: 5%; }
+  
+  /* Middle row alongside Krtek */
+  .pos-2 { top: 50%; left: 2%; transform: translateY(-50%); }
+  .pos-3 { top: 50%; right: 2%; transform: translateY(-50%); }
+  
+  /* Bottom row */
+  .pos-4 { bottom: 5%; left: 10%; }
+  .pos-5 { bottom: 5%; right: 10%; }
 }
 
 @media (max-width: 960px) {

@@ -2,18 +2,13 @@
   <div>
     <!-- Hero slideshow with overlay title/subtitle -->
     <v-sheet class="position-relative hero-shell" color="black">
-      <v-carousel
-        class="hero-carousel"
-        v-model="currentSlide"
-        hide-delimiters
-        :show-arrows="false"
-        cycle
-        interval="6000"
-      >
-        <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
-        </v-carousel-item>
-      </v-carousel>
+      <div class="hero-custom-slider">
+        <transition-group name="hero-slide" tag="div" class="hero-slides-wrapper">
+          <div v-for="(slide, i) in slides" :key="i" v-show="currentSlide === i" class="hero-slide-item">
+            <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
+          </div>
+        </transition-group>
+      </div>
       <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
           <h1 class="slideshow-title">UCHYTIL <span class="hero-highlight">s.r.o.</span></h1>
@@ -178,6 +173,7 @@ export default {
         { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
         { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
       ],
+      currentInterval: null,
       stats: [
         { number: 32, label: 'Let na trhu' },
         { number: 4100, label: 'Dokončených projektů' },
@@ -244,9 +240,21 @@ export default {
     }
   },
   mounted() {
+    this.startSlideShow()
     this.observeStats()
   },
+  beforeUnmount() {
+    this.stopSlideShow()
+  },
   methods: {
+    startSlideShow() {
+      this.currentInterval = setInterval(() => {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length
+      }, 6000)
+    },
+    stopSlideShow() {
+      if (this.currentInterval) clearInterval(this.currentInterval)
+    },
     observeStats() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -285,6 +293,7 @@ export default {
 </script>
 
 <style scoped>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 .hero-shell {
   min-height: 520px;
   height: clamp(520px, 75vh, 720px);
@@ -861,5 +870,46 @@ export default {
 }
 .z-1 {
   z-index: 1;
+}
+
+/* Custom Slide Animation */
+.hero-custom-slider,
+.hero-slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+   Smooth slide transition 
+   Using transform for performance and cubic-bezier for the requested "smooth" feel.
+   Duration matches the "smoothness" request (approx 1.5s visual movement).
+*/
+.hero-slide-enter-active,
+.hero-slide-leave-active {
+  transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+  will-change: transform;
+}
+
+.hero-slide-enter-from {
+  transform: translateX(100%);
+}
+
+.hero-slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.hero-slide-leave-from,
+.hero-slide-enter-to {
+  transform: translateX(0);
 }
 </style>

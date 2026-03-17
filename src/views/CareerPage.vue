@@ -209,23 +209,21 @@
                         </div>
                     </div>
 
-                    <!-- Slideshow view for "Férové jednání" -->
+                    <!-- Slideshow view for "Férové jednání" (and others) -->
                     <div v-else-if="item.type === 'slideshow'" class="h-100 position-relative">
-                        <v-carousel
-                          cycle
-                          height="100%"
-                          hide-delimiter-background
-                          :show-arrows="false"
-                          hide-delimiters
-                          interval="2500"
-                        >
-                          <v-carousel-item
-                            v-for="(img, i) in item.images"
-                            :key="i"
-                            :src="img"
-                            cover
-                          ></v-carousel-item>
-                        </v-carousel>
+                        <div class="career-custom-slider">
+                          <transition-group name="career-slide" tag="div" class="career-slides-wrapper">
+                            <div 
+                              v-for="(img, i) in item.images" 
+                              :key="i" 
+                              v-show="(currentFrame % item.images.length) === i" 
+                              class="career-slide-item"
+                            >
+                              <v-img :src="img" cover class="h-100 w-100" />
+                            </div>
+                          </transition-group>
+                        </div>
+                        
                         <div class="image-overlay d-flex align-end pa-8 position-absolute w-100 h-100" style="z-index: 5; top: 0; left: 0; pointer-events: none; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%);">
                           <div class="text-white">
                             <h3 class="text-h4 font-weight-bold mb-2">{{ item.title }}</h3>
@@ -464,7 +462,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useDisplay } from 'vuetify'
 import { useRoute, useRouter } from 'vue-router'
 import { careerJobs } from '@/data/careerJobs.js'
@@ -474,6 +472,28 @@ const route = useRoute()
 const router = useRouter()
 
 const jobs = ref(careerJobs)
+
+// Custom Slideshow Logic
+const currentFrame = ref(0)
+let slideshowInterval = null
+
+const startSlideshow = () => {
+  slideshowInterval = setInterval(() => {
+    currentFrame.value++
+  }, 5000)
+}
+
+const stopSlideshow = () => {
+  if (slideshowInterval) clearInterval(slideshowInterval)
+}
+
+onMounted(() => {
+  startSlideshow()
+})
+
+onBeforeUnmount(() => {
+  stopSlideshow()
+})
 
 // Filters
 const selectedDivision = ref(null)
@@ -597,6 +617,42 @@ const benefits = ref([
 .benefit-title { font-size: .95rem; letter-spacing:.3px; margin-bottom: 6px; }
 .benefit-text { line-height:1.4; max-width: 260px; margin: 0 auto; }
 .benefits-heading { font-size: clamp(2rem,4.8vw,3.1rem); letter-spacing:.6px; font-weight:800; }
+
+/* Custom Slideshow Styles */
+.career-custom-slider,
+.career-slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.career-slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.career-slide-enter-active,
+.career-slide-leave-active {
+  transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
+  will-change: transform;
+}
+
+.career-slide-enter-from {
+  transform: translateX(100%);
+}
+
+.career-slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.career-slide-leave-from,
+.career-slide-enter-to {
+  transform: translateX(0);
+}
 
 /* Jobs section with background */
 .jobs-section { position: relative; background-image: url('/fotky/jine/stavba3.png'); background-size: cover; background-position: center; }

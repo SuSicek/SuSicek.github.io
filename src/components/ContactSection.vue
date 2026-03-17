@@ -424,7 +424,7 @@ const divisionContacts = ref({
     { name: 'Jaroslav Ptáček', role: 'Vedoucí prodejny', email: 'jaroslav.ptacek@uchytil.eu', phone: '604 293 916' }
   ],
   ostatni: [
-    { name: 'Ivana Ješinová DiS.', role: 'Ekonomický úsek', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 246' },
+    { name: 'Ivana Ješinová DiS.', role: 'Ekonomický úsek', email: 'ivana.jesinova@uchytil.eu', phone: '545 423 218' },
     { name: 'Ing. Jana Vacková', role: 'Personální úsek', email: 'jana.vackova@uchytil.eu', phone: '560 594 114' },
     { name: 'Ing. Tereza Böhmová', role: 'Organizačně-správní úsek', email: 'tereza.bohmova@uchytil.eu', phone: '545 423 222' }
   ]

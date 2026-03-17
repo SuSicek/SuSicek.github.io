@@ -23,7 +23,7 @@
         <v-col cols="12" md="7" class="text-left">
           <h2 class="text-h4 text-primary font-weight-bold mb-6">Úvod</h2>
           <p class="text-body-1 mb-6 text-justify" style="font-size: 1.1rem !important; line-height: 1.8;">
-            Kamenná prodejna <strong>VODO • TOPO • PLYN</strong> nabízí kompletní sortiment topenářského, vodoinstalačního i plynářského materiálu ihned k odběru – a k tomu odborné poradenství vycházející z více než 30 let zkušeností v oboru.
+            Kamenná prodejna <strong>VODO • TOPO • PLYN</strong> nabízí kompletní sortiment topenářského, vodoinstalačního i plynárenského materiálu ihned k odběru – a k tomu odborné poradenství vycházející z více než 30 let zkušeností v oboru.
           </p>
           
           <v-row class="mb-6">
