@@ -99,7 +99,7 @@
           <!-- Extra Services -->
           <v-col cols="12" md="4">
             <v-card class="h-100 ServiceCard" elevation="3">
-              <v-img src="/fotky/jine/dronBrno.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
+              <v-img src="/fotky/jine/navic.jpg" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
                 <v-card-title class="text-white position-absolute bottom-0 w-100 pb-4 text-h5">Služby navíc</v-card-title>
               </v-img>
               <v-card-text class="pa-6 text-left">

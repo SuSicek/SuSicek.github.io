@@ -179,6 +179,12 @@ export default {
   methods: {
     iconToMdi,
     
+  },
+  mounted() {
+    // If we landed on an alias (e.g. /division/prumysl), replace with canonical (/division/tzb)
+    if (this.currentKey && this.division !== this.currentKey) {
+      this.$router.replace({ name: 'Division', params: { division: this.currentKey } });
+    }
   }
 }
 </script>

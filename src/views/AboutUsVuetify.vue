@@ -153,7 +153,7 @@
            <!-- Main Logo (Krtek) - Centered -->
            <div class="position-absolute logo-item main-logo-item">
               <v-sheet color="transparent" width="280">
-                 <v-img src="/fotky/prispivame/krtek.png" contain aspect-ratio="1" class="scale-up-hover main-logo-img" />
+                 <v-img src="/fotky/prispivame/krtek.png" contain aspect-ratio="1" class="grayscale-hover main-logo-img" />
               </v-sheet>
            </div>
            
@@ -970,14 +970,7 @@ time {
   transform: scale(1.15) rotate(2deg);
 }
 
-.scale-up-hover {
-  animation: pulseLogo 3s infinite ease-in-out;
-}
 
-@keyframes pulseLogo {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
 
 @media (max-width: 900px) {
   .logos-collage-wrapper { min-height: 450px !important; }

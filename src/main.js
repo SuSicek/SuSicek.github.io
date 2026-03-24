@@ -20,11 +20,15 @@ import ReferenceDetail from './views/ReferenceDetail.vue'
 import JobDetail from './views/JobDetail.vue'
 import StudentOpportunities from './views/StudentOpportunities.vue'
 import CertificatesView from './views/CertificatesView.vue'
+import EthicsView from './views/EthicsView.vue'
+import PolicyView from './views/PolicyView.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: HomeView },
   { path: '/aboutus', name: 'AboutUs', component: AboutUs },
   { path: '/certificates', name: 'Certificates', component: CertificatesView },
+  { path: '/eticky-kodex', name: 'Ethics', component: EthicsView },
+  { path: '/politika-spolecnosti', name: 'Policy', component: PolicyView },
   { path: '/references', name: 'References', component: References },
   { path: '/career', name: 'Career', component: Career },
   { path: '/career/students', name: 'StudentOpportunities', component: StudentOpportunities },

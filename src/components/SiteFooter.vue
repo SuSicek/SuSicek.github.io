@@ -21,9 +21,9 @@
         <v-col cols="6" md="4">
           <h6 class="footer-heading">Naše služby</h6>
           <ul class="footer-links">
-            <li><RouterLink :to="{ name: 'Division', params: { division: 'stavebnictvi' } }">Stavba</RouterLink></li>
+            <li><RouterLink :to="{ name: 'Division', params: { division: 'stavba' } }">Stavba</RouterLink></li>
             <li><RouterLink :to="{ name: 'Division', params: { division: 'energetika' } }">Energetika</RouterLink></li>
-            <li><RouterLink :to="{ name: 'Division', params: { division: 'prumysl' } }">TZB</RouterLink></li>
+            <li><RouterLink :to="{ name: 'Division', params: { division: 'tzb' } }">TZB</RouterLink></li>
             <li><RouterLink :to="{ name: 'Prodejna' }">Prodejna</RouterLink></li>
           </ul>
         </v-col>
@@ -41,9 +41,9 @@
             </v-col>
             <v-col cols="auto">
               <ul class="footer-links">
-                <li><a href="#" @click.prevent="etickyKodexOpen = true">Etický kodex</a></li>
+                <li><RouterLink :to="{ name: 'Ethics' }">Etický kodex</RouterLink></li>
                 <li><RouterLink :to="{ name: 'Certificates' }">Certifikace</RouterLink></li>
-                <li><a href="#" @click.prevent="politikaOpen = true">Politika společnosti</a></li>
+                <li><RouterLink :to="{ name: 'Policy' }">Politika společnosti</RouterLink></li>
               </ul>
             </v-col>
           </v-row>
@@ -268,9 +268,6 @@ import { RouterLink } from 'vue-router'
 const footerLogoErrored = ref(false)
 const footerLogoSrc = computed(() => footerLogoErrored.value ? '/fotky/jine/logo.png' : '/fotky/jine/logo.png')
 const onFooterLogoError = () => { footerLogoErrored.value = true }
-const etickyKodexOpen = ref(false)
-const certifikaceOpen = ref(false)
-const politikaOpen = ref(false)
 </script>
 
 <style scoped>

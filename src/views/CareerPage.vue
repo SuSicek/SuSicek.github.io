@@ -519,8 +519,7 @@ const filteredJobs = computed(() => {
   })
 })
 
-// Application form state (removed as moved to subpage)
-// Background image for jobs section (easy to change)
+
 const jobsBackground = ref('/fotky/jine/stavba3.png')
 
 // Atmosphere items for the second section
@@ -529,7 +528,7 @@ const atmosphere = ref([
     title: 'Stabilní zázemí',
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
     image: '/fotky/jine/dronBrno.png',
-    images: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/foto 202 zr/kancl1.jpg'],
+    images: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
     type: 'slideshow',
     icon: 'mdi-shield-check'
   },
