@@ -4,23 +4,23 @@ const references = ref([
   // Energetika References
   {
     id: 'energetika-1',
-    title: 'Auxilien_BFS - Montáž potrubních tras – SVR v areálu BPS Vyškov',
+    title: 'Auxilien - Montáž potrubních tras – SVR v areálu BPS Vyškov',
     division: 'Energetika',
     year: 2025,
     price: '8 mil. Kč',
     location: 'Vyškov',
     financial: '8 mil. Kč',
     center: '610',
-    image: '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
+    image: '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
     images: [
-      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg',
-      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg',
       '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072952_0014_1755585215369_photo.jpg',
       '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073908_0039_1755585208419_photo.jpg',
-      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg'
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_074016_0044_1755585207372_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_072930_0012_1755585215618_photo.jpg',
+      '/fotky/references/energetika/610 - Vyškov/dji_fly_20250819_073712_0035_1755585209488_photo.jpg'
     ],
     short: 'Výstavba nového elektrokotle a potrubních tras v bioplynové stanici.',
-    long: 'V areálu bioplynové stanice Vyškov jsme realizovali výstavbu nového elektrokotle o výkonu 12 MWe, který zajistil stabilitu elektrické sítě pod dohledem ČEPS. Projekt zahrnoval montáž vysokonapěťového zdroje, rozsáhlých potrubních systémů DN200–400, 5 chladicích věží s výkonem 16,8 MWt, ocelových konstrukcí a všechny doprovodné práce.'
+    long: 'V areálu bioplynové stanice ve Vyškově jsme realizovali výstavbu a montáž nového vysokonapěťového elektrokotle o elektrickém výkonu 12 MWe. Tento zdroj byl primárně vybudován pro zajištění výkonové rovnováhy a stability přenosové soustavy pod správou operátora ČEPS. Naše plnění v rámci tohoto projektu zahrnovalo kompletní strojní montáž elektrokotle, instalaci pěti chladicích věží s celkovým tepelným výkonem 16,8 MWt a montáž přidružených ocelových konstrukcí. Zásadní součástí prací byla rovněž instalace vysokoteplotních okruhů, rozvodů chladicího média, napojení na výměníky, osazení čerpadel a bezpečnostních prvků včetně výstavby potrubních tras a rozdělovačů v dimenzích DN200 až DN400.'
   },
   {
     id: 'energetika-2',
@@ -32,7 +32,7 @@ const references = ref([
     financial: '2 mil. Kč',
     center: '620',
     technicians: 'Grombíř, Šmerda',
-    image: '/fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg',
+    image: '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
     images: [
       '/fotky/references/energetika/620 - Bojkovice/Nový stav pohony.jpg',
       '/fotky/references/energetika/620 - Bojkovice/20250512_081237.jpg',
@@ -46,57 +46,123 @@ const references = ref([
   },
   {
     id: 'energetika-3',
-    title: 'C-Energy - PD - Redukční stanice páry',
+    title: 'PD Navýšení výkonu HVS na zdroji C-energy',
     division: 'Energetika',
-    year: 2025,
-    price: '20 mil. Kč',
-    location: 'Planá',
-    financial: '20 mil. Kč',
-    center: '603',
-    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
-    images: [
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
-    ],
-    short: 'Návrh a projektová dokumentace na rekonstrukci redukční stanice páry.',
-    long: 'Byl zpracován návrh redukční stanice páry včetně projektové dokumentace na rekonstrukci stávající redukční stanice o výkonu 60 tun. Navržené řešení zajišťuje redukci parametrů páry z původních 520 °C a tlaku 40 barů na výstupní hodnoty 280 °C a 3 bary, a to v souladu s technologickými požadavky provozu. Součástí projektu je rovněž výměna potrubí za redukční stanicí až do stávajícího rozdělovače, včetně navazujících ocelových konstrukcí.'
-  },
-  {
-    id: 'energetika-4',
-    title: 'Úprava ochrany před bleskem - Jihomoravské náměstí 1a',
-    division: 'Energetika',
-    year: 2024,
-    price: '0,3 mil. Kč',
-    location: 'Brno - Jihomoravské náměstí',
-    financial: '0,3 mil. Kč',
-    center: '630',
-    image: '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
-    images: [
-      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
-      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg',
-      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg',
-      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg',
-      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg'
-    ],
-    short: 'Demontáž původní a montáž nové soustavy ochrany před bleskem.',
-    long: 'Byla provedena demontáž původní soustavy ochrany před bleskem, konkrétně mřížové soustavy, která již nevyhovovala současným požadavkům. Následně byla realizována montáž nové soustavy ochrany před bleskem v souladu s platnými normami a projektovou dokumentací. Nové řešení zohledňuje instalaci fotovoltaické elektrárny (FVE) a zajišťuje odpovídající úroveň ochrany objektu i technologického vybavení.'
-  },
-  {
-    id: 'energetika-5',
-    title: 'PLANÁ - HVS - PD - Navýšení výkonu HVS na zdroji C-energy',
-    division: 'Energetika',
-    year: 2025,
-    price: '76 mil. Kč',
-    location: 'Planá',
-    financial: '76 mil. Kč',
+    year: 2026,
+    price: '2 mil. Kč',
+    location: 'Planá nad Lužnicí',
+    financial: '2 mil. Kč',
     center: '603',
     image: '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg',
     images: [
       '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'
     ],
-    short: 'Výměna oběhových čerpadel a navýšení výkonu výměníkových stanic.',
-    long: 'Byla provedena výměna oběhových čerpadel v horkovodní soustavě Planá. Každé čerpadlo má průtok 600 tun a celkem budou instalována tři čerpadla. Součástí projektu bylo navýšení výkonu výměníkových stanic o 20 MW. Projekt zahrnoval kompletní realizaci, včetně stavby, měření a strojní části. Instalovány byly dva zaplavované trubkové výměníky.'
+    short: 'Projektová dokumentace pro navýšení výkonu hlavní výměníkové stanice.',
+    long: 'V rámci rozšiřování energetické infrastruktury jsme zpracovali projektovou dokumentaci pro navýšení výkonu hlavní výměníkové stanice (HVS) v areálu teplárny C-Energy v Plané nad Lužnicí. Cílem projektu je celkové navýšení tepelného výkonu HVS o 20 MWt, a to integrací nového špičkového ohříváku o výkonu 10 MWt a základního ohříváku o výkonu 10 MWt. Náš návrh pokrývá jak technologickou část, tak stavební úpravy, které zahrnují demolici původních konstrukcí a realizaci nových železobetonových základů pro oběhová čerpadla uvnitř stávající haly. Pro ochranu nově instalovaných technologií, expanzních systémů a dochlazovačů kondenzátu je navržena přístavba nového ocelového přístřešku opláštěného sendvičovými panely. Projekt je koncipován s důrazem na minimalizaci prostojů.'
+  },
+  {
+    id: 'energetika-4',
+    title: 'Plzeňská teplárenská, a.s. - Úprava horkovodní sítě CZT',
+    division: 'Energetika',
+    year: 2025,
+    price: '38,5 mil. Kč',
+    location: 'Plzeň',
+    financial: '38,5 mil. Kč',
+    center: '603',
+    image: '/fotky/references/energetika/603 - REF - Plzeň/IMG_1.JPEG',
+    images: [
+      '/fotky/references/energetika/603 - REF - Plzeň/IMG_1.JPEG',
+      '/fotky/references/energetika/603 - REF - Plzeň/IMG_2.JPEG'
+    ],
+    short: 'Komplexní úprava horkovodní sítě centrálního zásobování teplem.',
+    long: 'Pro společnost Plzeňská teplárenská, a.s. jsme formou dodávky na klíč realizovali projekt situovaný do dvou provozů: Doubravka a Energetika. Jádrem technického plnění byla instalace soustavy posilovacích čerpadel a jejich potrubní napojení na stávající infrastrukturu centrálního zásobování teplem, včetně implementace technologie nezbytné pro řízení provozu a navazující datové přenosy. Součástí komplexního inženýringu bylo zpracování prováděcí projektové dokumentace, demontáž a ekologická likvidace původních strojních zařízení i realizace nových nosných konstrukcí.'
+  },
+  {
+    id: 'energetika-5',
+    title: 'Amper Industry s.r.o. - Plynová kotelna, rozvody páry, přípojka STL plyn – FNUSA',
+    division: 'Energetika',
+    year: 2025,
+    price: '65,5 mil. Kč',
+    location: 'Brno',
+    financial: '65,5 mil. Kč',
+    center: '603',
+    image: '/fotky/references/energetika/603 - REF - FNUSA/IMG_1.JPEG',
+    images: [
+      '/fotky/references/energetika/603 - REF - FNUSA/IMG_1.JPEG',
+      '/fotky/references/energetika/603 - REF - FNUSA/IMG_2.JPEG'
+    ],
+    short: 'Komplexní optimalizace parního systému a vybudování centrálního zdroje.',
+    long: 'V rámci EPC projektu pro Fakultní nemocnici u sv. Anny v Brně jsme jako partner společnosti Amper Industry, s.r.o. zrealizovali komplexní optimalizaci parního systému a vybudování nového centrálního zdroje. Jádrem technického plnění byla kompletní dodávka a instalace parní kotelny s celkovým výkonem do 3,5 MWt. Zajišťovali jsme ucelený proces od zpracování projektové dokumentace (DSP, DPS, DSPS) a inženýringu, přes vybudování nové středotlaké plynové přípojky s řízeným protlakem, osazení úpravny napájecí vody s reverzní osmózou a kondenzátního hospodářství, až po realizaci navazujících areálových parních rozvodů pro VZT a nemocniční sterilizaci. Součástí zprovoznění byla kompletní integrace technologie do systému MaR.'
+  },
+  {
+    id: 'energetika-6',
+    title: 'Parovod MADETA – Jindřichův Hradec',
+    division: 'Energetika',
+    year: 2025,
+    price: '102,5 mil. Kč',
+    location: 'Jindřichův Hradec',
+    financial: '102,5 mil. Kč',
+    center: '610',
+    image: '/fotky/references/energetika/610 - REF - Madeta/IMG_1.JPEG',
+    images: [
+      '/fotky/references/energetika/610 - REF - Madeta/IMG_1.JPEG',
+      '/fotky/references/energetika/610 - REF - Madeta/IMG_2.JPEG'
+    ],
+    short: 'Výstavba dálkového parovodu pro výrobní závod MADETA.',
+    long: 'Naše firma zhotovila pro výrobní závod MADETA a.s. v Jindřichově Hradci nový dálkový parovod, který zajišťuje primární energetické zásobování podniku technologickou párou z Energetického centra s.r.o. Tímto řešením jsme úspěšně nahradili produkci páry z lokálních plynových kotlů za zdroj z biomasy. Liniová stavba o celkové délce 2 285 metrů je realizována jako dvoutrubkový předizolovaný systém, jež byl doplněn o soustavu šachet.'
+  },
+  {
+    id: 'energetika-7',
+    title: 'Havířov - ZŠ M. Kudeříkové - výměna elektroinstalace a datových rozvodů',
+    division: 'Energetika',
+    year: 2025,
+    price: '47 mil. Kč',
+    location: 'Havířov',
+    financial: '47 mil. Kč',
+    center: '620',
+    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg', // Placeholder image
+    images: [
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
+      '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
+    ],
+    short: 'Kompletní výměna elektroinstalace a datových rozvodů v základní škole.',
+    long: 'Pro statutární město Havířov jsme zrealizovali zakázku na kompletní výměnu elektroinstalace a datových rozvodů v budovách Základní školy M. Kudeříkové. Tento rozsáhlý projekt zahrnoval stavební a montážní práce hned v pěti školních pavilonech a přilehlých prostorech tělocvičny a koridorů. Náš tým zvládl dokončení a předání plně funkčního díla ve stanovené lhůtě 120 kalendářních dnů od převzetí staveniště.'
+  },
+  {
+    id: 'energetika-8',
+    title: 'Teplárny Brno, a.s. - Opravy energetických zařízení',
+    division: 'Energetika',
+    year: 2013,
+    price: 'cca 10 mil ročně',
+    location: 'Brno',
+    financial: 'cca 10 mil ročně',
+    center: '630',
+    image: '/fotky/references/energetika/630 - REF - Opravy energetických zařízení/IMG_1.JPEG',
+    images: [
+      '/fotky/references/energetika/630 - REF - Opravy energetických zařízení/IMG_1.JPEG',
+      '/fotky/references/energetika/630 - REF - Opravy energetických zařízení/IMG_2.JPEG'
+    ],
+    short: 'Komplexní servisní činnosti, údržba a havarijní opravy energetických celků.',
+    long: 'V rámci zajištění provozní spolehlivosti vykonáváme pro společnost Teplárny Brno, a.s. realizaci komplexní servisní činnosti, údržbu a havarijní opravy energetických celků. Naše plnění zahrnuje práce na strojních, plynových, tlakových a zvedacích zařízeních napříč tepelnými zdroji, distribučními elektrorozvodnami a parními či horkovodními sítěmi na území města Brna. Divize Energetika zajišťuje nepřetržitou havarijní pohotovost v režimu 24/7 s garantovaným nástupem k zásahu do 4 hodin od vyzvání. Zajišťovali jsme rovněž specializované opravy a revize turbín, tlakových nádob, čerpadel, kotlů a výměníků, včetně certifikovaných svářečských a zámečnických prací či vystavování revizních zpráv. Součástí náplně údržby jsou také práce na elektroinstalaci včetně MaR.'
+  },
+  {
+    id: 'energetika-9',
+    title: 'Energetické centrum s.r.o. - FVE 97,2 kWp na střeše objektu ECJH',
+    division: 'Energetika',
+    year: 2023,
+    price: '3,2 mil. Kč',
+    location: 'Jindřichův Hradec',
+    financial: '3,2 mil. Kč',
+    center: '630',
+    image: '/fotky/references/energetika/630 - REF - FVE 100kWp/IMG_1.JPG',
+    images: [
+      '/fotky/references/energetika/630 - REF - FVE 100kWp/DJI_0307.JPG',
+      '/fotky/references/energetika/630 - REF - FVE 100kWp/DJI_0313.JPG',
+      '/fotky/references/energetika/630 - REF - FVE 100kWp/IMG_1.JPG'
+    ],
+    short: 'Kompletní dodávka a montáž střešní fotovoltaické elektrárny.',
+    long: 'Pro společnost Energetické centrum s.r.o. jsme zajistili kompletní dodávku a montáž střešní fotovoltaické elektrárny o výkonu 97,2 kWp v areálu v Jindřichově Hradci. Zakázka obsáhla zhotovení plně funkčního provozuschopného díla včetně zpracování dokumentace skutečného provedení stavby a nezbytné součinnosti při připojení do distribuční sítě společnosti EG.D, a.s..'
   },
   // Stavba References
   {

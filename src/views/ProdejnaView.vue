@@ -4,8 +4,7 @@
     <v-sheet
       class="d-flex align-center justify-center position-relative"
       height="300"
-      color="primary"
-      style="overflow: hidden;"
+      style="overflow: hidden; background-color: #0D47A1;"
     >
       
       <div class="position-relative z-index-1 text-white px-4">
@@ -28,15 +27,45 @@
           
           <v-row class="mb-6">
             <v-col cols="12">
-              <v-card variant="outlined" color="primary" class="h-100 pa-4" style="border-width: 2px;">
-                <div class="text-h6 font-weight-bold mb-4">Co u nás najdete</div>
-                <v-list density="compact">
-                  <v-list-item prepend-icon="mdi-check-circle" color="primary">Kompletní sortiment VODO • TOPO • PLYN</v-list-item>
-                  <v-list-item prepend-icon="mdi-check-circle" color="primary">Skladové zásoby běžně používaného materiálu</v-list-item>
-                  <v-list-item prepend-icon="mdi-check-circle" color="primary">Možnost zajištění kompletní dodávky včetně montáže</v-list-item>
-                  <v-list-item prepend-icon="mdi-check-circle" color="primary">Individuální objednání a rychlé dodání neskladového zboží</v-list-item>
-                </v-list>
-              </v-card>
+              <h2 class="text-h4 text-primary font-weight-bold mb-6 text-center">Co u nás najdete</h2>
+              <v-row>
+                <v-col cols="12" md="6" lg="3" class="d-flex">
+                  <v-card class="feature-card h-100 d-flex flex-column text-center pa-4" elevation="2">
+                    <v-card-text class="flex-grow-1 d-flex flex-column align-center justify-center">
+                      <v-icon size="48" style="color: #031f68 !important;" class="mb-3">mdi-package-variant</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-2">Kompletní sortiment</h3>
+                      <p class="text-body-2 text-medium-emphasis">VODO • TOPO • PLYN</p>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col cols="12" md="6" lg="3" class="d-flex">
+                  <v-card class="feature-card h-100 d-flex flex-column text-center pa-4" elevation="2">
+                    <v-card-text class="flex-grow-1 d-flex flex-column align-center justify-center">
+                      <v-icon size="48" style="color: #031f68 !important;" class="mb-3">mdi-warehouse</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-2">Skladové zásoby</h3>
+                      <p class="text-body-2 text-medium-emphasis">Běžně používaný materiál</p>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col cols="12" md="6" lg="3" class="d-flex">
+                  <v-card class="feature-card h-100 d-flex flex-column text-center pa-4" elevation="2">
+                    <v-card-text class="flex-grow-1 d-flex flex-column align-center justify-center">
+                      <v-icon size="48" style="color: #031f68 !important;" class="mb-3">mdi-tools</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-2">Kompletní dodávka</h3>
+                      <p class="text-body-2 text-medium-emphasis">Včetně montáže</p>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                <v-col cols="12" md="6" lg="3" class="d-flex">
+                  <v-card class="feature-card h-100 d-flex flex-column text-center pa-4" elevation="2">
+                    <v-card-text class="flex-grow-1 d-flex flex-column align-center justify-center">
+                      <v-icon size="48" style="color: #031f68 !important;" class="mb-3">mdi-clock-fast</v-icon>
+                      <h3 class="text-h6 font-weight-bold mb-2">Rychlé dodání</h3>
+                      <p class="text-body-2 text-medium-emphasis">Neskladového zboží</p>
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
           
@@ -121,29 +150,7 @@
             <v-sheet color="red-lighten-5" class="pa-8 pa-md-12 text-center">
                 <v-chip color="red" label class="mb-4 px-6 font-weight-bold" size="large">AKCE PRODEJNA</v-chip>
                 <h2 class="text-h3 font-weight-bold text-red-darken-4 mb-2">Aktuální akční nabídka</h2>
-                <p class="text-h6 text-red-darken-2 mb-8">Nejlepší ceny pro řemeslníky i domácnosti</p>
-                
-                <v-row justify="center">
-                   <v-col cols="12" sm="6" md="3" v-for="(item, i) in actionItems" :key="i">
-                      <v-card class="h-100 action-card" hover variant="elevated" color="white">
-                         <div class="position-relative">
-                            <v-img :src="item.image" height="200" contain class="pa-2 bg-white"></v-img>
-                            <v-chip color="red" class="position-absolute top-0 right-0 ma-2 font-weight-bold" variant="flat">
-                               -{{ item.discount }}%
-                            </v-chip>
-                         </div>
-                         <v-card-item class="pt-4 text-left">
-                            <div class="text-subtitle-1 font-weight-bold mb-2" style="min-height: 48px; line-height: 1.2;">{{ item.name }}</div>
-                            <div class="d-flex align-end justify-space-between mt-auto">
-                               <div>
-                                   <div class="text-caption text-decoration-line-through text-grey">Původně: {{ item.oldPrice }} Kč</div>
-                                   <div class="text-h5 font-weight-bold text-red">{{ item.price }} Kč</div>
-                               </div>
-                            </div>
-                         </v-card-item>
-                      </v-card>
-                   </v-col>
-                </v-row>
+                <p class="text-h6 text-red-darken-2 mb-8">Pro nabídku kontaktujte prodejnu</p>
             </v-sheet>
          </v-card>
       </div>
@@ -153,30 +160,23 @@
          <div class="text-center mb-10">
            <h2 class="text-h4 font-weight-bold text-primary mb-3">Zboží za trvale nízké ceny</h2>
            <p class="text-body-1 text-grey-darken-1" style="max-width: 700px; margin: 0 auto;">
-             Vybrané zboží nabízíme dlouhodobě za výhodné ceny. Bez časového omezení a bez kompromisů v kvalitě.
+             Pro nabídku kontaktujte prodejnu
            </p>
          </div>
-         <v-row>
-             <v-col cols="12" sm="6" md="3" v-for="(item, i) in lowPriceItems" :key="i">
-                <v-card class="h-100 low-price-card" hover variant="outlined">
-                   <v-img :src="item.image" height="180" contain class="pa-4 bg-white align-end"></v-img>
-                   <v-divider></v-divider>
-                   <v-card-item class="py-4 text-center">
-                      <div class="text-subtitle-2 font-weight-bold mb-2 text-wrap">{{ item.name }}</div>
-                      <v-chip color="primary" variant="flat" size="small">Super cena</v-chip>
-                      <div class="text-h6 font-weight-bold text-primary mt-2">{{ item.price }} Kč</div>
-                   </v-card-item>
-                </v-card>
-             </v-col>
-         </v-row>
       </div>
 
       <!-- Sortiment -->
       <div class="mb-16">
         <h2 class="text-h4 font-weight-bold text-center mb-8">Kompletní sortiment</h2>
         
-        <div class="d-flex justify-center mb-8">
-           <v-tabs v-model="selectedSortimentTab" color="primary" align-tabs="center" class="rounded-pill">
+        <div class="tabs-container d-flex justify-center mb-8">
+           <v-tabs 
+             v-model="selectedSortimentTab" 
+             color="primary" 
+             align-tabs="center" 
+             class="rounded-pill"
+             show-arrows
+           >
               <v-tab v-for="tab in sortimentTabs" :key="tab.value" :value="tab.value">{{ tab.title }}</v-tab>
            </v-tabs>
         </div>
@@ -189,6 +189,18 @@
             </v-card>
           </v-col>
         </v-row>
+
+        <!-- Logos Section -->
+        <div class="mt-12">
+          <h3 class="text-h5 font-weight-bold text-center mb-6">Dostupné značky</h3>
+          <v-row justify="center" dense>
+            <v-col cols="6" sm="4" md="3" lg="2" v-for="logo in logos" :key="logo.name">
+              <v-card class="logo-card h-100 d-flex align-center justify-center" hover elevation="2">
+                <v-img :src="logo.image" height="80" contain class="pa-2"></v-img>
+              </v-card>
+            </v-col>
+          </v-row>
+        </div>
       </div>
 
        <!-- Rezervace -->
@@ -296,18 +308,6 @@ export default {
   name: 'ProdejnaView',
   data() {
     return {
-      actionItems: [
-        { name: 'Sprchová zástěna + vanička', image: '/fotky/prodejna/sprchová zástěna+vanička z litého mramoru.avif', price: '7 990', oldPrice: '10 500', discount: 24 },
-        { name: 'Modul GEBERIT pro závěsné WC', image: '/fotky/prodejna/modul GEBERIT pro závěsné WC.avif', price: '4 490', oldPrice: '5 800', discount: 22 },
-        { name: 'Automatické čerpadlo na vodu', image: '/fotky/prodejna/automatické čerpadlo na vodu.avif', price: '3 290', oldPrice: '4 100', discount: 19 },
-        { name: 'Vodárna EBARA', image: '/fotky/prodejna/vodádna EBARA.avif', price: '8 500', oldPrice: '9 900', discount: 15 }
-      ],
-      lowPriceItems: [
-        { name: 'Kanalizační roura DN400', image: '/fotky/prodejna/Roura-DN-400-Wavin.png', price: '890' },
-        { name: 'Šachtové dno Tegra 1000', image: '/fotky/prodejna/šachtové dno Tegra-1000-prima.png', price: '3 200' },
-        { name: 'Baterie dřezová stojánková', image: '/fotky/prodejna/baterie dřezová.png', price: '1 250' },
-        { name: 'Podomítková baterie set', image: '/fotky/prodejna/podomítková baterie+příslušenství.jpg', price: '2 890' }
-      ],
       sortimentTabs: [
         { title: 'Vše', value: 'all' },
         { title: 'Topení', value: 'topeni' },
@@ -328,6 +328,11 @@ export default {
         { title: 'Venkovní kanalizace', icon: 'mdi-pipe-valve', type: 'voda' },
         { title: 'Šachty', icon: 'mdi-manhole', type: 'voda' },
         { title: 'Obklady a dlažby', icon: 'mdi-wall', type: 'koupelny' }
+      ],
+      logos: [
+        { name: 'Baxi', image: '/fotky/prodejna/kotle/baxi_logo.webp' },
+        { name: 'Junkers', image: '/fotky/prodejna/kotle/junkers_kotel.webp' },
+        { name: 'Protherm', image: '/fotky/prodejna/kotle/protherm_kotel.webp' }
       ]
     }
   },
@@ -359,14 +364,6 @@ export default {
 .ServiceCard:hover {
   transform: translateY(-8px);
 }
-.action-card {
-  transition: all 0.3s;
-  border: 1px solid #eee;
-}
-.action-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 25px rgba(0,0,0,0.15);
-}
 .category-card {
   transition: all 0.2s;
   border: 1px solid transparent;
@@ -376,7 +373,31 @@ export default {
   background-color: #E3F2FD !important;
   border-color: #2196F3;
 }
-.low-price-card:hover {
-  border-color: #2196F3;
+.logo-card {
+  transition: all 0.3s;
+  border: 1px solid #eee;
+  min-height: 100px;
+}
+.logo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.feature-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: #1976D2;
+}
+.tabs-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 768px) {
+  .tabs-container .v-tabs {
+    flex-wrap: wrap;
+  }
 }
 </style>
