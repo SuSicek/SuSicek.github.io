@@ -4,8 +4,8 @@
     <v-sheet class="position-relative hero-shell" color="black">
       <div class="hero-custom-slider">
         <transition-group name="hero-slide" tag="div" class="hero-slides-wrapper">
-          <div v-for="(slide, i) in slides" :key="i" v-show="currentSlide === i" class="hero-slide-item">
-            <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
+          <div v-for="(slide, i) in slides" :key="i" class="hero-slide-item">
+            <img :src="slide.src" :alt="slide.alt" class="hero-slide-item" />
           </div>
         </transition-group>
       </div>
@@ -22,7 +22,7 @@
       <v-row>
         <v-col cols="12" md="6" lg="3" v-for="(f, i) in features" :key="i">
           <v-card class="feature-card" elevation="3">
-            <v-img :src="f.image" :alt="f.title" height="240" cover>
+            <v-img :src="f.image" :alt="f.title" height="240" cover @error="handleImageError">
               <template #default>
                 <div class="feature-overlay">
                   <div class="feature-title">{{ f.title }}</div>
@@ -58,7 +58,7 @@
     <v-container class="py-16 about-container">
       <v-row align="center">
           <v-col cols="12" md="6" class="mb-8 mb-md-0 position-relative">
-          <v-img src="/fotky/jine/dronBrno.png" alt="Naše týmy a realizace" height="500" cover class="rounded-xl" gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)" />
+          <v-img src="/fotky/jine/dronBrno.webp" alt="Naše týmy a realizace" height="500" cover class="rounded-xl" gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3)" @error="handleImageError" />
         </v-col>
         <v-col cols="12" md="6" class="about-right">
           <h3 class="text-h5 font-weight-bold mb-2">Máme vlastní</h3>
@@ -182,7 +182,7 @@
         <v-col cols="12" md="6" lg="3" v-for="d in divisions" :key="d.title">
             <router-link :to="d.link" class="division-card-link">
               <div class="division-card elevation-4">
-                <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
+                <img :src="d.image" :alt="d.title" class="division-card-bg" />
                 <div class="division-card-overlay"></div>
                 <div class="division-card-content">
                   <h3 class="division-card-title">{{ d.title }}</h3>
@@ -223,16 +223,16 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const currentSlide = ref(0)
 const currentInterval = ref(null)
 
-const slides = [
-  { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
-  { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+const slides = ref([
+  { src: '/fotky/jine/dronBrno.webp', alt: 'Dron Brno' },
+  { src: '/fotky/jine/modrozlutakotelna.webp', alt: 'Modrožlutá kotelna' },
   { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
   { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
-]
+])
 
 const startSlideShow = () => {
   currentInterval.value = setInterval(() => {
-    currentSlide.value = (currentSlide.value + 1) % slides.length
+    currentSlide.value = (currentSlide.value + 1) % slides.value.length
   }, 6000)
 }
 
@@ -242,11 +242,63 @@ const stopSlideShow = () => {
 
 onMounted(() => {
   startSlideShow()
+  setupBackgroundImageFallbacks()
 })
 
 onBeforeUnmount(() => {
   stopSlideShow()
 })
+
+// Image error handling
+const handleImageError = (event) => {
+  const img = event.target
+  const currentSrc = img.src
+  
+  // If current image is WebP, try to find fallback
+  if (currentSrc.includes('.webp')) {
+    // Check if this is a division image with a specific fallback
+    const division = divisions.value.find(d => d.image === currentSrc.replace(window.location.origin, ''))
+    if (division && division.fallbackImage) {
+      img.src = division.fallbackImage
+      return
+    }
+    
+    // Check if this is a feature image with a specific fallback
+    const feature = features.value.find(f => f.image === currentSrc.replace(window.location.origin, ''))
+    if (feature && feature.fallbackImage) {
+      img.src = feature.fallbackImage
+      return
+    }
+    
+    // Check if this is a slide image with a specific fallback
+    const slide = slides.value.find(s => s.src === currentSrc.replace(window.location.origin, ''))
+    if (slide && slide.fallbackSrc) {
+      img.src = slide.fallbackSrc
+      return
+    }
+    
+    // Generic fallback: replace .webp with .png or .jpg
+    const fallbackSrc = currentSrc.replace('.webp', '.png').replace('.webp', '.jpg')
+    img.src = fallbackSrc
+  }
+}
+
+const setupBackgroundImageFallbacks = () => {
+  // Check if WebP images load, if not, fallback to PNG for CSS background-images
+  const testImage = new Image()
+  testImage.onload = () => {
+    // WebP works, keep current CSS
+  }
+  testImage.onerror = () => {
+    // WebP doesn't work, apply PNG fallbacks for CSS background-images
+    const style = document.createElement('style')
+    style.textContent = `
+      .numbers-bg-image { background-image: url('/fotky/jine/energetika3.webp') !important; }
+    `
+    document.head.appendChild(style)
+  }
+  testImage.src = '/fotky/jine/energetika.webp'
+}
 
 const kpis = [
   { value: '20+', label: 'Let zkušeností' },
@@ -319,11 +371,11 @@ onMounted(() => {
   onBeforeUnmount(() => observer.disconnect())
 })
 
-const features = [
+const features = ref([
   {
     title: 'Kvalita a bezpečnost',
     text: 'Pracujeme dle platných norem, držíme certifikace a klademe důraz na bezpečnost práce.',
-    image: '/fotky/jine/bezpecnost.png'
+    image: '/fotky/jine/bezpecnost.webp'
   },
   {
     title: 'Udržitelnost',
@@ -338,11 +390,12 @@ const features = [
   {
     title: 'Spolehlivost',
     text: 'Dodržujeme termíny, smluvní závazky a dbáme na precizní realizaci.',
-    image: '/fotky/jine/spolehlivost.jpg'
+    image: '/fotky/jine/spolehlivost.webp',
+    fallbackImage: '/fotky/jine/spolehlivost.jpg'
   }
-]
+])
 
-const divisions = [
+const divisions = ref([
   {
     title: 'Stavba',
     subtitle: 'Kompletní stavební projekty',
@@ -354,7 +407,7 @@ const divisions = [
     title: 'Energetika',
     subtitle: 'Výroba a úspory energií',
     description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-    image: '/fotky/jine/modrozlutakotelna.png',
+    image: '/fotky/jine/energetika3.webp',
     link: '/division/energetika'
   },
   {
@@ -371,7 +424,7 @@ const divisions = [
     image: '/fotky/prodejna/fotky prodejna/p2.jpg',
     link: '/prodejna'
   }
-]
+])
 </script>
 
 <style scoped>
@@ -404,6 +457,7 @@ const divisions = [
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.3;
 }
 
 .hero-slide-enter-active,
@@ -428,7 +482,7 @@ const divisions = [
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.16));
+  background: rgba(0,0,0,0.05);
 }
 .overlay-container {
   max-width: 1100px;
@@ -541,7 +595,7 @@ kpi-row::after {
 .numbers-bg-image {
   position: absolute;
   inset: 0;
-  background-image: url('/fotky/jine/energetika.png');
+  background-image: url('/fotky/jine/energetika.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -550,7 +604,7 @@ kpi-row::after {
   position: absolute;
   inset: 0;
   /* Slightly more transparent to reveal bg image while keeping blue tone */
-  background: rgba(3, 31, 104, 0.85);
+  background: rgba(3, 31, 104, 0.6);
   z-index: 0;
 }
 
@@ -907,7 +961,7 @@ time {
 .section-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(3, 31, 104, 0.55), rgba(7, 7, 7, 0.7));
+  background: linear-gradient(135deg, rgba(3, 31, 104, 0.3), rgba(7, 7, 7, 0.4));
   z-index: 2;
   pointer-events: none;
 }
@@ -1046,7 +1100,7 @@ time {
 .division-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%);
   transition: opacity 0.4s ease;
 }
 .division-card:hover .division-card-overlay {

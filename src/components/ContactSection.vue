@@ -379,9 +379,9 @@
 import { ref } from 'vue'
 
 // Contact hero background image (easy to change)
-const contactHero = ref('/fotky/jine/energetika.png')
+const contactHero = ref('/fotky/jine/energetika.webp')
 // Division section background image
-const divisionBg = ref('/fotky/jine/energetika3.png')
+const divisionBg = ref('/fotky/jine/energetika3.webp')
 
 const formRef = ref(null)
 const submitting = ref(false)

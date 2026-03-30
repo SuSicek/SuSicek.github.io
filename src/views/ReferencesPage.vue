@@ -11,7 +11,7 @@
         interval="6000"
       >
         <v-carousel-item v-for="(slide, i) in slides" :key="i">
-          <v-img :src="slide.src" cover :alt="slide.alt"></v-img>
+          <v-img :src="slide.src" cover :alt="slide.alt" @error="handleImageError"></v-img>
         </v-carousel-item>
       </v-carousel>
       <div class="hero-overlay d-flex flex-column justify-end">
@@ -83,7 +83,7 @@
           <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.id }, query: { page: page } }" hover>
             <!-- Background Image Layer -->
             <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
-              <v-img :src="refItem.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100"></v-img>
+              <v-img :src="refItem.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100" @error="handleImageError"></v-img>
             </div>
             
             <!-- Content Layer - Pushes content to bottom -->
@@ -134,9 +134,9 @@ const { references } = useReferences()
 const currentSlide = ref(0)
 const slides = [
   { src: '/fotky/jine/trubkyvykop.png', alt: 'Trubky výkop' },
-  { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+  { src: '/fotky/jine/modrozlutakotelna.webp', alt: 'Modrožlutá kotelna' },
   { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
-  { src: '/fotky/jine/energetika.png', alt: 'Energetika' }
+  { src: '/fotky/jine/energetika.webp', alt: 'Energetika' }
 ]
 
 // Filters
@@ -244,6 +244,17 @@ watch(selectedDivision, (val) => {
     router.replace({ name: 'References', query: { ...route.query, division: val } })
   }
 })
+
+const handleImageError = (event) => {
+  const img = event.target
+  const currentSrc = img.src
+  
+  // If current image is WebP, switch to fallback
+  if (currentSrc.includes('.webp')) {
+    const fallbackSrc = currentSrc.replace('.webp', '.png')
+    img.src = fallbackSrc
+  }
+}
 </script>
 
 <style scoped>

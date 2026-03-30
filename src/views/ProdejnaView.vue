@@ -111,7 +111,7 @@
           <!-- Households -->
           <v-col cols="12" md="4">
             <v-card class="h-100 ServiceCard" elevation="3">
-              <v-img src="/fotky/jine/domacnosti.png" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)">
+              <v-img src="/fotky/jine/domacnosti.webp" height="220" cover gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7)" @error="handleImageError">
                 <v-card-title class="text-white position-absolute bottom-0 w-100 pb-4 text-h5">Pro domácnosti</v-card-title>
               </v-img>
               <v-card-text class="pa-6 text-left">
@@ -240,7 +240,7 @@
                </div>
             </v-col> 
             <v-col cols="12" md="5" class="position-relative d-none d-md-block">
-               <v-img src="/fotky/jine/kontejnerbig.png" cover class="h-100" style="filter: brightness(0.9);"></v-img>
+               <v-img src="/fotky/jine/kontejnerbig.webp" cover class="h-100" style="filter: brightness(0.9);" @error="handleImageError"></v-img>
             </v-col>
           </v-row>
        </v-card>
@@ -340,6 +340,18 @@ export default {
     filteredAssortment() {
       if (this.selectedSortimentTab === 'all') return this.assortmentCategories;
       return this.assortmentCategories.filter(item => item.type === this.selectedSortimentTab);
+    }
+  },
+  methods: {
+    handleImageError(event) {
+      const img = event.target
+      const currentSrc = img.src
+      
+      // If current image is WebP, switch to fallback
+      if (currentSrc.includes('.webp')) {
+        const fallbackSrc = currentSrc.replace('.webp', '.png')
+        img.src = fallbackSrc
+      }
     }
   }
 }

@@ -3,10 +3,11 @@
     <!-- Hero with static image -->
     <v-sheet class="position-relative hero-shell" color="black">
       <v-img 
-        src="/fotky/jine/dronBrno.png" 
+        src="/fotky/jine/dronBrno.webp" 
         alt="Certifikace" 
         cover 
         class="hero-image"
+        @error="handleImageError"
       />
       <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
@@ -129,6 +130,17 @@ const certificates = ref([
   { name: 'Svařování (Qualiform)', path: '/fotky/certifikace/Qualiform_svařování pří výrobě, montáži,  opravách a rekonstrukcí.pdf', image: '/fotky/certifikace/svarovani.png' },
   { name: 'Ocelové konstrukce (Qualiform)', path: '/fotky/certifikace/Qualiform_výroba a montáž ocel konstr a energ zařízení staveb.pdf', image: '/fotky/certifikace/konstrukce.png' },
 ])
+
+const handleImageError = (event) => {
+  const img = event.target
+  const currentSrc = img.src
+  
+  // If current image is WebP, switch to fallback
+  if (currentSrc.includes('.webp')) {
+    const fallbackSrc = currentSrc.replace('.webp', '.png')
+    img.src = fallbackSrc
+  }
+}
 </script>
 
 <style scoped>

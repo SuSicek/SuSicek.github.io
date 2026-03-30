@@ -16,7 +16,7 @@ export const divisions = {
     key: 'energetika',
     title: 'Energetika',
     subtitle: 'Komplexní řešení v oblasti energetiky',
-    heroImage: assetPath('fotky/jine/modrozlutakotelna.png'),
+    heroImage: assetPath('fotky/jine/modrozlutakotelna.webp'),
     description:
       'Divize Energetika spojuje dlouholeté zkušenosti s moderními technologiemi. Zajišťujeme kompletní servis – od projektové přípravy přes montáž až po spolehlivý provoz. Našim zákazníkům nabízíme jistotu kvalitního provedení a dodržení všech závazků. Síla našeho týmu je v lidech. Podporujeme odborný růst, předáváme know-how velké energetiky a dáváme prostor nové generaci techniků a inženýrů. Jsme držiteli certifikací ČSN EN 1090-2+A1:2024 a  ČSN EN ISO 3834-2:2022 a disponujeme oprávněními TIČR pro práce na tlakových i elektrických zařízeních. To nám umožňuje realizovat i nejnáročnější zakázky s maximální precizností a bezpečností.',
     services: [

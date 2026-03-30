@@ -5,7 +5,15 @@
       <div class="hero-custom-slider">
         <transition-group name="hero-slide" tag="div" class="hero-slides-wrapper">
           <div v-for="(slide, i) in slides" :key="i" v-show="currentSlide === i" class="hero-slide-item">
-            <v-img :src="slide.src" cover :position="slide.position || 'center center'" :alt="slide.alt" :eager="i === 0"></v-img>
+            <v-img 
+              :src="slide.webpSrc || slide.src" 
+              cover 
+              :position="slide.position || 'center center'" 
+              :alt="slide.alt" 
+              :eager="i === 0" 
+              lazy
+              @error="handleImageError($event, slide.src)"
+            ></v-img>
           </div>
         </transition-group>
       </div>
@@ -56,7 +64,7 @@
           <v-col cols="12" sm="6" md="6" lg="3" v-for="d in divisions" :key="d.title">
             <router-link :to="d.link" class="division-card-link">
               <div class="division-card elevation-4">
-                <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" />
+                <v-img :src="d.image" :alt="d.title" cover class="division-card-bg" lazy />
                 <div class="division-card-overlay"></div>
                 <div class="division-card-content">
                   <h3 class="division-card-title">{{ d.title }}</h3>
@@ -93,7 +101,7 @@
             <v-col cols="6" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
               <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.id } }" class="reference-card-link">
                 <div class="reference-card">
-                  <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" />
+                  <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" lazy />
                   <div class="reference-card-overlay"></div>
                   <div class="reference-card-content">
                     <h3 class="reference-card-title">{{ ref.title }}</h3>
@@ -155,21 +163,31 @@
         </v-container>
       </v-sheet>
     </div>
+
+    
   </div>
   
 </template>
 
 <script>
 import { useReferences } from '@/composables/useReferences'
+import { useResponsiveImage } from '@/composables/useResponsiveImage'
 
 export default {
   name: 'HomeView',
+  setup() {
+    const { getSrcset, getSizes } = useResponsiveImage()
+    return {
+      getSrcset,
+      getSizes
+    }
+  },
   data() {
     return {
       currentSlide: 0,
       slides: [
-        { src: '/fotky/jine/dronBrno.png', alt: 'Dron Brno' },
-        { src: '/fotky/jine/modrozlutakotelna.png', alt: 'Modrožlutá kotelna' },
+        { src: '/fotky/jine/dronBrno.png', webpSrc: '/fotky/jine/dronBrno.webp', alt: 'Dron Brno' },
+        { src: '/fotky/jine/modrozlutakotelna.png', webpSrc: '/fotky/jine/modrozlutakotelna.webp', alt: 'Modrožlutá kotelna' },
         { src: '/fotky/jine/sedetrubky.png', alt: 'Sedé trubky' },
         { src: '/fotky/jine/Vsetín 2.jpg', alt: 'Vsetín', position: 'center 20%' }
       ],
@@ -199,7 +217,7 @@ export default {
           title: 'Energetika',
           subtitle: 'Výroba a úspory energií',
           description: 'Zajišťuje komplexní služby v oblasti výroby, distribuce a úspor energií.',
-          image: '/fotky/jine/modrozlutakotelna.png',
+          image: '/fotky/jine/modrozlutakotelna.webp',
           link: '/division/energetika'
         },
         {
@@ -224,10 +242,7 @@ export default {
       // Get all references
       const { references } = useReferences()
       
-      // We want specifically these references in this order:
-      // 1. Stavba (Tábor)
-      // 2. Energetika (Vyškov)
-      // 3. TZB (ČOV kotelna)
+
       const targetIds = ['stavba-1', 'energetika-1', 'tzb-1']
       
       const ordered = []
@@ -242,6 +257,35 @@ export default {
   mounted() {
     this.startSlideShow()
     this.observeStats()
+    
+    // Add JSON-LD structured data
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "UCHYTIL s.r.o.",
+      "url": "https://uchytil.eu",
+      "logo": "https://uchytil.eu/fotky/jine/logo.png",
+      "description": "Společnost UCHYTIL s.r.o. poskytuje stavební služby, energetické řešení a technické zařízení budov.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Vídeňská 103/119",
+        "addressLocality": "Brno",
+        "postalCode": "619 00",
+        "addressCountry": "CZ"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+420-545-423-211",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.facebook.com/uchytil",
+        "https://www.linkedin.com/company/uchytil-s-r-o-"
+      ]
+    })
+    document.head.appendChild(script)
   },
   beforeUnmount() {
     this.stopSlideShow()
@@ -287,6 +331,10 @@ export default {
           }
         }, duration / steps)
       })
+    },
+    handleImageError(event, fallbackSrc) {
+      // Fallback to original format if WebP fails to load
+      event.target.src = fallbackSrc
     }
   }
 }

@@ -3,10 +3,11 @@
     <!-- Hero -->
     <v-sheet class="career-hero position-relative" height="85vh" max-height="900" color="grey-darken-4">
       <v-img 
-        src="/fotky/jine/dronBrno.png" 
+        :src="heroImageSrc"
         cover 
         class="h-100"
         gradient="to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 70%, rgba(0,0,0,0.8) 100%"
+        @error="handleImageError"
       >
         <div class="d-flex flex-column fill-height justify-center align-center text-center text-white px-4">
             <v-slide-y-transition appear>
@@ -199,6 +200,7 @@
                             :class="`montage-img-${idx}`"
                             cover
                             :transition="false"
+                            @error="(e) => handleAtmosphereImageError(e, item, idx)"
                           ></v-img>
                       </div>
                       <div class="image-overlay d-flex align-end pa-8" style="z-index: 5;">
@@ -219,7 +221,7 @@
                               v-show="(currentFrame % item.images.length) === i" 
                               class="career-slide-item"
                             >
-                              <v-img :src="img" cover class="h-100 w-100" />
+                              <v-img :src="img" cover class="h-100 w-100" @error="(e) => handleAtmosphereImageError(e, item, i)" />
                             </div>
                           </transition-group>
                         </div>
@@ -240,6 +242,7 @@
                       cover
                       class="atmo-image transition-swing"
                       :transition="false"
+                      @error="(e) => handleAtmosphereImageError(e, item)"
                     >
                         <div class="image-overlay d-flex align-end pa-8">
                           <div>
@@ -522,40 +525,50 @@ const filteredJobs = computed(() => {
 
 const jobsBackground = ref('/fotky/jine/stavba3.png')
 
+// Hero image with WebP fallback
+const heroImageSrc = ref('/fotky/jine/dronBrno.webp')
+
 // Atmosphere items for the second section
 const atmosphere = ref([
   {
     title: 'Stabilní zázemí',
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
-    image: '/fotky/jine/dronBrno.png',
-    images: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
+    image: '/fotky/jine/dronBrno.webp',
+    fallbackImage: '/fotky/jine/dronBrno.png',
+    images: ['/fotky/jine/dronBrno.webp', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
+    fallbackImages: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
     type: 'slideshow',
     icon: 'mdi-shield-check'
   },
   {
     title: 'Férové jednání',
     text: 'Sliby plníme a za prací stojí odpovídající ohodnocení.',
-    image: '/fotky/jine/ferovejednani.png',
+    image: '/fotky/jine/ferovejednani.webp',
+    fallbackImage: '/fotky/jine/ferovejednani.png',
     icon: 'mdi-handshake'
   },
   {
     title: 'Přátelský kolektiv',
     text: 'Nejsme anonymní korporát, ale tým lidí, kteří drží při sobě.',
-    image: '/fotky/jine/kolektiv.png',
+    image: '/fotky/jine/kolektiv.webp',
+    fallbackImage: '/fotky/jine/kolektiv.png',
     icon: 'mdi-account-group'
   },
   {
     title: 'Možnost růstu',
     text: 'Podporujeme profesní i osobní rozvoj.',
-    images: ['/fotky/jine/evo1.png', '/fotky/jine/evo2.png', '/fotky/jine/evo3.png', '/fotky/jine/evo4.png'],
+    images: ['/fotky/jine/evo1.webp', '/fotky/jine/evo2.webp', '/fotky/jine/evo3.webp', '/fotky/jine/evo4.webp'],
+    fallbackImages: ['/fotky/jine/evo1.png', '/fotky/jine/evo2.png', '/fotky/jine/evo3.png', '/fotky/jine/evo4.png'],
     type: 'slideshow',
     icon: 'mdi-trending-up'
   },
   {
     title: 'Společné akce',
     text: 'Týmové aktivity a firemní akce posilují vztahy i atmosféru.',
-    image: '/fotky/jine/hory.png',
-    images: ['/fotky/jine/hory.png', '/fotky/jine/bowling.png', '/fotky/jine/jumppark.png'],
+    image: '/fotky/jine/hory.webp',
+    fallbackImage: '/fotky/jine/hory.png',
+    images: ['/fotky/jine/hory.webp', '/fotky/jine/bowling.webp', '/fotky/jine/jumppark.webp'],
+    fallbackImages: ['/fotky/jine/hory.png', '/fotky/jine/bowling.png', '/fotky/jine/jumppark.png'],
     type: 'montage',
     icon: 'mdi-account-multiple'
   }
@@ -573,6 +586,34 @@ const benefits = ref([
   { icon: 'mdi-book-open-page-variant-outline', title: 'Výuka cizích jazyků', text: 'Možnost vzdělávání v cizích jazycích' },
   { icon: 'mdi-cellphone', title: 'Smlouva s operátorem', text: 'Výhodné firemní tarify pro zaměstnance a jejich rodiny' },
 ])
+
+// Image error handling
+const handleImageError = (event) => {
+  const img = event.target
+  const currentSrc = img.src
+  
+  // If current image is WebP, switch to fallback
+  if (currentSrc.includes('.webp')) {
+    const fallbackSrc = currentSrc.replace('.webp', '.png')
+    img.src = fallbackSrc
+  }
+}
+
+const handleAtmosphereImageError = (event, item, imageIndex = null) => {
+  const img = event.target
+  const currentSrc = img.src
+  
+  // If current image is WebP, switch to fallback
+  if (currentSrc.includes('.webp')) {
+    if (imageIndex !== null && item.fallbackImages && item.fallbackImages[imageIndex]) {
+      // For slideshow/montage images
+      img.src = item.fallbackImages[imageIndex]
+    } else if (item.fallbackImage) {
+      // For single images
+      img.src = item.fallbackImage
+    }
+  }
+}
 </script>
 
 <style scoped>

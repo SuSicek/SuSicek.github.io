@@ -179,20 +179,20 @@
                 <!-- Direct Contact Info -->
                  <v-card class="mt-6 rounded-xl elevation-2 pa-6 border-thin text-center" color="#f8faff">
                     <p class="text-caption text-uppercase text-medium-emphasis mb-2 font-weight-bold">Personální oddělení</p>
-                    <h4 class="text-h6 font-weight-bold text-primary mb-1">PhDr. Dagmar Bendová</h4>
+                    <h4 class="text-h6 font-weight-bold text-primary mb-1">Ing. Tereza Böhmová</h4>
                     <div class="d-flex justify-center align-center gap-3 mt-3">
-                         <v-btn icon="mdi-email" variant="text" color="primary" href="mailto:dagmar.bendova@uchytil.eu"></v-btn>
-                         <v-btn icon="mdi-phone" variant="text" color="primary" href="tel:+420603145928"></v-btn>
+                         <v-btn icon="mdi-email" variant="text" color="primary" href="mailto:tereza.bohmova@uchytil.eu"></v-btn>
+                         <v-btn icon="mdi-phone" variant="text" color="primary" href="tel:+42054542322"></v-btn>
                     </div>
                     <div class="mt-4 text-body-2">
                         <div class="mb-2">
-                            <a href="mailto:dagmar.bendova@uchytil.eu" class="text-decoration-none text-grey-darken-3 font-weight-medium">
-                                dagmar.bendova@uchytil.eu
+                            <a href="mailto:tereza.bohmova@uchytil.eu" class="text-decoration-none text-grey-darken-3 font-weight-medium">
+                                tereza.bohmova@uchytil.eu
                             </a>
                         </div>
                         <div>
-                            <a href="tel:+420603145928" class="text-decoration-none text-grey-darken-3 font-weight-medium">
-                                +420 603 145 928
+                            <a href="tel:+420545423222" class="text-decoration-none text-grey-darken-3 font-weight-medium">
+                                +420 545 423 222
                             </a>
                         </div>
                     </div>

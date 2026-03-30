@@ -10,33 +10,22 @@ import * as directives from 'vuetify/directives'
 
 import App from './App.vue'
 import HomeView from './views/HomeView.vue'
-import AboutUs from './views/AboutUsVuetify.vue'
-import References from './views/ReferencesClean.vue'
-import Career from './views/CareerClean.vue'
-import ContactUs from './views/ContactUs.vue'
-import DivisionView from './views/DivisionView.vue'
-import ProdejnaView from './views/ProdejnaView.vue'
-import ReferenceDetail from './views/ReferenceDetail.vue'
-import JobDetail from './views/JobDetail.vue'
-import StudentOpportunities from './views/StudentOpportunities.vue'
-import CertificatesView from './views/CertificatesView.vue'
-import EthicsView from './views/EthicsView.vue'
-import PolicyView from './views/PolicyView.vue'
+import { useLazyLoad } from './composables/useLazyLoad'
 
 const routes = [
-  { path: '/', name: 'Home', component: HomeView },
-  { path: '/aboutus', name: 'AboutUs', component: AboutUs },
-  { path: '/certificates', name: 'Certificates', component: CertificatesView },
-  { path: '/eticky-kodex', name: 'Ethics', component: EthicsView },
-  { path: '/politika-spolecnosti', name: 'Policy', component: PolicyView },
-  { path: '/references', name: 'References', component: References },
-  { path: '/career', name: 'Career', component: Career },
-  { path: '/career/students', name: 'StudentOpportunities', component: StudentOpportunities },
-  { path: '/career/:id', name: 'JobDetail', component: JobDetail, props: true },
-  { path: '/contact-us', name: 'ContactUs', component: ContactUs },
-  { path: '/division/:division', name: 'Division', component: DivisionView, props: true },
-  { path: '/prodejna', name: 'Prodejna', component: ProdejnaView },
-  { path: '/reference/:id', name: 'ReferenceDetail', component: ReferenceDetail, props: true },
+  { path: '/', name: 'Home', component: HomeView, meta: { title: 'UCHYTIL s.r.o. - Stavby, energetika, TZB | Brno', description: 'Společnost UCHYTIL s.r.o. poskytuje stavební služby, energetické řešení a technické zařízení budov. 32 let zkušeností v Brně a okolí.' } },
+  { path: '/aboutus', name: 'AboutUs', component: () => import('./views/AboutUsVuetify.vue') },
+  { path: '/certificates', name: 'Certificates', component: () => import('./views/CertificatesView.vue') },
+  { path: '/eticky-kodex', name: 'Ethics', component: () => import('./views/EthicsView.vue') },
+  { path: '/politika-spolecnosti', name: 'Policy', component: () => import('./views/PolicyView.vue') },
+  { path: '/references', name: 'References', component: () => import('./views/ReferencesClean.vue') },
+  { path: '/career', name: 'Career', component: () => import('./views/CareerClean.vue') },
+  { path: '/career/students', name: 'StudentOpportunities', component: () => import('./views/StudentOpportunities.vue') },
+  { path: '/career/:id', name: 'JobDetail', component: () => import('./views/JobDetail.vue'), props: true },
+  { path: '/contact-us', name: 'ContactUs', component: () => import('./views/ContactUs.vue') },
+  { path: '/division/:division', name: 'Division', component: () => import('./views/DivisionView.vue'), props: true },
+  { path: '/prodejna', name: 'Prodejna', component: () => import('./views/ProdejnaView.vue') },
+  { path: '/reference/:id', name: 'ReferenceDetail', component: () => import('./views/ReferenceDetail.vue'), props: true },
 ]
 
 const router = createRouter({
@@ -55,6 +44,25 @@ const router = createRouter({
     }
     return { top: 0 }
   }
+})
+
+// Navigation guard for setting page title and meta
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  if (to.meta.description) {
+    let metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', to.meta.description)
+    } else {
+      metaDesc = document.createElement('meta')
+      metaDesc.name = 'description'
+      metaDesc.content = to.meta.description
+      document.head.appendChild(metaDesc)
+    }
+  }
+  next()
 })
 
 const vuetify = createVuetify({
@@ -82,3 +90,7 @@ createApp(App)
   .use(router)
   .use(vuetify)
   .mount('#app')
+
+// Initialize lazy loading after app is mounted
+const { initLazyLoading } = useLazyLoad()
+initLazyLoading()

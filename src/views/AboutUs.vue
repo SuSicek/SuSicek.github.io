@@ -3,10 +3,11 @@
     <!-- Hero with static image -->
     <v-sheet class="position-relative hero-shell" color="black">
       <v-img 
-        src="/fotky/jine/energetika.png" 
+        src="/fotky/jine/energetika.webp" 
         alt="O nás" 
         cover 
         class="hero-image"
+        @error="handleImageError"
       />
       <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
@@ -18,7 +19,7 @@
     <!-- Stats section -->
     <div class="stats-wrapper">
       <v-sheet class="stats-section position-relative">
-        <v-img src="/fotky/jine/kontejner.png" cover class="stats-bg" />
+        <v-img src="/fotky/jine/kontejner.webp" cover class="stats-bg" @error="handleImageError" />
         <div class="stats-overlay"></div>
         <v-container class="py-8 position-relative">
           <v-row align="stretch">
@@ -57,15 +58,15 @@
 
         <div class="d-flex align-center justify-center images-row">
           <v-card class="support-card small-card" elevation="4">
-            <v-img src="/fotky/jine/energetika.png" cover class="fill-height"></v-img>
+            <v-img src="/fotky/jine/energetika.webp" cover class="fill-height" @error="handleImageError"></v-img>
           </v-card>
           
           <v-card class="support-card big-card mx-6" elevation="10">
-            <v-img src="/fotky/jine/kontejner.png" cover class="fill-height"></v-img>
+            <v-img src="/fotky/jine/kontejner.webp" cover class="fill-height" @error="handleImageError"></v-img>
           </v-card>
           
           <v-card class="support-card small-card" elevation="4">
-            <v-img src="/fotky/jine/energetika.png" cover class="fill-height"></v-img>
+            <v-img src="/fotky/jine/energetika.webp" cover class="fill-height" @error="handleImageError"></v-img>
           </v-card>
         </div>
       </v-container>
@@ -95,6 +96,7 @@ export default {
   },
   mounted() {
     this.observeStats()
+    this.setupBackgroundImageFallbacks()
   },
   methods: {
     observeStats() {
@@ -129,6 +131,37 @@ export default {
           }
         }, duration / steps)
       })
+    },
+    handleImageError(event) {
+      const img = event.target
+      const currentSrc = img.src
+      
+      // If current image is WebP, switch to fallback
+      if (currentSrc.includes('.webp')) {
+        const fallbackSrc = currentSrc.replace('.webp', '.png')
+        img.src = fallbackSrc
+      }
+    },
+    setupBackgroundImageFallbacks() {
+      // Check if WebP images load, if not, fallback to PNG
+      const testImage = new Image()
+      testImage.onload = () => {
+        // WebP works, keep current CSS
+      }
+      testImage.onerror = () => {
+        // WebP doesn't work, apply PNG fallbacks
+        const style = document.createElement('style')
+        style.textContent = `
+          .collage-item.item-1 { background-image: url('/fotky/jine/energetika.png') !important; }
+          .collage-item.item-2 { background-image: url('/fotky/jine/kontejner.png') !important; }
+          .collage-item.item-3 { background-image: url('/fotky/jine/energetika.png') !important; }
+          .collage-item.item-4 { background-image: url('/fotky/jine/kontejner.png') !important; }
+          .collage-item.item-5 { background-image: url('/fotky/jine/energetika.png') !important; }
+          .collage-item.item-6 { background-image: url('/fotky/jine/kontejner.png') !important; }
+        `
+        document.head.appendChild(style)
+      }
+      testImage.src = '/fotky/jine/energetika.webp'
     }
   }
 }
@@ -293,12 +326,12 @@ export default {
 .collage-item:hover {
   filter: grayscale(0%);
 }
-.collage-item.item-1 { background-image: url('/fotky/jine/energetika.png'); }
-.collage-item.item-2 { background-image: url('/fotky/jine/kontejner.png'); }
-.collage-item.item-3 { background-image: url('/fotky/jine/energetika.png'); }
-.collage-item.item-4 { background-image: url('/fotky/jine/kontejner.png'); }
-.collage-item.item-5 { background-image: url('/fotky/jine/energetika.png'); }
-.collage-item.item-6 { background-image: url('/fotky/jine/kontejner.png'); }
+.collage-item.item-1 { background-image: url('/fotky/jine/energetika.webp'); }
+.collage-item.item-2 { background-image: url('/fotky/jine/kontejner.webp'); }
+.collage-item.item-3 { background-image: url('/fotky/jine/energetika.webp'); }
+.collage-item.item-4 { background-image: url('/fotky/jine/kontejner.webp'); }
+.collage-item.item-5 { background-image: url('/fotky/jine/energetika.webp'); }
+.collage-item.item-6 { background-image: url('/fotky/jine/kontejner.webp'); }
 
 .section-overlay {
   position: absolute;
