@@ -120,7 +120,7 @@ const references = ref([
     location: 'Havířov',
     financial: '47 mil. Kč',
     center: '620',
-    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg', // Placeholder image
+    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png', // Placeholder image
     images: [
       '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
       '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
