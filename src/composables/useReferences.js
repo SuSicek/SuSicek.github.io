@@ -208,6 +208,32 @@ const references = ref([
     long: 'Kompletní projektová dokumentace a realizace pro lokalitu Lesná. Projekt zahrnuje architektonické i technické řešení.'
   },
   {
+    id: 'stavba-bd-lesna',
+    title: 'Projektová dokumentace a výstavba BD Pegas',
+    division: 'Stavba',
+    year: 2026,
+    price: '138 mil. Kč',
+    location: 'Brno-Lesná',
+    financial: '138 mil. Kč',
+    image: '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.33.43.jpeg',
+    images: [
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.10.53.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.10.53 (1).jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.10.53 (2).jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.10.53 (5).jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.32.43.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.33.05.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.33.22.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/WhatsApp Image 2026-03-25 at 09.33.43.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/3d128595-54ce-43fd-a380-c4770b7efb34.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/49e38e79-4e47-4abf-8d4d-5ae58390286f.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/b4eb1586-89f2-41d7-a879-d00229cfae80.jpeg',
+      '/fotky/references/4_ BD Lesná_stavba/e10fa2ad-f399-46bd-89f8-02db1d4f570c.jpeg'
+    ],
+    short: 'Zpracování projektové dokumentace a výstavba BD Pegas s 27 byty v atraktivní lokalitě Brno-Lesná.',
+    long: 'Zpracování projektové dokumentace a následná výstavba BD v atraktivní lokalitě Brno-Lesná. Novostavba nabízí 27 moderních bytů o velikosti 1+kk až 4+kk. Architektonicky unikátní projekt tvoří dva gradující celky, které díky svažitému terénu poskytují obyvatelům prostorné terasy. Konstrukci domu zajišťuje odolný železobetonový skelet, zatímco interiér prosvětluje unikátní centrální světlík procházející celou stavbou. Budova klade velký důraz na udržitelnost, což dokazuje kvalitní zateplení fasády i systém pro efektivní hospodaření s dešťovou vodou. Součástí projektu je komfortní parkování pro rezidenty řešené kombinací vnitřních stání v podzemní garáži a venkovních stání přímo na pozemku objektu a vybudování nové příjezdové infrastruktury.'
+  },
+  {
     id: 'stavba-4',
     title: 'Rekonstrukce 2. NP administrativní budovy Lidická 25/27, Brno',
     division: 'Stavba',

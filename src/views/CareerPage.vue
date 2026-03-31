@@ -146,7 +146,7 @@
                   :key="i"
                   :active="activeAtmosphere === i"
                   @click="activeAtmosphere = i"
-                  class="mb-3 py-4 pl-4 pr-6 atmo-item elevation-2"
+                  class="mb-3 py-4 pl-4 pr-6 atmo-item"
                   rounded="lg"
                   :class="{'atmo-item-active': activeAtmosphere === i}"
                 >
@@ -720,16 +720,14 @@ const handleAtmosphereImageError = (event, item, imageIndex = null) => {
 .atmo-item {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid transparent;
-    background-color: white;
+    background-color: #e8eaf0;
     cursor: pointer;
 }
 .atmo-item:hover {
     transform: translateX(8px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 .atmo-item-active {
     background-color: #031f68 !important; /* Primary color */
-    box-shadow: 0 8px 25px rgba(3, 31, 104, 0.4) !important;
     transform: scale(1.03) translateX(5px);
     border: none;
 }
