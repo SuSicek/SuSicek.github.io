@@ -4,6 +4,7 @@ const references = ref([
   // Energetika References
   {
     id: 'energetika-1',
+    slug: 'montaz-potrubich-tras-bps-vyskov',
     title: 'Auxilien - Montáž potrubních tras – SVR v areálu BPS Vyškov',
     division: 'Energetika',
     year: 2025,
@@ -24,6 +25,7 @@ const references = ref([
   },
   {
     id: 'energetika-2',
+    slug: 'oprava-elektroinstalace-vd-bojkovice',
     title: 'VD Bojkovice - oprava elektroinstalace',
     division: 'Energetika',
     year: 2025,
@@ -46,6 +48,7 @@ const references = ref([
   },
   {
     id: 'energetika-3',
+    slug: 'pd-navyseni-vykonu-hvs-c-energy-plana',
     title: 'PD Navýšení výkonu HVS na zdroji C-energy',
     division: 'Energetika',
     year: 2026,
@@ -53,15 +56,18 @@ const references = ref([
     location: 'Planá nad Lužnicí',
     financial: '2 mil. Kč',
     center: '603',
-    image: '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg',
+    image: '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/f565fdb8-464a-44b5-8ea3-d940566f5c63.png',
     images: [
-      '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/Projekt bez názvu (11).jpg'
+      '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
+      '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
+      '/fotky/references/energetika/603 - PLANÁ - HVS - PD - Navýšení výkonu HVS/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
     ],
     short: 'Projektová dokumentace pro navýšení výkonu hlavní výměníkové stanice.',
     long: 'V rámci rozšiřování energetické infrastruktury jsme zpracovali projektovou dokumentaci pro navýšení výkonu hlavní výměníkové stanice (HVS) v areálu teplárny C-Energy v Plané nad Lužnicí. Cílem projektu je celkové navýšení tepelného výkonu HVS o 20 MWt, a to integrací nového špičkového ohříváku o výkonu 10 MWt a základního ohříváku o výkonu 10 MWt. Náš návrh pokrývá jak technologickou část, tak stavební úpravy, které zahrnují demolici původních konstrukcí a realizaci nových železobetonových základů pro oběhová čerpadla uvnitř stávající haly. Pro ochranu nově instalovaných technologií, expanzních systémů a dochlazovačů kondenzátu je navržena přístavba nového ocelového přístřešku opláštěného sendvičovými panely. Projekt je koncipován s důrazem na minimalizaci prostojů.'
   },
   {
     id: 'energetika-4',
+    slug: 'uprava-horkovodni-site-czt-plzen',
     title: 'Plzeňská teplárenská, a.s. - Úprava horkovodní sítě CZT',
     division: 'Energetika',
     year: 2025,
@@ -79,6 +85,7 @@ const references = ref([
   },
   {
     id: 'energetika-5',
+    slug: 'plynova-kotelna-rozvody-pary-fnusa-brno',
     title: 'Amper Industry s.r.o. - Plynová kotelna, rozvody páry, přípojka STL plyn – FNUSA',
     division: 'Energetika',
     year: 2025,
@@ -96,6 +103,7 @@ const references = ref([
   },
   {
     id: 'energetika-6',
+    slug: 'parovod-madeta-jindrichuv-hradec',
     title: 'Parovod MADETA – Jindřichův Hradec',
     division: 'Energetika',
     year: 2025,
@@ -113,6 +121,7 @@ const references = ref([
   },
   {
     id: 'energetika-7',
+    slug: 'vymena-elektroinstalace-zs-havirov',
     title: 'Havířov - ZŠ M. Kudeříkové - výměna elektroinstalace a datových rozvodů',
     division: 'Energetika',
     year: 2025,
@@ -120,17 +129,17 @@ const references = ref([
     location: 'Havířov',
     financial: '47 mil. Kč',
     center: '620',
-    image: '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png', // Placeholder image
+    image: '/fotky/references/energetika/620 - REF - ZŠ Kudeříkové/IMG_1.JPEG',
     images: [
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/a4b993f1-b99f-4874-ba0f-37851606be83.jpeg',
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/bd244106-9c09-4f5d-8fc9-adbdcd7462c4.jpeg',
-      '/fotky/references/energetika/603 - C-energy, redukční stanice/f565fdb8-464a-44b5-8ea3-d940566f5c63.png'
+      '/fotky/references/energetika/620 - REF - ZŠ Kudeříkové/IMG_1.JPEG',
+      '/fotky/references/energetika/620 - REF - ZŠ Kudeříkové/IMG_4032.JPEG'
     ],
     short: 'Kompletní výměna elektroinstalace a datových rozvodů v základní škole.',
     long: 'Pro statutární město Havířov jsme zrealizovali zakázku na kompletní výměnu elektroinstalace a datových rozvodů v budovách Základní školy M. Kudeříkové. Tento rozsáhlý projekt zahrnoval stavební a montážní práce hned v pěti školních pavilonech a přilehlých prostorech tělocvičny a koridorů. Náš tým zvládl dokončení a předání plně funkčního díla ve stanovené lhůtě 120 kalendářních dnů od převzetí staveniště.'
   },
   {
     id: 'energetika-8',
+    slug: 'opravy-energetickych-zarizeni-teplarny-brno',
     title: 'Teplárny Brno, a.s. - Opravy energetických zařízení',
     division: 'Energetika',
     year: 2013,
@@ -148,6 +157,7 @@ const references = ref([
   },
   {
     id: 'energetika-9',
+    slug: 'fve-97kwp-strecha-ecjh-jindrichuv-hradec',
     title: 'Energetické centrum s.r.o. - FVE 97,2 kWp na střeše objektu ECJH',
     division: 'Energetika',
     year: 2023,
@@ -164,9 +174,31 @@ const references = ref([
     short: 'Kompletní dodávka a montáž střešní fotovoltaické elektrárny.',
     long: 'Pro společnost Energetické centrum s.r.o. jsme zajistili kompletní dodávku a montáž střešní fotovoltaické elektrárny o výkonu 97,2 kWp v areálu v Jindřichově Hradci. Zakázka obsáhla zhotovení plně funkčního provozuschopného díla včetně zpracování dokumentace skutečného provedení stavby a nezbytné součinnosti při připojení do distribuční sítě společnosti EG.D, a.s..'
   },
+  {
+    id: 'energetika-10',
+    slug: 'uprava-ochrany-pred-bleskem',
+    title: 'Úprava ochrany před bleskem',
+    division: 'Energetika',
+    year: 2024,
+    price: '',
+    location: '',
+    financial: '',
+    center: '630',
+    image: '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
+    images: [
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_1.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135228.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135236.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_135344.jpg',
+      '/fotky/references/energetika/630 - úprava ochrany před bleskem/IMG_20241007_140147.jpg'
+    ],
+    short: '',
+    long: ''
+  },
   // Stavba References
   {
     id: 'stavba-1',
+    slug: 'prestavba-parovodu-na-horkovod-tabor',
     title: 'Tábor západ – přestavba parovodu na horkovod',
     division: 'Stavba',
     year: 2023,
@@ -182,6 +214,7 @@ const references = ref([
   },
   {
     id: 'stavba-2',
+    slug: 'energeticke-uspory-smetanova-vsetin',
     title: 'ENERGETICKÉ ÚSPORY BUDOVY SMETANOVA 841, VSETÍN',
     division: 'Stavba',
     year: 2023, 
@@ -196,6 +229,7 @@ const references = ref([
   },
   {
     id: 'stavba-3',
+    slug: 'pd-lesna-projektova-dokumentace',
     title: 'Projekt Lesná',
     division: 'Stavba',
     year: 2024,
@@ -209,6 +243,7 @@ const references = ref([
   },
   {
     id: 'stavba-bd-lesna',
+    slug: 'bd-pegas-brno-lesna',
     title: 'Projektová dokumentace a výstavba BD Pegas',
     division: 'Stavba',
     year: 2026,
@@ -235,6 +270,7 @@ const references = ref([
   },
   {
     id: 'stavba-4',
+    slug: 'rekonstrukce-administrativni-budovy-lidicka-brno',
     title: 'Rekonstrukce 2. NP administrativní budovy Lidická 25/27, Brno',
     division: 'Stavba',
     year: 2024,
@@ -252,6 +288,7 @@ const references = ref([
   },
   {
     id: 'stavba-5',
+    slug: 'rekonstrukce-pozarni-zbrojnice-stary-liskovec',
     title: 'Rekonstrukce požární zbrojnice Brno-Starý Lískovec',
     division: 'Stavba',
     year: 2022,
@@ -266,6 +303,7 @@ const references = ref([
   },
   {
     id: 'stavba-6',
+    slug: 'rekonstrukce-rozovdu-tepla-bystrice-nad-pernstejnem',
     title: 'Rekonstrukce stávajících rozvodů tepla a instalace nových potrubních rozvodů v Bystřici nad Pernštejnem',
     division: 'Stavba',
     year: 2024,
@@ -280,6 +318,7 @@ const references = ref([
   },
   {
     id: 'stavba-7',
+    slug: 'modernizace-cov-zdroje-tepla-kristanov',
     title: 'Křišťanov – modernizace ČOV a zdroje tepla',
     division: 'Stavba',
     year: 2020,
@@ -296,6 +335,7 @@ const references = ref([
   },
   {
     id: 'stavba-8',
+    slug: 'oprava-vodovodu-vojensky-ujezd-brezina',
     title: 'Oprava vodovodního řadu ve Vojenském újezdu Březina',
     division: 'Stavba',
     year: 2022,
@@ -312,6 +352,7 @@ const references = ref([
   },
   {
     id: 'stavba-9',
+    slug: 'rekonstrukce-hasicske-zbrojnice-husovice',
     title: 'Rekonstrukce hasičské zbrojnice Husovice – 3. etapa',
     division: 'Stavba',
     year: 2024,
@@ -327,6 +368,7 @@ const references = ref([
   },
   {
     id: 'stavba-10',
+    slug: 'oprava-kanalizace-botanicka-brno',
     title: 'Oprava ležaté kanalizace a přípojek Botanická',
     division: 'Stavba',
     year: 2024,
@@ -342,6 +384,7 @@ const references = ref([
   // TZB References
   {
     id: 'tzb-1',
+    slug: 'rekonstrukce-kotelny-cov',
     title: 'ČOV – rekonstrukce kotelny',
     division: 'TZB',
     year: 2022,
@@ -352,6 +395,7 @@ const references = ref([
   },
   {
     id: 'tzb-2',
+    slug: 'instalace-dps-vinohrady-bzenecka',
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady - instalace DPS v objektech - VO10 Bzenecká',
     division: 'TZB',
     year: 2024,
@@ -362,6 +406,7 @@ const references = ref([
   },
   {
     id: 'tzb-3',
+    slug: 'rekonstrukce-sczt-benesova-etapa1',
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Benešova – I. Etapa',
     division: 'TZB',
     year: 2025,
@@ -372,6 +417,7 @@ const references = ref([
   },
   {
     id: 'tzb-4',
+    slug: 'rekonstrukce-sczt-kopecna-fnusa2',
     title: 'Rekonstrukce SCZT pára x HV – oblast ul. Kopečná, Anenská,  FNUSA II',
     division: 'TZB',
     year: 2025,
@@ -382,6 +428,7 @@ const references = ref([
   },
   {
     id: 'tzb-5',
+    slug: 'rekonstrukce-horkovodu-dn300-belohorska',
     title: 'Rekonstrukce horkovodu DN 300 Bělohorská v úseku PŠ – B 16',
     division: 'TZB',
     year: 2025,
@@ -392,6 +439,7 @@ const references = ref([
   },
   {
     id: 'tzb-6',
+    slug: 'modernizace-zdroju-tepla-lipnik-etapa2',
     title: 'Lipník – modernizace zdrojů tepla II. Etapa',
     division: 'TZB',
     year: 2025,
@@ -402,6 +450,7 @@ const references = ref([
   },
   {
     id: 'tzb-7',
+    slug: 'rodinny-dum-sklad-inzenyrske-site',
     title: 'Rodinný dům, sklad + připojení na inženýrské sítě',
     division: 'TZB',
     year: 2024,
@@ -412,6 +461,7 @@ const references = ref([
   },
   {
     id: 'tzb-8',
+    slug: 'instalace-dps-vinohrady-velkopavlovicka',
     title: 'Rekonstrukce systému zásobování teplem, Vinohrady – instalace DPS v objektech – VO02 Velkopavlovická',
     division: 'TZB',
     year: 2025,

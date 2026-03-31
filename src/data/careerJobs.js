@@ -1,6 +1,7 @@
 export const careerJobs = [
   {
     id: 10,
+    slug: 'elektrikar-brno',
     title: 'Elektrikář',
     division: 'Energetika',
     location: 'Brno',
@@ -12,6 +13,7 @@ export const careerJobs = [
   },
   {
     id: 11,
+    slug: 'servisni-technik-brno',
     title: 'Servisní technik',
     division: 'Servis',
     location: 'Brno',
@@ -23,6 +25,7 @@ export const careerJobs = [
   },
   {
     id: 2,
+    slug: 'stavebni-technik-stavbyveduci-brno',
     title: 'Stavební technik / Stavbyvedoucí',
     division: 'Stavba',
     location: 'Brno',
@@ -34,6 +37,7 @@ export const careerJobs = [
   },
   {
     id: 3,
+    slug: 'projektant-pozemnich-staveb-brno',
     title: 'Projektant pozemních staveb',
     division: 'Projekce',
     location: 'Brno',
@@ -45,6 +49,7 @@ export const careerJobs = [
   },
   {
     id: 5,
+    slug: 'zednik-pomocny-zednik-brno',
     title: 'Zedník, pomocný zedník',
     division: 'Stavba',
     suitableForStudents: true,
@@ -57,6 +62,7 @@ export const careerJobs = [
   },
   {
     id: 7,
+    slug: 'projektant-elektro-hodonin',
     title: 'Projektant elektro',
     division: 'Energetika',
     suitableForStudents: true,
@@ -69,6 +75,7 @@ export const careerJobs = [
   },
   {
     id: 8,
+    slug: 'servisni-technik-zdar-nad-sazavou',
     title: 'Servisní technik',
     division: 'Servis',
     location: 'Žďár nad Sázavou',
@@ -80,6 +87,7 @@ export const careerJobs = [
   },
   {
     id: 9,
+    slug: 'topenar-montazni-pracovnik-zdar-nad-sazavou',
     title: 'Topenář, montážní pracovník',
     division: 'TZB',
     location: 'Žďár nad Sázavou',

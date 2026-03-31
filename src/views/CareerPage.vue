@@ -396,7 +396,7 @@
                       </v-chip>
                     </div>
                   </div>
-                  <v-btn color="primary" variant="elevated" :to="{ name: 'JobDetail', params: { id: job.id } }">
+                  <v-btn color="primary" variant="elevated" :to="{ name: 'JobDetail', params: { id: job.slug } }">
                     Detail
                     <v-icon end>mdi-arrow-right</v-icon>
                   </v-btn>
@@ -535,8 +535,8 @@ const atmosphere = ref([
     text: 'Jsme středně velká firma s více než 30letou tradicí.',
     image: '/fotky/jine/dronBrno.webp',
     fallbackImage: '/fotky/jine/dronBrno.png',
-    images: ['/fotky/jine/dronBrno.webp', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
-    fallbackImages: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.jpg'],
+    images: ['/fotky/jine/dronBrno.webp', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.png'],
+    fallbackImages: ['/fotky/jine/dronBrno.png', '/fotky/jine/atrium.jpeg', '/fotky/jine/zdar.png', '/fotky/jine/kancl.png'],
     type: 'slideshow',
     icon: 'mdi-shield-check'
   },

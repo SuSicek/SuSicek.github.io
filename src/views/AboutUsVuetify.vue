@@ -3,11 +3,13 @@
     <!-- Hero slideshow with overlay title/subtitle -->
     <v-sheet class="position-relative hero-shell" color="black">
       <div class="hero-custom-slider">
-        <transition-group name="hero-slide" tag="div" class="hero-slides-wrapper">
-          <div v-for="(slide, i) in slides" :key="i" class="hero-slide-item">
-            <img :src="slide.src" :alt="slide.alt" class="hero-slide-item" />
-          </div>
-        </transition-group>
+        <div class="hero-slides-wrapper">
+          <transition name="hero-slide">
+            <div :key="currentSlide" class="hero-slide-item">
+              <img :src="slides[currentSlide].src" :alt="slides[currentSlide].alt" class="hero-slide-img" />
+            </div>
+          </transition>
+        </div>
       </div>
       <div class="hero-overlay d-flex flex-column justify-end">
         <div class="overlay-container">
@@ -457,13 +459,22 @@ const divisions = ref([
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
 }
 
 .hero-slide-enter-active,
 .hero-slide-leave-active {
   transition: transform 1.2s cubic-bezier(0.45, 0, 0.55, 1);
   will-change: transform;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-slide-enter-from {

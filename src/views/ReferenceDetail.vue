@@ -114,7 +114,7 @@ const { references } = useReferences()
 
 const reference = computed(() => {
   const paramId = route.params.id
-  return references.value.find(r => String(r.id) === String(paramId)) || references.value[0]
+  return references.value.find(r => String(r.slug) === String(paramId)) || references.value[0]
 })
 
 const breadcrumbs = computed(() => [

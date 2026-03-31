@@ -99,7 +99,7 @@
           </v-row>
           <v-row class="references-cards-row" justify="center">
             <v-col cols="6" sm="6" lg="4" v-for="ref in featuredReferences" :key="ref.id" class="reference-col">
-              <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.id } }" class="reference-card-link">
+              <router-link :to="{ name: 'ReferenceDetail', params: { id: ref.slug } }" class="reference-card-link">
                 <div class="reference-card">
                   <v-img :src="ref.image" :alt="ref.title" cover class="reference-card-bg" lazy />
                   <div class="reference-card-overlay"></div>

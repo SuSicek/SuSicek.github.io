@@ -57,7 +57,7 @@
         <h3 id="projects-heading" class="section-heading">Vybrané projekty</h3>
         <v-row dense>
           <v-col v-for="(p, idx) in displayProjects" :key="idx" cols="12" sm="6" md="4">
-          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="p.id ? { name: 'ReferenceDetail', params: { id: p.id } } : undefined" hover>
+          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="p.slug ? { name: 'ReferenceDetail', params: { id: p.slug } } : undefined" hover>
             <!-- Background Image Layer -->
             <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
               <v-img :src="p.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100"></v-img>
@@ -77,7 +77,7 @@
             <!-- Actions Layer - Always at bottom -->
             <v-card-actions class="bg-white position-relative w-100" style="z-index: 1;" v-if="p.id">
                  <v-spacer></v-spacer>
-                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: p.id } }">
+                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: p.slug } }">
                    Detail
                    <v-icon end>mdi-arrow-right</v-icon>
                  </v-btn>

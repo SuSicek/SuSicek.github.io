@@ -139,12 +139,12 @@
             <!-- Stavba tab -->
             <v-window-item value="stavba">
               <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.stavba" :key="i">
+                <v-col cols="12" :md="colSize(divisionContacts.stavba)" v-for="(contact, i) in divisionContacts.stavba" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
                       <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
-                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <p class="text-body-2 text-medium-emphasis mb-3 contact-role">{{ contact.role }}</p>
                       <div class="contact-details">
                         <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
                           <v-icon size="16" class="mr-2">mdi-email</v-icon>
@@ -164,12 +164,12 @@
             <!-- Energetika tab -->
             <v-window-item value="energetika">
               <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.energetika" :key="i">
+                <v-col cols="12" :md="colSize(divisionContacts.energetika)" v-for="(contact, i) in divisionContacts.energetika" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
                       <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
-                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <p class="text-body-2 text-medium-emphasis mb-3 contact-role">{{ contact.role }}</p>
                       <div class="contact-details">
                         <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
                           <v-icon size="16" class="mr-2">mdi-email</v-icon>
@@ -189,12 +189,12 @@
             <!-- TZB tab -->
             <v-window-item value="tzb">
               <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.tzb" :key="i">
+                <v-col cols="12" :md="colSize(divisionContacts.tzb)" v-for="(contact, i) in divisionContacts.tzb" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
                       <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
-                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <p class="text-body-2 text-medium-emphasis mb-3 contact-role">{{ contact.role }}</p>
                       <div class="contact-details">
                         <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
                           <v-icon size="16" class="mr-2">mdi-email</v-icon>
@@ -214,12 +214,12 @@
             <!-- Prodejna tab -->
             <v-window-item value="prodejna">
               <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.prodejna" :key="i">
+                <v-col cols="12" :md="colSize(divisionContacts.prodejna)" v-for="(contact, i) in divisionContacts.prodejna" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
                       <h3 class="text-h6 font-weight-bold mb-1">{{ contact.name }}</h3>
-                      <p class="text-body-2 text-medium-emphasis mb-3">{{ contact.role }}</p>
+                      <p class="text-body-2 text-medium-emphasis mb-3 contact-role">{{ contact.role }}</p>
                       <div class="contact-details">
                         <div class="d-flex align-center justify-center mb-1" v-if="contact.email">
                           <v-icon size="16" class="mr-2">mdi-email</v-icon>
@@ -239,7 +239,7 @@
             <!-- Ostatni tab -->
             <v-window-item value="ostatni">
               <v-row justify="center">
-                <v-col cols="12" md="4" v-for="(contact, i) in divisionContacts.ostatni" :key="i">
+                <v-col cols="12" :md="colSize(divisionContacts.ostatni)" v-for="(contact, i) in divisionContacts.ostatni" :key="i">
                   <v-card class="division-card" elevation="2">
                     <v-card-text class="text-center pa-5">
                       <v-icon size="48" class="mb-3 text-primary">mdi-account-circle</v-icon>
@@ -390,6 +390,7 @@ const topics = ['Dotaz', 'Energetika', 'TZB', 'Stavebnictví', 'Kariéra']
 
 // Division tabs
 const activeTab = ref('stavba')
+const colSize = (contacts) => contacts.length === 4 ? '6' : '4'
 
 // Location tabs
 const activeLocation = ref('brno')
@@ -397,19 +398,16 @@ const activeLocation = ref('brno')
 // Division contacts data
 const divisionContacts = ref({
   tzb: [
-    { name: 'Martin Konečný DiS.', role: 'Ředitel divize', email: 'martin.konecny@uchytil.eu', phone: '545 423 223' },
+    { name: 'Martin Konečný DiS.', role: 'Ředitel divize \nVedoucí realizace TZB Brno', email: 'martin.konecny@uchytil.eu', phone: '545 423 223' },
     { name: 'Ing. Markéta Miškářová', role: 'Asistentka', email: 'marketa.miskarova@uchytil.eu', phone: '545 423 235' },
     { name: 'Radim Došek', role: 'Vedoucí střediska projekce', email: 'radim.dosek@uchytil.eu', phone: '560 594 121' },
-    { name: 'Martin Konečný DiS.', role: 'Vedoucí realizace TZB Brno', email: 'martin.konecny@uchytil.eu', phone: '545 423 223' },
     { name: 'Jaroslav Peřina', role: 'Vedoucí realizace Žďár n. S.', email: 'jaroslav.perina@uchytil.eu', phone: '560 594 117' },
     { name: 'Jaroslav Křivánek', role: 'Vedoucí střediska servis', email: 'jaroslav.krivanek@uchytil.eu', phone: '545 423 234' }
   ],
   stavba: [
-    { name: 'Ing. Radek Tkáč', role: 'Ředitel divize', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
+    { name: 'Ing. Radek Tkáč', role: 'Ředitel divize \n Vedoucí realizace liniové stavby', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
     { name: 'Jana Malá', role: 'Asistentka', email: 'jana.mala@uchytil.eu', phone: '545 423 246' },
-    { name: 'Ing. Martin Hublík', role: 'Vedoucí střediska projekce', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
-    { name: 'Ing. Martin Hublík', role: 'Vedoucí realizace pozemní stavby', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
-    { name: 'Ing. Radek Tkáč', role: 'Vedoucí realizace liniové stavby', email: 'radek.tkac@uchytil.eu', phone: '545 423 238' },
+    { name: 'Ing. Martin Hublík', role: 'Vedoucí střediska projekce \nVedoucí realizace pozemní stavby', email: 'martin.hublik@uchytil.eu', phone: '545 423 244' },
     { name: 'Martin Vangel', role: 'Vedoucí střediska tepelné rozvody', email: 'martin.vangel@uchytil.eu', phone: '545 423 282' }
   ],
   energetika: [
@@ -580,6 +578,7 @@ const submit = async () => {
 .division-contacts-section :deep(.v-tabs) {
   gap: 8px;
 }
+.contact-role { white-space: pre-line; }
 .division-card {
   border-radius: 14px;
   transition: box-shadow .25s ease, transform .25s ease;

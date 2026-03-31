@@ -80,7 +80,7 @@
     <v-container class="pb-12 about-container">
       <v-row>
         <v-col cols="12" md="4" v-for="refItem in pagedReferences" :key="refItem.id">
-          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.id }, query: { page: page } }" hover>
+          <v-card class="ref-card h-100 d-flex flex-column position-relative" min-height="400" :to="{ name: 'ReferenceDetail', params: { id: refItem.slug }, query: { page: page } }" hover>
             <!-- Background Image Layer -->
             <div class="position-absolute w-100 h-100 top-0 left-0" style="z-index: 0;">
               <v-img :src="refItem.image" cover gradient="to bottom, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.8) 100%" class="h-100 w-100" @error="handleImageError"></v-img>
@@ -100,7 +100,7 @@
             <!-- Actions Layer - Always at bottom -->
             <v-card-actions class="bg-white position-relative w-100" style="z-index: 1;">
                  <v-spacer></v-spacer>
-                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: refItem.id } }">
+                 <v-btn variant="text" size="large" color="primary" :to="{ name: 'ReferenceDetail', params: { id: refItem.slug } }">
                    Detail
                    <v-icon end>mdi-arrow-right</v-icon>
                  </v-btn>

@@ -241,7 +241,7 @@ onMounted(() => {
     // Find job
     const id = route.params.id
     if(id) {
-        job.value = careerJobs.find(j => j.id == id)
+        job.value = careerJobs.find(j => j.slug === id)
         if(!job.value) {
             // Handle not found - redirect or show error
             router.replace('/career')
