@@ -148,6 +148,7 @@ export default {
         const sorted = [...all].sort((a, b) => (b.year || 0) - (a.year || 0))
         return sorted.slice(0, 3).map(p => ({
           id: p.id,
+          slug: p.slug,
           title: p.title,
           description: p.short || p.description || '',
           image: p.image,
